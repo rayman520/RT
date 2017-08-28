@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                               :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/28 10:15:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/28 13:15:22 by cpierre          ###   ########.fr       */
+/*   Created: 2017/07/18 15:06:31 by cpierre           #+#    #+#             */
+/*   Updated: 2017/08/28 14:59:42 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_H
-# define RT_H
+#include "rt.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+t_str	ft_strdup(t_str src)
+{
+	size_t	len;
+	t_str	copy;
 
-# include "rt_typedefs.h"
-# include "rt_defines.h"
-# include "rt_prototypes.h"
-
-#endif
+	len = ft_strlen(src);
+	if (!(copy = (t_str)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	ft_strcpy(copy, src);
+	return (copy);
+}

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                               :+:      :+:    :+:   */
+/*   ft_hey.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/28 10:15:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/28 13:15:22 by cpierre          ###   ########.fr       */
+/*   Created: 2017/08/28 14:35:59 by cpierre           #+#    #+#             */
+/*   Updated: 2017/08/28 14:40:17 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_H
-# define RT_H
+#include "rt.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-# include "rt_typedefs.h"
-# include "rt_defines.h"
-# include "rt_prototypes.h"
-
-#endif
+void	ft_hey(void)
+{
+	ft_putstr(CRED);
+	ft_putstr("-=- ");
+	ft_putstr(CGRN);
+	ft_putstr("Hey ");
+	ft_putstr(CRED);
+	ft_putstr("-=-");
+	ft_putstr(CRST);
+}

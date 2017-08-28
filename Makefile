@@ -14,12 +14,17 @@ TYPE_DIR =	\
 
 SRC =	\
 		basic/ft_exit.c\
+		basic/ft_hey.c\
 		basic/ft_putchar.c\
 		basic/ft_putstr.c\
 		basic/ft_strcmp.c\
+		basic/ft_strcpy.c\
+		basic/ft_strdup.c\
 		basic/ft_strlen.c\
+		basic/ft_strrev.c\
 		basic/ft_strupcase.c\
 		subroutines/ft_basic_arg_test.c\
+		subroutines/ft_check_extension.c\
 		main.c
 
 OBJ = $(SRC:.c=.o)

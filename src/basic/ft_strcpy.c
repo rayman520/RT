@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                               :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/28 10:15:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/28 13:15:22 by cpierre          ###   ########.fr       */
+/*   Created: 2017/07/12 17:21:39 by cpierre           #+#    #+#             */
+/*   Updated: 2017/08/28 14:23:46 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_H
-# define RT_H
+#include "rt.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+t_str	ft_strcpy(t_str dst, t_str src)
+{
+	t_str str;
 
-# include "rt_typedefs.h"
-# include "rt_defines.h"
-# include "rt_prototypes.h"
-
-#endif
+	str = dst;
+	while ((*str++ = *src++) != 0)
+		;
+	return (dst);
+}
