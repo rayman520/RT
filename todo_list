@@ -1,0 +1,18 @@
+Render mode:	full render
+	multi-cam
+		{
+			if 1 cam
+				image fixe pouvant etre stockee
+					.jpeg? .bmp?
+			if 2+ cam
+				render "film"
+					able to change resolution, fps, fov
+		}
+	ambiant light
+	textures
+	norm_map
+
+Edit mode: basic render and map edit real-time
+
+Create mode: being able to just create an empty map file
+	need basic security
