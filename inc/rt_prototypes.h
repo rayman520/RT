@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:20:50 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/28 11:52:41 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/08/28 12:27:32 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 */
 void			ft_exit(char *str) __attribute__((noreturn));
 void			ft_putchar(char c);
+void			ft_putstr(char *str);
+int				ft_strcmp(char *s1, char *s2);
+size_t			ft_strlen(char *str);
+char			*ft_strupcase(char *str);
 
 /*
 **	Subroutines

@@ -15,6 +15,10 @@ TYPE_DIR =	\
 SRC =	\
 		basic/ft_exit.c\
 		basic/ft_putchar.c\
+		basic/ft_putstr.c\
+		basic/ft_strcmp.c\
+		basic/ft_strlen.c\
+		basic/ft_strupcase.c\
 		subroutines/ft_basic_arg_test.c\
 		main.c
 
@@ -84,7 +88,7 @@ git:
 		$(shell echo $$(($(VERSION))) > ./version)
 		bash ~/code/perso/shell_scripts/fclean.sh
 		git add *
-		git commit -m "LibftV3 -  Ver.$(VERSION) Build.$(BUILD)"
+		git commit -m "RT - Ver.$(VERSION) Build.$(BUILD)"
 		git push
 
 clean:
