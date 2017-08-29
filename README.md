@@ -7,7 +7,7 @@
     * [ ] .xml
     * [ ] .json
 
-- [x] can create a new empty map using `./rt create <filename>`
+- [ ] can create a new empty map using `./rt create <filename>`
     * [ ] fills it with basic stuff
     * [x] saves it in maps folder
 
