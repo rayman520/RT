@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                               :+:      :+:    :+:   */
+/*   sub_check_extension.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/28 10:15:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/29 13:22:18 by cpierre          ###   ########.fr       */
+/*   Created: 2017/08/28 14:13:24 by cpierre           #+#    #+#             */
+/*   Updated: 2017/08/29 13:05:31 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_H
-# define RT_H
+#include "rt.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <sys/stat.h>
+int	sub_check_extension(t_str file, t_str ext)
+{
+	t_str	rfile;
+	t_str	rext;
+	int		cmp_out;
 
-# include "rt_typedefs.h"
-# include "rt_defines.h"
-# include "rt_prototypes.h"
-
-#endif
+	rfile = ft_strdup(file);
+	ft_strrev(rfile);
+	rext = ft_strdup(ext);
+	ft_strrev(rext);
+	cmp_out = ft_strcmp(rfile, rext);
+	free(rfile);
+	free(rext);
+	if (cmp_out == '.')
+		return (0);
+	return (1);
+}

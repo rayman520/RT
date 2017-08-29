@@ -17,14 +17,17 @@ SRC =	\
 		basic/ft_hey.c\
 		basic/ft_putchar.c\
 		basic/ft_putstr.c\
+		basic/ft_strcat.c\
 		basic/ft_strcmp.c\
 		basic/ft_strcpy.c\
 		basic/ft_strdup.c\
+		basic/ft_strjoin.c\
 		basic/ft_strlen.c\
 		basic/ft_strrev.c\
 		basic/ft_strupcase.c\
-		subroutines/ft_basic_arg_test.c\
-		subroutines/ft_check_extension.c\
+		subroutines/sub_basic_arg_test.c\
+		subroutines/sub_check_extension.c\
+		subroutines/sub_create_file.c\
 		main.c
 
 OBJ = $(SRC:.c=.o)

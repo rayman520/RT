@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                               :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/28 10:15:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/29 13:22:18 by cpierre          ###   ########.fr       */
+/*   Created: 2017/08/29 13:33:27 by cpierre           #+#    #+#             */
+/*   Updated: 2017/08/29 13:33:33 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_H
-# define RT_H
+#include "rt.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <sys/stat.h>
+t_str	ft_strjoin(t_str s1, t_str s2)
+{
+	t_str	out;
+	int		len;
 
-# include "rt_typedefs.h"
-# include "rt_defines.h"
-# include "rt_prototypes.h"
-
-#endif
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (!(out = (t_str)malloc(sizeof(char) * len)))
+		return (NULL);
+	ft_strcpy(out, s1);
+	ft_strcat(out, s2);
+	return (out);
+}

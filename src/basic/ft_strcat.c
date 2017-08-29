@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_extension.c                               :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/28 14:13:24 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/28 15:25:05 by cpierre          ###   ########.fr       */
+/*   Created: 2017/08/29 13:35:27 by cpierre           #+#    #+#             */
+/*   Updated: 2017/08/29 13:36:16 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-int	ft_check_extension(t_str file, t_str ext)
+t_str	ft_strcat(t_str dest, t_str src)
 {
-	t_str	rfile;
-	t_str	rext;
-	int		cmp_out;
+	size_t	dest_len;
+	size_t	i;
 
-	rfile = ft_strdup(file);
-	ft_strrev(rfile);
-	rext = ft_strdup(ext);
-	ft_strrev(rext);
-	cmp_out = ft_strcmp(rfile, rext);
-	free(rfile);
-	free(rext);
-	if (cmp_out == '.')
-		return (0);
-	return (1);
+	dest_len = ft_strlen(dest);
+	i = 0;
+	while (src[i])
+	{
+		dest[dest_len + i] = src[i];
+		++i;
+	}
+	dest[dest_len + i] = 0;
+	return (dest);
 }
