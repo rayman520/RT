@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_putunlckpixel.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/08 17:17:45 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/05 22:02:02 by cpierre          ###   ########.fr       */
+/*   Created: 2017/07/31 18:03:55 by cpierre           #+#    #+#             */
+/*   Updated: 2017/09/05 22:18:57 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void	charswap(char *c, char *d)
+int			ft_putunlckpixel(SDL_Surface *img, t_2dint pos, Uint32 val)
 {
-	char tmp;
+	Uint32	*p;
+	int		bpp;
 
-	tmp = *c;
-	*c = *d;
-	*d = tmp;
-}
-
-t_str		ft_strrev(t_str str)
-{
-	size_t	size;
-	size_t	i;
-
-	size = ft_strlen(str);
-	i = 0;
-	while (i < (size / 2))
-	{
-		charswap(&str[i], &str[size - i - 1]);
-		i++;
-	}
-	return (str);
+	if (pos.x < 0 || pos.y < 0 || pos.x >= img->w || pos.y >= img->h)
+		return (0);
+	bpp = img->format->BytesPerPixel;
+	p = (Uint32 *)img->pixels + pos.y * img->pitch + pos.x * bpp;
+	*p = (Uint32)val;
+	return (0);
 }

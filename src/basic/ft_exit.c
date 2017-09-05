@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 11:26:37 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/28 11:29:19 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/05 17:40:12 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_exit(char *str)
 {
+	if (!str)
+		exit(0);
 	while (*str)
 		ft_putchar(*str++);
 	exit(0);

@@ -6,13 +6,13 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 14:13:24 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/29 13:05:31 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/05 22:02:48 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-int	sub_check_extension(t_str file, t_str ext)
+short	sub_check_extension(t_str file, t_str ext)
 {
 	t_str	rfile;
 	t_str	rext;

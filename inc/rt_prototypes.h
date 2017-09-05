@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:20:50 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/29 13:36:28 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/05 22:03:04 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@
 /*
 **	Basic
 */
+void			ft_close_win(Uint32 id);
+void			ft_event_sdlquit(void) __attribute__((noreturn));
 void			ft_exit(char *str) __attribute__((noreturn));
+void			ft_handle_events(void);
+void			ft_handle_windowevent(SDL_WindowEvent win);
 void			ft_hey(void);
 void			ft_putchar(char c);
+void			ft_putpixel(SDL_Surface *img, t_2dint pos, Uint32 val);
 void			ft_putstr(char *str);
+int				ft_putunlckpixel(SDL_Surface *img, t_2dint pos, Uint32 val);
 t_str			ft_strcat(t_str dest, t_str src);
 int				ft_strcmp(char *s1, char *s2);
 t_str			ft_strcpy(t_str dst, t_str src);
@@ -33,9 +39,12 @@ char			*ft_strupcase(char *str);
 **	Subroutines
 */
 void			sub_basic_arg_test(int ac, char **av);
-int				sub_check_extension(t_str file, t_str ext);
+short			sub_check_extension(t_str file, t_str ext);
 void			sub_create_file(t_str file) __attribute__((noreturn));
-
+/*
+**	Main functions
+*/
+void			full_render_start(t_str mapfile);
 int				main(int ac, char **av);
 
 #endif

@@ -3,7 +3,8 @@ NAME = rt
 CC		=	gcc
 
 SDLFLAGS = -I/usr/local/include/SDL2 -D_THREAD_SAFE
-CFLAGS	=	-Werror -Wextra -Wall -Ofast $(SDLFLAGS)
+SDL_LIB = -L/usr/local/lib -lSDL2
+CFLAGS	=	-Werror -Wextra -Wall -Weverything -Ofast $(SDLFLAGS)
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -13,10 +14,16 @@ TYPE_DIR =	\
 			subroutines\
 
 SRC =	\
+		basic/ft_close_win.c\
+		basic/ft_event_sdlquit.c\
 		basic/ft_exit.c\
+		basic/ft_handle_events.c\
+		basic/ft_handle_windowevent.c\
 		basic/ft_hey.c\
 		basic/ft_putchar.c\
+		basic/ft_putpixel.c\
 		basic/ft_putstr.c\
+		basic/ft_putunlckpixel.c\
 		basic/ft_strcat.c\
 		basic/ft_strcmp.c\
 		basic/ft_strcpy.c\
@@ -28,6 +35,7 @@ SRC =	\
 		subroutines/sub_basic_arg_test.c\
 		subroutines/sub_check_extension.c\
 		subroutines/sub_create_file.c\
+		full_render.c\
 		main.c
 
 OBJ = $(SRC:.c=.o)
@@ -82,7 +90,7 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 $(NAME):	$(OBJ_DIR) $(OBJP)
 		$(eval BUILD=$(shell echo $$(($(BUILD)+1))))
 		$(shell echo $$(($(BUILD))) > ./build)
-		@$(CC) -o $(NAME) $(CFLAGS) $(addprefix $(OBJ_DIR)/, $(OBJ))
+		@$(CC) -o $(NAME) $(SDL_LIB) $(CFLAGS) $(addprefix $(OBJ_DIR)/, $(OBJ))
 
 $(OBJ_DIR):
 		@echo "$(CRED)No obj file found, creating one$(CRESET)     \c"

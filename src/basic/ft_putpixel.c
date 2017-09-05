@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_putpixel.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/08 17:17:45 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/05 22:02:02 by cpierre          ###   ########.fr       */
+/*   Created: 2017/07/31 18:05:37 by cpierre           #+#    #+#             */
+/*   Updated: 2017/09/05 16:22:51 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void	charswap(char *c, char *d)
+void	ft_putpixel(SDL_Surface *img, t_2dint pos, Uint32 val)
 {
-	char tmp;
-
-	tmp = *c;
-	*c = *d;
-	*d = tmp;
-}
-
-t_str		ft_strrev(t_str str)
-{
-	size_t	size;
-	size_t	i;
-
-	size = ft_strlen(str);
-	i = 0;
-	while (i < (size / 2))
-	{
-		charswap(&str[i], &str[size - i - 1]);
-		i++;
-	}
-	return (str);
+	SDL_LockSurface(img);
+	ft_putunlckpixel(img, pos, val);
+	SDL_UnlockSurface(img);
 }

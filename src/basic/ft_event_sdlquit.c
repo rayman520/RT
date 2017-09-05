@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_event_sdlquit.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/08 17:17:45 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/05 22:02:02 by cpierre          ###   ########.fr       */
+/*   Created: 2017/07/27 17:21:46 by cpierre           #+#    #+#             */
+/*   Updated: 2017/09/05 17:32:21 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void	charswap(char *c, char *d)
+void	ft_event_sdlquit(void)
 {
-	char tmp;
+	Uint32 tmp;
 
-	tmp = *c;
-	*c = *d;
-	*d = tmp;
-}
-
-t_str		ft_strrev(t_str str)
-{
-	size_t	size;
-	size_t	i;
-
-	size = ft_strlen(str);
-	i = 0;
-	while (i < (size / 2))
-	{
-		charswap(&str[i], &str[size - i - 1]);
-		i++;
-	}
-	return (str);
+	tmp = SDL_GetTicks();
+	SDL_Quit();
+	printf("Program terminated after %d ms of runtime\n", tmp);
+	ft_exit(NULL);
 }

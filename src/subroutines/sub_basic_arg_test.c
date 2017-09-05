@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 11:11:06 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/29 13:06:49 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/05 16:07:36 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static	short	sub_arg_spell_test(char *arg)
 {
+	if (!ft_strcmp(arg, "EASTER EGG"))
+		ft_putstr("stop looking for it\n");
 	if (ft_strcmp(arg, "RENDER") &&
 		ft_strcmp(arg, "EDIT") &&
 		ft_strcmp(arg, "CREATE"))

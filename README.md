@@ -12,14 +12,7 @@
     * [x] saves it in maps folder
 
 - [ ] can render a file with `./rt render <filename>`
-	* [ ] while rendering, can play an Undertale mini-game
-		* [ ] determination
-		* [ ] patience
-		* [ ] bravery
-		* [ ] integrity
-		* [ ] perseverance
-		* [ ] kindness
-		* [ ] justice
+	* [ ] while rendering, loading bar
 	* [ ] full render
 		* [ ] basic shapes
 			* [ ] plane
