@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:20:50 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/05 22:03:04 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/11 16:37:21 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 /*
 **	Basic
 */
+float			ft_biggest_fl(float a, float b);
 void			ft_close_win(Uint32 id);
 void			ft_event_sdlquit(void) __attribute__((noreturn));
 void			ft_exit(char *str) __attribute__((noreturn));
@@ -39,8 +40,10 @@ char			*ft_strupcase(char *str);
 **	Subroutines
 */
 void			sub_basic_arg_test(int ac, char **av);
+void			sub_blit_render(SDL_Surface *src, SDL_Surface *dest);
 short			sub_check_extension(t_str file, t_str ext);
 void			sub_create_file(t_str file) __attribute__((noreturn));
+SDL_Window		*sub_create_render_window(t_str mapfile);
 /*
 **	Main functions
 */

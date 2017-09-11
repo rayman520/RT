@@ -14,6 +14,7 @@ TYPE_DIR =	\
 			subroutines\
 
 SRC =	\
+		basic/ft_biggest_fl.c\
 		basic/ft_close_win.c\
 		basic/ft_event_sdlquit.c\
 		basic/ft_exit.c\
@@ -33,8 +34,10 @@ SRC =	\
 		basic/ft_strrev.c\
 		basic/ft_strupcase.c\
 		subroutines/sub_basic_arg_test.c\
+		subroutines/sub_blit_render.c\
 		subroutines/sub_check_extension.c\
 		subroutines/sub_create_file.c\
+		subroutines/sub_create_render_window.c\
 		full_render.c\
 		main.c
 

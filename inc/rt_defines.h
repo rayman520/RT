@@ -6,12 +6,15 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 11:20:08 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/04 18:58:16 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/11 16:28:27 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_DEFINES_H
 # define RT_DEFINES_H
+
+# define RENDER_WIN_WIDTH 1280
+# define RENDER_WIN_HEIGHT 800
 
 # define ERR_USAGE "usage: ./rt mode file\n  mode: render/edit/create"
 

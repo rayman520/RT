@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunlckpixel.c                                 :+:      :+:    :+:   */
+/*   ft_biggest_fl.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/31 18:03:55 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/05 22:32:56 by cpierre          ###   ########.fr       */
+/*   Created: 2017/09/11 15:34:45 by cpierre           #+#    #+#             */
+/*   Updated: 2017/09/11 15:39:22 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-int			ft_putunlckpixel(SDL_Surface *img, t_2dint pos, Uint32 val)
+float	ft_biggest_fl(float a, float b)
 {
-	Uint32	*p;
-	int		bpp;
-
-	if (pos.x < 0 || pos.y < 0 || pos.x >= img->w || pos.y >= img->h)
-		return (0);
-	bpp = img->format->BytesPerPixel;
-	if (bpp != 4)
-		ft_exit("tried to draw a Uint32 pixel into an image of bpp != 4\n");
-	p = (Uint32 *)img->pixels + (pos.y * img->pitch / bpp + pos.x);
-	*p = (Uint32)val;
-	return (0);
+	if (a < b)
+		return (a);
+	return (b);
 }

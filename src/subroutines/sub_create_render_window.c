@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunlckpixel.c                                 :+:      :+:    :+:   */
+/*   sub_create_render_window.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/31 18:03:55 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/05 22:32:56 by cpierre          ###   ########.fr       */
+/*   Created: 2017/09/11 16:25:26 by cpierre           #+#    #+#             */
+/*   Updated: 2017/09/11 16:37:47 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-int			ft_putunlckpixel(SDL_Surface *img, t_2dint pos, Uint32 val)
+SDL_Window	*sub_create_render_window(t_str mapfile)
 {
-	Uint32	*p;
-	int		bpp;
+	SDL_Window	*out;
+	t_str		text;
 
-	if (pos.x < 0 || pos.y < 0 || pos.x >= img->w || pos.y >= img->h)
-		return (0);
-	bpp = img->format->BytesPerPixel;
-	if (bpp != 4)
-		ft_exit("tried to draw a Uint32 pixel into an image of bpp != 4\n");
-	p = (Uint32 *)img->pixels + (pos.y * img->pitch / bpp + pos.x);
-	*p = (Uint32)val;
-	return (0);
+	text = ft_strjoin("RT - render ", mapfile);
+	out = SDL_CreateWindow(text, 0, 0, RENDER_WIN_WIDTH, RENDER_WIN_HEIGHT, 0);
+	free(text);
+	if (!out)
+		ft_exit("Failed to create window");
+	return (out);
 }
