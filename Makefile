@@ -2,8 +2,8 @@ NAME = rt
 
 CC		=	gcc
 
-SDLFLAGS = -I/usr/local/include/SDL2 -D_THREAD_SAFE
-SDL_LIB = -L/usr/local/lib -lSDL2
+SDLFLAGS = -I/usr/local/include/SDL2 -D_THREAD_SAFE -I/usr/include/libxml2
+SDL_LIB = -L/usr/local/lib -lSDL2 -lSDL2_ttf -lxml2
 CFLAGS	=	-Werror -Wextra -Wall -Weverything -Ofast $(SDLFLAGS)
 
 SRC_DIR = src
@@ -21,6 +21,7 @@ SRC =	\
 		basic/ft_handle_events.c\
 		basic/ft_handle_windowevent.c\
 		basic/ft_hey.c\
+		basic/ft_itoa.c\
 		basic/ft_putchar.c\
 		basic/ft_putpixel.c\
 		basic/ft_putstr.c\
@@ -38,8 +39,12 @@ SRC =	\
 		subroutines/sub_check_extension.c\
 		subroutines/sub_create_file.c\
 		subroutines/sub_create_render_window.c\
+		subroutines/sub_fullrender_end.c\
+		subroutines/sub_put_percent.c\
+		editor_start.c\
 		full_render.c\
-		main.c
+		main.c\
+		parser.c\
 
 OBJ = $(SRC:.c=.o)
 

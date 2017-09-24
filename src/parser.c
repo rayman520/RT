@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                               :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/28 10:15:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/23 16:23:21 by cpierre          ###   ########.fr       */
+/*   Created: 2017/09/24 13:28:16 by cpierre           #+#    #+#             */
+/*   Updated: 2017/09/24 13:32:32 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_H
-# define RT_H
+#include "rt.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <time.h>
-# include <pthread.h>
-# include <signal.h>
-# include <stdio.h>
+t_fullmap	*parser(t_str mapfile)
+{
+	t_fullmap *map;
 
-# include <SDL2/SDL.h>
-# include <SDL2/SDL_ttf.h>
-
-# include <libxml2/libxml/parser.h>
-
-# include "rt_typedefs.h"
-# include "rt_defines.h"
-# include "rt_prototypes.h"
-
-#endif
+	if (!(map = (t_fullmap *)malloc(sizeof(t_fullmap))))
+		ft_exit("ERR_MLC");
+	map->mapfile_pathname = mapfile;
+	return (map);
+}

@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:20:50 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/11 16:37:21 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/24 13:32:54 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void			ft_exit(char *str) __attribute__((noreturn));
 void			ft_handle_events(void);
 void			ft_handle_windowevent(SDL_WindowEvent win);
 void			ft_hey(void);
+t_str			ft_itoa(int n);
 void			ft_putchar(char c);
 void			ft_putpixel(SDL_Surface *img, t_2dint pos, Uint32 val);
 void			ft_putstr(char *str);
@@ -44,10 +45,14 @@ void			sub_blit_render(SDL_Surface *src, SDL_Surface *dest);
 short			sub_check_extension(t_str file, t_str ext);
 void			sub_create_file(t_str file) __attribute__((noreturn));
 SDL_Window		*sub_create_render_window(t_str mapfile);
+void			sub_fullrender_end(SDL_Window *win, SDL_Surface *img);
+void			sub_put_percent(SDL_Window *win, SDL_Surface *img, double val);
 /*
 **	Main functions
 */
+void			editor_start(t_str mapfile);
 void			full_render_start(t_str mapfile);
 int				main(int ac, char **av);
+t_fullmap		*parser(t_str mapfile);
 
 #endif
