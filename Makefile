@@ -111,6 +111,7 @@ git:
 		$(eval VERSION=$(shell echo $$(($(VERSION)+1))))
 		$(shell echo $$(($(VERSION))) > ./version)
 		bash ~/code/perso/shell_scripts/fclean.sh
+		rm -rf renders/*.bmp
 		git add *
 		git commit -m "RT - Ver.$(VERSION) Build.$(BUILD)"
 		git push
