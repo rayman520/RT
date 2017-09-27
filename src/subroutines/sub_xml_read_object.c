@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                               :+:      :+:    :+:   */
+/*   sub_xml_read_objects.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/28 10:15:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/24 17:51:07 by cpierre          ###   ########.fr       */
+/*   Created: 2017/09/27 17:19:42 by cpierre           #+#    #+#             */
+/*   Updated: 2017/09/27 17:22:42 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_H
-# define RT_H
+#include "rt.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <time.h>
-# include <pthread.h>
-# include <signal.h>
-# include <stdio.h>
-# include <fcntl.h>
+void	sub_xml_read_object(t_object *obj, xmlNode *node)
+{
+	static int o_nb = 0;
 
-# include <SDL2/SDL.h>
-# include <SDL2/SDL_ttf.h>
-
-# include <libxml2/libxml/parser.h>
-
-# include "rt_typedefs.h"
-# include "rt_defines.h"
-# include "rt_prototypes.h"
-
-#endif
+	printf("Reading object %d\n", o_nb + 1);
+	while (node)
+	{
+		if (!ft_strcmp((const char *)node->name, "position"))
+			obj[o_nb].pos = sub_read_pos((char *)xmlNodeGetContent(node));
+		node = node->next;
+	}
+	o_nb++;
+}

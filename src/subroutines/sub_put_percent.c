@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 12:30:50 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/23 15:37:50 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/25 16:42:42 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,15 @@ static void	put_percent(SDL_Surface *img, t_str percent)
 		font = TTF_OpenFont("ressources/upheavtt.ttf", 12);
 	if (!rect)
 	{
-		rect = (SDL_Rect *)malloc(sizeof(SDL_Rect));
-		rect->x = 0;
-		rect->y = 0;
-		rect->w = 70;
-		rect->h = 24;
+		if (!(rect = (SDL_Rect *)malloc(sizeof(SDL_Rect))))
+			ft_exit("ERR_MLC\n");
+		else
+		{
+			rect->x = 0;
+			rect->y = 0;
+			rect->w = 70;
+			rect->h = 24;
+		}
 	}
 	SDL_FillRect(img, rect, 0x000000);
 	surface = TTF_RenderText_Solid(font, percent, color);
@@ -44,7 +48,7 @@ void		sub_put_percent(SDL_Window *win, SDL_Surface *img, double val)
 		if (!(percent = (t_str)malloc(sizeof(char) * 8)))
 			ft_exit("ERR_MLC");
 	}
-	if ((int)(val * 100) % 10 == 0)
+	else if ((int)(val * 100) % 10 == 0)
 	{
 		sprintf(percent, "%.1lf %%", val);
 		put_percent(img, percent);

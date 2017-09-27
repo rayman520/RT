@@ -6,13 +6,13 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/15 10:01:12 by cpierre           #+#    #+#             */
-/*   Updated: 2017/08/28 12:38:29 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/25 16:22:54 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 == *s2)
 	{

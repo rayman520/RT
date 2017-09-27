@@ -14,6 +14,7 @@ TYPE_DIR =	\
 			subroutines\
 
 SRC =	\
+		basic/ft_atoi.c\
 		basic/ft_biggest_fl.c\
 		basic/ft_close_win.c\
 		basic/ft_event_sdlquit.c\
@@ -21,6 +22,7 @@ SRC =	\
 		basic/ft_handle_events.c\
 		basic/ft_handle_windowevent.c\
 		basic/ft_hey.c\
+		basic/ft_intlen.c\
 		basic/ft_itoa.c\
 		basic/ft_putchar.c\
 		basic/ft_putpixel.c\
@@ -34,13 +36,20 @@ SRC =	\
 		basic/ft_strlen.c\
 		basic/ft_strrev.c\
 		basic/ft_strupcase.c\
+		basic/ft_xml_rd_res.c\
 		subroutines/sub_basic_arg_test.c\
 		subroutines/sub_blit_render.c\
 		subroutines/sub_check_extension.c\
 		subroutines/sub_create_file.c\
 		subroutines/sub_create_render_window.c\
+		subroutines/sub_create_xml.c\
 		subroutines/sub_fullrender_end.c\
+		subroutines/sub_xml_malloc_lights_and_objects.c\
+		subroutines/sub_xml_read_light.c\
+		subroutines/sub_xml_read_object.c\
+		subroutines/sub_parser_xml.c\
 		subroutines/sub_put_percent.c\
+		subroutines/sub_read_pos.c\
 		editor_start.c\
 		full_render.c\
 		main.c\

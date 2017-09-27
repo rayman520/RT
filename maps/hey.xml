@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<options>
+		<resolution>640x480</resolution>
+	</options>
+	<lights>
+		<light>
+			<position>,8.7,lol</position>
+			<power>10.92</power>
+		</light>
+	</lights>
+	<objects>
+		<object>
+			<position>2.2,7.666,42.5</position>
+		</object>
+	</objects>
+</map>

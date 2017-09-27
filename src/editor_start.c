@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 16:31:06 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/24 13:30:58 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/27 17:19:10 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	editor_start(t_str mapfile)
 	t_fullmap *map;
 
 	map = parser(mapfile);
-	printf("EDIT MODE %s", map->mapfile_pathname);
-	free(map);
+	if (map != NULL)
+	{
+		printf("EDIT MODE %s", map->mapfile_pathname);
+		free(map);
+	}
 }

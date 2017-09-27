@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 13:28:16 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/24 13:32:32 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/25 16:48:27 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,24 @@
 
 t_fullmap	*parser(t_str mapfile)
 {
-	t_fullmap *map;
+	t_fullmap	*map;
+	t_str		tmp;
 
-	if (!(map = (t_fullmap *)malloc(sizeof(t_fullmap))))
-		ft_exit("ERR_MLC");
+	map = (t_fullmap *)malloc(sizeof(t_fullmap));
+	if (!map)
+		return (NULL);
 	map->mapfile_pathname = mapfile;
+	tmp = ft_strdup("rt");
+	if (!sub_check_extension(mapfile, tmp))
+		printf("parsing rt\n");
+	free(tmp);
+	tmp = ft_strdup("xml");
+	if (!sub_check_extension(mapfile, tmp))
+		sub_parser_xml(map, xmlReadFile(mapfile, NULL, 0));
+	free(tmp);
+	tmp = ft_strdup("json");
+	if (!sub_check_extension(mapfile, tmp))
+		printf("parsing json\n");
+	free(tmp);
 	return (map);
 }
