@@ -3,8 +3,8 @@
 	<options>
 		<resolution>640x480</resolution>
 		<editor_res>1280x800</editor_res>
-		<editor_fps_low>50</editor_fps_low>
-		<editor_fps_high>60</editor_fps_high>
+		<editor_fps_low>5</editor_fps_low>
+		<editor_fps_high>10</editor_fps_high>
 		<fov>90</fov>
 	</options>
 	<cameras>
