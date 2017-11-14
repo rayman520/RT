@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2017/10/30 18:52:25 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/14 14:48:05 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,13 @@ typedef	struct	s_hit
 	t_object	*obj;
 	double		dist;
 }				t_hit;
+
+typedef struct	s_SDL_Bundle
+{
+	SDL_Window	*render_win;
+	SDL_Surface *window_img;
+	SDL_Surface *render_img;
+}				t_SDL_Bundle;
 
 typedef struct	s_fullmap
 {
