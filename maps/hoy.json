@@ -1,0 +1,44 @@
+/give @p minecraft:banner 5 0 
+{
+	HideFlags:63,
+	display:
+	{
+		Name:"blue mark",
+		Lore:["A simple blue Tic-Tac-Toe mark"]
+	},
+	BlockEntityTag:
+	{
+		Base:15,
+		Patterns:
+		[
+			{
+				Pattern:gra,
+				Color:7
+			},
+			{
+				Pattern:gru,
+				Color:7
+			},
+			{
+				Pattern:cbo,
+				Color:4
+			},
+			{
+				Pattern:cr,
+				Color:7
+			},
+			{
+				Pattern:flo,
+				Color:4
+			},
+			{
+				Pattern:tts,
+				Color:4
+			},
+			{
+				Pattern:bts,
+				Color:4
+			}
+		]
+	}
+}

@@ -3,7 +3,7 @@ NAME = rt
 CC		=	gcc
 
 SDLFLAGS = -I/usr/local/include/SDL2 -D_THREAD_SAFE -I/usr/include/libxml2
-SDL_LIB = -L/usr/local/lib -lSDL2 -lSDL2_ttf -lxml2
+SDL_LIB = -L/usr/local/lib -lSDL2 -lSDL2_ttf -lxml2 -lSDL2_image
 CFLAGS	=	-Werror -Wextra -Wall -Weverything -Ofast $(SDLFLAGS)
 
 SRC_DIR = src
@@ -17,6 +17,10 @@ SRC =	\
 		basic/ft_atoi.c\
 		basic/ft_biggest_fl.c\
 		basic/ft_close_win.c\
+		basic/ft_descriminent.c\
+		basic/ft_dot_product.c\
+		basic/ft_double_to_int.c\
+		basic/ft_double_eq.c\
 		basic/ft_event_sdlquit.c\
 		basic/ft_exit.c\
 		basic/ft_handle_events.c\
@@ -28,6 +32,8 @@ SRC =	\
 		basic/ft_putpixel.c\
 		basic/ft_putstr.c\
 		basic/ft_putunlckpixel.c\
+		basic/ft_rgb_to_int.c\
+		basic/ft_str_replace.c\
 		basic/ft_strcat.c\
 		basic/ft_strcmp.c\
 		basic/ft_strcpy.c\
@@ -36,24 +42,38 @@ SRC =	\
 		basic/ft_strlen.c\
 		basic/ft_strrev.c\
 		basic/ft_strupcase.c\
+		basic/ft_unit_vect.c\
+		basic/ft_vect_norm.c\
 		basic/ft_xml_rd_res.c\
 		subroutines/sub_basic_arg_test.c\
 		subroutines/sub_blit_render.c\
+		subroutines/sub_calc_cam_vects.c\
 		subroutines/sub_check_extension.c\
 		subroutines/sub_create_file.c\
 		subroutines/sub_create_render_window.c\
 		subroutines/sub_create_xml.c\
+		subroutines/sub_draw_image_editor.c\
 		subroutines/sub_fullrender_end.c\
+		subroutines/sub_handle_keyboard.c\
+		subroutines/sub_sphere.c\
+		subroutines/sub_move_cam_dir.c\
+		subroutines/sub_move_cam_pos.c\
 		subroutines/sub_xml_malloc_lights_and_objects.c\
 		subroutines/sub_xml_read_light.c\
 		subroutines/sub_xml_read_object.c\
+		subroutines/sub_xml_read_camera.c\
 		subroutines/sub_parser_xml.c\
+		subroutines/sub_put_fps.c\
 		subroutines/sub_put_percent.c\
+		subroutines/sub_read_hex.c\
 		subroutines/sub_read_pos.c\
+		subroutines/sub_read_texture.c\
 		editor_start.c\
 		full_render.c\
 		main.c\
+		options_win.c\
 		parser.c\
+		raytrace_editor.c\
 
 OBJ = $(SRC:.c=.o)
 

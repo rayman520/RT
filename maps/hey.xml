@@ -2,16 +2,44 @@
 <map>
 	<options>
 		<resolution>640x480</resolution>
+		<editor_res>1280x800</editor_res>
+		<editor_fps_low>50</editor_fps_low>
+		<editor_fps_high>60</editor_fps_high>
+		<fov>90</fov>
 	</options>
+	<cameras>
+		<camera>
+			<position>-2.0,0.0,0.0</position>
+			<direction>1.0,0.0,0.0</direction>
+		</camera>
+	</cameras>
 	<lights>
 		<light>
-			<position>,8.7,lol</position>
-			<power>10.92</power>
+			<position>0.0,0.0,0.0</position>
+			<power>10.0</power>
 		</light>
 	</lights>
 	<objects>
 		<object>
-			<position>2.2,7.666,42.5</position>
+			<type>sphere</type>
+			<position>0.0,0.0,0.0</position>
+			<radius>0.5</radius>
+			<color>0x0030ff</color>
+			<texture>ressources/textures/kerbin.jpg</texture>
+		</object>
+		<object>
+			<type>sphere</type>
+			<position>0.0,0.0,0.0</position>
+			<radius>0.01</radius>
+			<color>0xffFFff</color>
+			<texture>ressources/textures/Mun_color.jpg</texture>
+		</object>
+		<object>
+			<type>sphere</type>
+			<position>0.0,0.0,0.0</position>
+			<radius>50000</radius>
+			<color>0xffFFff</color>
+			<texture>ressources/textures/skybox.jpg</texture>
 		</object>
 	</objects>
 </map>

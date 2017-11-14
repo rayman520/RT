@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 16:12:53 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/27 18:01:27 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/10/05 13:03:32 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,39 +29,38 @@ double			sub_read_double(t_str str)
 {
 	double	big;
 	double	small;
+	double	divisor;
 	int		i;
+	int		j;
 
 	i = 0;
-	if (str[0] == '-')
-		big = atodouble(&str[++i]) * -1;
-	else
-		big = atodouble(&str[i]);
+	big = str[i] == '-' ? atodouble(&str[++i]) * -1 : atodouble(&str[i]);
+	small = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
-	if (str[i] == 0 || str[i] == ',')
-		return (big);
-	else if (str[i] == '.')
+	if (str[i] == '.')
 	{
+		j = i + 1;
+		divisor = 1;
+		while (str[j++] == '0')
+			divisor = divisor * 10;
 		small = atodouble(&str[i + 1]);
-		while (small > 1)
+		while (small * divisor > 1)
 			small /= 10.0;
-		return (big + small);
 	}
 	else
-	{
-		printf("Invalid double format given, setting to pos = 0\n");
-		return ((double)0);
-	}
+		printf("Invalid double format given, setting to %f\n", big + small);
+	return (big + small);
 }
 
-t_3d_double		sub_read_pos(t_str str)
+t_3d_double		sub_read_3d_double(t_str str)
 {
 	t_3d_double	out;
 	int			i;
 
 	if (str == NULL)
 	{
-		printf("position unknown, set it to default: 0,0,0\n");
+		printf("unknown, set it to default: 0,0,0\n");
 		return ((t_3d_double){0, 0, 0});
 	}
 	out.x = sub_read_double(str);
@@ -79,6 +78,18 @@ t_3d_double		sub_read_pos(t_str str)
 		i++;
 	}
 	out.z = sub_read_double(&str[++i]);
-	printf("position successfully set to %f,%f,%f\n", out.x, out.y, out.z);
+	printf("successfully set to %f,%f,%f\n", out.x, out.y, out.z);
 	return (out);
+}
+
+t_3d_double		sub_read_dir(t_str str)
+{
+	printf("direction ");
+	return (sub_read_3d_double(str));
+}
+
+t_3d_double		sub_read_pos(t_str str)
+{
+	printf("position ");
+	return (sub_read_3d_double(str));
 }

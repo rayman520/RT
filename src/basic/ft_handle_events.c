@@ -6,13 +6,13 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:06:14 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/05 17:32:23 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/10/11 21:48:40 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	ft_handle_events(void)
+void	ft_handle_events(t_kp kp)
 {
 	SDL_Event e;
 
@@ -22,5 +22,9 @@ void	ft_handle_events(void)
 			ft_event_sdlquit();
 		else if (e.type == SDL_WINDOWEVENT)
 			ft_handle_windowevent(e.window);
+		else if (kp && e.type == SDL_KEYDOWN)
+			kp[e.key.keysym.sym] = 1;
+		else if (kp && e.type == SDL_KEYUP)
+			kp[e.key.keysym.sym] = 0;
 	}
 }

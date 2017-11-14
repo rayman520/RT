@@ -6,13 +6,13 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 12:30:50 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/25 16:42:42 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/10/22 15:07:31 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void	put_percent(SDL_Surface *img, t_str percent)
+void	sub_put_text(SDL_Surface *img, t_str text)
 {
 	SDL_Surface			*surface;
 	static SDL_Rect		*rect = NULL;
@@ -34,7 +34,7 @@ static void	put_percent(SDL_Surface *img, t_str percent)
 		}
 	}
 	SDL_FillRect(img, rect, 0x000000);
-	surface = TTF_RenderText_Solid(font, percent, color);
+	surface = TTF_RenderText_Solid(font, text, color);
 	SDL_BlitSurface(surface, NULL, img, rect);
 	SDL_FreeSurface(surface);
 }
@@ -51,7 +51,7 @@ void		sub_put_percent(SDL_Window *win, SDL_Surface *img, double val)
 	else if ((int)(val * 100) % 10 == 0)
 	{
 		sprintf(percent, "%.1lf %%", val);
-		put_percent(img, percent);
+		sub_put_text(img, percent);
 		SDL_UpdateWindowSurface(win);
 	}
 }

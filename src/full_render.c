@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 14:04:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/24 13:34:53 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/14 12:43:12 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	full_render_start(t_str mapfile)
 
 	img_size.x = 50;
 	img_size.y = 50;
-	render_win = sub_create_render_window(mapfile);
+	render_win = sub_create_render_window(mapfile,
+			RENDER_WIN_WIDTH, RENDER_WIN_HEIGHT);
 	window_img = SDL_GetWindowSurface(render_win);
 	render_img = SDL_CreateRGBSurface(0, img_size.x, img_size.y, 32, 0, 0, 0, 0);
 	i = 0;
@@ -39,7 +40,7 @@ void	full_render_start(t_str mapfile)
 			cur_pos.x = 0;
 			while (cur_pos.x < img_size.x)
 			{
-				ft_handle_events();
+				ft_handle_events(NULL);
 				ft_putunlckpixel(render_img, cur_pos, (Uint32)(0x00007fff + 0x00770000 * i));
 				ft_putunlckpixel(render_img, (t_2dint){5, 5}, 0x00ff0000);
 				cur_pos.x++;
@@ -49,11 +50,14 @@ void	full_render_start(t_str mapfile)
 		}
 		SDL_UnlockSurface(render_img);
 		mkdir("renders", 0777);
-		savefile_name = ft_strjoin("renders/RT_Full-render_", mapfile);
+		savefile_name = ft_strjoin("renders\\RT_Full-render_", mapfile);
 		tmp = ft_strjoin(savefile_name, ft_itoa(i));
 		savefile_name = ft_strjoin(tmp, ".bmp");
 		free(tmp);
+		ft_str_replace(savefile_name, '/', '_');
+		ft_str_replace(savefile_name, '\\', '/');
 		SDL_SaveBMP(render_img, savefile_name);
+		printf("%s", SDL_GetError());
 		free(savefile_name);
 		sub_blit_render(render_img, window_img);
 		SDL_UpdateWindowSurface(render_win);

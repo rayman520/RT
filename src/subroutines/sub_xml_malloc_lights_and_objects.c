@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 12:55:22 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/27 14:44:02 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/09/29 16:21:32 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,27 @@ t_object	*sub_malloc_objects(t_fullmap *map, xmlNode *node)
 	if (!(out = (t_object *)malloc(sizeof(t_object) * (t_ul)i)))
 		ft_exit("ERR_MLC\n");
 	map->obj_c = i;
+	if (i == 0)
+		printf("What's the fucking point?\n");
+	return (out);
+}
+
+t_vect		*sub_malloc_cameras(t_fullmap *map, xmlNode *node)
+{
+	int			i;
+	t_vect		*out;
+
+	i = 0;
+	while (node)
+	{
+		if (!ft_strcmp((const char *)node->name, "camera"))
+			i++;
+		node = node->next;
+	}
+	printf("Reading %d cameras\n", i);
+	if (!(out = (t_vect *)malloc(sizeof(t_vect) * (t_ul)i)))
+		ft_exit("ERR_MLC\n");
+	map->cam_c = i;
 	if (i == 0)
 		printf("What's the fucking point?\n");
 	return (out);

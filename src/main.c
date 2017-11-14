@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:26:29 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/25 16:54:29 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/10/20 14:00:10 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int ac, char **av)
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 		ft_exit("SDL_Init failed.\n");
 	atexit(SDL_Quit);
+	if(!(IMG_Init(IMGINITFLAGS) & IMGINITFLAGS))
+		ft_exit("SDL_image init failed.\n");
 	TTF_Init();
 	atexit(TTF_Quit);
 	atexit(xmlCleanupParser);

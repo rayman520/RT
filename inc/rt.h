@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:15:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/24 17:51:07 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/10/20 13:52:51 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@
 # include <signal.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <math.h>
 
 # include <SDL2/SDL.h>
+# include <SDL2/SDL_image.h>
 # include <SDL2/SDL_ttf.h>
 
 # include <libxml2/libxml/parser.h>
