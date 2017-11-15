@@ -6,12 +6,14 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:20:50 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/14 12:41:21 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/15 14:23:12 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_PROTOTYPES_H
 # define RT_PROTOTYPES_H
+
+#include "rt.h"
 
 /*
 **	Basic

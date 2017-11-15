@@ -6,12 +6,14 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/14 14:48:05 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/15 13:07:30 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_TYPEDEFS_H
 # define RT_TYPEDEFS_H
+
+#include "rt.h"
 
 typedef char*	t_str;
 

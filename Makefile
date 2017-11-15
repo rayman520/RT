@@ -2,9 +2,20 @@ NAME = rt
 
 CC		=	gcc
 
-SDLFLAGS = -I/usr/local/include/SDL2 -D_THREAD_SAFE -I/usr/include/libxml2
-SDL_LIB = -L/usr/local/lib -lSDL2 -lSDL2_ttf -lxml2 -lSDL2_image
-CFLAGS	=	-Werror -Wextra -Wall -Weverything -Ofast $(SDLFLAGS)
+CHEADERS = -I ./inc/
+CXMLFLAGS = -I /usr/include/libxml2
+CSDL2 = -I ./lib/frameworks/SDL2.framework/Headers
+CSDL2_IMAGE = -I ./lib/frameworks/SDL2_image.framework/Headers
+CSDL2_TTFF = -I ./lib/frameworks/SDL2_ttf.framework/Headers
+CSDL2FLAGS = $(CSDL2) $(CSDL2_IMAGE) $(CSDL2_TTFF)
+CFLAGS = -Werror -Wextra -Wall $(CHEADERS) $(CSDL2FLAGS) $(CXMLFLAGS)
+LDXMLFLAGS = -L/usr/local/lib -lxml2
+LDSDL2 = -framework SDL2
+LDSDL2_IMAGE = -framework SDL2_image
+LDSDL2_TTF = -framework SDL2_ttf
+LDSDL2FLAGS = $(LDSDL2) $(LDSDL2_IMAGE) $(LDSDL2_TTF) -F ./lib/frameworks
+LDLOADER_PATH = -rpath @loader_path/lib/frameworks
+LDFLAGS = $(LDLOADER_PATH) $(LDSDL2FLAGS) $(LDXMLFLAGS)
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -127,7 +138,7 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 $(NAME):	$(OBJ_DIR) $(OBJP)
 		$(eval BUILD=$(shell echo $$(($(BUILD)+1))))
 		$(shell echo $$(($(BUILD))) > ./build)
-		@$(CC) -o $(NAME) $(SDL_LIB) $(CFLAGS) $(addprefix $(OBJ_DIR)/, $(OBJ))
+		@$(CC) -o $(NAME) $(LDFLAGS) $(addprefix $(OBJ_DIR)/, $(OBJ))
 
 $(OBJ_DIR):
 		@echo "$(CRED)No obj file found, creating one$(CRESET)     \c"
