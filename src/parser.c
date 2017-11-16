@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 13:28:16 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/25 16:48:27 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/16 14:05:22 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_fullmap	*parser(t_str mapfile)
 	map->mapfile_pathname = mapfile;
 	tmp = ft_strdup("rt");
 	if (!sub_check_extension(mapfile, tmp))
-		printf("parsing rt\n");
+		ft_exit(".rt parser not done yet\n");
 	free(tmp);
 	tmp = ft_strdup("xml");
 	if (!sub_check_extension(mapfile, tmp))
@@ -31,7 +31,7 @@ t_fullmap	*parser(t_str mapfile)
 	free(tmp);
 	tmp = ft_strdup("json");
 	if (!sub_check_extension(mapfile, tmp))
-		printf("parsing json\n");
+		ft_exit(".json parser not done yet\n");
 	free(tmp);
 	return (map);
 }
