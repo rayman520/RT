@@ -6,18 +6,11 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 14:04:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/16 14:05:29 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/16 10:33:44 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-
-static Uint32 full_render_pixel(t_2dint pos, t_fullmap *map)
-{
-	pos.x = pos.y;
-	map->obj = map->obj;
-	return(0xffffff);
-}
 
 static void	save_image(SDL_Surface *img, int i, t_str mapfile)
 {
@@ -33,6 +26,13 @@ static void	save_image(SDL_Surface *img, int i, t_str mapfile)
 	SDL_SaveBMP(img, savefile_name);
 	printf("%s", SDL_GetError());
 	free(savefile_name);
+}
+
+static Uint32 full_render_pixel(t_2dint pos, t_fullmap *map)
+{
+	pos.x = pos.y;
+	map->obj = map->obj;
+	return(0xffffff);
 }
 
 static void full_render_images(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
