@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 16:54:56 by cpierre           #+#    #+#             */
-/*   Updated: 2017/10/20 17:59:50 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/16 12:35:40 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ Uint32 getpixel(SDL_Surface *img, int x, int y)
 	t_rgb	c;
 
 	pixels = (Uint32 *)img->pixels;
-	pixel = (Uint8 *)&pixels[(y * 3) * img->w + x * 3];
-	c.r = pixel[3];
+	pixel = (Uint8 *)&pixels[(y * 4) * img->w + x * 4];
+	c.r = pixel[2];
 	c.g = pixel[1];
-	c.b = pixel[2];
+	c.b = pixel[0];
 	return ft_rgb_to_int(c);
 }
 
