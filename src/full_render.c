@@ -69,8 +69,11 @@ void	full_render_start(t_str mapfile)
 	SDL_Window	*render_win;
 	SDL_Surface *window_img;
 	SDL_Surface *render_img;
+	SDL_version	ver;
 	t_fullmap	*map;
 
+	SDL_GetVersion(&ver);
+	printf("%d.%d.%d\n", ver.major, ver.minor, ver.patch);
 	map = parser(mapfile);
 	mkdir("renders", 0777);
 	render_win = sub_create_render_window(mapfile,
