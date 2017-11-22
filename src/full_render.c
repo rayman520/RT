@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 14:04:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/16 10:33:44 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/22 11:19:43 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ static Uint32 full_render_pixel(t_2dint pos, t_fullmap *map)
 {
 	pos.x = pos.y;
 	map->obj = map->obj;
-	return(0xffffff);
+	return(0x000050);
 }
 
 static void full_render_images(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
 {
 	t_2dint	pos;
 	int i;
-	int image_number = 8;
+	int image_number = 1;
 
 	i = 0;
 	while (i < image_number)

@@ -8,6 +8,7 @@ CSDL2 = -I ./lib/frameworks/SDL2.framework/Headers
 CSDL2_IMAGE = -I ./lib/frameworks/SDL2_image.framework/Headers
 CSDL2_TTFF = -I ./lib/frameworks/SDL2_ttf.framework/Headers
 CSDL2FLAGS = $(CSDL2) $(CSDL2_IMAGE) $(CSDL2_TTFF)
+#CFLAGS = $(CHEADERS) $(CSDL2FLAGS) $(CXMLFLAGS)
 CFLAGS = -Werror -Wextra -Wall $(CHEADERS) $(CSDL2FLAGS) $(CXMLFLAGS)
 LDXMLFLAGS = -L/usr/local/lib -lxml2
 LDSDL2 = -framework SDL2
@@ -22,6 +23,9 @@ OBJ_DIR = obj
 INC_DIR = inc
 TYPE_DIR =	\
 			basic\
+			basic/vector_handle\
+			basic/matrix_handle\
+			basic/debug\
 			subroutines\
 
 SRC =	\
@@ -56,6 +60,22 @@ SRC =	\
 		basic/ft_unit_vect.c\
 		basic/ft_vect_norm.c\
 		basic/ft_xml_rd_res.c\
+		basic/vector_handle/v_cross.c\
+		basic/vector_handle/v_div_by_nb.c\
+		basic/vector_handle/v_div_by_v.c\
+		basic/vector_handle/v_dot.c\
+		basic/vector_handle/v_len.c\
+		basic/vector_handle/v_mult_by_nb.c\
+		basic/vector_handle/v_mult_by_v.c\
+		basic/vector_handle/v_norm.c\
+		basic/vector_handle/v_sub_a_by_b.c\
+		basic/vector_handle/v_sum.c\
+		basic/matrix_handle/m4_allocate.c\
+		basic/matrix_handle/m4_fill.c\
+		basic/matrix_handle/m4_mult_m4.c\
+		basic/matrix_handle/m4_mult_v.c\
+		basic/matrix_handle/m4_set_as_default.c\
+		basic/debug/debug.c\
 		subroutines/sub_basic_arg_test.c\
 		subroutines/sub_blit_render.c\
 		subroutines/sub_calc_cam_vects.c\

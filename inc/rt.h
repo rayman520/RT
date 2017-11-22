@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:15:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/15 13:14:53 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/22 12:08:56 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 
 # include "rt_typedefs.h"
 # include "rt_defines.h"
-# include "rt_prototypes.h"
+# include "rt_prototypes_main.h"
+# include "rt_prototypes_basics.h"
+# include "rt_prototypes_subroutines.h"
 
 #endif

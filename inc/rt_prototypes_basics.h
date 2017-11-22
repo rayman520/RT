@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt_prototypes.h                                    :+:      :+:    :+:   */
+/*   rt_prototypes_basics.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/28 10:20:50 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/22 11:57:58 by nthibaud         ###   ########.fr       */
+/*   Created: 2017/11/22 12:01:39 by nthibaud          #+#    #+#             */
+/*   Updated: 2017/11/22 12:26:37 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_PROTOTYPES_H
-# define RT_PROTOTYPES_H
+#ifndef RT_PROTOTYPES_BASICS_H
+# define RT_PROTOTYPES_BASICS_H
 
 #include "rt.h"
 
 /*
-**	Basic
+**	Basics
 */
 int				ft_atoi(t_str str);
 float			ft_biggest_fl(float a, float b);
@@ -69,59 +69,17 @@ t_3d_double		v_sum(t_3d_double a, t_3d_double b);
 /*
 **	Matrix handle
 */
-
 double			**m4_allocate(void);
 void			m4_fill(double **m, t_m_rows m_rows);
 double			**m4_mult_m4(double **m1, double **m2);
 t_3d_double		m4_mult_v(double **m, t_3d_double v);
 void			m_set_as_default(double **m);
-/*
-**	Subroutines
-*/
-void			sub_basic_arg_test(int ac, char **av);
-void			sub_blit_render(SDL_Surface *src, SDL_Surface *dest);
-short			sub_check_extension(t_str file, t_str ext);
-void			sub_create_file(t_str file) __attribute__((noreturn));
-SDL_Window		*sub_create_render_window(t_str mapfile, int sx, int sy);
-void			sub_create_xml(int fd);
-void			sub_draw_image_editor(t_fullmap *map, SDL_Surface *img);
-t_cam_vects		sub_calc_cam_vects(t_vect cam, int img_x, int img_y);
-void			sub_fullrender_end(SDL_Window *win, SDL_Surface *img);
-void			sub_handle_keyboard(t_kp kp, t_fullmap *map);
-t_hit			sub_intersect_sphere(t_object *obj, t_vect ray);
-t_ui			sub_texture_sphere(t_hit hit);
-void			sub_mv_cdir_add(t_vect *cam, t_3d_double dir, double speed);
-void			sub_mv_cdir_sub(t_vect *cam, t_3d_double dir, double speed);
-void			sub_mv_cdir_up(t_vect *cam, t_3d_double dir, double speed);
-void			sub_mv_cdir_down(t_vect *cam, t_3d_double dir, double speed);
-void			sub_mv_cpos_add(t_vect *cam, t_3d_double dir, double speed);
-void			sub_mv_cpos_sub(t_vect *cam, t_3d_double dir, double speed);
-t_light			*sub_malloc_lights(t_fullmap *map, xmlNode *node);
-t_object		*sub_malloc_objects(t_fullmap *map, xmlNode *node);
-t_vect			*sub_malloc_cameras(t_fullmap *map, xmlNode *node);
-void			sub_parser_xml(t_fullmap *map, xmlDoc *doc);
-void			sub_put_fps(SDL_Surface **img, t_2dint *mapfps, SDL_Surface *w);
-void			sub_put_text(SDL_Surface *img, t_str text);
-void			sub_put_percent(SDL_Window *win, SDL_Surface *img, double val);
-unsigned int	sub_read_hex(t_str str);
-t_3d_double		sub_read_pos(t_str str);
-t_3d_double		sub_read_dir(t_str str);
-t_3d_double		sub_read_3d_double(t_str str);
-double			sub_read_double(t_str str);
-SDL_Surface		*sub_read_texture(t_str file);
-void			sub_xml_read_light(t_light *light, xmlNode *node);
-void			sub_xml_read_object(t_object *obj, xmlNode *node);
-void			sub_xml_read_camera(t_vect *cam, xmlNode *node);
-/*
-**	Main functions
-*/
-void			editor_start(t_str mapfile);
-void			full_render_start(t_str mapfile);
-int				main(int ac, char **av);
-t_fullmap		*parser(t_str mapfile);
-t_ui			raytrace_editor(t_fullmap *map, t_vect ray);
-void			render_options_win(t_fullmap *map);
 
-Uint32			getpixel(SDL_Surface *img, int x, int y);
+/*
+**	Debug
+*/
+void	display_3d_double(char *s, t_3d_double v);
+void	display_2d_int(char *s, t_2dint v);
+void	display_vect(char *s, t_vect v);
 
 #endif
