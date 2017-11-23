@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:57:29 by cpierre           #+#    #+#             */
-/*   Updated: 2017/10/30 19:41:10 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/23 10:03:39 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	sub_draw_image_editor(t_fullmap *map, SDL_Surface *img)
 
 	map->cam_v = sub_calc_cam_vects(map->camera[map->target_cam], img->w, img->h);
 	map->cam_v.fov = map->fov;
+	display_cam_vects("cam_v", map->cam_v);
 	c.y = 0;
 	while (c.y < img->h)
 	{

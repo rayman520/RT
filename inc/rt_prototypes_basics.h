@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:01:39 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/22 12:26:37 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/23 09:40:40 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ void			m_set_as_default(double **m);
 void	display_3d_double(char *s, t_3d_double v);
 void	display_2d_int(char *s, t_2dint v);
 void	display_vect(char *s, t_vect v);
+void	display_cam_vects(char *s, t_cam_vects cam_v);
 
 #endif
