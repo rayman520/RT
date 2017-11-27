@@ -167,14 +167,20 @@ $(OBJ_DIR):
 		@mkdir $(addprefix $(OBJ_DIR)/, $(TYPE_DIR))
 		@echo "$(ECH_SUCCESS)\n"
 
+CMT_READ_MSG = $(shell echo "\\033[34mCommit message:\\033[1m\\033[36m")
+
 git:
 		$(eval VERSION=$(shell echo $$(($(VERSION)+1))))
 		$(shell echo $$(($(VERSION))) > ./version)
-		bash ~/code/perso/shell_scripts/fclean.sh
-		rm -rf renders/*.bmp
-		git add *
-		git commit -m "RT - Ver.$(VERSION) Build.$(BUILD)"
-		git push
+		@echo "\\033[34mcleaning libft...\\033[0m"
+		@echo $(CMT_READ_MSG)
+		@echo "\\033[92mSuccessfully cleaned libft\\033[0m\n\n\\033[34mPushing to git repository...\\033[0m"
+		@git add *
+		@read -p "$(CMT_READ_MSG)" msg; \
+		echo "\\033[0m"; \
+		git commit -m "LibftV4 - Ver.$(VERSION) b.$(BUILD) - $$msg"
+		@git push
+		@echo "\\033[92mSuccesfully pushed LibftV4 to git repository\\033[0m"
 
 clean:
 		@$(RM) -r $(OBJ_DIR)
