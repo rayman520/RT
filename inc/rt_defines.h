@@ -6,12 +6,14 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 11:20:08 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/14 12:41:04 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/15 13:07:51 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_DEFINES_H
 # define RT_DEFINES_H
+
+#include "rt.h"
 
 # define EDITOR_IMG_WIDTH 640
 # define EDITOR_IMG_HEIGHT 480

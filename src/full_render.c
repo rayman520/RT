@@ -32,14 +32,14 @@ static Uint32 full_render_pixel(t_2dint pos, t_fullmap *map)
 {
 	pos.x = pos.y;
 	map->obj = map->obj;
-	return(0xffffff);
+	return(0x000050);
 }
 
 static void full_render_images(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
 {
 	t_2dint	pos;
 	int i;
-	int image_number = 8;
+	int image_number = 1;
 
 	i = 0;
 	while (i < image_number)

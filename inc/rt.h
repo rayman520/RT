@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:15:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/10/20 13:52:51 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/22 12:08:56 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,16 @@
 # include <fcntl.h>
 # include <math.h>
 
-# include <SDL2/SDL.h>
-# include <SDL2/SDL_image.h>
-# include <SDL2/SDL_ttf.h>
+# include <../lib/frameworks/SDL2.framework/Headers/SDL.h>
+# include <../lib/frameworks/SDL2_image.framework/Headers/SDL_image.h>
+# include <../lib/frameworks/SDL2_ttf.framework/Headers/SDL_ttf.h>
 
 # include <libxml2/libxml/parser.h>
 
 # include "rt_typedefs.h"
 # include "rt_defines.h"
-# include "rt_prototypes.h"
+# include "rt_prototypes_main.h"
+# include "rt_prototypes_basics.h"
+# include "rt_prototypes_subroutines.h"
 
 #endif

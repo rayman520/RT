@@ -6,12 +6,14 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:20:50 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/14 12:41:21 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/22 11:57:58 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_PROTOTYPES_H
 # define RT_PROTOTYPES_H
+
+#include "rt.h"
 
 /*
 **	Basic
@@ -50,6 +52,29 @@ double			ft_vect_norm(t_vect vect);
 t_2dint			ft_xml_ed_res(t_str input);
 t_2dint			ft_xml_rd_res(t_str input);
 
+/*
+**	Vector handle
+*/
+t_3d_double		v_cross(t_3d_double a, t_3d_double b);
+t_3d_double		v_div_by_nb(t_3d_double v, double nb);
+t_3d_double		v_div_by_vv(t_3d_double a, t_3d_double b);
+double			v_dot(t_3d_double a, t_3d_double b);
+double			v_len(t_3d_double v);
+t_3d_double		v_norm(t_3d_double v);
+t_3d_double		v_mult_by_nb(t_3d_double v, double nb);
+t_3d_double		v_mult_by_v(t_3d_double a, t_3d_double b);
+t_3d_double		v_sub_a_by_b(t_3d_double a, t_3d_double b);
+t_3d_double		v_sum(t_3d_double a, t_3d_double b);
+
+/*
+**	Matrix handle
+*/
+
+double			**m4_allocate(void);
+void			m4_fill(double **m, t_m_rows m_rows);
+double			**m4_mult_m4(double **m1, double **m2);
+t_3d_double		m4_mult_v(double **m, t_3d_double v);
+void			m_set_as_default(double **m);
 /*
 **	Subroutines
 */

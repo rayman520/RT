@@ -6,12 +6,14 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/14 14:48:05 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/11/22 12:22:01 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_TYPEDEFS_H
 # define RT_TYPEDEFS_H
+
+#include "rt.h"
 
 typedef char*	t_str;
 
@@ -39,6 +41,14 @@ typedef struct	s_3d_double
 	double		y;
 	double		z;
 }				t_3d_double;
+
+typedef struct	s_m_rows
+{
+	t_3d_double	x_row;
+	t_3d_double	y_row;
+	t_3d_double	z_row;
+	t_3d_double	w_row;
+}				t_m_rows;
 
 typedef	struct	s_rgb
 {
