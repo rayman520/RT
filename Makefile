@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2017/11/28 16:31:06 by nthibaud         ###   ########.fr        #
+#    Updated: 2017/11/29 13:58:05 by bvan-dyc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,9 @@ SRC =	\
 		basic/ft_unit_vect.c\
 		basic/ft_vect_norm.c\
 		basic/ft_xml_rd_res.c\
+		basic/ft_fmax.c\
+		basic/ft_clamp.c\
+		basic/vector_handle/v_normalize.c\
 		basic/vector_handle/v_cross.c\
 		basic/vector_handle/v_div_by_nb.c\
 		basic/vector_handle/v_div_by_v.c\

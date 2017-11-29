@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:01:39 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/23 09:40:40 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/29 13:59:57 by bvan-dyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ t_vect			ft_unit_vect(t_vect vect);
 double			ft_vect_norm(t_vect vect);
 t_2dint			ft_xml_ed_res(t_str input);
 t_2dint			ft_xml_rd_res(t_str input);
+float	        ft_fmax(float a, float b);
+float	        ft_clamp(double a, double min, double max);
 
 /*
 **	Vector handle
@@ -65,6 +67,7 @@ t_3d_double		v_mult_by_nb(t_3d_double v, double nb);
 t_3d_double		v_mult_by_v(t_3d_double a, t_3d_double b);
 t_3d_double		v_sub_a_by_b(t_3d_double a, t_3d_double b);
 t_3d_double		v_sum(t_3d_double a, t_3d_double b);
+void		    v_normalize(t_3d_double *v);
 
 /*
 **	Matrix handle
