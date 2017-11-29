@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2017/11/28 16:31:06 by nthibaud         ###   ########.fr        #
+#    Updated: 2017/11/29 16:53:17 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,8 @@ SRC =	\
 		basic/ft_putstr.c\
 		basic/ft_putunlckpixel.c\
 		basic/ft_rgb_to_int.c\
+		basic/ft_double_3d_to_int.c\
+		basic/ft_int_to_double_3d.c\
 		basic/ft_str_replace.c\
 		basic/ft_strcat.c\
 		basic/ft_strcmp.c\

@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:01:39 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/23 09:40:40 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/29 16:53:42 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void			ft_putpixel(SDL_Surface *img, t_2dint pos, Uint32 val);
 void			ft_putstr(char *str);
 int				ft_putunlckpixel(SDL_Surface *img, t_2dint pos, Uint32 val);
 t_ui			ft_rgb_to_int(t_rgb color);
+t_ui			ft_double_3d_to_int(t_3d_double color);
+t_3d_double		ft_int_to_double_3d(t_ui color);
 void			ft_str_replace(char *str, char target, char new);
 t_str			ft_strcat(t_str dest, t_str src);
 int				ft_strcmp(const char *s1, const char *s2);
