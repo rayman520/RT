@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 11:20:08 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/15 13:07:51 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/28 14:19:43 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # define NULL_HIT (t_hit){NULL_POS, NULL_POS, NULL_VECT, NULL, -1}
 
 # define RENDER_DIST 1000000000
+
+# define PI 3.14159265359
 
 # define ERR_USAGE "usage: ./rt mode file\n  mode: render/edit/create"
 

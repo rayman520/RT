@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 14:04:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/23 10:43:42 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/29 10:32:42 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,28 @@ static void	save_image(SDL_Surface *img, int i, t_str mapfile)
 	printf("%s", SDL_GetError());
 	free(savefile_name);
 }
-
+/*
 static Uint32 full_render_pixel(t_2dint pos, t_fullmap *map)
 {
 	pos.x = pos.y;
 	map->obj = map->obj;
 	return(0x000050);
 }
-
+*/
 static void full_render_images(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
 {
-	t_2dint	pos;
-	int i;
-	int image_number = 1;
+	t_2dint		pos;
+	t_vect		ray;
+	int			i;
+	int			image_number;
 
+	image_number = 1;
 	i = 0;
 	while (i < image_number)
 	{
+		map->cam_v = sub_calc_cam_vects(map->camera[map->target_cam],
+					b.render_img->w, b.render_img->h);
+		map->cam_v.fov = map->fov;
 		SDL_LockSurface(b.render_img);
 		pos.y = -1;
 		while (++pos.y < b.render_img->h)
@@ -51,8 +56,9 @@ static void full_render_images(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
 			pos.x = -1;
 			while (++pos.x < b.render_img->w)
 			{
-				ft_handle_events(NULL);
-				ft_putunlckpixel(b.render_img, pos, full_render_pixel(pos, map));
+			//	ft_handle_events(NULL);
+				ray = sub_calc_pix_vect(map->cam_v, pos, b.render_img);
+				ft_putunlckpixel(b.render_img, pos, raytrace_fullrender(map, ray));
 			}
 			sub_put_percent(b.render_win, b.window_img, 100 * (double)(pos.y + i * b.render_img->h) / (b.render_img->h * image_number));
 		}

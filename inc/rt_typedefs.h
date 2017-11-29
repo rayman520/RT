@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/23 10:03:40 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/28 16:32:15 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef	struct	s_vect
 {
 	t_3d_double pos;
 	t_3d_double dir;
+	t_3d_double	ndir;
 }				t_vect;
 
 typedef struct	s_cam_vects
@@ -75,6 +76,10 @@ typedef struct	s_light
 {
 	t_3d_double	pos;
 	double		pow;
+	double		intensity;
+	t_3d_double	color;
+	t_vect		ray;
+	double		bias;
 }				t_light;
 
 typedef enum	e_obj_t
@@ -85,9 +90,11 @@ typedef enum	e_obj_t
 typedef struct	s_object
 {
 	t_3d_double	pos;
+	t_3d_double	rgb_color;
 	t_obj_t		type;
 	t_ui		color;
 	double		radius;
+	double		albedo;
 	SDL_Surface *texture;
 }				t_object;
 
@@ -98,6 +105,7 @@ typedef	struct	s_hit
 	t_vect		incident_vect;
 	t_object	*obj;
 	double		dist;
+	int			is_hit;
 }				t_hit;
 
 typedef struct	s_SDL_Bundle

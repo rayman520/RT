@@ -15,7 +15,7 @@
 	</cameras>
 	<lights>
 		<light>
-			<position>0.0,0.0,0.0</position>
+			<position>-2,1,0.0</position>
 			<power>10.0</power>
 		</light>
 	</lights>
@@ -24,7 +24,7 @@
 			<type>sphere</type>
 			<position>0.0,0.0,0.0</position>
 			<radius>0.5</radius>
-			<color>0x0030ff</color>
+			<color>0x0000AA</color>
 			<texture>ressources/textures/kerbin.jpg</texture>
 		</object>
 		<object>

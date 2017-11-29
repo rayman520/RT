@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2017/11/28 11:00:59 by nthibaud         ###   ########.fr        #
+#    Updated: 2017/11/28 16:31:06 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ CSDL2 = -I ./lib/frameworks/SDL2.framework/Headers
 CSDL2_IMAGE = -I ./lib/frameworks/SDL2_image.framework/Headers
 CSDL2_TTFF = -I ./lib/frameworks/SDL2_ttf.framework/Headers
 CSDL2FLAGS = $(CSDL2) $(CSDL2_IMAGE) $(CSDL2_TTFF)
-#CFLAGS = $(CHEADERS) $(CSDL2FLAGS) $(CXMLFLAGS)
-CFLAGS = -Werror -Wextra -Wall $(CHEADERS) $(CSDL2FLAGS) $(CXMLFLAGS)
+CFLAGS = $(CHEADERS) $(CSDL2FLAGS) $(CXMLFLAGS)
+#CFLAGS = -Werror -Wextra -Wall $(CHEADERS) $(CSDL2FLAGS) $(CXMLFLAGS)
 LDXMLFLAGS = -L/usr/local/lib -lxml2
 LDSDL2 = -framework SDL2
 LDSDL2_IMAGE = -framework SDL2_image
@@ -39,6 +39,8 @@ TYPE_DIR =	\
 			basic/matrix_handle\
 			basic/debug\
 			subroutines\
+			subroutines/intersections\
+			subroutines/lights\
 
 SRC =	\
 		basic/ft_atoi.c\
@@ -111,12 +113,17 @@ SRC =	\
 		subroutines/sub_read_hex.c\
 		subroutines/sub_read_pos.c\
 		subroutines/sub_read_texture.c\
+		subroutines/sub_calc_pix_vect.c\
+		subroutines/intersections/sub_inter_sphere.c\
+		subroutines/intersections/sub_inter_objects.c\
+		subroutines/lights/sub_light_primary_ray.c\
 		editor_start.c\
 		full_render.c\
 		main.c\
 		options_win.c\
 		parser.c\
 		raytrace_editor.c\
+		raytrace_fullrender.c
 
 OBJ = $(SRC:.c=.o)
 

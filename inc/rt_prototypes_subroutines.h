@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:02:51 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/22 12:03:26 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/29 09:44:20 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,16 @@ void			sub_xml_read_light(t_light *light, xmlNode *node);
 void			sub_xml_read_object(t_object *obj, xmlNode *node);
 void			sub_xml_read_camera(t_vect *cam, xmlNode *node);
 
+t_vect sub_calc_pix_vect(t_cam_vects cam, t_2dint pos, SDL_Surface *img);
+
+/*
+**	Intersections
+*/
+t_hit	sub_inter_objects(t_fullmap *map, t_vect ray);
+t_hit	sub_inter_sphere(t_object *obj, t_vect ray);
+
+/*
+**	Lights
+*/
+t_ui	sub_light_primary_ray(t_fullmap *map, t_hit hit);
 #endif
