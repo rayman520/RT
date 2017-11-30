@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:26:29 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/15 13:15:28 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/30 17:44:07 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 	if (!ft_strcmp(av[1], "EDIT"))
 		editor_start(av[2]);
 	else if (!ft_strcmp(av[1], "RENDER"))
-		full_render_start(av[2]);
+		full_render_init(av[2]);
 	else if (!ft_strcmp(av[1], "CREATE"))
 		sub_create_file(av[2]);
 	return (0);

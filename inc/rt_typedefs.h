@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/29 12:47:12 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/30 17:11:10 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ typedef struct	s_fullmap
 	int			target_cam;
 	double		amb_coef;
 	double		fov;
+	int			render_key;
 }				t_fullmap;
 
 typedef t_hit	(*t_isect_fnc_tab[1])(t_object *obj, t_vect ray);

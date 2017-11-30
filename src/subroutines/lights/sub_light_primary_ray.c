@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/29 16:53:41 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/30 15:20:32 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_ui	sub_light_primary_ray(t_fullmap *map, t_hit hit)
 	// PARSER 
 	hit.obj->rgb_color = ft_int_to_double_3d(hit.obj->color);
 	hit.obj->albedo = 0.18;
-	light.intensity = 1;
+	light.intensity = 0.5;
 	light.bias = 0.00001;
 	light.color = (t_3d_double){255,255,255};
 	// PARSER
@@ -92,8 +92,6 @@ t_ui	sub_light_primary_ray(t_fullmap *map, t_hit hit)
 	//	light.intensity = map->light[i].intensity;
 	// PARSER
 		color = v_sum(color, light_color_1(map, hit, light));
-	printf("i %d ", i);
-	display_3d_double("color", color);
 		i++;
 	}
 	return (ft_double_3d_to_int(color));

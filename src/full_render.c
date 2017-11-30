@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 14:04:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/29 10:32:42 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/30 18:52:40 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,53 @@ static Uint32 full_render_pixel(t_2dint pos, t_fullmap *map)
 	return(0x000050);
 }
 */
-static void full_render_images(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
+
+void	full_render_init(t_str mapfile)
+{
+	SDL_Window	*render_win;
+	SDL_Surface *window_img;
+	SDL_Surface *rend_img;
+	t_fullmap	*map;
+//	t_kp		kp;
+
+	map = parser(mapfile);
+	if (map != NULL)
+	{
+		mkdir("renders", 0777);
+		render_win = sub_create_render_window(mapfile, RENDER_WIN_WIDTH,
+				RENDER_WIN_HEIGHT);
+		window_img = SDL_GetWindowSurface(render_win);
+		rend_img = SDL_CreateRGBSurface(0,
+				RENDER_WIN_WIDTH, RENDER_WIN_HEIGHT, 32, 0, 0, 0, 0);
+		map->cam_v = sub_calc_cam_vects(map->camera[map->target_cam],
+					rend_img->w, rend_img->h);
+		map->cam_v.fov = map->fov;
+			full_render_start((t_SDL_Bundle){render_win, window_img, rend_img},
+					map, mapfile);
+			sub_fullrender_end(render_win, window_img);
+	}
+	sub_fullrender_end(render_win, window_img);
+}
+
+void	full_render_from_edit(t_str mapfile, t_fullmap *map,
+		t_SDL_Bundle b, t_kp kp)
+{
+	SDL_Surface *rend_img;
+
+	rend_img = SDL_CreateRGBSurface(0, RENDER_WIN_WIDTH, RENDER_WIN_HEIGHT,
+			32, 0, 0, 0, 0);
+	full_render_start((t_SDL_Bundle){b.render_win, b.window_img, rend_img},
+			map, mapfile);
+	while (map->render_key == 1)
+	{
+			ft_handle_events(kp);
+		if (kp[SDLK_r])
+			map->render_key = (map->render_key == 1 ? 0 : 1);
+	}
+//	sub_fullrender_end(b.render_win, b.window_img);
+}
+
+void full_render_start(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
 {
 	t_2dint		pos;
 	t_vect		ray;
@@ -46,9 +92,6 @@ static void full_render_images(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
 	i = 0;
 	while (i < image_number)
 	{
-		map->cam_v = sub_calc_cam_vects(map->camera[map->target_cam],
-					b.render_img->w, b.render_img->h);
-		map->cam_v.fov = map->fov;
 		SDL_LockSurface(b.render_img);
 		pos.y = -1;
 		while (++pos.y < b.render_img->h)
@@ -56,11 +99,13 @@ static void full_render_images(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
 			pos.x = -1;
 			while (++pos.x < b.render_img->w)
 			{
-			//	ft_handle_events(NULL);
 				ray = sub_calc_pix_vect(map->cam_v, pos, b.render_img);
-				ft_putunlckpixel(b.render_img, pos, raytrace_fullrender(map, ray));
+				ft_putunlckpixel(b.render_img, pos,
+						raytrace_fullrender(map, ray));
 			}
-			sub_put_percent(b.render_win, b.window_img, 100 * (double)(pos.y + i * b.render_img->h) / (b.render_img->h * image_number));
+				sub_put_percent(b.render_win, b.window_img, 100 *
+						(double)(pos.y + i * b.render_img->h) /
+						(b.render_img->h * image_number));
 		}
 		SDL_UnlockSurface(b.render_img);
 		save_image(b.render_img, i, mapfile);
@@ -70,22 +115,4 @@ static void full_render_images(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
 	}
 }
 
-void	full_render_start(t_str mapfile)
-{
-	SDL_Window	*render_win;
-	SDL_Surface *window_img;
-	SDL_Surface *render_img;
-	SDL_version	ver;
-	t_fullmap	*map;
 
-	SDL_GetVersion(&ver);
-	printf("%d.%d.%d\n", ver.major, ver.minor, ver.patch);
-	map = parser(mapfile);
-	mkdir("renders", 0777);
-	render_win = sub_create_render_window(mapfile,
-			RENDER_WIN_WIDTH, RENDER_WIN_HEIGHT);
-	window_img = SDL_GetWindowSurface(render_win);
-	render_img = SDL_CreateRGBSurface(0, map->res.x, map->res.y, 32, 0, 0, 0, 0);
-	full_render_images((t_SDL_Bundle){render_win, window_img, render_img}, map, mapfile);
-	sub_fullrender_end(render_win, window_img);
-}
