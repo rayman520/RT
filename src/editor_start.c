@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 16:31:06 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/30 18:52:42 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/11/30 19:00:14 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ void	editor_start(t_str mapfile)
 		{
 			ft_handle_events(kp);
 			sub_handle_keyboard(kp, map);
+			if (kp[SDLK_r])
+				map->render_key = (map->render_key == 1 ? 0 : 1);
+			printf("%KEYedit %d\n", map->render_key);
 			i++;
 			if (map->render_key == 0)
 			{
