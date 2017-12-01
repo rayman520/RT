@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 14:04:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/30 19:02:28 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/01 15:30:46 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ void	full_render_init(t_str mapfile)
 	{
 		mkdir("renders", 0777);
 		render_win = sub_create_render_window(mapfile, RENDER_WIN_WIDTH,
-				RENDER_WIN_HEIGHT);
+			RENDER_WIN_HEIGHT);
 		window_img = SDL_GetWindowSurface(render_win);
 		rend_img = SDL_CreateRGBSurface(0,
-				RENDER_WIN_WIDTH, RENDER_WIN_HEIGHT, 32, 0, 0, 0, 0);
+			RENDER_WIN_WIDTH, RENDER_WIN_HEIGHT, 32, 0, 0, 0, 0);
 		map->cam_v = sub_calc_cam_vects(map->camera[map->target_cam],
-					rend_img->w, rend_img->h);
+			rend_img->w, rend_img->h);
 		map->cam_v.fov = map->fov;
-			full_render_start((t_SDL_Bundle){render_win, window_img, rend_img},
-					map, mapfile);
-			sub_fullrender_end(render_win, window_img);
+		full_render_start((t_SDL_Bundle){render_win, window_img, rend_img},
+			map, mapfile);
+		sub_fullrender_end(render_win, window_img);
 	}
 	sub_fullrender_end(render_win, window_img);
 }
@@ -66,19 +66,18 @@ void	full_render_init(t_str mapfile)
 void	full_render_from_edit(t_str mapfile, t_fullmap *map,
 		t_SDL_Bundle b, t_kp kp)
 {
-	SDL_Surface *rend_img;
+	SDL_Surface *render_img;
 
-	rend_img = SDL_CreateRGBSurface(0, RENDER_WIN_WIDTH, RENDER_WIN_HEIGHT,
-			32, 0, 0, 0, 0);
-	full_render_start((t_SDL_Bundle){b.render_win, b.window_img, rend_img},
-			map, mapfile);
+	render_img = SDL_CreateRGBSurface(0, RENDER_WIN_WIDTH, RENDER_WIN_HEIGHT,
+		32, 0, 0, 0, 0);
+	full_render_start((t_SDL_Bundle){b.render_win, b.window_img, render_img},
+		map, mapfile);
 	while (map->render_key == 1)
 	{
-			ft_handle_events(kp);
-		if (kp[SDLK_r])
-			map->render_key = (map->render_key == 1 ? 0 : 1);
+		ft_handle_events(kp);
+		sub_handle_keyboard(kp, map);
 	}
-//	sub_fullrender_end(b.render_win, b.window_img);
+	SDL_Delay(300);
 }
 
 void full_render_start(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
