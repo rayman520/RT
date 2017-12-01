@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 17:19:42 by cpierre           #+#    #+#             */
-/*   Updated: 2017/10/20 15:17:59 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/01 16:45:45 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void			sub_xml_read_object(t_object *obj, xmlNode *node)
 	static int o_nb = 0;
 
 	printf("Reading object %d\n", o_nb + 1);
+	obj[o_nb].texture = NULL;
 	while (node)
 	{
 		if (!ft_strcmp((const char *)node->name, "position"))
@@ -40,7 +41,7 @@ void			sub_xml_read_object(t_object *obj, xmlNode *node)
 			obj[o_nb].type = read_obj_type((char *)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "radius"))
 		{
-			obj[o_nb].radius = sub_read_double((char *)xmlNodeGetContent(node));
+			obj[o_nb].radius = (double)ft_atof((char *)xmlNodeGetContent(node));
 			printf("Radius set to: %f\n", obj[o_nb].radius);
 		}
 		if (!ft_strcmp((const char *)node->name, "color"))

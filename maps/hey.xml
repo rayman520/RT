@@ -25,12 +25,12 @@
 			<position>0.0,0.0,0.0</position>
 			<radius>0.5</radius>
 			<color>0x0030ff</color>
-			<texture>ressources/textures/kerbin.jpg</texture>
+			<textture>ressources/textures/kerbin.jpg</textture>
 		</object>
 		<object>
 			<type>sphere</type>
 			<position>0.0,0.0,0.0</position>
-			<radius>0.01</radius>
+			<radius>0.1</radius>
 			<color>0xffFFff</color>
 			<texture>ressources/textures/Mun_color.jpg</texture>
 		</object>

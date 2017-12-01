@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 16:12:53 by cpierre           #+#    #+#             */
-/*   Updated: 2017/10/05 13:03:32 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/01 14:22:49 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,21 @@ t_3d_double		sub_read_3d_double(t_str str)
 		printf("unknown, set it to default: 0,0,0\n");
 		return ((t_3d_double){0, 0, 0});
 	}
-	out.x = sub_read_double(str);
+	out.x = (double)ft_atof(str);
 	i = -1;
 	while (str[++i])
 	{
 		if (str[i] == ',')
 			break ;
 	}
-	out.y = sub_read_double(&str[++i]);
+	out.y = (double)ft_atof(&str[++i]);
 	while (str[i])
 	{
 		if (str[i] == ',')
 			break ;
 		i++;
 	}
-	out.z = sub_read_double(&str[++i]);
+	out.z = (double)ft_atof(&str[++i]);
 	printf("successfully set to %f,%f,%f\n", out.x, out.y, out.z);
 	return (out);
 }
