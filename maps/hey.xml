@@ -25,7 +25,7 @@
 			<position>0.0,0.0,0.0</position>
 			<radius>0.5</radius>
 			<color>0x0030ff</color>
-			<texture>ressources/textures/kerbin.jpg</texture>
+			<textture>ressources/textures/kerbin.jpg</textture>
 		</object>
 		<object>
 			<type>sphere</type>

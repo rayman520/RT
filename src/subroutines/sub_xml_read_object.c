@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 17:19:42 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/01 14:23:11 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/01 16:45:45 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void			sub_xml_read_object(t_object *obj, xmlNode *node)
 	static int o_nb = 0;
 
 	printf("Reading object %d\n", o_nb + 1);
+	obj[o_nb].texture = NULL;
 	while (node)
 	{
 		if (!ft_strcmp((const char *)node->name, "position"))
