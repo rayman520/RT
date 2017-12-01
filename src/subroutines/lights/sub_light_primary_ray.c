@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/01 16:45:33 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/01 16:52:47 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,24 @@ t_ui	sub_light_primary_ray(t_fullmap *map, t_hit hit)
 	t_3d_double	color;
 	t_light		light;
 	int			i;
+	static t_texture_ft_tab funct_tab =
+	{
+		sub_texture_sphere
+	};
 
 	i = 0;
 	color = (t_3d_double){0,0,0};
 	// PARSER 
-	hit.obj->rgb_color = ft_int_to_double_3d(hit.obj->color);
+	if (hit.obj->texture)
+		hit.obj->rgb_color = ft_int_to_double_3d(funct_tab[hit.obj->type - 1](hit));
+	else
+		hit.obj->rgb_color = ft_int_to_double_3d(hit.obj->color);
 	hit.obj->albedo = 0.18;
-	light.intensity = 0.5;
+	light.intensity = 2;
 	light.bias = 0.00001;
 	light.color = (t_3d_double){255,255,255};
 	// PARSER
+
 	while (i < map->light_c)
 	{
 		light.pos = map->light[i].pos;
