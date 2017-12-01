@@ -24,8 +24,15 @@
 			<type>sphere</type>
 			<position>0.0,0.0,0.0</position>
 			<radius>0.5</radius>
-			<color>0xFF0000</color>
-			<texture>ressources/textures/kerbin.jpg</texture>
+			<color>0x0000FF</color>
+			<texture></texture>
 		</object>
-		</objects>
+		<object>
+			<type>sphere</type>
+			<position>-1.0,2.0,0.0</position>
+			<radius>0.2</radius>
+			<color>0xFFFFFF</color>
+			<texture></texture>
+		</object>
+	</objects>
 </map>

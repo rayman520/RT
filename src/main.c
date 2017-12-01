@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:26:29 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/30 17:44:07 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/01 16:22:53 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	main(int ac, char **av)
 {
+	t_fullmap *map;
+
 	sub_basic_arg_test(ac, av);
 	LIBXML_TEST_VERSION
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
@@ -24,10 +26,12 @@ int	main(int ac, char **av)
 	TTF_Init();
 	atexit(TTF_Quit);
 	atexit(xmlCleanupParser);
+	if ((map = parser(av[2])) == NULL)
+		ft_exit("map == NULL\n");
 	if (!ft_strcmp(av[1], "EDIT"))
-		editor_start(av[2]);
+		editor_start(av[2], map);
 	else if (!ft_strcmp(av[1], "RENDER"))
-		full_render_init(av[2]);
+		full_render_init(av[2], map);
 	else if (!ft_strcmp(av[1], "CREATE"))
 		sub_create_file(av[2]);
 	return (0);

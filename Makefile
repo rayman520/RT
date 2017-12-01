@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2017/11/29 13:58:05 by bvan-dyc         ###   ########.fr        #
+#    Updated: 2017/12/01 16:28:29 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,12 +123,14 @@ SRC =	\
 		subroutines/intersections/sub_inter_objects.c\
 		subroutines/lights/sub_light_primary_ray.c\
 		editor_start.c\
-		full_render.c\
 		main.c\
 		options_win.c\
 		parser.c\
 		raytrace_editor.c\
-		raytrace_fullrender.c
+		raytrace_fullrender.c\
+		full_render_init.c\
+		full_render_from_edit.c\
+		full_render_start.c
 
 OBJ = $(SRC:.c=.o)
 

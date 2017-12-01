@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/30 17:11:10 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/01 16:45:36 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ typedef struct	s_object
 	double		radius;
 	double		albedo;
 	SDL_Surface *texture;
+	int			i;
 }				t_object;
 
 typedef	struct	s_hit

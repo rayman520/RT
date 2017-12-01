@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/11 21:36:54 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/01 15:30:48 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/01 16:05:25 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	sub_handle_keyboard(t_kp kp, t_fullmap *map)
 	static double cspeed = 0.1;
 
 	cam = &map->camera[map->target_cam];
+	if (kp[SDLK_ESCAPE])
+			ft_exit("ESCAPE BUTTON EVENT\n");
 	if (kp[SDLK_r])
 		map->render_key = (map->render_key == 1 ? 0 : 1);
 	if (map->render_key == 1)
