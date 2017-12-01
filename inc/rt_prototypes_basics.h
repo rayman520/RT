@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:01:39 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/29 13:59:57 by bvan-dyc         ###   ########.fr       */
+/*   Updated: 2017/12/01 14:20:10 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 **	Basics
 */
 int				ft_atoi(t_str str);
+float			ft_atof(t_str str);
 float			ft_biggest_fl(float a, float b);
 void			ft_close_win(Uint32 id);
 double			ft_descriminent(double a, double b, double c);
@@ -32,6 +33,8 @@ void			ft_handle_windowevent(SDL_WindowEvent win);
 void			ft_hey(void);
 size_t			ft_uintlen(unsigned int nb);
 size_t			ft_intlen(int nb);
+int				ft_isnbr(int c);
+int				ft_isspace(int c);
 t_str			ft_itoa(int n);
 void			ft_putchar(char c);
 void			ft_putpixel(SDL_Surface *img, t_2dint pos, Uint32 val);
