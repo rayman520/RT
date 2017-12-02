@@ -122,7 +122,11 @@ SRC =	\
 		subroutines/sub_read_pos.c\
 		subroutines/sub_read_texture.c\
 		subroutines/sub_calc_pix_vect.c\
+		subroutines/intersections/sub_inter_plane.c\
+		subroutines/intersections/sub_inter_disk.c\
 		subroutines/intersections/sub_inter_sphere.c\
+		subroutines/intersections/sub_inter_cone.c\
+		subroutines/intersections/sub_inter_cylinder.c\
 		subroutines/intersections/sub_inter_objects.c\
 		subroutines/lights/sub_light_primary_ray.c\
 		editor_start.c\

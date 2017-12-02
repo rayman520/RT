@@ -87,9 +87,24 @@ typedef enum	e_obj_t
 	SPHERE = 1,
 }				t_obj_t;
 
+typedef struct		s_inter
+{
+	double			a;
+	double			b;
+	double			c;
+	double			discr;
+	double			t0;
+	double			t1;
+	t_3d_double		dist;
+	t_3d_double		temp;
+	t_3d_double		norm;
+	t_3d_double		temp2;
+}					t_inter;
+
 typedef struct	s_object
 {
 	t_3d_double	pos;
+	t_3d_double	dir;
 	t_3d_double	rgb_color;
 	t_obj_t		type;
 	t_ui		color;

@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sub_inter_objects.c                                :+:      :+:    :+:   */
+/*   sub_inter_disk.c		                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/28 12:08:27 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/28 16:30:04 by nthibaud         ###   ########.fr       */
+/*   Created: 2017/11/28 16:49:37 by nthibaud          #+#    #+#             */
+/*   Updated: 2017/11/28 16:52:20 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_hit	sub_inter_objects(t_fullmap *map, t_vect ray)
+t_hit 	sub_inter_disk(t_object *obj, t_vect ray)
 {
-	t_hit					hit;
-	t_hit					new_hit;
-	int						i;
-	static t_isect_fnc_tab	funct_tab =
-	{
-		sub_inter_sphere
-	};
+	t_3d_double 	tmp;
+	t_3d_double 	p;
+	t_3d_double		v;
+	float			dist2;
+	t_hit			hit;
 
-	hit = (t_hit){NULL_POS, NULL_POS, NULL_VECT, NULL, RENDER_DIST, 0};
-	i = -1;
-	while (++i < map->obj_c)
+	hit = sub_inter_plane(obj, ray);
+	if (hit.dist == 1)
 	{
-		new_hit = funct_tab[map->obj[i].type - 1](&map->obj[i], ray);
-		if (new_hit.is_hit == 1 && new_hit.dist < hit.dist && new_hit.dist > EPSILON)
-			hit = new_hit;
+		tmp = v_mult_by_nb(ray.dir, hit.dist);
+		p = v_sum(ray.pos, tmp);
+		v = v_sub_a_by_b(p, obj->pos);
+		dist2 = v_dot(v, v);
+		if (sqrtf(dist2) <= obj->radius)
+			hit.is_hit = 1;
+		else
+			hit.is_hit = 0;
 	}
+   else
+   		hit.is_hit = 0;
 	return (hit);
 }

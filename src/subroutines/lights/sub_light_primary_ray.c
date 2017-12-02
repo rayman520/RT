@@ -82,7 +82,7 @@ t_ui	sub_light_primary_ray(t_fullmap *map, t_hit hit)
 
 	i = 0;
 	color = (t_3d_double){0,0,0};
-	// PARSER 
+	// PARSER
 	if (hit.obj->texture)
 		hit.obj->rgb_color = ft_int_to_double_3d(funct_tab[hit.obj->type - 1](hit));
 	else

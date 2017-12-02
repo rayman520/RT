@@ -33,7 +33,9 @@
 
 # define RENDER_DIST 1000000000
 
-# define PI 3.14159265359
+# define PI 			3.14159265359
+# define EPSILON 		0.000001
+# define BIAS			0.00001
 
 # define ERR_USAGE "usage: ./rt mode file\n  mode: render/edit/create"
 
