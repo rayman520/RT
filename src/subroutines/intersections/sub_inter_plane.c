@@ -12,24 +12,6 @@
 
 #include "rt.h"
 
-/*
-double	plane_inter(t_env *e, t_ray ray, t_obj obj)
-{
-	double	t;
-	t_v3d	d;
-
-	obj.n = v_norm(obj.n);
-	d = v_sub_a_by_b(obj.c, ray.o.v);
-	t = v_dot(d, obj.n);
-	if (v_dot(ray.d.nv, obj.n) != 0)
-		t = t / v_dot(ray.d.nv, obj.n);
-	if (t >= 0)
-		return (t);
-	else
-		return (-1);
-}
-*/
-
 t_hit		sub_inter_plane(t_object *plane, t_vect ray)
 {
 	double		denom;

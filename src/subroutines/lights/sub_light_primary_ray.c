@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "rt.h"
+#include <stdio.h>
 
 static int	shadow_ray(t_fullmap *map, t_light light)
 {
@@ -69,6 +70,31 @@ static t_3d_double	light_color_1(t_fullmap *map, t_hit hit, t_light light)
 	return (color);
 }
 
+static void	rt_filter(t_fullmap *map, t_3d_double *rescolor)
+{
+	t_3d_double tmp;
+
+	map->filter = NOFILTER;
+	if (map->filter == INVERTED)
+	{
+		rescolor->x = (rescolor->x <= 255 ? 255 - rescolor->x : 0);
+		rescolor->y = (rescolor->y <= 255 ? 255 - rescolor->y : 0);
+		rescolor->z = (rescolor->z <= 255 ? 255 - rescolor->z : 0);
+	}
+	if (map->filter == GRAYSCALE)
+	{
+		double gray = rescolor->x * 0.3 + rescolor->y * 0.3 + rescolor->z * 0.11;
+		rescolor->x = gray;
+		rescolor->y = gray;
+		rescolor->z = gray;
+	}
+	if (map->filter == SEPIA)
+	{
+		rescolor->x = (tmp.x * 0.393) + (tmp.y * 0.769) + (tmp.z * 0.189);
+		rescolor->y = (tmp.x * 0.349) + (tmp.y * 0.686) + (tmp.z * 0.168);
+		rescolor->z = (tmp.x * 0.272) + (tmp.y * 0.534) + (tmp.z * 0.131);
+	}
+}
 
 t_ui	sub_light_primary_ray(t_fullmap *map, t_hit hit)
 {
@@ -102,5 +128,6 @@ t_ui	sub_light_primary_ray(t_fullmap *map, t_hit hit)
 		color = v_sum(color, light_color_1(map, hit, light));
 		i++;
 	}
+	rt_filter(map, &color);
 	return (ft_double_3d_to_int(color));
 }

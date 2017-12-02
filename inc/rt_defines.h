@@ -37,6 +37,11 @@
 # define EPSILON 		0.000001
 # define BIAS			0.00001
 
+# define NOFILTER 	0
+# define GRAYSCALE 	1
+# define SEPIA 		2
+# define INVERTED 	3
+
 # define ERR_USAGE "usage: ./rt mode file\n  mode: render/edit/create"
 
 # define HEY ft_hey();

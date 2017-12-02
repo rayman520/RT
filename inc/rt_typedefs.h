@@ -145,6 +145,7 @@ typedef struct	s_fullmap
 	int			obj_c;
 	int			cam_c;
 	int			target_cam;
+	int			filter;
 	double		amb_coef;
 	double		fov;
 	int			render_key;

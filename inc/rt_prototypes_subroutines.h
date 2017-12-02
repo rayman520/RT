@@ -60,10 +60,10 @@ t_vect sub_calc_pix_vect(t_cam_vects cam, t_2dint pos, SDL_Surface *img);
 */
 t_hit	sub_inter_objects(t_fullmap *map, t_vect ray);
 t_hit	sub_inter_sphere(t_object *obj, t_vect ray);
-t_hit	sub_inter_cone(t_object *obj, t_vect ray);
-t_hit	sub_inter_plane(t_object *obj, t_vect ray);
-t_hit	sub_inter_cylinder(t_object *obj, t_vect ray);
-t_hit	sub_inter_disk(t_object *obj, t_vect ray);
+t_hit	sub_inter_cone(t_object *cone, t_vect ray);
+t_hit	sub_inter_plane(t_object *plane, t_vect ray);
+t_hit	sub_inter_cylinder(t_object *cyl, t_vect ray);
+t_hit	sub_inter_disk(t_object *disk, t_vect ray);
 
 /*
 **	Lights
