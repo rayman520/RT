@@ -149,6 +149,7 @@ typedef struct	s_fullmap
 	double		amb_coef;
 	double		fov;
 	int			render_key;
+	int			maxreflectlvl;
 }				t_fullmap;
 
 typedef t_hit	(*t_isect_fnc_tab[1])(t_object *obj, t_vect ray);

@@ -42,6 +42,10 @@
 # define SEPIA 		2
 # define INVERTED 	3
 
+# define DEFAULT 		0
+# define REFLECTIVE 	1
+# define REFRAFLECTIVE 	2
+
 # define ERR_USAGE "usage: ./rt mode file\n  mode: render/edit/create"
 
 # define HEY ft_hey();

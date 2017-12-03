@@ -68,5 +68,5 @@ t_hit	sub_inter_disk(t_object *disk, t_vect ray);
 /*
 **	Lights
 */
-t_ui	sub_light_primary_ray(t_fullmap *map, t_hit hit);
+t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray);
 #endif

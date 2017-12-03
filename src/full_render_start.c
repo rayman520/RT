@@ -41,7 +41,7 @@ static void	browse_screen_pixel(t_fullmap *map, t_SDL_Bundle b, int img_nb, int 
 		{
 			ray = sub_calc_pix_vect(map->cam_v, pos, b.render_img);
 			ft_putunlckpixel(b.render_img, pos,
-				raytrace_fullrender(map, ray));
+				ft_double_3d_to_int(raytrace_fullrender(map, ray)));
 		}
 		sub_put_percent(b.render_win, b.window_img, 100 * (double)(pos.y +
 			i * b.render_img->h) / (b.render_img->h * img_nb));
