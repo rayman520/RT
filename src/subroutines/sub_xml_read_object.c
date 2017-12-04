@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 17:19:42 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/04 11:00:40 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/04 13:21:41 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void			sub_xml_read_object(t_object *obj, xmlNode *node)
 	{
 		if (!ft_strcmp((const char *)node->name, "position"))
 			obj[o_nb].pos = sub_read_pos((char *)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "direction"))
+			obj[o_nb].dir = sub_read_pos((char *)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "type"))
 			obj[o_nb].type = read_obj_type((char *)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "radius"))
