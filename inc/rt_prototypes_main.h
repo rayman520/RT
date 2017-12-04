@@ -22,6 +22,7 @@ void			editor_start(t_str mapfile, t_fullmap *map);
 int				main(int ac, char **av);
 t_fullmap		*parser(t_str mapfile);
 t_ui			raytrace_editor(t_fullmap *map, t_vect ray);
+t_3d_double		raytrace_loop(t_fullmap *map, t_vect ray, int depth);
 t_3d_double		raytrace_fullrender(t_fullmap *map, t_vect ray);
 void			render_options_win(t_fullmap *map);
 void			full_render_init(t_str mapfile, t_fullmap *map);

@@ -70,7 +70,69 @@ static t_3d_double	light_color_1(t_fullmap *map, t_hit hit, t_light light)
 	return (color);
 }
 
-t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray)
+void 	fresnel(t_vect ray, t_hit hit, double *refraction, float *kr)
+{
+	float cosi = ft_clamp(-1, 1, v_dot(ray.dir, hit.normal_dir));
+	float etai = 1;
+	float etat = *refraction;
+	float tmp;
+	if (cosi > 0)
+	{
+		tmp = etai;
+		etai = etat;
+		etat = tmp;
+	}
+	float sint = etai / etat * sqrtf(ft_fmax(0.f, 1 - cosi * cosi));
+	if (sint >= 1)
+	{
+		*kr = 1;
+	}
+	else
+	{
+		float cost = sqrtf(ft_fmax(0.f, 1 - sint * sint));
+		cosi = fabsf(cosi);
+		float Rs = ((etat * cosi) - (etai * cost)) / ((etat * cosi) + (etai * cost));
+		float Rp = ((etai * cosi) - (etat * cost)) / ((etai * cosi) + (etat * cost));
+		*kr = (Rs * Rs + Rp * Rp) / 2;
+	}
+}
+
+t_3d_double 	rt_refract(t_vect ray, t_hit hit, double *refraction)
+{
+	float cosa = ft_clamp(-1, 1, v_dot(ray.dir, hit.normal_dir));
+	float tmp;
+	float etai = 1;
+	float etat = *refraction;
+	t_3d_double tmpdir;
+	t_3d_double tmpnorm;
+	t_3d_double refranorm;
+	t_3d_double empty;
+	empty.x = 0;
+	empty.y = 0;
+	empty.z = 0;
+	refranorm.x = hit.normal_dir.x;
+	refranorm.y = hit.normal_dir.y;
+	refranorm.z = hit.normal_dir.z;
+	if (cosa < 0)
+		cosa = -cosa;
+	else
+	{
+		tmp = etai;
+		etai = etat;
+		etat = tmp;
+		refranorm.x = -hit.normal_dir.x;
+		refranorm.y = -hit.normal_dir.y;
+		refranorm.z = -hit.normal_dir.z;
+	}
+	float eta = etai / etat;
+	float k = 1 - eta * eta * (1 - cosa * cosa);
+	tmpdir = v_mult_by_nb(ray.dir, eta);
+	if (k >= 0)
+		tmpnorm = v_mult_by_nb(refranorm, eta * cosa - sqrtf(k));
+	return (k < 0 ? empty : v_sum(tmpdir, tmpnorm));
+}
+
+t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
 {
 	t_3d_double	color;
 	t_light		light;
@@ -83,6 +145,8 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray)
 	};
 
 	i = 0;
+	hit.obj->material = DEFAULT;
+	hit.obj->refraction = 1.0;
 	color = (t_3d_double){0,0,0};
 	// PARSER
 	if (hit.obj->texture)
@@ -104,11 +168,43 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray)
 		color = v_sum(color, light_color_1(map, hit, light));
 		i++;
 	}
-	ray->pos = hit.pos;
-	reflect = 2 * v_dot(ray->dir, hit.normal_dir);
-	tmp = v_mult_by_nb(hit.normal_dir, reflect);
-	ray->dir = v_sub_a_by_b(ray->dir, tmp);
-	v_normalize(&ray->dir);
-	ray->ndir = ray->dir;
+	if (hit.obj->material == REFLECTIVE)
+	{
+		ray->pos = hit.pos;
+		reflect = 2 * v_dot(ray->dir, hit.normal_dir);
+		tmp = v_mult_by_nb(hit.normal_dir, reflect);
+		ray->dir = v_sub_a_by_b(ray->dir, tmp);
+		v_normalize(&ray->dir);
+		ray->ndir = ray->dir;
+	}
+	else if (hit.obj->material == REFRAFLECTIVE)
+	{
+		t_vect		refleray;
+		t_vect		refraray;
+		t_3d_double	refracolor;
+		t_3d_double	reflecolor;
+		float		kr;
+		fresnel(*ray, hit, &hit.obj->refraction, &kr);
+		int outside = (v_dot(ray->dir, hit.normal_dir) < 0 ? 1 : 0);
+		t_3d_double bias = v_mult_by_nb(hit.normal_dir, BIAS);
+		if (kr < 1)
+		{
+			refraray.dir = rt_refract(*ray, hit, &hit.obj->refraction);
+			v_normalize(&refraray.dir);
+			refleray.ndir = refleray.dir;
+			refraray.pos = outside ? v_sub_a_by_b(hit.pos, bias) : v_sum(hit.pos, bias);
+			refracolor = raytrace_loop(map, refraray, depth + 1);
+		}
+		refleray.pos = hit.pos;
+		reflect = 2 * v_dot(ray->dir, hit.normal_dir);
+		tmp = v_mult_by_nb(hit.normal_dir, reflect);
+		refleray.dir = v_sub_a_by_b(ray->dir, tmp);
+		v_normalize(&refleray.dir);
+		refleray.ndir = refleray.dir;
+		reflecolor = raytrace_loop(map, refleray, depth + 1);
+		color.x += reflecolor.x * kr + refracolor.x * (1 - kr);
+		color.y += reflecolor.y * kr + refracolor.y * (1 - kr);
+		color.z += reflecolor.z * kr + refracolor.z * (1 - kr);
+	}
 	return (color);
 }

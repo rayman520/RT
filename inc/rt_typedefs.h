@@ -85,6 +85,10 @@ typedef struct	s_light
 typedef enum	e_obj_t
 {
 	SPHERE = 1,
+	CONE = 2,
+	CYLINDER = 3,
+	PLANE = 4,
+	DISK = 5,
 }				t_obj_t;
 
 typedef struct		s_inter
@@ -107,6 +111,9 @@ typedef struct	s_object
 	t_3d_double	dir;
 	t_3d_double	rgb_color;
 	t_obj_t		type;
+	int			material;
+	double		reflection;
+	double		refraction;
 	t_ui		color;
 	double		radius;
 	double		albedo;
@@ -149,7 +156,7 @@ typedef struct	s_fullmap
 	double		amb_coef;
 	double		fov;
 	int			render_key;
-	int			maxreflectlvl;
+	int			maxdepth;
 }				t_fullmap;
 
 typedef t_hit	(*t_isect_fnc_tab[1])(t_object *obj, t_vect ray);

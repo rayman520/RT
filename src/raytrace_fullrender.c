@@ -38,7 +38,8 @@ static void	rt_filter(t_fullmap *map, t_3d_double *rescolor)
 	}
 }
 
-t_3d_double	raytrace_fullrender(t_fullmap *map, t_vect ray)
+
+t_3d_double	raytrace_loop(t_fullmap *map, t_vect ray, int depth)
 {
 	t_3d_double	color;
 	t_hit		hit;
@@ -46,14 +47,22 @@ t_3d_double	raytrace_fullrender(t_fullmap *map, t_vect ray)
 
 	color = (t_3d_double){0,0,0};
 	level = 0;
-	map->maxreflectlvl = 10;
-	while (level < map->maxreflectlvl)
+	map->maxdepth = 10;
+	while (level < map->maxdepth && depth < map->maxdepth)
 	{
 		hit = sub_inter_objects(map, ray);
 		if (hit.is_hit == 1 && map->light_c > 0)
-			color = sub_light_primary_ray(map, hit, &ray);
+			color = sub_light_primary_ray(map, hit, &ray, depth);
 		level++;
 	}
+	return (color);
+}
+
+t_3d_double	raytrace_fullrender(t_fullmap *map, t_vect ray)
+{
+	t_3d_double	color;
+
+	color = raytrace_loop(map, ray, 0);
 	rt_filter(map, &color);
 	return (color);
 }
