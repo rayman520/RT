@@ -21,14 +21,16 @@
 	</lights>
 	<objects>
 		<object>
-			<type>1</type>
+			<type>SPH</type>
+			<material>0</material>
 			<position>2.0,2.0,0.0</position>
 			<radius>1</radius>
 			<color>0x0000FF</color>
 			<texture></texture>
 		</object>
 		<object>
-			<type>1</type>
+			<type>SPH</type>
+			<material>0</material>
 			<position>-2.0,2.0,0.0</position>
 			<radius>1</radius>
 			<color>0xFFFF00</color>
@@ -36,7 +38,7 @@
 		</object>
 		<object>
 			<type>SPH</type>
-			<material>1</material>
+			<material>0</material>
 			<position>2.0,-2.0,0.0</position>
 			<radius>1</radius>
 			<color>0xFF0000</color>
@@ -44,7 +46,7 @@
 		</object>
 		<object>
 			<type>SPH</type>
-			<material>1</material>
+			<material>0</material>
 			<position>-2.0,-2.0,0.0</position>
 			<radius>1</radius>
 			<color>0x00FF00</color>
