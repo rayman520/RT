@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 17:19:42 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/01 16:45:45 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/04 11:00:40 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,17 @@
 static t_obj_t	read_obj_type(t_str str)
 {
 	ft_strupcase(str);
-	if (!ft_strcmp(str, "SPHERE"))
-	{
-		printf("object type consedered as sphere\n");
+	printf("Object type considered as %s\n", str);
+	if (ft_is_any_string(str, 2, "SPHERE", "SPH"))
 		return (SPHERE);
-	}
+	else if (ft_is_any_string(str, 2, "CONE", "CON"))
+		return (CONE);
+	else if (ft_is_any_string(str, 3, "CYLINDER", "CYLINDRE", "CYL"))
+		return (CYLINDER);
+	else if (ft_is_any_string(str, 3, "PLANE", "PLAN", "PLA"))
+		return (PLANE);
+	else if (ft_is_any_string(str, 2, "DISC", "DISK", "DIS"))
+		return (DISK);
 	else
 	{
 		printf("Object type not recognized, setting to sphere\n");
@@ -51,6 +57,14 @@ void			sub_xml_read_object(t_object *obj, xmlNode *node)
 		}
 		if (!ft_strcmp((const char *)node->name, "texture"))
 			obj[o_nb].texture = sub_read_texture((t_str)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "material"))
+			obj[o_nb].material = ft_atoi((t_str)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "reflection"))
+			obj[o_nb].reflection = (double)ft_atof((t_str)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "refraction"))
+			obj[o_nb].refraction = (double)ft_atof((t_str)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "albedo"))
+			obj[o_nb].albedo = (double)ft_atof((t_str)xmlNodeGetContent(node));
 		node = node->next;
 	}
 	o_nb++;

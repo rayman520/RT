@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:15:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/22 12:08:56 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/04 10:26:29 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
+# include <stdarg.h>
 
 # include <../lib/frameworks/SDL2.framework/Headers/SDL.h>
 # include <../lib/frameworks/SDL2_image.framework/Headers/SDL_image.h>

@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 16:01:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/28 17:55:05 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/04 10:57:57 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ void	sub_xml_read_light(t_light *light, xmlNode *node)
 		if (!ft_strcmp((const char *)node->name, "power"))
 			printf("Light power set to %f\n",
 			light[l_nb].pow = sub_read_double((char *)xmlNodeGetContent(node)));
+		if (!ft_strcmp((const char *)node->name, "intensity"))
+			light[l_nb].intensity = (double)ft_atof((t_str)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "color"))
+			light[l_nb].color = sub_read_3d_double((t_str)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "bias"))
+			light[l_nb].bias = (double)ft_atof((t_str)xmlNodeGetContent(node));
 		node = node->next;
 	}
 	l_nb++;

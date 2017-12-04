@@ -6,13 +6,13 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 17:28:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/10/30 18:46:14 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/04 11:01:33 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void options_parser(xmlNode *node, t_fullmap *map)
+static void	options_parser(xmlNode *node, t_fullmap *map)
 {
 	xmlNode *cur_node;
 
@@ -31,6 +31,10 @@ static void options_parser(xmlNode *node, t_fullmap *map)
 				map->fps.y = ft_atoi((char *)xmlNodeGetContent(cur_node));
 			else if (!ft_strcmp((const char *)cur_node->name, "fov"))
 				map->fov = ft_atoi((char *)xmlNodeGetContent(cur_node));
+			else if (!ft_strcmp((const char *)cur_node->name, "ambiant_occ"))
+				map->amb_coef = (double)ft_atof((char *)xmlNodeGetContent(node));
+			else if (!ft_strcmp((const char *)cur_node->name, "maxdepth"))
+				map->maxdepth = ft_atoi((char *)xmlNodeGetContent(cur_node));
 		}
 		cur_node = cur_node->next;
 	}

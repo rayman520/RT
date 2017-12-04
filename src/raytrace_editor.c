@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 16:24:21 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/01 16:52:44 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/04 10:32:53 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ t_ui			raytrace_editor(t_fullmap *map, t_vect ray)
 	t_hit		hit;
 	double		light_coef;
 
-	map->amb_coef = 0.7;
 	light_coef = 0;
 	hit = intersect_obj(map, ray);
 	if (!(hit.dist < RENDER_DIST))

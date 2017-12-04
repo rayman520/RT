@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2017/12/01 14:19:10 by cpierre          ###   ########.fr        #
+#    Updated: 2017/12/04 10:22:30 by cpierre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ SRC =	\
 		basic/ft_handle_windowevent.c\
 		basic/ft_hey.c\
 		basic/ft_intlen.c\
+		basic/ft_is_any_string.c\
 		basic/ft_isnbr.c\
 		basic/ft_isspace.c\
 		basic/ft_itoa.c\

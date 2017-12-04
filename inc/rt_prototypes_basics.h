@@ -6,14 +6,14 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:01:39 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/01 14:20:10 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/04 10:21:00 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_PROTOTYPES_BASICS_H
 # define RT_PROTOTYPES_BASICS_H
 
-#include "rt.h"
+# include "rt.h"
 
 /*
 **	Basics
@@ -33,6 +33,7 @@ void			ft_handle_windowevent(SDL_WindowEvent win);
 void			ft_hey(void);
 size_t			ft_uintlen(unsigned int nb);
 size_t			ft_intlen(int nb);
+int				ft_is_any_string(t_str str, int n, ...);
 int				ft_isnbr(int c);
 int				ft_isspace(int c);
 t_str			ft_itoa(int n);
@@ -86,9 +87,9 @@ void			m_set_as_default(double **m);
 /*
 **	Debug
 */
-void	display_3d_double(char *s, t_3d_double v);
-void	display_2d_int(char *s, t_2dint v);
-void	display_vect(char *s, t_vect v);
-void	display_cam_vects(char *s, t_cam_vects cam_v);
+void			display_3d_double(char *s, t_3d_double v);
+void			display_2d_int(char *s, t_2dint v);
+void			display_vect(char *s, t_vect v);
+void			display_cam_vects(char *s, t_cam_vects cam_v);
 
 #endif
