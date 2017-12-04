@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/01 16:52:47 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/04 14:59:37 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 	else
 		hit.obj->rgb_color = ft_int_to_double_3d(hit.obj->color);
 	hit.obj->albedo = 0.18;
-	light.intensity = 2;
+	light.intensity = 0.5;
 	light.bias = 0.00001;
 	light.color = (t_3d_double){255,255,255};
 	// PARSER

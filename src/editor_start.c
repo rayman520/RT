@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 16:31:06 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/01 16:24:14 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/04 14:42:18 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 static void	init(t_fullmap *map)
 {
 	map->render_key = 0;
-	map->obj[1].i = 0;
+//	map->obj[1].i = 0;
 }
 
 static void	obj_movements(t_fullmap *map)
 {
-	map->obj[1].i = map->obj[1].i + 1;
-	map->obj[1].pos.x = 2 * cos((double)map->obj[1].i / 100);
-	map->obj[1].pos.y = 2 * sin((double)map->obj[1].i / 100);
+//	map->obj[1].i = map->obj[1].i + 1;
+//	map->obj[1].pos.x = 2 * cos((double)map->obj[1].i / 100);
+//	map->obj[1].pos.y = 2 * sin((double)map->obj[1].i / 100);
 	//	map->light[0].pos.x = 1 * cos((double)map->obj[1].i / 100);
 	//	map->light[0].pos.y = 1 * sin((double)map->obj[1].i / 100);
 }

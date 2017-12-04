@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:08:27 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/28 16:30:04 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/04 14:40:51 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ t_hit	sub_inter_objects(t_fullmap *map, t_vect ray)
 	int						i;
 	static t_isect_fnc_tab	funct_tab =
 	{
-		sub_inter_sphere
+		sub_inter_sphere,
+		sub_inter_cone,
+		sub_inter_cylinder,
+		sub_inter_plane,
+		sub_inter_disk
 	};
 
 	hit = (t_hit){NULL_POS, NULL_POS, NULL_VECT, NULL, RENDER_DIST, 0};
