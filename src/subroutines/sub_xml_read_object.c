@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 14:59:06 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/04 15:02:01 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/04 15:30:08 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@
 
 #include "rt.h"
 
-static t_obj_t	read_obj_type(t_str str)
-{
-	ft_strupcase(str);
-	printf("Object type considered as %s\n", str);
-	if (ft_is_any_string(str, 2, "SPHERE", "SPH"))
-		return (SPHERE);
-	else if (ft_is_any_string(str, 2, "CONE", "CON"))
-		return (CONE);
-	else if (ft_is_any_string(str, 3, "CYLINDER", "CYLINDRE", "CYL"))
-		return (CYLINDER);
-	else if (ft_is_any_string(str, 3, "PLANE", "PLAN", "PLA"))
+	static t_obj_t	read_obj_type(t_str str)
+	{
+		ft_strupcase(str);
+		printf("Object type considered as %s\n", str);
+		if (ft_is_any_string(str, 2, "SPHERE", "SPH"))
+			return (SPHERE);
+		else if (ft_is_any_string(str, 2, "CONE", "CON"))
+			return (CONE);
+		else if (ft_is_any_string(str, 3, "CYLINDER", "CYLINDRE", "CYL"))
+			return (CYLINDER);
+		else if (ft_is_any_string(str, 3, "PLANE", "PLAN", "PLA"))
 		return (PLANE);
 	else if (ft_is_any_string(str, 2, "DISC", "DISK", "DIS"))
 		return (DISK);
@@ -43,6 +43,23 @@ static t_obj_t	read_obj_type(t_str str)
 		printf("Object type not recognized, setting to sphere\n");
 		return (SPHERE);
 	}
+}
+
+static t_obj_t	read_obj_material(t_str str)
+	{
+		ft_strupcase(str);
+		printf("Object type considered as %s\n", str);
+		if (ft_is_any_string(str, 2, "DEFAULT", "DEF"))
+			return (DEFAULT);
+		else if (ft_is_any_string(str, 2, "REFLECTIVE", "REFL"))
+			return (REFLECTIVE);
+		else if (ft_is_any_string(str, 2, "REFRACTIVE", "REFR"))
+			return (REFRAFLECTIVE);
+		else
+		{
+			printf("Object material not recognized, setting to default\n");
+			return (DEFAULT);
+		}
 }
 
 void			sub_xml_read_object(t_object *obj, xmlNode *node)
@@ -72,7 +89,7 @@ void			sub_xml_read_object(t_object *obj, xmlNode *node)
 		if (!ft_strcmp((const char *)node->name, "texture"))
 			obj[o_nb].texture = sub_read_texture((t_str)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "material"))
-			obj[o_nb].material = ft_atoi((t_str)xmlNodeGetContent(node));
+			obj[o_nb].material = read_obj_material((t_str)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "reflection"))
 			obj[o_nb].reflection = (double)ft_atof((t_str)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "refraction"))

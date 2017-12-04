@@ -22,7 +22,7 @@
 	<objects>
 		<object>
 			<type>SPH</type>
-			<material>0</material>
+			<material>DEF</material>
 			<position>2.0,2.0,0.0</position>
 			<radius>1</radius>
 			<color>0x0000FF</color>
@@ -30,7 +30,7 @@
 		</object>
 		<object>
 			<type>SPH</type>
-			<material>0</material>
+			<material>DEF</material>
 			<position>-2.0,2.0,0.0</position>
 			<radius>1</radius>
 			<color>0xFFFF00</color>
@@ -38,7 +38,7 @@
 		</object>
 		<object>
 			<type>SPH</type>
-			<material>0</material>
+			<material>DEF</material>
 			<position>2.0,-2.0,0.0</position>
 			<radius>1</radius>
 			<color>0xFF0000</color>
@@ -46,7 +46,7 @@
 		</object>
 		<object>
 			<type>SPH</type>
-			<material>0</material>
+			<material>DEF</material>
 			<position>-2.0,-2.0,0.0</position>
 			<radius>1</radius>
 			<color>0x00FF00</color>
@@ -54,7 +54,7 @@
 		</object>
 		<object>
 			<type>SPH</type>
-			<material>1</material>
+			<material>REFL</material>
 			<position>0.0,0.0,0.0</position>
 			<radius>1</radius>
 			<color>0xFFFFFF</color>
