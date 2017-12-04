@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/04 14:59:37 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/04 15:01:04 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 	};
 
 	i = 0;
-	hit.obj->material = DEFAULT;
+//	hit.obj->material = DEFAULT;
 	hit.obj->refraction = 1.0;
 	color = (t_3d_double){0,0,0};
 	// PARSER
