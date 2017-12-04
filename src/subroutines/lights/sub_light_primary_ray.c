@@ -192,7 +192,7 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 			refraray.dir = rt_refract(*ray, hit, &hit.obj->refraction);
 			v_normalize(&refraray.dir);
 			refleray.ndir = refleray.dir;
-			refraray.pos = outside ? v_sub_a_by_b(hit.pos, bias) : v_sum(hit.pos, bias);
+			refraray.pos = outside == 1 ? v_sub_a_by_b(hit.pos, bias) : v_sum(hit.pos, bias);
 			refracolor = raytrace_loop(map, refraray, depth + 1);
 		}
 		refleray.pos = hit.pos;
