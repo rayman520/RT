@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 16:49:37 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/28 16:52:20 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/05 14:40:53 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ t_hit		sub_inter_plane(t_object *plane, t_vect ray)
 	t_hit		hit;
 	t_3d_double	dist;
 
-	plane->dir = (t_3d_double){0,0,1};
 	ray.ndir = v_norm(ray.dir);
+	plane->dir = v_norm(plane->dir);
+//	denom = ((v_dot(plane->dir, plane->pos) -
+//			v_dot(plane->dir, ray.pos)) / v_dot(plane->dir, ray.dir));
 	denom = ((v_dot(plane->dir, plane->pos) -
-			v_dot(plane->dir, ray.pos)) / v_dot(plane->dir, ray.dir));
+			v_dot(plane->dir, ray.pos)) / v_dot(plane->dir, ray.ndir));
 	if (denom >= 0)
 		hit.is_hit = 1;
 	else

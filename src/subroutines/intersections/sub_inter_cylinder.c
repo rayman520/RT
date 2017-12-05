@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:00 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/29 14:56:30 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/04 15:55:41 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_hit		sub_inter_cylinder(t_object *cyl, t_vect ray)
 		inter.t0 = inter.t1;
 	hit.dist = inter.t0;
 	hit.pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit.dist));
+	hit.pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, 0.1));
 	inter.dist = v_sub_a_by_b(ray.pos, cyl->pos);
 	inter.temp = v_mult_by_nb(cyl->dir, (v_dot(ray.dir, cyl->dir) * hit.dist
 	+ v_dot(inter.dist, cyl->dir)));

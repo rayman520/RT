@@ -5,7 +5,7 @@
 		<editor_res>1280x800</editor_res>
 		<editor_fps_low>30</editor_fps_low>
 		<editor_fps_high>60</editor_fps_high>
-		<fov>90</fov>
+		<fov>30</fov>
 	</options>
 	<cameras>
 		<camera>
@@ -15,21 +15,22 @@
 	</cameras>
 	<lights>
 		<light>
-			<position>-1.0,1.0,0.0</position>
+			<position>-1.0,1.0,1.0</position>
 			<power>10.0</power>
 		</light>
 	</lights>
 	<objects>
 		<object>
-			<type>sphere</type>
-			<position>0.0,0.0,0.0</position>
+			<type>SPH</type>
+			<position>0.0,3.0,0.0</position>
 			<radius>0.5</radius>
 			<color>0x0000FF</color>
 			<texture></texture>
 		</object>
 		<object>
-			<type>sphere</type>
-			<position>-1.0,2.0,0.0</position>
+			<type>CON</type>
+			<position>0.0,0.0,0.0</position>
+			<direction>0,0,1</direction>
 			<radius>0.2</radius>
 			<color>0xFFFFFF</color>
 			<texture></texture>
