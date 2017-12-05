@@ -110,6 +110,8 @@ typedef struct	s_object
 	t_3d_double	pos;
 	t_3d_double	dir;
 	t_3d_double	rgb_color;
+	t_3d_double min;
+	t_3d_double max;
 	t_obj_t		type;
 	int			material;
 	double		reflection;

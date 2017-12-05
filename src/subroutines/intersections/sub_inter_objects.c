@@ -12,6 +12,22 @@
 
 #include "rt.h"
 
+void	rt_check_minmax(t_3d_double min, t_3d_double max, t_hit *hit)
+{
+	min.x = -1000000;
+	max.x = 1000000;
+	min.y = -1000000;
+	max.y = 1000000;
+	min.z = -1000000;
+	max.z = 1000000;
+	if (hit->pos.x < min.x || hit->pos.x > max.x)
+		hit->is_hit = 0;
+	if (hit->pos.y < min.y || hit->pos.y > max.y)
+		hit->is_hit = 0;
+	if (hit->pos.z < min.z || hit->pos.z > max.z)
+		hit->is_hit = 0;
+}
+
 t_hit	sub_inter_objects(t_fullmap *map, t_vect ray)
 {
 	t_hit					hit;
@@ -31,6 +47,7 @@ t_hit	sub_inter_objects(t_fullmap *map, t_vect ray)
 	while (++i < map->obj_c)
 	{
 		new_hit = funct_tab[map->obj[i].type - 1](&map->obj[i], ray);
+		rt_check_minmax(new_hit.obj->min, new_hit.obj->max, &new_hit);
 		if (new_hit.is_hit == 1 && new_hit.dist < hit.dist && new_hit.dist > EPSILON)
 			hit = new_hit;
 	}
