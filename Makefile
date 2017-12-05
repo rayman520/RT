@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2017/12/04 10:22:30 by cpierre          ###   ########.fr        #
+#    Updated: 2017/12/05 17:43:56 by cpierre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ TYPE_DIR =	\
 			subroutines/lights\
 
 SRC =	\
+		basic/ft_abs.c\
 		basic/ft_atoi.c\
 		basic/ft_atof.c\
 		basic/ft_biggest_fl.c\

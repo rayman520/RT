@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:01:39 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/04 10:21:00 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/05 17:43:29 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 /*
 **	Basics
 */
+double			ft_flabs(float nb);
 int				ft_atoi(t_str str);
 float			ft_atof(t_str str);
 float			ft_biggest_fl(float a, float b);

@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 16:24:21 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/04 14:39:43 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/05 17:53:58 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ static double	get_light_coef(t_fullmap *map, t_hit hit)
 		if (shadow_hit.obj == NULL)
 		{
 			coef = ft_dot_product((t_vect){hit.pos, hit.normal_dir}, ft_unit_vect(light_vect));
-			out += (coef * map->light[i].pow);
+			out += (ft_flabs(coef) * map->light[i].pow);
 		}
 		else if (shadow_hit.dist > ft_vect_norm(light_vect))
 		{
 			coef = ft_dot_product((t_vect){hit.pos, hit.normal_dir}, ft_unit_vect(light_vect));
-			out += (coef * map->light[i].pow);
+			out += (ft_flabs(coef) * map->light[i].pow);
 		}
 		total_power += map->light[i].pow;
 	}
