@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2017/12/05 17:43:56 by cpierre          ###   ########.fr        #
+#    Updated: 2017/12/06 13:50:17 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ SRC =	\
 		basic/ft_xml_rd_res.c\
 		basic/ft_fmax.c\
 		basic/ft_clamp.c\
+		\
 		basic/vector_handle/v_normalize.c\
 		basic/vector_handle/v_cross.c\
 		basic/vector_handle/v_div_by_nb.c\
@@ -94,36 +95,41 @@ SRC =	\
 		basic/vector_handle/v_norm.c\
 		basic/vector_handle/v_sub_a_by_b.c\
 		basic/vector_handle/v_sum.c\
+		\
 		basic/matrix_handle/m4_allocate.c\
 		basic/matrix_handle/m4_fill.c\
 		basic/matrix_handle/m4_mult_m4.c\
 		basic/matrix_handle/m4_mult_v.c\
 		basic/matrix_handle/m4_set_as_default.c\
+		\
 		basic/debug/debug.c\
-		subroutines/sub_basic_arg_test.c\
+		\
 		subroutines/sub_blit_render.c\
 		subroutines/sub_calc_cam_vects.c\
-		subroutines/sub_check_extension.c\
 		subroutines/sub_create_file.c\
-		subroutines/sub_create_render_window.c\
 		subroutines/sub_create_xml.c\
+		subroutines/sub_create_render_window.c\
 		subroutines/sub_draw_image_editor.c\
 		subroutines/sub_fullrender_end.c\
 		subroutines/sub_handle_keyboard.c\
 		subroutines/sub_sphere.c\
 		subroutines/sub_move_cam_dir.c\
 		subroutines/sub_move_cam_pos.c\
+		subroutines/sub_put_fps.c\
+		subroutines/sub_put_percent.c\
+		subroutines/sub_calc_pix_vect.c\
+		\
+		subroutines/sub_basic_arg_test.c\
+		subroutines/sub_check_extension.c\
 		subroutines/sub_xml_malloc_lights_and_objects.c\
 		subroutines/sub_xml_read_light.c\
 		subroutines/sub_xml_read_object.c\
 		subroutines/sub_xml_read_camera.c\
 		subroutines/sub_parser_xml.c\
-		subroutines/sub_put_fps.c\
-		subroutines/sub_put_percent.c\
 		subroutines/sub_read_hex.c\
 		subroutines/sub_read_pos.c\
 		subroutines/sub_read_texture.c\
-		subroutines/sub_calc_pix_vect.c\
+		\
 		subroutines/intersections/sub_inter_plane.c\
 		subroutines/intersections/sub_inter_disk.c\
 		subroutines/intersections/sub_inter_sphere.c\
@@ -132,7 +138,9 @@ SRC =	\
 		subroutines/intersections/sub_inter_triangle.c\
 		subroutines/intersections/sub_inter_quadrangle.c\
 		subroutines/intersections/sub_inter_objects.c\
+		\
 		subroutines/lights/sub_light_primary_ray.c\
+		\
 		editor_start.c\
 		main.c\
 		options_win.c\
