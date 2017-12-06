@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:07 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/06 11:29:43 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/06 14:43:25 by bvan-dyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ static void	rt_filter(t_fullmap *map, t_3d_double *rescolor)
 	t_3d_double tmp;
 
 	map->filter = NOFILTER;
+	tmp.red = ray->color.red;
+	tmp.green = ray->color.green;
+	tmp.blue = ray->color.blue;
 	if (map->filter == INVERTED)
 	{
 		rescolor->x = (rescolor->x <= 255 ? 255 - rescolor->x : 0);
