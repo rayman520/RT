@@ -23,7 +23,7 @@ t_hit		sub_inter_quadrangle(t_object *quad, t_vect ray)
 	quad->pa = quad->pd;
 	hit2 = sub_inter_triangle(quad, ray);
 	quad->pa = tmp;
-	if (hit.dist > hit2.dist)
+	if (hit.is_hit == 0 || hit.dist > hit2.dist)
 		return (hit2);
 	else
 		return (hit);
