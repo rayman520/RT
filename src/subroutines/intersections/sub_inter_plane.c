@@ -16,7 +16,6 @@ t_hit		sub_inter_plane(t_object *plane, t_vect ray)
 {
 	double		denom;
 	t_hit		hit;
-	t_3d_double	dist;
 
 	ray.ndir = v_norm(ray.dir);
 	plane->dir = v_norm(plane->dir);

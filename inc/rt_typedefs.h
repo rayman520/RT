@@ -105,6 +105,20 @@ typedef struct		s_inter
 	t_3d_double		temp2;
 }					t_inter;
 
+typedef struct		s_triter
+{
+	double 			det;
+	double 			invdet;
+	t_3d_double 	edge1;
+	t_3d_double 	edge2;
+	t_3d_double 	vs1;
+	t_3d_double 	vs2;
+	t_3d_double 	vs3;
+	double 			tmp;
+	double 			u;
+	double			v;
+}					t_triter;
+
 typedef struct	s_object
 {
 	t_3d_double	pos;
@@ -112,6 +126,10 @@ typedef struct	s_object
 	t_3d_double	rgb_color;
 	t_3d_double min;
 	t_3d_double max;
+	t_3d_double pa;
+	t_3d_double pb;
+	t_3d_double pc;
+	t_3d_double pd;
 	t_obj_t		type;
 	int			material;
 	double		reflection;
