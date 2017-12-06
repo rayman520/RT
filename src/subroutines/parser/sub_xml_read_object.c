@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 14:59:06 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/06 12:26:06 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/06 18:14:15 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,9 @@ void			sub_xml_read_object(t_object *obj, xmlNode *node)
 			obj[o_nb].refraction = (double)ft_atof((t_str)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "albedo"))
 			obj[o_nb].albedo = (double)ft_atof((t_str)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "refracoef"))
+			obj[o_nb].refracoef = (double)ft_atof((t_str)xmlNodeGetContent(node));
+
 		node = node->next;
 	}
 	o_nb++;
