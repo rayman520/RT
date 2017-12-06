@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/06 14:00:02 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/06 17:42:42 by bvan-dyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ typedef struct	s_object
 	int			material;
 	double		reflection;
 	double		refraction;
+	double		refracoef;
 	t_ui		color;
 	double		radius;
 	double		albedo;
@@ -164,6 +165,7 @@ typedef struct	s_fullmap
 	t_object	*obj;
 	t_vect		*camera;
 	t_2dint		res;
+	double		coef;
 	t_2dint		editres;
 	t_2dint		fps;
 	t_str		mapfile_pathname;

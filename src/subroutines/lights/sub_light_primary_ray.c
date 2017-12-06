@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/06 16:43:44 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/06 17:55:45 by bvan-dyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,12 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 	int			i;
 	double	reflect;
 	t_3d_double	tmp;
+	t_vect		refleray;
+	t_vect		refraray;
+	t_3d_double	refracolor;
+	t_3d_double	reflecolor;
+	float		kr;
+
 	static t_texture_ft_tab funct_tab =
 	{
 		sub_texture_sphere
@@ -159,20 +165,21 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 	}
 	if (hit.obj->material == REFLECTIVE)
 	{
+		if (hit.obj->type == SPHERE || hit.obj->type == CYLINDER \
+			 || hit.obj->type == CONE)
+			map->coef *= hit.obj->reflection;
 		ray->pos = hit.pos;
 		reflect = 2 * v_dot(ray->dir, hit.normal_dir);
 		tmp = v_mult_by_nb(hit.normal_dir, reflect);
 		ray->dir = v_sub_a_by_b(ray->dir, tmp);
 		v_normalize(&ray->dir);
 		ray->ndir = ray->dir;
+		reflecolor = raytrace_loop(map, *ray, depth + 1);
+		color = v_sum(color, reflecolor);
+		color = v_mult_by_nb(color, map->coef);
 	}
 	else if (hit.obj->material == REFRAFLECTIVE)
 	{
-		t_vect		refleray;
-		t_vect		refraray;
-		t_3d_double	refracolor;
-		t_3d_double	reflecolor;
-		float		kr;
 		fresnel(*ray, hit, &hit.obj->refraction, &kr);
 		int outside = (v_dot(ray->dir, hit.normal_dir) < 0 ? 1 : 0);
 		t_3d_double bias = v_mult_by_nb(hit.normal_dir, BIAS);
