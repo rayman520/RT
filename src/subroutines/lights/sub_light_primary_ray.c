@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/06 17:55:45 by bvan-dyc         ###   ########.fr       */
+/*   Updated: 2017/12/06 18:08:51 by bvan-dyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,6 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 		fresnel(*ray, hit, &hit.obj->refraction, &kr);
 		int outside = (v_dot(ray->dir, hit.normal_dir) < 0 ? 1 : 0);
 		t_3d_double bias = v_mult_by_nb(hit.normal_dir, BIAS);
-
 		if (kr < 1)
 		{
 			refraray.dir = rt_refract(*ray, hit, &hit.obj->refraction);
@@ -192,6 +191,9 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 			refraray.pos = outside == 1 ? v_sub_a_by_b(hit.pos, bias) : v_sum(hit.pos, bias);
 			refracolor = raytrace_loop(map, refraray, depth + 1);
 		}
+		if (hit.obj->type == SPHERE || hit.obj->type == CYLINDER \
+			 || hit.obj->type == CONE)
+			map->coef *= hit.obj->refracoef;
 		refleray.pos = hit.pos;
 		reflect = 2 * v_dot(ray->dir, hit.normal_dir);
 		tmp = v_mult_by_nb(hit.normal_dir, reflect);
@@ -202,6 +204,7 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 		color.x += reflecolor.x * kr + refracolor.x * (1 - kr);
 		color.y += reflecolor.y * kr + refracolor.y * (1 - kr);
 		color.z += reflecolor.z * kr + refracolor.z * (1 - kr);
+		color = v_mult_by_nb(color, map->coef);
 	}
 	return (color);
 }
