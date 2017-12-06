@@ -6,16 +6,23 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 17:28:23 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/29 16:42:38 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/06 12:26:22 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	sub_xml_read_camera(t_vect *cam, xmlNode *node)
+static void	default_camera(t_vect *cam, int c_nb)
+{
+	cam[c_nb].pos = (t_3d_double){-5,0,0};
+	cam[c_nb].dir = (t_3d_double){1,0,0};
+}
+
+void		sub_xml_read_camera(t_vect *cam, xmlNode *node)
 {
 	static int c_nb = 0;
 
+	default_camera(cam, c_nb);
 	printf("Reading camera %d\n", c_nb + 1);
 	while (node)
 	{

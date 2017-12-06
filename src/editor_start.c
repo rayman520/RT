@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 16:31:06 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/05 17:33:33 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/06 10:14:16 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	obj_movements(t_fullmap *map)
 //	map->obj[1].pos.x = 2 * cos((double)map->obj[1].i / 100);
 //	map->obj[1].pos.y = 2 * sin((double)map->obj[1].i / 100);
 	//	map->light[0].pos.x = 1 * cos((double)map->obj[1].i / 100);
-		map->light[0].pos.y = 10 * sin((double)frame / 100);
+	//	map->light[0].pos.y = 10 * sin((double)frame / 100);
 }
 
 static void	launch_raytrace(t_fullmap *map, SDL_Window *render_win,

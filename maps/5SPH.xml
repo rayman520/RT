@@ -5,6 +5,7 @@
 		<editor_res>1280x800</editor_res>
 		<editor_fps_low>30</editor_fps_low>
 		<editor_fps_high>60</editor_fps_high>
+		<maxdepth>1</maxdepth>
 		<fov>90</fov>
 	</options>
 	<cameras>
@@ -16,7 +17,9 @@
 	<lights>
 		<light>
 			<position>0.0,0.0,3.0</position>
+			<color>255,255,255</color>
 			<power>10.0</power>
+			<intensity>0.5</intensity>
 		</light>
 	</lights>
 	<objects>
@@ -26,6 +29,7 @@
 			<position>2.0,2.0,0.0</position>
 			<radius>1</radius>
 			<color>0x0000FF</color>
+			<albedo>0.18</albedo>
 			<texture></texture>
 		</object>
 		<object>
@@ -34,6 +38,7 @@
 			<position>-2.0,2.0,0.0</position>
 			<radius>1</radius>
 			<color>0xFFFF00</color>
+			<albedo>0.18</albedo>
 			<texture></texture>
 		</object>
 		<object>
@@ -42,6 +47,7 @@
 			<position>2.0,-2.0,0.0</position>
 			<radius>1</radius>
 			<color>0xFF0000</color>
+			<albedo>0.18</albedo>
 			<texture></texture>
 		</object>
 		<object>
@@ -50,6 +56,7 @@
 			<position>-2.0,-2.0,0.0</position>
 			<radius>1</radius>
 			<color>0x00FF00</color>
+			<albedo>0.18</albedo>
 			<texture></texture>
 		</object>
 		<object>
@@ -58,6 +65,7 @@
 			<position>0.0,0.0,0.0</position>
 			<radius>1</radius>
 			<color>0xFFFFFF</color>
+			<albedo>0.18</albedo>
 			<texture></texture>
 		</object>
 

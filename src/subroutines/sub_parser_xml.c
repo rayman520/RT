@@ -6,16 +6,27 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 17:28:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/04 11:01:33 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/06 12:25:10 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
+static void	default_options(t_fullmap *map)
+{
+	map->res = (t_2dint){1280,800};
+	map->editres = (t_2dint){1280,800};
+	map->fps = (t_2dint){30,60};
+	map->maxdepth = 1;
+	map->fov = 30;
+}
+
 static void	options_parser(xmlNode *node, t_fullmap *map)
 {
 	xmlNode *cur_node;
 
+	default_options(map);
+	printf("Reading options\n");
 	cur_node = node;
 	while (cur_node)
 	{

@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:07 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/05 13:01:00 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/06 11:29:43 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static void	rt_filter(t_fullmap *map, t_3d_double *rescolor)
 		rescolor->z = (tmp.x * 0.272) + (tmp.y * 0.534) + (tmp.z * 0.131);
 	}
 }
-
 
 t_3d_double	raytrace_loop(t_fullmap *map, t_vect ray, int depth)
 {

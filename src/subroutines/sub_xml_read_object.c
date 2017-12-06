@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 14:59:06 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/05 12:38:59 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/06 12:26:06 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,26 @@ static t_obj_t	read_obj_material(t_str str)
 		}
 }
 
+static void		default_object(t_object *obj, int o_nb)
+{
+	obj[o_nb].type = SPHERE;
+	obj[o_nb].texture = NULL;
+	obj[o_nb].material = 0;
+	obj[o_nb].color = 0xFFFFFF;
+	obj[o_nb].albedo = 0.18;
+	obj[o_nb].radius = 1.0;
+	obj[o_nb].reflection = 1.0;
+	obj[o_nb].refraction = 1.0;
+	obj[o_nb].pos = (t_3d_double){0,0,0};
+	obj[o_nb].dir = (t_3d_double){0,0,1};
+}
+
 void			sub_xml_read_object(t_object *obj, xmlNode *node)
 {
 	static int o_nb = 0;
 
+	default_object(obj, o_nb);
 	printf("Reading object %d\n", o_nb + 1);
-	obj[o_nb].texture = NULL;
 	while (node)
 	{
 		if (!ft_strcmp((const char *)node->name, "position"))

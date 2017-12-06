@@ -6,16 +6,25 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 16:01:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/04 10:57:57 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/06 12:25:45 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	sub_xml_read_light(t_light *light, xmlNode *node)
+static void	default_light(t_light *light, int l_nb)
+{
+	light[l_nb].pos = (t_3d_double){-2,2,2};
+	light[l_nb].color = (t_3d_double){255,255,255};
+	light[l_nb].pow = 10;
+	light[l_nb].intensity = 0.5;
+}
+
+void		sub_xml_read_light(t_light *light, xmlNode *node)
 {
 	static int l_nb = 0;
 
+	default_light(light, l_nb);
 	printf("Reading light %d\n", l_nb + 1);
 	while (node)
 	{
