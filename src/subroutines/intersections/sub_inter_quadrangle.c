@@ -15,15 +15,16 @@
 t_hit		sub_inter_quadrangle(t_object *quad, t_vect ray)
 {
 	t_hit 		hit;
+	t_hit 		hit2;
 	t_3d_double tmp;
 
 	hit = sub_inter_triangle(quad, ray);
-	if (hit.is_hit == 0)
-	{
-		tmp = quad->pa;
-		quad->pa = quad->pd;
-		hit = sub_inter_triangle(quad, ray);
-		quad->pa = tmp;
-	}
-	return (hit);
+	tmp = quad->pa;
+	quad->pa = quad->pd;
+	hit2 = sub_inter_triangle(quad, ray);
+	quad->pa = tmp;
+	if (hit.dist > hit2.dist)
+		return (hit2);
+	else
+		return (hit);
 }
