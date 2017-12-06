@@ -22,7 +22,7 @@
 			<intensity>0.5</intensity>
 		</light>
 		<light>
-			<position>0.0,0.0,0.0</position>
+			<position>50.0,0.0,0.0</position>
 			<color>255,255,255</color>
 			<power>10.0</power>
 			<intensity>0.5</intensity>

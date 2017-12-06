@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/06 14:51:23 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/06 16:43:44 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	shadow_ray(t_fullmap *map, t_light light)
 	return (0);
 }
 
-static t_3d_double	light_color_2(t_fullmap *map, t_3d_double intensity, t_hit hit, t_light light)
+static t_3d_double	light_color_2(t_fullmap *map, t_3d_double intensity, t_hit hit, t_light light, t_vect *ray)
 {
 	t_3d_double	c_light;
 	t_3d_double	c_obj;
@@ -43,13 +43,15 @@ static t_3d_double	light_color_2(t_fullmap *map, t_3d_double intensity, t_hit hi
 			(double)(hit.obj->albedo / PI)), intensity);
 	color = v_sum(c_light, c_obj);
 	dot = v_dot(hit.normal_dir, light.ray.dir);
+	if (hit.obj->type == PLANE && (v_dot(v_mult_by_nb(hit.normal_dir, -1), ray->dir) < 0))
+			dot = v_dot(v_mult_by_nb(hit.normal_dir, -1), light.ray.dir);
 	if (dot < 0)
 		dot = 0;
 	color = v_mult_by_nb(color, dot);
 	return (color);
 }
 
-static t_3d_double	light_color_1(t_fullmap *map, t_hit hit, t_light light)
+static t_3d_double	light_color_1(t_fullmap *map, t_hit hit, t_light light, t_vect *ray)
 {
 	t_3d_double	color;
 	t_3d_double	intensity;
@@ -63,7 +65,7 @@ static t_3d_double	light_color_1(t_fullmap *map, t_hit hit, t_light light)
 	if (shadow_ray(map, light) != 0)
 		return (color);
 	intensity = v_div_by_nb(v_mult_by_nb(hit.obj->rgb_color, light.intensity), 4.0 * PI * l_ray_len);
-	color = light_color_2(map, intensity, hit, light);
+	color = light_color_2(map, intensity, hit, light, ray);
 	return (color);
 }
 
@@ -152,7 +154,7 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 		light.pos = map->light[i].pos;
 		light.intensity = map->light[i].intensity;
 		light.color = map->light[i].color;
-		color = v_sum(color, light_color_1(map, hit, light));
+		color = v_sum(color, light_color_1(map, hit, light, ray));
 		i++;
 	}
 	if (hit.obj->material == REFLECTIVE)
