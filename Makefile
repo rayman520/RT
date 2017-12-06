@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2017/12/06 13:50:17 by nthibaud         ###   ########.fr        #
+#    Updated: 2017/12/06 14:05:52 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ TYPE_DIR =	\
 			subroutines\
 			subroutines/intersections\
 			subroutines/lights\
+			subroutines/parser\
 
 SRC =	\
 		basic/ft_abs.c\
@@ -119,16 +120,16 @@ SRC =	\
 		subroutines/sub_put_percent.c\
 		subroutines/sub_calc_pix_vect.c\
 		\
-		subroutines/sub_basic_arg_test.c\
-		subroutines/sub_check_extension.c\
-		subroutines/sub_xml_malloc_lights_and_objects.c\
-		subroutines/sub_xml_read_light.c\
-		subroutines/sub_xml_read_object.c\
-		subroutines/sub_xml_read_camera.c\
-		subroutines/sub_parser_xml.c\
-		subroutines/sub_read_hex.c\
-		subroutines/sub_read_pos.c\
-		subroutines/sub_read_texture.c\
+		subroutines/parser/sub_basic_arg_test.c\
+		subroutines/parser/sub_check_extension.c\
+		subroutines/parser/sub_xml_malloc_lights_and_objects.c\
+		subroutines/parser/sub_xml_read_light.c\
+		subroutines/parser/sub_xml_read_object.c\
+		subroutines/parser/sub_xml_read_camera.c\
+		subroutines/parser/sub_parser_xml.c\
+		subroutines/parser/sub_read_hex.c\
+		subroutines/parser/sub_read_pos.c\
+		subroutines/parser/sub_read_texture.c\
 		\
 		subroutines/intersections/sub_inter_plane.c\
 		subroutines/intersections/sub_inter_disk.c\

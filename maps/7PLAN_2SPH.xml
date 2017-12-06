@@ -17,17 +17,11 @@
 	<lights>
 		<light>
 			<position>-30.0,0.0,30.0</position>
-			<color>255,0,0</color>
-			<power>10.0</power>
-			<intensity>0.5</intensity>
-		</light>
-		<light>
-			<position>30.0,0.0,30.0</position>
 			<color>0,0,255</color>
 			<power>10.0</power>
 			<intensity>0.5</intensity>
 		</light>
-
+		
 	</lights>
 	<objects>
 		<object>
@@ -89,7 +83,7 @@
 			<material>DEF</material>
 			<refraction>10.0</refraction>
 			<position>0.0,0.0,0.0</position>
-			<direction>1,0,0</direction>
+			<direction>-1,0,0</direction>
 			<albedo>0.18</albedo>
 			<radius>1</radius>
 			<color>0xFFFFFF</color>
