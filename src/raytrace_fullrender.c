@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:07 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/07 11:03:11 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/07 16:49:50 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ t_3d_double	raytrace_loop(t_fullmap *map, t_vect ray, int depth)
 		if (hit.is_hit == 1 && map->light_c > 0)
 			color = sub_light_primary_ray(map, hit, &ray, depth);
 	}
-	else if (depth >= map->maxdepth)
-		printf("\n\n END LOOP RECURS\n\n");
 	return (color);
 }
 
@@ -62,7 +60,7 @@ t_3d_double	raytrace_fullrender(t_fullmap *map, t_vect ray)
 {
 	t_3d_double	color;
 
-	map->coef = 1.0;
+	map->coef = 1;
 	color = raytrace_loop(map, ray, 0);
 	rt_filter(map, &color);
 	return (color);

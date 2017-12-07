@@ -6,7 +6,7 @@
 		<editor_fps_low>30</editor_fps_low>
 		<editor_fps_high>60</editor_fps_high>
 		<fov>30</fov>
-		<maxdepth>1</maxdepth>
+		<maxdepth>50</maxdepth>
 	</options>
 	<cameras>
 		<camera>
@@ -34,7 +34,7 @@
 			<type>SPH</type>
 			<material>DEF</material>
 			<refraction>10.0</refraction>
-			<reflection>0.5</reflection>
+			<reflection>0.9</reflection>
 			<refracoef>1</refracoef>
 			<position>0.0,0.0,0.0</position>
 			<albedo>0.18</albedo>
@@ -94,8 +94,8 @@
 			<type>PLANE</type>
 			<material>DEF</material>
 			<refraction>1.0</refraction>
-			<reflection>0.5</reflection>
-			<refracoef>1</refracoef>
+			<reflection>0.9</reflection>
+			<refracoef>0.1</refracoef>
 			<position>-40.0,0.0,0.0</position>
 			<direction>1,0,0</direction>
 			<albedo>0.18</albedo>
