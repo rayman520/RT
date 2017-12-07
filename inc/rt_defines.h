@@ -41,6 +41,7 @@
 # define GRAYSCALE 	1
 # define SEPIA 		2
 # define INVERTED 	3
+# define CARTOON  4
 
 # define DEFAULT 		0
 # define REFLECTIVE 	1
