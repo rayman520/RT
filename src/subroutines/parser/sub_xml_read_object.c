@@ -6,11 +6,8 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 14:59:06 by nthibaud          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2017/12/06 18:14:15 by cpierre          ###   ########.fr       */
-=======
+/*   Updated: 2017/12/07 14:05:07 by nthibaud         ###   ########.fr       */
 /*   Updated: 2017/12/06 18:02:30 by bvan-dyc         ###   ########.fr       */
->>>>>>> beff8bf68e8ad59a353786161ec74d36a0790b4f
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +71,7 @@ static void		default_object(t_object *obj, int o_nb)
 	obj[o_nb].color = 0xFFFFFF;
 	obj[o_nb].albedo = 0.18;
 	obj[o_nb].radius = 1.0;
-	obj[o_nb].reflection = 1.0;
+	obj[o_nb].reflection = 0.5;
 	obj[o_nb].refraction = 1.0;
 	obj[o_nb].refracoef = 1.0;
 	obj[o_nb].pos = (t_3d_double){0,0,0};

@@ -6,12 +6,11 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/06 18:08:51 by bvan-dyc         ###   ########.fr       */
+/*   Updated: 2017/12/07 14:08:13 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-#include <stdio.h>
 
 static int	shadow_ray(t_fullmap *map, t_light light)
 {

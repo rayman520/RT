@@ -17,13 +17,13 @@
 	<lights>
 		<light>
 			<position>-30.0,0.0,30.0</position>
-			<color>0,0,255</color>
+			<color>255,255,255</color>
 			<power>10.0</power>
 			<intensity>0.5</intensity>
 		</light>
-			<light>
-			<position>30.0,0.0,30.0</position>
-			<color>255,0,0</color>
+	<light>
+			<position>0.0,0.0,0.0</position>
+			<color>255,255,255</color>
 			<power>10.0</power>
 			<intensity>0.5</intensity>
 		</light>
@@ -34,9 +34,11 @@
 			<type>SPH</type>
 			<material>DEF</material>
 			<refraction>10.0</refraction>
+			<reflection>0.5</reflection>
+			<refracoef>1</refracoef>
 			<position>0.0,0.0,0.0</position>
 			<albedo>0.18</albedo>
-			<radius>10</radius>
+			<radius>15</radius>
 			<color>0xFFFFFF</color>
 			<texture></texture>
 		</object>
@@ -48,7 +50,7 @@
 			<direction>0,0,1</direction>
 			<albedo>0.18</albedo>
 			<radius>1</radius>
-			<color>0xFFFFFF</color>
+			<color>0xFF0000</color>
 			<texture></texture>
 		</object>
 		<object>
@@ -59,40 +61,46 @@
 			<direction>0,0,-1</direction>
 			<albedo>0.18</albedo>
 			<radius>1</radius>
-			<color>0xFFFFFF</color>
+			<color>0xFFFF00</color>
 			<texture></texture>
 		</object>
 		<object>
 			<type>PLANE</type>
 			<material>DEF</material>
-			<refraction>10.0</refraction>
+			<refraction>1.0</refraction>
+			<reflection>0.5</reflection>
+			<refracoef>0.1</refracoef>
 			<position>40.0,0.0,0.0</position>
 			<direction>-1,0,0</direction>
 			<albedo>0.18</albedo>
 			<radius>1</radius>
-			<color>0xFFFFFF</color>
+			<color>0x00FF00</color>
 			<texture></texture>
 		</object>
 		<object>
 			<type>PLANE</type>
 			<material>DEF</material>
-			<refraction>10.0</refraction>
+			<refraction>1.0</refraction>
+			<reflection>0.5</reflection>
+			<refracoef>0.1</refracoef>
+			<position>120.0,0.0,0.0</position>
+			<direction>-1,0,0</direction>
+			<albedo>0.18</albedo>
+			<radius>1</radius>
+			<color>0xFFFF00</color>
+			<texture></texture>
+		</object>
+		<object>
+			<type>PLANE</type>
+			<material>DEF</material>
+			<refraction>1.0</refraction>
+			<reflection>0.5</reflection>
+			<refracoef>1</refracoef>
 			<position>-40.0,0.0,0.0</position>
 			<direction>1,0,0</direction>
 			<albedo>0.18</albedo>
 			<radius>1</radius>
-			<color>0xFFFFFF</color>
-			<texture></texture>
-		</object>
-		<object>
-			<type>PLANE</type>
-			<material>DEF</material>
-			<refraction>10.0</refraction>
-			<position>0.0,0.0,0.0</position>
-			<direction>-1,0,0</direction>
-			<albedo>0.18</albedo>
-			<radius>1</radius>
-			<color>0xFFFFFF</color>
+			<color>0x0000FF</color>
 			<texture></texture>
 		</object>
 		<object>
@@ -103,7 +111,7 @@
 			<direction>0,-1,0</direction>
 			<albedo>0.18</albedo>
 			<radius>1</radius>
-			<color>0xFFFFFF</color>
+			<color>0x00FFFF</color>
 			<texture></texture>
 		</object>
 		<object>
@@ -114,8 +122,9 @@
 			<direction>0,1,0</direction>
 			<albedo>0.18</albedo>
 			<radius>1</radius>
-			<color>0xFFFFFF</color>
+			<color>0xFF00FF</color>
 			<texture></texture>
 		</object>
+
 	</objects>
 </map>

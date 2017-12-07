@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 17:28:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/06 12:25:10 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/07 14:05:09 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	default_options(t_fullmap *map)
 	map->res = (t_2dint){1280,800};
 	map->editres = (t_2dint){1280,800};
 	map->fps = (t_2dint){30,60};
-	map->maxdepth = 1;
+	map->maxdepth = 3;
 	map->fov = 30;
 }
 

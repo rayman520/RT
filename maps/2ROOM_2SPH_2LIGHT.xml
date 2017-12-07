@@ -6,7 +6,7 @@
 		<editor_fps_low>30</editor_fps_low>
 		<editor_fps_high>60</editor_fps_high>
 		<fov>30</fov>
-		<maxdepth>1</maxdepth>
+		<maxdepth>50</maxdepth>
 	</options>
 	<cameras>
 		<camera>
@@ -22,10 +22,10 @@
 			<intensity>0.5</intensity>
 		</light>
 		<light>
-			<position>50.0,0.0,0.0</position>
+			<position>110.0,35.0,-35.0</position>
 			<color>255,255,255</color>
 			<power>10.0</power>
-			<intensity>0.5</intensity>
+			<intensity>0.2</intensity>
 		</light>
 
 	</lights>
@@ -34,10 +34,24 @@
 			<type>SPH</type>
 			<material>DEF</material>
 			<refraction>10.0</refraction>
+			<reflection>0.5</reflection>
+			<refracoef>1</refracoef>
 			<position>0.0,0.0,0.0</position>
 			<albedo>0.18</albedo>
 			<radius>10</radius>
 			<color>0xFFFFFF</color>
+			<texture></texture>
+		</object>
+		<object>
+			<type>SPH</type>
+			<material>DEF</material>
+			<refraction>10.0</refraction>
+			<reflection>0.5</reflection>
+			<refracoef>1</refracoef>
+			<position>80.0,10.0,-10.0</position>
+			<albedo>0.18</albedo>
+			<radius>5</radius>
+			<color>0xFF0000</color>
 			<texture></texture>
 		</object>
 		<object>
@@ -64,8 +78,10 @@
 		</object>
 		<object>
 			<type>PLANE</type>
-			<material>DEF</material>
-			<refraction>10.0</refraction>
+			<material>REFR</material>
+			<refraction>1.0</refraction>
+			<reflection>0.5</reflection>
+			<refracoef>0.1</refracoef>
 			<position>40.0,0.0,0.0</position>
 			<direction>-1,0,0</direction>
 			<albedo>0.18</albedo>
@@ -76,7 +92,22 @@
 		<object>
 			<type>PLANE</type>
 			<material>DEF</material>
-			<refraction>10.0</refraction>
+			<refraction>1.0</refraction>
+			<reflection>0.5</reflection>
+			<refracoef>0.1</refracoef>
+			<position>120.0,0.0,0.0</position>
+			<direction>-1,0,0</direction>
+			<albedo>0.18</albedo>
+			<radius>1</radius>
+			<color>0xFFFF00</color>
+			<texture></texture>
+		</object>
+		<object>
+			<type>PLANE</type>
+			<material>DEF</material>
+			<refraction>1.0</refraction>
+			<reflection>0.5</reflection>
+			<refracoef>1</refracoef>
 			<position>-40.0,0.0,0.0</position>
 			<direction>1,0,0</direction>
 			<albedo>0.18</albedo>
