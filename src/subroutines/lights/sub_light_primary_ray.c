@@ -190,10 +190,9 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 			refleray.ndir = refleray.dir;
 			refraray.pos = outside == 1 ? v_sub_a_by_b(hit.pos, bias) : v_sum(hit.pos, bias);
 			refracolor = raytrace_loop(map, refraray, depth + 1);
+			refracolor = v_mult_by_nb(refracolor, 1 - kr);
+			refracolor = v_mult_by_nb(refracolor, hit.obj->refracoef);
 		}
-		if (hit.obj->type == SPHERE || hit.obj->type == CYLINDER \
-			 || hit.obj->type == CONE)
-			map->coef *= hit.obj->refracoef;
 		refleray.pos = hit.pos;
 		reflect = 2 * v_dot(ray->dir, hit.normal_dir);
 		tmp = v_mult_by_nb(hit.normal_dir, reflect);
@@ -201,10 +200,9 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 		v_normalize(&refleray.dir);
 		refleray.ndir = refleray.dir;
 		reflecolor = raytrace_loop(map, refleray, depth + 1);
-		color.x += reflecolor.x * kr + refracolor.x * (1 - kr);
-		color.y += reflecolor.y * kr + refracolor.y * (1 - kr);
-		color.z += reflecolor.z * kr + refracolor.z * (1 - kr);
-		color = v_mult_by_nb(color, map->coef);
+		reflecolor = v_mult_by_nb(reflecolor, kr);
+		reflecolor = v_mult_by_nb(reflecolor, hit.obj->reflection);
+		color = v_sum(color, v_sum(reflecolor, refracolor));
 	}
 	return (color);
 }
