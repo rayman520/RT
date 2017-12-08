@@ -67,7 +67,7 @@ t_3d_double	raytrace_loop(t_fullmap *map, t_vect ray, int depth)
 	t_hit		hit;
 
 	color = (t_3d_double){0,0,0};
-	if (depth < map->maxdepth)
+	if (depth < map->maxdepth && map->coef > 0)
 	{
 		hit = sub_inter_objects(map, ray);
 		if (hit.is_hit == 1 && map->light_c > 0)

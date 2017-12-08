@@ -84,6 +84,7 @@ SRC =	\
 		basic/ft_xml_rd_res.c\
 		basic/ft_fmax.c\
 		basic/ft_clamp.c\
+		basic/ft_doubleswap.c\
 		\
 		basic/vector_handle/v_normalize.c\
 		basic/vector_handle/v_cross.c\

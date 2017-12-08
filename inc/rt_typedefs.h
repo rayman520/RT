@@ -119,6 +119,23 @@ typedef struct		s_triter
 	double			v;
 }					t_triter;
 
+typedef struct		s_refra
+{
+	float 		cosi;
+	float 		cost;
+	float		sint;
+	float 		tmp;
+	float 		etai;
+	float 		eta;
+	float 		etat;
+	float 		k;
+	float		rs;
+	float		rp;
+	t_3d_double tmpdir;
+	t_3d_double tmpnorm;
+	t_3d_double refranorm;
+}					t_refra;
+
 typedef struct	s_object
 {
 	t_3d_double	pos;
@@ -132,6 +149,7 @@ typedef struct	s_object
 	t_3d_double pd;
 	t_obj_t		type;
 	int			material;
+	int			negative;
 	double		reflection;
 	double		refraction;
 	double		refracoef;

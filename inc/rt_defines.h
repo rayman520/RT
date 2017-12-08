@@ -47,6 +47,9 @@
 # define REFLECTIVE 	1
 # define REFRAFLECTIVE 	2
 
+# define YES 			1
+# define NO 			0
+
 # define ERR_USAGE "usage: ./rt mode file\n  mode: render/edit/create"
 
 # define HEY ft_hey();

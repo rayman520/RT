@@ -70,64 +70,55 @@ static t_3d_double	light_color_1(t_fullmap *map, t_hit hit, t_light light, t_vec
 
 void 	fresnel(t_vect ray, t_hit hit, double *refraction, float *kr)
 {
-	float cosi = ft_clamp(-1, 1, v_dot(ray.dir, hit.normal_dir));
-	float etai = 1;
-	float etat = *refraction;
-	float tmp;
-	if (cosi > 0)
+	t_refra	ref;
+
+	ref.cosi = ft_clamp(-1, 1, v_dot(ray.dir, hit.normal_dir));
+	ref.etai = 1;
+	ref.etat = *refraction;
+	if (ref.cosi > 0)
 	{
-		tmp = etai;
-		etai = etat;
-		etat = tmp;
+		ref.tmp = ref.etai;
+		ref.etai = ref.etat;
+		ref.etat = ref.tmp;
 	}
-	float sint = etai / etat * sqrtf(ft_fmax(0.f, 1 - cosi * cosi));
-	if (sint >= 1)
+	ref.sint = ref.etai / ref.etat * sqrtf(ft_fmax(0.f, 1 - ref.cosi * ref.cosi));
+	if (ref.sint >= 1)
 	{
 		*kr = 1;
 	}
 	else
 	{
-		float cost = sqrtf(ft_fmax(0.f, 1 - sint * sint));
-		cosi = fabsf(cosi);
-		float Rs = ((etat * cosi) - (etai * cost)) / ((etat * cosi) + (etai * cost));
-		float Rp = ((etai * cosi) - (etat * cost)) / ((etai * cosi) + (etat * cost));
-		*kr = (Rs * Rs + Rp * Rp) / 2;
+		ref.cost = sqrtf(ft_fmax(0.f, 1 - ref.sint * ref.sint));
+		ref.cosi = fabsf(ref.cosi);
+		ref.rs = ((ref.etat * ref.cosi) - (ref.etai * ref.cost)) / ((ref.etat * ref.cosi) + (ref.etai * ref.cost));
+		ref.rp = ((ref.etai * ref.cosi) - (ref.etat * ref.cost)) / ((ref.etai * ref.cosi) + (ref.etat * ref.cost));
+		*kr = (ref.rs * ref.rs + ref.rp * ref.rp) / 2;
 	}
 }
 
 t_3d_double 	rt_refract(t_vect ray, t_hit hit, double *refraction)
 {
-	float cosa = ft_clamp(-1, 1, v_dot(ray.dir, hit.normal_dir));
-	float tmp;
-	float etai = 1;
-	float etat = *refraction;
-	t_3d_double tmpdir;
-	t_3d_double tmpnorm;
-	t_3d_double refranorm;
-	t_3d_double empty;
-	empty.x = 0;
-	empty.y = 0;
-	empty.z = 0;
-	refranorm.x = hit.normal_dir.x;
-	refranorm.y = hit.normal_dir.y;
-	refranorm.z = hit.normal_dir.z;
-	if (cosa < 0)
-		cosa = -cosa;
+	t_refra	ref;
+
+	ref.cosi = ft_clamp(-1, 1, v_dot(ray.dir, hit.normal_dir));
+	ref.etai = 1;
+	ref.etat = *refraction;
+	ref.refranorm = hit.normal_dir;
+	if (ref.cosi < 0)
+		ref.cosi = -ref.cosi;
 	else
 	{
-		tmp = etai;
-		etai = etat;
-		etat = tmp;
-		refranorm.x = -hit.normal_dir.x;
-		refranorm.y = -hit.normal_dir.y;
-		refranorm.z = -hit.normal_dir.z;
+		ref.tmp = ref.etai;
+		ref.etai = ref.etat;
+		ref.etat = ref.tmp;
+		ref.refranorm = v_mult_by_nb(hit.normal_dir, -1);
 	}
-	float eta = etai / etat;
-	float k = 1 - eta * eta * (1 - cosa * cosa);
-	tmpdir = v_mult_by_nb(ray.dir, eta);
-	if (k >= 0)
-		tmpnorm = v_mult_by_nb(refranorm, eta * cosa - sqrtf(k));
-	return (k < 0 ? empty : v_sum(tmpdir, tmpnorm));
+	ref.eta = ref.etai / ref.etat;
+	ref.k = 1 - ref.eta * ref.eta * (1 - ref.cosi * ref.cosi);
+	ref.tmpdir = v_mult_by_nb(ray.dir, ref.eta);
+	if (ref.k >= 0)
+		ref.tmpnorm = v_mult_by_nb(ref.refranorm, ref.eta * ref.cosi - sqrtf(ref.k));
+	return (ref.k < 0 ? (t_3d_double){0,0,0} : v_sum(ref.tmpdir, ref.tmpnorm));
 }
 
 t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
@@ -135,7 +126,7 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 	t_3d_double	color;
 	t_light		light;
 	int			i;
-	double	reflect;
+	double		reflect;
 	t_3d_double	tmp;
 	t_vect		refleray;
 	t_vect		refraray;

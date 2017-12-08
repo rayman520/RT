@@ -12,6 +12,24 @@
 
 #include "rt.h"
 
+void		sub_norm_cone(t_object *cone, t_hit *hit, t_vect ray)
+{
+	t_3d_double		dist;
+	t_3d_double		temp;
+	t_3d_double		norm;
+	t_3d_double		temp2;
+
+	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist));
+	dist = v_sub_a_by_b(ray.pos, cone->pos);
+	temp = v_mult_by_nb(cone->dir, (v_dot(ray.dir, cone->dir) * hit->dist
+	+ v_dot(dist, cone->dir)));
+	temp = v_mult_by_nb(temp, (1 + pow(tan(cone->radius), 2)));
+	temp2 = v_sub_a_by_b(hit->pos, cone->pos);
+	hit->normal_dir = v_sub_a_by_b(temp2, temp);
+	v_normalize(&hit->normal_dir);
+	hit->obj = cone;
+}
+
 t_hit		sub_inter_cone(t_object *cone, t_vect ray)
 {
 	t_hit			hit;
@@ -36,16 +54,8 @@ t_hit		sub_inter_cone(t_object *cone, t_vect ray)
 	inter.t0 = (-inter.b + sqrtf(inter.discr)) / (2 * inter.a);
 	inter.t1 = (-inter.b - sqrtf(inter.discr)) / (2 * inter.a);
 	if (inter.t0 > inter.t1)
-		inter.t0 = inter.t1;
+		ft_doubleswap(inter.t0, inter.t1);
 	hit.dist = inter.t0;
-	hit.pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit.dist));
-	inter.dist = v_sub_a_by_b(ray.pos, cone->pos);
-	inter.temp = v_mult_by_nb(cone->dir, (v_dot(ray.dir, cone->dir) * hit.dist
-	+ v_dot(inter.dist, cone->dir)));
-	inter.temp = v_mult_by_nb(inter.temp, (1 + pow(tan(cone->radius), 2)));
-	inter.temp2 = v_sub_a_by_b(hit.pos, cone->pos);
-	hit.normal_dir = v_sub_a_by_b(inter.temp2, inter.temp);
-	v_normalize(&hit.normal_dir);
-	hit.obj = cone;
+	sub_norm_cone(cone, &hit, ray);
 	return (hit);
 }
