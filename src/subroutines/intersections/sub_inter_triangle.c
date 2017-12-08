@@ -37,8 +37,7 @@ t_hit		sub_inter_triangle(t_object *triangle, t_vect ray)
 	m.tmp = v_dot(m.edge2, m.vs3) * m.invdet;
 	hit.dist = m.tmp;
 	hit.pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit.dist));
-	hit.normal_dir = v_cross(m.edge2, m.edge1);
-	v_normalize(&hit.normal_dir);
+	hit.normal_dir = v_norm(v_cross(m.edge2, m.edge1));
 	hit.obj = triangle;
 	return (hit);
 }

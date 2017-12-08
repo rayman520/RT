@@ -76,16 +76,10 @@ void 	fresnel(t_vect ray, t_hit hit, double *refraction, float *kr)
 	ref.etai = 1;
 	ref.etat = *refraction;
 	if (ref.cosi > 0)
-	{
-		ref.tmp = ref.etai;
-		ref.etai = ref.etat;
-		ref.etat = ref.tmp;
-	}
+		ft_doubleswap(ref.etai, ref.etat);
 	ref.sint = ref.etai / ref.etat * sqrtf(ft_fmax(0.f, 1 - ref.cosi * ref.cosi));
 	if (ref.sint >= 1)
-	{
 		*kr = 1;
-	}
 	else
 	{
 		ref.cost = sqrtf(ft_fmax(0.f, 1 - ref.sint * ref.sint));
@@ -108,9 +102,7 @@ t_3d_double 	rt_refract(t_vect ray, t_hit hit, double *refraction)
 		ref.cosi = -ref.cosi;
 	else
 	{
-		ref.tmp = ref.etai;
-		ref.etai = ref.etat;
-		ref.etat = ref.tmp;
+		ft_doubleswap(ref.etai, ref.etat);
 		ref.refranorm = v_mult_by_nb(hit.normal_dir, -1);
 	}
 	ref.eta = ref.etai / ref.etat;
@@ -121,18 +113,57 @@ t_3d_double 	rt_refract(t_vect ray, t_hit hit, double *refraction)
 	return (ref.k < 0 ? (t_3d_double){0,0,0} : v_sum(ref.tmpdir, ref.tmpnorm));
 }
 
+t_3d_double		sub_reflection(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
+{
+	double		reflect;
+	t_3d_double	tmp;
+
+	if (hit.obj->type == SPHERE || hit.obj->type == CYLINDER \
+		 || hit.obj->type == CONE)
+		map->coef *= hit.obj->reflection;
+	ray->pos = hit.pos;
+	reflect = 2 * v_dot(ray->dir, hit.normal_dir);
+	tmp = v_mult_by_nb(hit.normal_dir, reflect);
+	ray->dir = v_sub_a_by_b(ray->dir, tmp);
+	v_normalize(&ray->dir);
+	ray->ndir = ray->dir;
+	return(raytrace_loop(map, *ray, depth + 1));
+}
+
+t_3d_double		sub_refraction(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
+{
+	t_frafle	ref;
+
+	fresnel(*ray, hit, &hit.obj->refraction, &ref.kr);
+	ref.outside = (v_dot(ray->dir, hit.normal_dir) < 0 ? 1 : 0);
+	ref.bias = v_mult_by_nb(hit.normal_dir, BIAS);
+	if (ref.kr < 1)
+	{
+		ref.refraray.dir = rt_refract(*ray, hit, &hit.obj->refraction);
+		v_normalize(&ref.refraray.dir);
+		ref.refleray.ndir = ref.refleray.dir;
+		ref.refraray.pos = ref.outside == 1 ? v_sub_a_by_b(hit.pos, ref.bias) : v_sum(hit.pos, ref.bias);
+		ref.refracolor = raytrace_loop(map, ref.refraray, depth + 1);
+		ref.refracolor = v_mult_by_nb(ref.refracolor, 1 - ref.kr);
+		ref.refracolor = v_mult_by_nb(ref.refracolor, hit.obj->refracoef);
+	}
+	ref.refleray.pos = hit.pos;
+	ref.reflect = 2 * v_dot(ray->dir, hit.normal_dir);
+	ref.tmp = v_mult_by_nb(hit.normal_dir, ref.reflect);
+	ref.refleray.dir = v_sub_a_by_b(ray->dir, ref.tmp);
+	v_normalize(&ref.refleray.dir);
+	ref.refleray.ndir = ref.refleray.dir;
+	ref.reflecolor = raytrace_loop(map, ref.refleray, depth + 1);
+	ref.reflecolor = v_mult_by_nb(ref.reflecolor, ref.kr);
+	ref.reflecolor = v_mult_by_nb(ref.reflecolor, hit.obj->reflection);
+	return(v_sum(ref.reflecolor, ref.refracolor));
+}
+
 t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
 {
 	t_3d_double	color;
 	t_light		light;
 	int			i;
-	double		reflect;
-	t_3d_double	tmp;
-	t_vect		refleray;
-	t_vect		refraray;
-	t_3d_double	refracolor;
-	t_3d_double	reflecolor;
-	float		kr;
 
 	static t_texture_ft_tab funct_tab =
 	{
@@ -155,44 +186,10 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 	}
 	if (hit.obj->material == REFLECTIVE)
 	{
-		if (hit.obj->type == SPHERE || hit.obj->type == CYLINDER \
-			 || hit.obj->type == CONE)
-			map->coef *= hit.obj->reflection;
-		ray->pos = hit.pos;
-		reflect = 2 * v_dot(ray->dir, hit.normal_dir);
-		tmp = v_mult_by_nb(hit.normal_dir, reflect);
-		ray->dir = v_sub_a_by_b(ray->dir, tmp);
-		v_normalize(&ray->dir);
-		ray->ndir = ray->dir;
-		reflecolor = raytrace_loop(map, *ray, depth + 1);
-		color = v_sum(color, reflecolor);
+		color = v_sum(color, sub_reflection(map, hit, ray, depth));
 		color = v_mult_by_nb(color, map->coef);
 	}
 	else if (hit.obj->material == REFRAFLECTIVE)
-	{
-		fresnel(*ray, hit, &hit.obj->refraction, &kr);
-		int outside = (v_dot(ray->dir, hit.normal_dir) < 0 ? 1 : 0);
-		t_3d_double bias = v_mult_by_nb(hit.normal_dir, BIAS);
-		if (kr < 1)
-		{
-			refraray.dir = rt_refract(*ray, hit, &hit.obj->refraction);
-			v_normalize(&refraray.dir);
-			refleray.ndir = refleray.dir;
-			refraray.pos = outside == 1 ? v_sub_a_by_b(hit.pos, bias) : v_sum(hit.pos, bias);
-			refracolor = raytrace_loop(map, refraray, depth + 1);
-			refracolor = v_mult_by_nb(refracolor, 1 - kr);
-			refracolor = v_mult_by_nb(refracolor, hit.obj->refracoef);
-		}
-		refleray.pos = hit.pos;
-		reflect = 2 * v_dot(ray->dir, hit.normal_dir);
-		tmp = v_mult_by_nb(hit.normal_dir, reflect);
-		refleray.dir = v_sub_a_by_b(ray->dir, tmp);
-		v_normalize(&refleray.dir);
-		refleray.ndir = refleray.dir;
-		reflecolor = raytrace_loop(map, refleray, depth + 1);
-		reflecolor = v_mult_by_nb(reflecolor, kr);
-		reflecolor = v_mult_by_nb(reflecolor, hit.obj->reflection);
-		color = v_sum(color, v_sum(reflecolor, refracolor));
-	}
+		color = v_sum(color, sub_refraction(map, hit, ray, depth));
 	return (color);
 }

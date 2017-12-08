@@ -124,7 +124,6 @@ typedef struct		s_refra
 	float 		cosi;
 	float 		cost;
 	float		sint;
-	float 		tmp;
 	float 		etai;
 	float 		eta;
 	float 		etat;
@@ -135,6 +134,20 @@ typedef struct		s_refra
 	t_3d_double tmpnorm;
 	t_3d_double refranorm;
 }					t_refra;
+
+typedef struct		s_frafle
+{
+	t_3d_double refranorm;
+	int			outside;
+	double		reflect;
+	t_3d_double	tmp;
+	t_vect		refleray;
+	t_vect		refraray;
+	t_3d_double	refracolor;
+	t_3d_double	reflecolor;
+	t_3d_double bias;
+	float		kr;
+}					t_frafle;
 
 typedef struct	s_object
 {
