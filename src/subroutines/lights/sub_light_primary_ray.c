@@ -12,21 +12,20 @@
 
 #include "rt.h"
 
-static int	shadow_ray(t_fullmap *map, t_light light)
+static void	shadow_ray(t_fullmap *map, t_light light)
 {
 	t_hit	hit;
 	t_vect	ray;
 
+	map->shadowcoef = 1 - map->shadowcoef;
 	ray.dir = light.ray.dir;
 	ray.ndir = v_norm(ray.dir);
 	ray.pos = v_sum(light.ray.pos, v_mult_by_nb(ray.ndir, BIAS));
 	hit = sub_inter_objects(map, ray);
-	if (hit.is_hit == 1)
-	{
-		if (hit.dist < v_len(v_sub_a_by_b(light.pos, ray.pos)))
-				return (1);
-	}
-	return (0);
+	if (hit.is_hit == 0)
+		map->shadowcoef = 0;
+	else if (hit.dist >= v_len(v_sub_a_by_b(light.pos, ray.pos)))
+		map->shadowcoef = 0;
 }
 
 static t_3d_double	light_color_2(t_fullmap *map, t_3d_double intensity, t_hit hit, t_light light, t_vect *ray)
@@ -61,14 +60,14 @@ static t_3d_double	light_color_1(t_fullmap *map, t_hit hit, t_light light, t_vec
 	light.ray.dir = v_sub_a_by_b(light.pos, hit.pos);
 	l_ray_len = v_len(light.ray.dir);
 	light.ray.ndir = v_norm(light.ray.dir);
-	if (shadow_ray(map, light) != 0)
-		return (color);
+	shadow_ray(map, light);
 	intensity = v_div_by_nb(v_mult_by_nb(hit.obj->rgb_color, light.intensity), 4.0 * PI * l_ray_len);
 	color = light_color_2(map, intensity, hit, light, ray);
+	v_mult_by_nb(color, 1 - map->shadowcoef);
 	return (color);
 }
 
-void 	fresnel(t_vect ray, t_hit hit, double *refraction, float *kr)
+void 	fresnel(t_vect ray, t_hit hit, double *refraction, double *kr)
 {
 	t_refra	ref;
 
@@ -171,6 +170,9 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 	};
 
 	i = 0;
+	map->shadowcoef = 0;
+	if (hit.obj->material == REFRAFLECTIVE)
+		fresnel(*ray, hit, &hit.obj->refraction, &map->shadowcoef);
 	color = (t_3d_double){0,0,0};
 	if (hit.obj->texture)
 		hit.obj->rgb_color = ft_int_to_double_3d(funct_tab[hit.obj->type - 1](hit));

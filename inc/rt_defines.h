@@ -37,11 +37,16 @@
 # define EPSILON 		0.000001
 # define BIAS			0.00001
 
-# define NOFILTER 	0
-# define GRAYSCALE 	1
-# define SEPIA 		2
-# define INVERTED 	3
-# define CARTOON  4
+# define NOFILTER 		0
+# define GRAYSCALE 		1
+# define SEPIA 			2
+# define INVERTED 		3
+# define CARTOON  		4
+
+# define DEFAULT 		0
+# define CHESS	 		1
+# define PERLIN 		2
+
 
 # define DEFAULT 		0
 # define REFLECTIVE 	1

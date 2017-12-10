@@ -142,6 +142,7 @@ SRC =	\
 		subroutines/intersections/sub_inter_triangle.c\
 		subroutines/intersections/sub_inter_quadrangle.c\
 		subroutines/intersections/sub_inter_aabbbox.c\
+		subroutines/intersections/sub_inter_pyramid.c\
 		subroutines/intersections/sub_inter_objects.c\
 		\
 		subroutines/lights/sub_light_primary_ray.c\

@@ -23,7 +23,7 @@ t_hit		sub_inter_piercedcube(t_object *pcube, t_vect ray)
 	pcube->pos.x = cube->min.x + c;
 	pcube->pos.y = cube->min.y + c;
 	pcube->pos.z = cube->min.z;
-	hit = sub_inter_cube(pcube, ray);
+	hit = sub_inter_aabbbox(pcube, ray);
 	nhit = sub_inter_cylinder(pcube, ray);
 	if (hit.is_hit == 1 && nhit.is_hit == 1)
 		hit.is_hit = 0;

@@ -62,6 +62,7 @@
 		<object>
 			<type>SPH</type>
 			<material>REFR</material>
+			<refraction>1</refraction>
 			<position>0.0,0.0,0.0</position>
 			<radius>1</radius>
 			<color>0xFFFFFF</color>

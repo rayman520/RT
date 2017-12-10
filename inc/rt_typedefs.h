@@ -146,7 +146,7 @@ typedef struct		s_frafle
 	t_3d_double	refracolor;
 	t_3d_double	reflecolor;
 	t_3d_double bias;
-	float		kr;
+	double		kr;
 }					t_frafle;
 
 typedef struct	s_object
@@ -163,6 +163,7 @@ typedef struct	s_object
 	t_obj_t		type;
 	int			material;
 	int			negative;
+	int			noise;
 	double		reflection;
 	double		refraction;
 	double		refracoef;
@@ -210,6 +211,7 @@ typedef struct	s_fullmap
 	double		fov;
 	int			render_key;
 	int			maxdepth;
+	double		shadowcoef;
 }				t_fullmap;
 
 typedef t_hit	(*t_isect_fnc_tab[5])(t_object *obj, t_vect ray);
