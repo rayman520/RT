@@ -30,7 +30,6 @@ static void	rt_filter(t_fullmap *map, t_3d_double *rescolor)
 {
 	t_3d_double tmp;
 
-	map->filter = CARTOON;
 	tmp.x = rescolor->x;
 	tmp.y = rescolor->y;
 	tmp.z = rescolor->z;

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_doubleswap.c                                    :+:      :+:    :+:   */
+/*   ft_floatswap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,9 +12,9 @@
 
 #include "rt.h"
 
-void	ft_doubleswap(double *d1, double *d2)
+void	ft_floatswap(float *d1, float *d2)
 {
-	double	tmp;
+	float	tmp;
 
 	tmp = *d1;
 	*d1 = *d2;

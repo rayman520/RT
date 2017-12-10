@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_doubleswap.c                                    :+:      :+:    :+:   */
+/*   noise.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/29 13:33:27 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/05 21:59:06 by cpierre          ###   ########.fr       */
+/*   Created: 2017/11/28 12:06:07 by nthibaud          #+#    #+#             */
+/*   Updated: 2017/12/06 17:53:06 by bvan-dyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	ft_doubleswap(double *d1, double *d2)
-{
-	double	tmp;
 
-	tmp = *d1;
-	*d1 = *d2;
-	*d2 = tmp;
+static double		interpolate(double a, double b, double x)
+{
+	return (a + x * (b - a));
 }

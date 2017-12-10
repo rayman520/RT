@@ -60,7 +60,9 @@ t_2dint			ft_xml_ed_res(t_str input);
 t_2dint			ft_xml_rd_res(t_str input);
 float	        ft_fmax(float a, float b);
 float	        ft_clamp(double a, double min, double max);
-void			ft_doubleswap(double d1, double d2);
+void			ft_doubleswap(double *d1, double *d2);
+void			ft_vectorswap(t_3d_double *v1, t_3d_double *v2);
+void			ft_floatswap(float *d1, float *d2);
 
 /*
 **	Vector handle

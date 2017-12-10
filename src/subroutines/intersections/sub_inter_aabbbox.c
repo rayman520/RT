@@ -37,6 +37,8 @@ t_hit		sub_inter_cube(t_object *cube, t_vect ray)
 {
 	t_hit hit;
 
+	cube->max = (t_3d_double){5,5,5};
+	cube->min = (t_3d_double){-5,-5,-5};
 	cube->pos = cube->min;
 	cube->dir = (1, 0, 0);
 	hit = sub_inter_plane(cube, ray);
@@ -46,11 +48,11 @@ t_hit		sub_inter_cube(t_object *cube, t_vect ray)
 	cube->dir = (0, 0, 1);
 	hit = cube_check(cube->min, cube->max, hit);
 	cube->pos = cube->max;
-	cube->dir = (1, 0, 0);
+	cube->dir = (-1, 0, 0);
 	hit = cube_check(cube->min, cube->max, hit);
-	cube->dir = (0, 1, 0);
+	cube->dir = (0, -1, 0);
 	hit = cube_check(cube->min, cube->max, hit);
-	cube->dir = (0, 0, 1);
+	cube->dir = (0, 0, -1);
 	hit = cube_check(cube->min, cube->max, hit);
 	return(hit)
 }

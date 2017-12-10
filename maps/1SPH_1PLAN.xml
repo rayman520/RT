@@ -36,19 +36,8 @@
 			<refraction>10.0</refraction>
 			<position>0.0,0.0,0.0</position>
 			<albedo>0.18</albedo>
-			<radius>10</radius>
+			<radius>5</radius>
 			<color>0x00FF00</color>
-			<texture></texture>
-		</object>
-		<object>
-			<type>PLANE</type>
-			<material>DEF</material>
-			<refraction>10.0</refraction>
-			<position>40.0,0.0,0.0</position>
-			<direction>-1,0,0</direction>
-			<albedo>0.18</albedo>
-			<radius>1</radius>
-			<color>0xFFFFFF</color>
 			<texture></texture>
 		</object>
 	</objects>

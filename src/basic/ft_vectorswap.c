@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_doubleswap.c                                    :+:      :+:    :+:   */
+/*   ft_vectorswap.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,11 +12,11 @@
 
 #include "rt.h"
 
-void	ft_doubleswap(double *d1, double *d2)
+void	ft_vectorswap(t_3d_double *v1, t_3d_double *v2)
 {
-	double	tmp;
+	t_3d_double	tmp;
 
-	tmp = *d1;
-	*d1 = *d2;
-	*d2 = tmp;
+	tmp = *v1;
+	*v1 = *v2;
+	*v2 = tmp;
 }

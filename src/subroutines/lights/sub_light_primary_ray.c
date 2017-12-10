@@ -76,7 +76,7 @@ void 	fresnel(t_vect ray, t_hit hit, double *refraction, float *kr)
 	ref.etai = 1;
 	ref.etat = *refraction;
 	if (ref.cosi > 0)
-		ft_doubleswap(ref.etai, ref.etat);
+		ft_floatswap(&ref.etai, &ref.etat);
 	ref.sint = ref.etai / ref.etat * sqrtf(ft_fmax(0.f, 1 - ref.cosi * ref.cosi));
 	if (ref.sint >= 1)
 		*kr = 1;
@@ -102,7 +102,7 @@ t_3d_double 	rt_refract(t_vect ray, t_hit hit, double *refraction)
 		ref.cosi = -ref.cosi;
 	else
 	{
-		ft_doubleswap(ref.etai, ref.etat);
+		ft_floatswap(&ref.etai, &ref.etat);
 		ref.refranorm = v_mult_by_nb(hit.normal_dir, -1);
 	}
 	ref.eta = ref.etai / ref.etat;
