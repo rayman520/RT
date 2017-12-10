@@ -67,6 +67,7 @@ t_hit			sub_inter_disk(t_object *disk, t_vect ray);
 t_hit			sub_inter_triangle(t_object *triangle, t_vect ray);
 t_hit			sub_inter_quadrangle(t_object *quad, t_vect ray);
 t_hit			sub_inter_parallelogram(t_object *quad, t_vect ray);
+t_hit			sub_inter_aabbbox(t_object *cube, t_vect ray);
 
 /*
 **	Lights
