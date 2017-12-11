@@ -68,6 +68,7 @@ t_hit			sub_inter_triangle(t_object *triangle, t_vect ray);
 t_hit			sub_inter_quadrangle(t_object *quad, t_vect ray);
 t_hit			sub_inter_aabbbox(t_object *cube, t_vect ray);
 t_hit			sub_inter_pyramid_tbase(t_object *pyramid, t_vect ray);
+void 			fresnel(t_vect ray, t_hit hit, double *refraction, double *kr);
 
 /*
 **	Lights

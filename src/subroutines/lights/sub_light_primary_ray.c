@@ -22,8 +22,8 @@ static void	shadow_ray(t_fullmap *map, t_light light)
 	ray.ndir = v_norm(ray.dir);
 	ray.pos = v_sum(light.ray.pos, v_mult_by_nb(ray.ndir, BIAS));
 	hit = sub_inter_objects(map, ray);
-	if (hit.obj->material == REFRAFLECTIVE)
-		fresnel(*ray, hit, &hit.obj->refraction, &map->shadowcoef);
+	if (hit.is_hit == 1 && hit.obj->material == REFRAFLECTIVE)
+		fresnel(ray, hit, &hit.obj->refraction, &map->shadowcoef);
 	map->shadowcoef = 1 - map->shadowcoef;
 	if (hit.is_hit == 0)
 		map->shadowcoef = 0;
@@ -166,11 +166,11 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 	t_3d_double	color;
 	t_light		light;
 	int			i;
-
 	static t_texture_ft_tab funct_tab =
 	{
 		sub_texture_sphere
 	};
+
 	i = 0;
 	color = (t_3d_double){0,0,0};
 	if (hit.obj->texture)
