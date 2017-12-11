@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2017/12/06 14:05:52 by nthibaud         ###   ########.fr        #
+#    Updated: 2017/12/11 12:30:45 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,7 +116,7 @@ SRC =	\
 		subroutines/sub_draw_image_editor.c\
 		subroutines/sub_fullrender_end.c\
 		subroutines/sub_handle_keyboard.c\
-		subroutines/sub_sphere.c\
+		subroutines/sub_texture_sphere.c\
 		subroutines/sub_move_cam_dir.c\
 		subroutines/sub_move_cam_pos.c\
 		subroutines/sub_put_fps.c\

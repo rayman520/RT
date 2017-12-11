@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/06 17:42:42 by bvan-dyc         ###   ########.fr       */
+/*   Updated: 2017/12/11 12:29:41 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,10 +177,12 @@ typedef struct	s_object
 typedef	struct	s_hit
 {
 	t_3d_double pos;
+	t_3d_double pos2;
 	t_3d_double	normal_dir;
 	t_vect		incident_vect;
 	t_object	*obj;
 	double		dist;
+	double		dist2;
 	int			is_hit;
 }				t_hit;
 
