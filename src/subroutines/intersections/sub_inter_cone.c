@@ -20,6 +20,7 @@ void		sub_norm_cone(t_object *cone, t_hit *hit, t_vect ray)
 	t_3d_double		temp2;
 
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist));
+	hit->pos2 = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist2));
 	dist = v_sub_a_by_b(ray.pos, cone->pos);
 	temp = v_mult_by_nb(cone->dir, (v_dot(ray.dir, cone->dir) * hit->dist
 	+ v_dot(dist, cone->dir)));

@@ -33,6 +33,8 @@ t_hit	sub_inter_objects(t_fullmap *map, t_vect ray)
 	t_hit					hit;
 	t_hit					new_hit;
 	int						i;
+	t_vect					neg_ray;
+
 	static t_isect_fnc_tab	funct_tab =
 	{
 		sub_inter_sphere,
@@ -50,6 +52,12 @@ t_hit	sub_inter_objects(t_fullmap *map, t_vect ray)
 		rt_check_minmax(new_hit.obj->min, new_hit.obj->max, &new_hit);
 		if (new_hit.is_hit == 1 && new_hit.dist < hit.dist && new_hit.dist > EPSILON)
 			hit = new_hit;
+	}
+	if (hit.is_hit == 1 && hit.obj->type >= 1 && hit.obj->type <= 3 && hit.obj->negative == YES)
+	{
+		neg_ray = ray;
+		neg_ray.pos = hit.pos2;
+		hit = sub_inter_objects(map, neg_ray);
 	}
 	return (hit);
 }

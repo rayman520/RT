@@ -12,6 +12,7 @@
 
 #include "rt.h"
 
+/*
 static double	compute_t(double a, double b, double c, double det)
 {
 	double	t1;
@@ -59,6 +60,51 @@ t_hit	sub_inter_sphere(t_object *obj, t_vect ray)
 	t = quadratic_equation(ray, r, dc, &det);
 	hit.dist = t;
 	hit.pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, t));
+	hit.normal_dir = v_norm(v_sub_a_by_b(hit.pos, obj->pos));
+	hit.obj = obj;
+	if (det < 0)
+		hit.is_hit = 0;
+	else
+		hit.is_hit = 1;
+	return (hit);
+}
+*/
+
+t_hit	sub_inter_sphere(t_object *obj, t_vect ray)
+{
+	double		det;
+	double		t;
+	double		r;
+	t_3d_double	dc;
+	t_hit		hit;
+	double		a;
+	double		b;
+	double		c;
+	double		t1;
+	double		t2;
+
+	ray.ndir = v_norm(ray.dir);
+	r = obj->radius;
+	dc = v_sub_a_by_b(ray.pos, obj->pos);
+	a = v_dot(ray.ndir, ray.ndir);
+	b = 2 * v_dot(ray.ndir, dc);
+	c = v_dot(dc, dc) - r * r;
+	det = (b * b) - 4 * a * c;
+	if (det < 0)
+		t = -1;
+	t1 = (-b + sqrtf(det)) / (2 * a);
+	t2 = (-b - sqrtf(det)) / (2 * a);
+	if (det == 0)
+		t2 = -b / (2 * a);
+	if (t1 < t2)
+		t2 = t1;
+	if (t1 < 0 && t2 < 0)
+		t2 = -1;
+	t = t2;
+	hit.dist = t;
+	hit.dist2 = t1;
+	hit.pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, t));
+	hit.pos2 = v_sum(ray.pos, v_mult_by_nb(ray.ndir, t1));
 	hit.normal_dir = v_norm(v_sub_a_by_b(hit.pos, obj->pos));
 	hit.obj = obj;
 	if (det < 0)
