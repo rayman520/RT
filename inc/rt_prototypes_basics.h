@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:01:39 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/05 17:43:29 by cpierre          ###   ########.fr       */
+/*   Updated: 2017/12/11 17:09:23 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ float	        ft_clamp(double a, double min, double max);
 void			ft_doubleswap(double *d1, double *d2);
 void			ft_vectorswap(t_3d_double *v1, t_3d_double *v2);
 void			ft_floatswap(float *d1, float *d2);
+void			ft_rt_filter(t_fullmap *map, t_3d_double *rescolor);
 
 /*
 **	Vector handle

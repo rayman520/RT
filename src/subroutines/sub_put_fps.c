@@ -6,11 +6,20 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 12:14:01 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/30 10:05:09 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/11 17:39:22 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+
+static SDL_Surface *create_surface(int x, int y)
+{
+	SDL_Surface *out;
+
+	out = SDL_CreateRGBSurface(0, x, y, 32, 0, 0, 0, 0);
+	printf("Warning: Resolution changed to %dx%d\n", x, y);
+	return (out);
+}
 
 static void	realoc_img(SDL_Surface **img, double fps, t_2dint *mapfps)
 {
@@ -26,19 +35,17 @@ static void	realoc_img(SDL_Surface **img, double fps, t_2dint *mapfps)
 	if (fps < mapfps->x)
 	{
 		newsize = (t_d)(*img)->w / 1.2;
-		if (newsize < 50)
-			newsize = 50;
-		else if (newsize * *aspect_ratio < 50)
-			newsize = 50 / *aspect_ratio;
-		tmp = SDL_CreateRGBSurface(0, (int)newsize, (int)(newsize * *aspect_ratio),
-			32, 0, 0, 0, 0);
+		if (newsize < 30)
+			newsize = 30;
+		else if (newsize * *aspect_ratio < 30)
+			newsize = 30 / *aspect_ratio;
+		tmp = create_surface((int)newsize, (int)(newsize * *aspect_ratio));
 		SDL_FreeSurface(*img);
 		*img = tmp;
 	}
 	else if (fps > mapfps->y)
 	{
-		tmp = SDL_CreateRGBSurface(0, (int)((*img)->w * 1.2), (int)((*img)->w * 1.2 * *aspect_ratio),
-			32, 0, 0, 0, 0);
+		tmp = create_surface((int)((*img)->w * 1.2), (int)((*img)->w * 1.2 * *aspect_ratio));
 		SDL_FreeSurface(*img);
 		*img = tmp;
 	}

@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 11:20:08 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/06 12:17:59 by nthibaud         ###   ########.fr       */
+/*   Updated: 2017/12/11 17:24:23 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 #include "rt.h"
 
-# define EDITOR_IMG_WIDTH 640
-# define EDITOR_IMG_HEIGHT 480
+# define EDITOR_IMG_WIDTH 128
+# define EDITOR_IMG_HEIGHT 80
 
 # define EDITOR_WIN_WIDTH 990
 # define EDITOR_WIN_HEIGHT 850
