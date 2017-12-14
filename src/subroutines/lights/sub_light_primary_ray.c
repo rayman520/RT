@@ -161,6 +161,28 @@ t_3d_double		sub_refraction(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
 	return(v_sum(ref.reflecolor, ref.refracolor));
 }
 
+void		sub_perturb_normal(t_hit *hit)
+{
+	t_3d_double	noisecoef;
+	double 		temp;
+
+	noisecoef.x = (float)(noise3(hit->pos.x, hit->pos.y, hit->pos.z));
+	noisecoef.y = (float)(noise3(hit->pos.y, hit->pos.z, hit->pos.x));
+	noisecoef.z = (float)(noise3(hit->pos.z, hit->pos.x, hit->pos.y));
+	hit->normal_dir.x = (1.0f - hit->obj->bump) * hit->normal_dir.x +\
+	 hit->obj->bump * noisecoef.x;
+	hit->normal_dir.y = (1.0f - hit->obj->bump) * hit->normal_dir.y +\
+	 hit->obj->bump * noisecoef.y;
+	hit->normal_dir.z = (1.0f - hit->obj->bump) * hit->normal_dir.z +\
+	 hit->obj->bump * noisecoef.z;
+	temp = v_dot(hit->normal_dir, hit->normal_dir);
+	if (temp != 0.0f)
+	{
+		temp = 1 / sqrtf(temp);
+		hit->normal_dir = v_mult_by_nb(hit->normal_dir, temp);
+	}
+}
+
 t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
 {
 	t_3d_double	color;
@@ -177,6 +199,9 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 		hit.obj->rgb_color = ft_int_to_double_3d(funct_tab[hit.obj->type - 1](hit));
 	else
 		hit.obj->rgb_color = ft_int_to_double_3d(hit.obj->color);
+	sub_texturechange(hit);
+	if (hit.obj->bump > 0)
+		sub_perturb_normal(&hit);
 	while (i < map->light_c)
 	{
 		light.pos = map->light[i].pos;

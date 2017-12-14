@@ -61,7 +61,7 @@
 		</object>
 		<object>
 			<type>SPH</type>
-			<material>REFR</material>
+			<material>DEF</material>
 			<refraction>1</refraction>
 			<position>0.0,0.0,0.0</position>
 			<radius>1</radius>

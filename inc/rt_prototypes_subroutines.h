@@ -52,7 +52,9 @@ SDL_Surface		*sub_read_texture(t_str file);
 void			sub_xml_read_light(t_light *light, xmlNode *node);
 void			sub_xml_read_object(t_object *obj, xmlNode *node);
 void			sub_xml_read_camera(t_vect *cam, xmlNode *node);
-
+void 			fresnel(t_vect ray, t_hit hit, double *refraction, double *kr);
+void 			sub_texturechange(t_hit hit);
+double 			noise3(double x, double y, double z);
 t_vect 			sub_calc_pix_vect(t_cam_vects cam, t_2dint pos, SDL_Surface *img);
 
 /*
@@ -68,7 +70,6 @@ t_hit			sub_inter_triangle(t_object *triangle, t_vect ray);
 t_hit			sub_inter_quadrangle(t_object *quad, t_vect ray);
 t_hit			sub_inter_aabbbox(t_object *cube, t_vect ray);
 t_hit			sub_inter_pyramid_tbase(t_object *pyramid, t_vect ray);
-void 			fresnel(t_vect ray, t_hit hit, double *refraction, double *kr);
 
 /*
 **	Lights

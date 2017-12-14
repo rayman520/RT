@@ -121,32 +121,32 @@ typedef struct		s_triter
 
 typedef struct		s_refra
 {
-	float 		cosi;
-	float 		cost;
-	float		sint;
-	float 		etai;
-	float 		eta;
-	float 		etat;
-	float 		k;
-	float		rs;
-	float		rp;
-	t_3d_double tmpdir;
-	t_3d_double tmpnorm;
-	t_3d_double refranorm;
+	float 			cosi;
+	float 			cost;
+	float			sint;
+	float 			etai;
+	float 			eta;
+	float 			etat;
+	float 			k;
+	float			rs;
+	float			rp;
+	t_3d_double 	tmpdir;
+	t_3d_double 	tmpnorm;
+	t_3d_double 	refranorm;
 }					t_refra;
 
 typedef struct		s_frafle
 {
-	t_3d_double refranorm;
-	int			outside;
-	double		reflect;
-	t_3d_double	tmp;
-	t_vect		refleray;
-	t_vect		refraray;
-	t_3d_double	refracolor;
-	t_3d_double	reflecolor;
-	t_3d_double bias;
-	double		kr;
+	t_3d_double 	refranorm;
+	int				outside;
+	double			reflect;
+	t_3d_double		tmp;
+	t_vect			refleray;
+	t_vect			refraray;
+	t_3d_double		refracolor;
+	t_3d_double		reflecolor;
+	t_3d_double 	bias;
+	double			kr;
 }					t_frafle;
 
 typedef struct	s_object
@@ -171,6 +171,8 @@ typedef struct	s_object
 	double		radius;
 	double		albedo;
 	SDL_Surface *texture;
+	int			texture_type;
+	double		bump;
 	int			i;
 }				t_object;
 
@@ -215,6 +217,23 @@ typedef struct	s_fullmap
 	int			maxdepth;
 	double		shadowcoef;
 }				t_fullmap;
+
+typedef struct	s_noise
+{
+	int 		tab[512];
+	int 		cx;
+	int 		cy;
+	int 		cz;
+	double 		u;
+	double 		v;
+	double 		w;
+	int 		a;
+	int 		b;
+	int 		aa;
+	int 		ab;
+	int 		bb;
+	int 		ba;
+}				t_noise;
 
 typedef t_hit	(*t_isect_fnc_tab[5])(t_object *obj, t_vect ray);
 typedef	t_ui	(*t_texture_ft_tab[1])(t_hit hit);

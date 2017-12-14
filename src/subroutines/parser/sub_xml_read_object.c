@@ -55,6 +55,8 @@ static void		default_object(t_object *obj, int o_nb)
 	obj[o_nb].type = SPHERE;
 	obj[o_nb].texture = NULL;
 	obj[o_nb].material = DEFAULT;
+	obj[o_nb].texture_type = DEFAULT;
+	obj[o_nb].bump = 0.0;
 	obj[o_nb].color = 0xFFFFFF;
 	obj[o_nb].albedo = 0.18;
 	obj[o_nb].radius = 1.0;

@@ -45,8 +45,16 @@
 
 # define DEFAULT 		0
 # define CHESS	 		1
-# define PERLIN 		2
+# define PERLIN	 		2
+# define MARBLE 		3
+# define WOOD 			4
 
+# define CHESS_SHIFT  	999999
+# define CHESS_TILESIZE	1
+
+# define FREQUENCY 		0.7
+# define CONTRAST 		0.7
+# define MAXOCTAVE  	10
 
 # define DEFAULT 		0
 # define REFLECTIVE 	1

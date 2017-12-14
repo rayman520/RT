@@ -149,6 +149,7 @@ SRC =	\
 		\
 		editor_start.c\
 		main.c\
+		noise.c\
 		options_win.c\
 		parser.c\
 		raytrace_editor.c\
