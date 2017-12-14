@@ -47,7 +47,6 @@
 # define CHESS	 		1
 # define PERLIN	 		2
 # define MARBLE 		3
-# define WOOD 			4
 
 # define CHESS_SHIFT  	999999
 # define CHESS_TILESIZE	1

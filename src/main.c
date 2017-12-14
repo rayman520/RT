@@ -12,9 +12,25 @@
 
 #include "rt.h"
 
+int		*create_perlinmap()
+{
+	int *permutation;
+	int i;
+
+	i = 0;
+	permutation = (int *)malloc(sizeof(int) * 256);
+	while (i < 256)
+	{
+		permutation[i] = rand() % 256;
+		i++;
+	}
+	return (permutation);
+}
+
 int	main(int ac, char **av)
 {
-	t_fullmap *map;
+	t_fullmap	*map;
+	time_t		t;
 
 	sub_basic_arg_test(ac, av);
 	LIBXML_TEST_VERSION
@@ -26,8 +42,10 @@ int	main(int ac, char **av)
 	TTF_Init();
 	atexit(TTF_Quit);
 	atexit(xmlCleanupParser);
+	srand((unsigned) time(&t));
 	if ((map = parser(av[2])) == NULL)
 		ft_exit("map == NULL\n");
+	map->perlin_tab = create_perlinmap();
 	if (!ft_strcmp(av[1], "EDIT"))
 		editor_start(av[2], map);
 	else if (!ft_strcmp(av[1], "RENDER"))

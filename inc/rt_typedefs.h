@@ -91,63 +91,63 @@ typedef enum	e_obj_t
 	DISK = 5,
 }				t_obj_t;
 
-typedef struct		s_inter
+typedef struct	s_inter
 {
-	double			a;
-	double			b;
-	double			c;
-	double			discr;
-	double			t0;
-	double			t1;
-	t_3d_double		dist;
-	t_3d_double		temp;
-	t_3d_double		norm;
-	t_3d_double		temp2;
-}					t_inter;
+	double		a;
+	double		b;
+	double		c;
+	double		discr;
+	double		t0;
+	double		t1;
+	t_3d_double	dist;
+	t_3d_double	temp;
+	t_3d_double	norm;
+	t_3d_double	temp2;
+}				t_inter;
 
-typedef struct		s_triter
+typedef struct	s_triter
 {
-	double 			det;
-	double 			invdet;
-	t_3d_double 	edge1;
-	t_3d_double 	edge2;
-	t_3d_double 	vs1;
-	t_3d_double 	vs2;
-	t_3d_double 	vs3;
-	double 			tmp;
-	double 			u;
-	double			v;
-}					t_triter;
+	double 		det;
+	double 		invdet;
+	t_3d_double edge1;
+	t_3d_double edge2;
+	t_3d_double vs1;
+	t_3d_double vs2;
+	t_3d_double vs3;
+	double 		tmp;
+	double 		u;
+	double		v;
+}				t_triter;
 
-typedef struct		s_refra
+typedef struct	s_refra
 {
-	float 			cosi;
-	float 			cost;
-	float			sint;
-	float 			etai;
-	float 			eta;
-	float 			etat;
-	float 			k;
-	float			rs;
-	float			rp;
-	t_3d_double 	tmpdir;
-	t_3d_double 	tmpnorm;
-	t_3d_double 	refranorm;
-}					t_refra;
+	float 		cosi;
+	float 		cost;
+	float		sint;
+	float 		etai;
+	float 		eta;
+	float 		etat;
+	float 		k;
+	float		rs;
+	float		rp;
+	t_3d_double tmpdir;
+	t_3d_double tmpnorm;
+	t_3d_double refranorm;
+}				t_refra;
 
-typedef struct		s_frafle
+typedef struct	s_frafle
 {
-	t_3d_double 	refranorm;
-	int				outside;
-	double			reflect;
-	t_3d_double		tmp;
-	t_vect			refleray;
-	t_vect			refraray;
-	t_3d_double		refracolor;
-	t_3d_double		reflecolor;
-	t_3d_double 	bias;
-	double			kr;
-}					t_frafle;
+	t_3d_double refranorm;
+	int			outside;
+	double		reflect;
+	t_3d_double	tmp;
+	t_vect		refleray;
+	t_vect		refraray;
+	t_3d_double	refracolor;
+	t_3d_double	reflecolor;
+	t_3d_double bias;
+	double		kr;
+}				t_frafle;
 
 typedef struct	s_object
 {
@@ -216,6 +216,7 @@ typedef struct	s_fullmap
 	int			render_key;
 	int			maxdepth;
 	double		shadowcoef;
+	int			*perlin_tab;
 }				t_fullmap;
 
 typedef struct	s_noise
