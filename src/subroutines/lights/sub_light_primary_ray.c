@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/06 18:08:51 by bvan-dyc         ###   ########.fr       */
+/*   Updated: 2018/01/10 11:53:22 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,9 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 	int			i;
 	static t_texture_ft_tab funct_tab =
 	{
-		sub_texture_sphere
+		sub_texture_sphere,
+		sub_texture_cone_cyl,
+		sub_texture_cone_cyl
 	};
 
 	i = 0;

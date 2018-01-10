@@ -6,7 +6,7 @@
 		<editor_fps_low>30</editor_fps_low>
 		<editor_fps_high>60</editor_fps_high>
 		<fov>90</fov>
-		<ambiant_occ>0.4</ambiant_occ>
+		<ambiant_occ>0.5</ambiant_occ>
 		<maxdepth>3</maxdepth>
 	</options>
 	<cameras>
@@ -20,6 +20,10 @@
 			<position>0.0,3.0,0.0</position>
 			<power>10.0</power>
 		</light>
+		<light>
+			<position>0.0,20.0,0.0</position>
+			<power>10.0</power>
+		</light>
 	</lights>
 	<objects>
 		<object>
@@ -27,7 +31,7 @@
 			<position>0.0,0.0,0.0</position>
 			<radius>0.5</radius>
 			<color>0x0030ff</color>
-			<textture>ressources/textures/kerbin.jpg</textture>
+			<texture>ressources/textures/kerbin.jpg</texture>
 		</object>
 		<object>
 			<type>sphere</type>
@@ -39,9 +43,14 @@
 		<object>
 			<type>sphere</type>
 			<position>0.0,0.0,0.0</position>
-			<radius>50000</radius>
+			<radius>5</radius>
 			<color>0xffFFff</color>
 			<texture>ressources/textures/skybox2.jpg</texture>
+		</object>
+		<object>
+			<type>con</type>
+			<position>0.0,0.0,0.0</position>
+			<color>0xffFFff</color>
 		</object>
 	</objects>
 </map>

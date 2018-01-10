@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:02:51 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/12/01 16:24:16 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/01/10 11:43:33 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void			sub_fullrender_end(SDL_Window *win, SDL_Surface *img);
 void			sub_handle_keyboard(t_kp kp, t_fullmap *map);
 t_hit			sub_intersect_sphere(t_object *obj, t_vect ray);
 t_ui			sub_texture_sphere(t_hit hit);
+t_ui			sub_texture_cone_cyl(t_hit hit);
 void			sub_mv_cdir_add(t_vect *cam, t_3d_double dir, double speed);
 void			sub_mv_cdir_sub(t_vect *cam, t_3d_double dir, double speed);
 void			sub_mv_cdir_up(t_vect *cam, t_3d_double dir, double speed);

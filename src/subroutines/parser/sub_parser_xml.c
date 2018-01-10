@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 17:28:34 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/07 14:05:09 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/01/08 15:41:14 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	options_parser(xmlNode *node, t_fullmap *map)
 			else if (!ft_strcmp((const char *)cur_node->name, "fov"))
 				map->fov = ft_atoi((char *)xmlNodeGetContent(cur_node));
 			else if (!ft_strcmp((const char *)cur_node->name, "ambiant_occ"))
-				map->amb_coef = (double)ft_atof((char *)xmlNodeGetContent(node));
+				map->coef = (double)ft_atof((char *)xmlNodeGetContent(node));
 			else if (!ft_strcmp((const char *)cur_node->name, "maxdepth"))
 				map->maxdepth = ft_atoi((char *)xmlNodeGetContent(cur_node));
 		}

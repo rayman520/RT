@@ -38,7 +38,7 @@
 			<refracoef>1</refracoef>
 			<position>0.0,0.0,0.0</position>
 			<albedo>0.18</albedo>
-			<radius>10</radius>
+			<radius>0.1</radius>
 			<color>0xFFFFFF</color>
 			<texture></texture>
 		</object>
