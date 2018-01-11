@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 16:28:54 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/01/11 15:38:37 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/01/11 15:57:29 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	full_render_start(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
 	while (i < image_number)
 	{
 		SDL_LockSurface(b.render_img);
-		pthread_init(map, b);
+//		pthread_init(map, b);
 		browse_screen_pixel(map, b, image_number, i);
 		SDL_UnlockSurface(b.render_img);
 		save_image(b.render_img, i, mapfile);

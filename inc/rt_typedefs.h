@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/01/11 15:38:41 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/01/11 15:57:31 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,9 @@ typedef struct	s_SDL_Bundle
 
 typedef struct	s_fullmap
 {
+//	t_SDL_Bundle	bundle;
+//	int			pos_start;
+//	int			pos_end;
 	t_light		*light;
 	t_object	*obj;
 	t_vect		*camera;
