@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 16:28:54 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/01/16 18:22:13 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/01/16 18:27:43 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,9 +128,6 @@ static	void	pthread_init(t_fullmap *map, t_SDL_Bundle b)
 			printf("||MALLOC ALLOCATE ERROR 2|| ");
 			j++;
 		}
-		maps[i].zone.color_tab[pos_diff - 1][maps[i].zone.img_w - 1] = 10;
-	//	printf("%d RES\n", map->zone.color_tab[199][1200]);
-	//	printf("%d RES\n", maps[i].zone.color_tab[199][1200]);
 		ret = pthread_create(&threads[i], &attr, browse_screen_pixel, (void *)&maps[i]);
 		if (ret != 0)
 			exit(EXIT_SUCCESS);
@@ -141,22 +138,7 @@ static	void	pthread_init(t_fullmap *map, t_SDL_Bundle b)
 	}
 	pthread_attr_destroy(&attr);
 	i = 0;
-//	int	color = 0;
-//	t_2dint pos;
-//	pos.x = 0;
-//	pos.y = 0;
-/*	while (pos.y < b.render_img->h)
-	{
-		pos.x = 0;
-		while (pos.x < b.render_img->w)
-		{
-			ft_putunlckpixel(b.render_img, pos, color);
-			printf("%d %d\n", pos.y, pos.x);
-			pos.x += 1;
-		}
-		pos.y += 1;
-	}
-*/	while (i < THREADS_NB)
+	while (i < THREADS_NB)
 	{
 		ret = pthread_join(threads[i], &status);
 		ret = 0;
@@ -169,6 +151,20 @@ static	void	pthread_init(t_fullmap *map, t_SDL_Bundle b)
 		zone = status;
 		printf("THREAD NUM %d JOINED start %d end %d\n", zone->num, zone->pos_start, zone->pos_end);
 		i++;
+	t_2dint pos;
+	pos.x = 0;
+	pos.y = zone->pos_start;
+	while (pos.y < zone->pos_end)
+	{
+		pos.x = 0;
+		while (pos.x < b.render_img->w)
+		{
+			ft_putunlckpixel(b.render_img, pos, zone->color_tab[pos.y - zone->pos_start][pos.x]);
+			pos.x += 1;
+		}
+		pos.y += 1;
+	}
+
 	}
 	pthread_mutex_destroy(&mutex);
 }
