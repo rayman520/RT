@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sub_inter_cylinder.c                               :+:      :+:    :+:   */
+/*   sub_inter_ellipsoid.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,39 +12,41 @@
 
 #include "rt.h"
 
-void		sub_norm_cylinder(t_object *cyl, t_hit *hit, t_vect ray)
+void		sub_norm_ellipsoid(t_object *eli, t_hit *hit, t_vect ray)
 {
 	t_3d_double		dist;
-	t_3d_double		temp;
-	t_3d_double		norm;
-	t_3d_double		temp2;
 
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist));
 	hit->pos2 = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist2));
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, 0.1));
-	dist = v_sub_a_by_b(ray.pos, cyl->pos);
-	temp = v_mult_by_nb(cyl->dir, (v_dot(ray.dir, cyl->dir) * hit->dist
-	+ v_dot(dist, cyl->dir)));
-	temp2 = v_sub_a_by_b(hit->pos, cyl->pos);
-	hit->normal_dir = v_sub_a_by_b(temp2, temp);
+	dist = v_sub_a_by_b(ray.pos, eli->pos);
+	hit->normal_dir = v_sub_a_by_b(hit->pos, eli->pos);
+	hit->normal_dir.x = 2.f * hit->normal_dir.x / (ellipsoid.size.x * ellipsoid.size.x);
+	hit->normal_dir.y = 2.f * hit->normal_dir.y / (ellipsoid.size.y * ellipsoid.size.y);
+	hit->normal_dir.z = 2.f * hit->normal_dir.z / (ellipsoid.size.z * ellipsoid.size.z);
 	v_normalize(&hit->normal_dir);
-	hit->obj = cyl;
+	hit->obj = eli;
 }
 
-t_hit		sub_inter_cylinder(t_object *cyl, t_vect ray)
+t_hit		sub_inter_ellipsoid(t_object *eli, t_vect ray)
 {
 	t_hit			hit;
 	t_inter			inter;
 
 	ray.ndir = v_norm(ray.dir);
 	hit.is_hit = 0;
-	inter.dist = v_sub_a_by_b(ray.pos, cyl->pos);
-	inter.norm = v_norm(cyl->dir);
-	inter.a = v_dot(ray.dir, ray.dir) - pow(v_dot(ray.dir, inter.norm), 2);
-	inter.b = 2 * (v_dot(ray.dir, inter.dist) -
-		(v_dot(ray.dir, inter.norm) * v_dot(inter.dist, inter.norm)));
-	inter.c = v_dot(inter.dist, inter.dist) -
-		pow(v_dot(inter.dist, inter.norm), 2) - cyl->radius * cyl->radius;
+	inter.dist = v_sub_a_by_b(ray.pos, eli->pos);
+	inter.norm = v_norm(eli->dir);
+	inter.a = ((ray.dir.x * ray.dir.x) / (eli.size.x * eli.size.x))
+      		+ ((ray.dir.y * ray.dir.y) / (eli.size.y * eli.size.y))
+      		+ ((ray.dir.z * ray.dir.z) / (eli.size.z * eli.size.z));
+	inter.b = ((2.f * inter.dist.x * ray.dir.x) / (eli.size.x * eli.size.x))
+      		+ ((2.f * inter.dist.y * ray.dir.y) / (eli.size.y * eli.size.y))
+      		+ ((2.f * inter.dist.z * ray.dir.z) / (eli.size.z * eli.size.z))
+	inter.c = ((inter.dist.x * inter.dist.x) / (eli.size.x * eli.size.x))
+      		+ ((inter.dist.y * inter.dist.y) / (eli.size.y * eli.size.y))
+      		+ ((inter.dist.z * inter.dist.z) / (eli.size.z * eli.size.z))
+      		- 1.f;
 	inter.discr = inter.b * inter.b - 4 * inter.a * inter.c;
 	if (inter.discr < 0)
 		hit.is_hit = 0;
@@ -56,6 +58,6 @@ t_hit		sub_inter_cylinder(t_object *cyl, t_vect ray)
 		ft_doubleswap(&inter.t0, &inter.t1);
 	hit.dist = inter.t0;
 	hit.dist = inter.t1;
-	sub_norm_cylinder(cyl, &hit, ray);
+	sub_norm_ellipsoid(eli, &hit, ray);
 	return (hit);
 }
