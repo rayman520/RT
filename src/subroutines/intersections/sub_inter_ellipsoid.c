@@ -16,23 +16,26 @@ void		sub_norm_ellipsoid(t_object *eli, t_hit *hit, t_vect ray)
 {
 	t_3d_double		dist;
 
+/*
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist));
 	hit->pos2 = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist2));
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, 0.1));
 	dist = v_sub_a_by_b(ray.pos, eli->pos);
 	hit->normal_dir = v_sub_a_by_b(hit->pos, eli->pos);
-	hit->normal_dir.x = 2.f * hit->normal_dir.x / (ellipsoid.size.x * ellipsoid.size.x);
-	hit->normal_dir.y = 2.f * hit->normal_dir.y / (ellipsoid.size.y * ellipsoid.size.y);
-	hit->normal_dir.z = 2.f * hit->normal_dir.z / (ellipsoid.size.z * ellipsoid.size.z);
+	hit->normal_dir.x = 2.f * hit->normal_dir.x / (eli.size.x * eli.size.x);
+	hit->normal_dir.y = 2.f * hit->normal_dir.y / (eli.size.y * eli.size.y);
+	hit->normal_dir.z = 2.f * hit->normal_dir.z / (eli.size.z * eli.size.z);
 	v_normalize(&hit->normal_dir);
 	hit->obj = eli;
+	*/
 }
 
 t_hit		sub_inter_ellipsoid(t_object *eli, t_vect ray)
 {
 	t_hit			hit;
 	t_inter			inter;
-
+	return (hit);
+	/*
 	ray.ndir = v_norm(ray.dir);
 	hit.is_hit = 0;
 	inter.dist = v_sub_a_by_b(ray.pos, eli->pos);
@@ -60,4 +63,5 @@ t_hit		sub_inter_ellipsoid(t_object *eli, t_vect ray)
 	hit.dist = inter.t1;
 	sub_norm_ellipsoid(eli, &hit, ray);
 	return (hit);
+	*/
 }

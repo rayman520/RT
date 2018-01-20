@@ -22,10 +22,9 @@ void		sub_norm_paraboloid(t_object *para, t_hit *hit, t_vect ray)
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist));
 	hit->pos2 = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist2));
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, 0.1));
-	temp = (v_dot(ray.dir, cyl->dir) * hit->dist + v_dot(dist, cyl->dir);
-	dist = v_sub_a_by_b(ray.pos, cyl->pos);
-	temp = v_mult_by_nb(cyl->dir, (v_dot(ray.dir, cyl->dir) * hit->dist	+ v_dot(dist, cyl->dir) + para->radius));
-	temp2 = v_sub_a_by_b(hit->pos, cyl->pos);
+	dist = v_sub_a_by_b(ray.pos, para->pos);
+	temp = v_mult_by_nb(para->dir, (v_dot(ray.dir, para->dir) * hit->dist + v_dot(dist, para->dir) + para->radius));
+	temp2 = v_sub_a_by_b(hit->pos, para->pos);
 	hit->normal_dir = v_sub_a_by_b(temp2, temp);
 	v_normalize(&hit->normal_dir);
 	hit->obj = para;

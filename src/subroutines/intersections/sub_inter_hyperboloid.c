@@ -36,8 +36,8 @@ t_hit		sub_inter_hyperboloid(t_object *hyper, t_vect ray)
 	inter.dist = v_sub_a_by_b(ray.pos, hyper->pos);
 	inter.norm = v_norm(hyper->dir);
 	inter.a = ray.dir.x * ray.dir.x - ray.dir.y * ray.dir.y + ray.dir.z * ray.dir.z;
-	inter.b = 2 * (ray->pos.x * ray->dir.x - ray->pos.y * ray->dir.y + ray->pos.z * ray->dir.z)
-	inter.c = ray->pos.x * ray->pos.x - ray->pos.y * ray->pos.y + ray->pos.z * ray->pos.z - hyper->radius * hyper->radius;;
+	inter.b = 2 * (ray.pos.x * ray.dir.x - ray.pos.y * ray.dir.y + ray.pos.z * ray.dir.z);
+	inter.c = ray.pos.x * ray.pos.x - ray.pos.y * ray.pos.y + ray.pos.z * ray.pos.z - hyper->radius;
 	inter.discr = inter.b * inter.b - 4 * inter.a * inter.c;
 	if (inter.discr < 0)
 		hit.is_hit = 0;
@@ -49,6 +49,6 @@ t_hit		sub_inter_hyperboloid(t_object *hyper, t_vect ray)
 		ft_doubleswap(&inter.t0, &inter.t1);
 	hit.dist = inter.t0;
 	hit.dist = inter.t1;
-	sub_norm_hyper(hyper, &hit, ray);
+	sub_norm_hyperboloid(hyper, &hit, ray);
 	return (hit);
 }
