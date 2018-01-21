@@ -49,6 +49,8 @@ static t_3d_double	light_color_2(t_fullmap *map, t_3d_double intensity, t_hit hi
 	if (dot < 0)
 		dot = 0;
 	color = v_mult_by_nb(color, dot);
+	v_mult_by_nb(color, 1 - map->shadowcoef);
+	color = v_sum(color, v_mult_by_nb(c_obj, map->amb_coef));
 	return (color);
 }
 
@@ -66,7 +68,6 @@ static t_3d_double	light_color_1(t_fullmap *map, t_hit hit, t_light light, t_vec
 	shadow_ray(map, light);
 	intensity = v_div_by_nb(v_mult_by_nb(hit.obj->rgb_color, light.intensity), 4.0 * PI * l_ray_len);
 	color = light_color_2(map, intensity, hit, light, ray);
-	v_mult_by_nb(color, 1 - map->shadowcoef);
 	return (color);
 }
 
