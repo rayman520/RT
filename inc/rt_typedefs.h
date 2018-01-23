@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/01/16 17:57:36 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/01/23 16:00:07 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,20 +195,8 @@ typedef struct	s_SDL_Bundle
 	SDL_Surface *render_img;
 }				t_SDL_Bundle;
 
-typedef struct s_rend_zone
-{
-	int			pos_start;
-	int			pos_end;
-	int			pos_diff;
-	int			img_w;
-	int			img_h;
-	int			**color_tab;
-	int			num;
-}				t_rend_zone;
-
 typedef struct	s_fullmap
 {
-	t_rend_zone	zone;
 	t_light		*light;
 	t_object	*obj;
 	t_vect		*camera;
@@ -230,6 +218,24 @@ typedef struct	s_fullmap
 	double		shadowcoef;
 	int			*perlin_tab;
 }				t_fullmap;
+
+typedef struct s_zone_pos
+{
+	int			start;
+	int			end;
+	int			diff;
+}				t_zone_pos;
+
+typedef struct s_rend_zone
+{
+	int			pos_start;
+	int			pos_end;
+	int			img_w;
+	int			img_h;
+	int			**color_tab;
+	int			thread_nb;
+	t_fullmap	*map;
+}				t_rend_zone;
 
 typedef struct	s_noise
 {
