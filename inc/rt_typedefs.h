@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/01/23 16:00:07 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/01/23 17:25:45 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,7 +234,7 @@ typedef struct s_rend_zone
 	int			img_h;
 	int			**color_tab;
 	int			thread_nb;
-	t_fullmap	*map;
+	t_fullmap	map;
 }				t_rend_zone;
 
 typedef struct	s_noise

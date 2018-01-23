@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 16:28:54 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/01/23 17:09:16 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/01/23 17:25:44 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,14 @@ static void	*calc_screen_pixel(void *arg)
 		pos.x = -1;
 		while (++pos.x < zone->img_w)
 		{
-			ray = sub_calc_pix_vect(zone->map->cam_v, pos, zone->img_w, zone->img_h);
-			color = ft_double_3d_to_int(raytrace_fullrender(zone->map, ray));
+			ray = sub_calc_pix_vect(zone->map.cam_v, pos, zone->img_w, zone->img_h);
+			color = ft_double_3d_to_int(raytrace_fullrender(&zone->map, ray));
 			zone->color_tab[pos.y - zone->pos_start][pos.x] = color;
 		}
 		pos.y += 1;
 	}
 	pthread_exit((void *)zone);
 }
-
-//CONTROLE RET >>> threadsjoin createthread
 
 	void create_color_tab(t_rend_zone *zone_tab, int i, int pos_diff)
 	{
@@ -127,7 +125,7 @@ t_rend_zone	zone_init(t_fullmap *map, int i, t_zone_pos zone_pos, t_SDL_Bundle b
 	t_rend_zone		zone;
 
 	zone.thread_nb = i;
-	zone.map = map;
+	zone.map = *map;
 	zone.pos_start = zone_pos.start;
 	zone.pos_end = zone_pos.end;
 	zone.img_w = b.render_img->w;
