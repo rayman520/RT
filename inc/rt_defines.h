@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 11:20:08 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/11 17:24:23 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/01/23 17:09:17 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@
 
 # define YES 			1
 # define NO 			0
+
+# define THREADS_NB		20
 
 # define ERR_USAGE "usage: ./rt mode file\n  mode: render/edit/create"
 

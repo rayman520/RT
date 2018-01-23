@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/01/10 11:50:21 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/01/23 17:25:45 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,6 +218,24 @@ typedef struct	s_fullmap
 	double		shadowcoef;
 	int			*perlin_tab;
 }				t_fullmap;
+
+typedef struct s_zone_pos
+{
+	int			start;
+	int			end;
+	int			diff;
+}				t_zone_pos;
+
+typedef struct s_rend_zone
+{
+	int			pos_start;
+	int			pos_end;
+	int			img_w;
+	int			img_h;
+	int			**color_tab;
+	int			thread_nb;
+	t_fullmap	map;
+}				t_rend_zone;
 
 typedef struct	s_noise
 {
