@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/01/10 11:53:22 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/01/30 16:55:17 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static t_3d_double	light_color_2(t_fullmap *map, t_3d_double intensity, t_hit hi
 	if (dot < 0)
 		dot = 0;
 	color = v_mult_by_nb(color, dot);
-	v_mult_by_nb(color, 1 - map->shadowcoef);
+	color = v_mult_by_nb(color, 1 - map->shadowcoef);
 	color = v_sum(color, v_mult_by_nb(c_obj, map->amb_coef));
 	return (color);
 }
