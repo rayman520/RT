@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 17:28:34 by cpierre           #+#    #+#             */
-/*   Updated: 2018/01/08 15:41:14 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/02 16:13:01 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	default_options(t_fullmap *map)
 	map->fps = (t_2dint){30,60};
 	map->maxdepth = 3;
 	map->fov = 30;
+	map->color_saturation = 1.5;
 }
 
 static void	options_parser(xmlNode *node, t_fullmap *map)
@@ -46,6 +47,8 @@ static void	options_parser(xmlNode *node, t_fullmap *map)
 				map->coef = (double)ft_atof((char *)xmlNodeGetContent(node));
 			else if (!ft_strcmp((const char *)cur_node->name, "maxdepth"))
 				map->maxdepth = ft_atoi((char *)xmlNodeGetContent(cur_node));
+			else if (!ft_strcmp((const char *)cur_node->name, "color_saturation"))
+				map->color_saturation = (double)ft_atof((t_str)xmlNodeGetContent(node));
 		}
 		cur_node = cur_node->next;
 	}

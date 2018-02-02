@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/01/23 17:25:45 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/02 16:13:13 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,8 @@ typedef struct	s_object
 	double		refraction;
 	double		refracoef;
 	t_ui		color;
+	double		spec_size;
+	double		spec_power;
 	double		radius;
 	double		albedo;
 	SDL_Surface *texture;
@@ -217,6 +219,7 @@ typedef struct	s_fullmap
 	int			maxdepth;
 	double		shadowcoef;
 	int			*perlin_tab;
+	double		color_saturation;
 }				t_fullmap;
 
 typedef struct s_zone_pos

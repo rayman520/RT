@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 17:19:42 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/04 13:21:41 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/02 16:13:03 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static void		default_object(t_object *obj, int o_nb)
 	obj[o_nb].texture_type = DEFAULT;
 	obj[o_nb].bump = 0.0;
 	obj[o_nb].color = 0xFFFFFF;
+	obj[o_nb].spec_size = 20.0;
+	obj[o_nb].spec_power = 0;
 	obj[o_nb].albedo = 0.18;
 	obj[o_nb].radius = 1.0;
 	obj[o_nb].reflection = 0.5;
@@ -92,6 +94,10 @@ void			sub_xml_read_object(t_object *obj, xmlNode *node)
 			obj[o_nb].color = sub_read_hex((char *)xmlNodeGetContent(node));
 			printf("Color set to: %x\n", obj[o_nb].color);
 		}
+		if (!ft_strcmp((const char *)node->name, "specsize"))
+			obj[o_nb].spec_size = (double)ft_atof((t_str)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "specpower"))
+			obj[o_nb].spec_power = (double)ft_atof((t_str)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "texture"))
 			obj[o_nb].texture = sub_read_texture((t_str)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "material"))
