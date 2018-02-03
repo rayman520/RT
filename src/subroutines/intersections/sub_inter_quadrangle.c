@@ -12,38 +12,13 @@
 
 #include "rt.h"
 
-/*
-void		parallel_arrange(t_3d_double *p1, t_3d_double *p2, t_3d_double *p3)
-{
-	while (p1->y < p2->y || p1->y < p3->y || p2->y < p3->y)
-	{
-		if (p1->y < p2->y)
-			ft_vectorswap(p1, p2);
-		if (p1->y < p3->y)
-			ft_vectorswap(p1, p3);
-		if (p2->y < p3->y)
-			ft_vectorswap(p2, p3);
-	}
-}
-	while (p1->z < p2->z || p1->z < p3->z || p2->z < p3->z)
-	{
-		if (p1->z < p2->z)
-			ft_vectorswap(p1, p2);
-		if (p1->z < p3->z)
-			ft_vectorswap(p1, p3);
-		if (p2->z < p3->z)
-			ft_vectorswap(p2, p3);
-	}
-}
-*/
-
 t_hit		sub_inter_quadrangle(t_object *quad, t_vect ray)
 {
 	t_hit 		hit;
 	t_hit 		hit2;
 	t_object	quadsave;
 
-	if (quad->type == SPHERE) // PARALELLEOGRAM OR CUBE
+	if (quad->type == SPHERE)
 		quad->pd = v_sum(quad->pc, v_sub_a_by_b(quad->pb, quad->pa));
 	quadsave = *quad;
 	hit = sub_inter_triangle(quad, ray);
