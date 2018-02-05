@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2018/02/05 13:03:21 by nthibaud         ###   ########.fr        #
+#    Updated: 2018/02/05 16:42:51 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,6 +123,7 @@ SRC =	\
 		subroutines/sub_put_fps.c\
 		subroutines/sub_put_percent.c\
 		subroutines/sub_calc_pix_vect.c\
+		subroutines/sub_threads.c\
 		\
 		subroutines/parser/sub_basic_arg_test.c\
 		subroutines/parser/sub_check_extension.c\
@@ -159,7 +160,8 @@ SRC =	\
 		raytrace_fullrender.c\
 		full_render_init.c\
 		full_render_from_edit.c\
-		full_render_start.c
+		full_render_start.c\
+		full_render_threads.c
 
 OBJ = $(SRC:.c=.o)
 
