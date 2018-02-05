@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2018/01/10 11:51:21 by cpierre          ###   ########.fr        #
+#    Updated: 2018/02/05 13:03:21 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -142,7 +142,6 @@ SRC =	\
 		subroutines/intersections/sub_inter_cylinder.c\
 		subroutines/intersections/sub_inter_triangle.c\
 		subroutines/intersections/sub_inter_quadrangle.c\
-		subroutines/intersections/sub_inter_aabbbox.c\
 		subroutines/intersections/sub_inter_pyramid.c\
 		subroutines/intersections/sub_inter_objects.c\
 		subroutines/intersections/sub_inter_paraboloid.c\
