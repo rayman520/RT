@@ -41,7 +41,14 @@ t_hit	sub_inter_objects(t_fullmap *map, t_vect ray)
 		sub_inter_cone,
 		sub_inter_cylinder,
 		sub_inter_plane,
-		sub_inter_disk
+		sub_inter_disk,
+		sub_inter_triangle,
+		sub_inter_quadrangle,
+		sub_inter_pyramid_tbase,
+		sub_inter_ellipsoid,
+		sub_inter_paraboloid,
+		sub_inter_hyperboloid,
+		sub_inter_quadrangle,
 	};
 
 	hit = (t_hit){NULL_POS, NULL_POS, NULL_POS, NULL_VECT, NULL, RENDER_DIST, RENDER_DIST, 0};

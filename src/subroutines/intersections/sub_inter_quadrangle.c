@@ -18,7 +18,7 @@ t_hit		sub_inter_quadrangle(t_object *quad, t_vect ray)
 	t_hit 		hit2;
 	t_object	quadsave;
 
-	if (quad->type == SPHERE)
+	if (quad->type == PARALLELOGRAM)
 		quad->pd = v_sum(quad->pc, v_sub_a_by_b(quad->pb, quad->pa));
 	quadsave = *quad;
 	hit = sub_inter_triangle(quad, ray);

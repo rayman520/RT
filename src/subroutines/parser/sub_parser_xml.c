@@ -20,6 +20,7 @@ static void	default_options(t_fullmap *map)
 	map->maxdepth = 3;
 	map->fov = 30;
 	map->color_saturation = 1.5;
+	map->amb_coef = 0;
 }
 
 static void	options_parser(xmlNode *node, t_fullmap *map)
@@ -45,6 +46,8 @@ static void	options_parser(xmlNode *node, t_fullmap *map)
 				map->fov = ft_atoi((char *)xmlNodeGetContent(cur_node));
 			else if (!ft_strcmp((const char *)cur_node->name, "ambiant_occ"))
 				map->coef = (double)ft_atof((char *)xmlNodeGetContent(cur_node));
+			else if (!ft_strcmp((const char *)cur_node->name, "ambiant_light"))
+				map->amb_coef = (double)ft_atof((char *)xmlNodeGetContent(cur_node));
 			else if (!ft_strcmp((const char *)cur_node->name, "maxdepth"))
 				map->maxdepth = ft_atoi((char *)xmlNodeGetContent(cur_node));
 			else if (!ft_strcmp((const char *)cur_node->name, "color_saturation"))

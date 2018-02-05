@@ -23,14 +23,49 @@
 		else if (ft_is_any_string(str, 3, "CYLINDER", "CYLINDRE", "CYL"))
 			return (CYLINDER);
 		else if (ft_is_any_string(str, 3, "PLANE", "PLAN", "PLA"))
-		return (PLANE);
-	else if (ft_is_any_string(str, 2, "DISC", "DISK", "DIS"))
-		return (DISK);
+			return (PLANE);
+		else if (ft_is_any_string(str, 2, "DISC", "DISK", "DIS"))
+			return (DISK);
+		else if (ft_is_any_string(str, 2, "TRIANGLE", "TRI"))
+			return (TRIANGLE);
+		else if (ft_is_any_string(str, 2, "PARALLELOGRAM", "PLGM"))
+			return (TRIANGLE);
+		else if (ft_is_any_string(str, 2, "QUADRANGLE", "QUAD"))
+			return (QUADRANGLE);
+		else if (ft_is_any_string(str, 2, "PARALLELOGRAM", "PLGM"))
+			return (PARALLELOGRAM);
+		else if (ft_is_any_string(str, 2, "PYRAMID", "PYR"))
+			return (PYRAMID);
+		else if (ft_is_any_string(str, 2, "ELLIPSOID", "ELI"))
+			return (ELLIPSOID);
+		else if (ft_is_any_string(str, 2, "PARABOLOID", "PARA"))
+			return (PARALLELOGRAM);
+		else if (ft_is_any_string(str, 2, "HYPERBOLOID", "HYP"))
+			return (PYRAMID);
 	else
 	{
 		printf("Object type not recognized, setting to sphere\n");
 		return (SPHERE);
 	}
+}
+
+static t_obj_t	read_obj_textype(t_str str)
+{
+	ft_strupcase(str);
+	printf("Object texture considered as %s\n", str);
+	if (ft_is_any_string(str, 2, "DEFAULT", "DEF"))
+		return (DEFAULT);
+	else if (ft_is_any_string(str, 1, "CHESS"))
+		return (CHESS);
+	else if (ft_is_any_string(str, 1, "PERLIN"))
+		return (PERLIN);
+	else if (ft_is_any_string(str, 1, "MARBLE"))
+		return (MARBLE);
+else
+{
+	printf("Object texture not recognized, setting to default\n");
+	return (DEFAULT);
+}
 }
 
 static t_obj_t	read_obj_material(t_str str)
@@ -84,6 +119,8 @@ void			sub_xml_read_object(t_object *obj, xmlNode *node)
 			obj[o_nb].dir = sub_read_pos((char *)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "type"))
 			obj[o_nb].type = read_obj_type((char *)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "textype"))
+			obj[o_nb].texture_type = read_obj_textype((char *)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "radius"))
 		{
 			obj[o_nb].radius = (double)ft_atof((char *)xmlNodeGetContent(node));
@@ -110,7 +147,22 @@ void			sub_xml_read_object(t_object *obj, xmlNode *node)
 			obj[o_nb].albedo = (double)ft_atof((t_str)xmlNodeGetContent(node));
 		if (!ft_strcmp((const char *)node->name, "refracoef"))
 			obj[o_nb].refracoef = (double)ft_atof((t_str)xmlNodeGetContent(node));
-
+		if (!ft_strcmp((const char *)node->name, "negative"))
+			obj[o_nb].negative = (ft_is_any_string((char *)xmlNodeGetContent(node), 1, "YES") ? YES : NO);
+		if (!ft_strcmp((const char *)node->name, "min"))
+			obj[o_nb].min = sub_read_pos((char *)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "max"))
+			obj[o_nb].max = sub_read_pos((char *)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "pa"))
+			obj[o_nb].pa = sub_read_pos((char *)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "pb"))
+			obj[o_nb].pb = sub_read_pos((char *)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "pc"))
+			obj[o_nb].pc = sub_read_pos((char *)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "pd"))
+			obj[o_nb].pd = sub_read_pos((char *)xmlNodeGetContent(node));
+		if (!ft_strcmp((const char *)node->name, "bump"))
+			obj[o_nb].bump = (double)ft_atof((t_str)xmlNodeGetContent(node));
 		node = node->next;
 	}
 	o_nb++;
