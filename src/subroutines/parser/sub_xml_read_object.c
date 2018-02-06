@@ -28,8 +28,6 @@
 			return (DISK);
 		else if (ft_is_any_string(str, 2, "TRIANGLE", "TRI"))
 			return (TRIANGLE);
-		else if (ft_is_any_string(str, 2, "PARALLELOGRAM", "PLGM"))
-			return (TRIANGLE);
 		else if (ft_is_any_string(str, 2, "QUADRANGLE", "QUAD"))
 			return (QUADRANGLE);
 		else if (ft_is_any_string(str, 2, "PARALLELOGRAM", "PLGM"))
@@ -39,9 +37,9 @@
 		else if (ft_is_any_string(str, 2, "ELLIPSOID", "ELI"))
 			return (ELLIPSOID);
 		else if (ft_is_any_string(str, 2, "PARABOLOID", "PARA"))
-			return (PARALLELOGRAM);
+			return (PARABOLOID);
 		else if (ft_is_any_string(str, 2, "HYPERBOLOID", "HYP"))
-			return (PYRAMID);
+			return (HYPERBOLOID);
 	else
 	{
 		printf("Object type not recognized, setting to sphere\n");

@@ -26,6 +26,7 @@
 		<object>
 			<type>SPH</type>
 			<material>DEF</material>
+			<textype>CHESS</textype>
 			<position>2.0,2.0,0.0</position>
 			<radius>1</radius>
 			<color>0x0000FF</color>
@@ -44,7 +45,6 @@
 		<object>
 			<type>SPH</type>
 			<material>DEF</material>
-			<negative>YES</negative>
 			<position>2.0,0.5,0.0</position>
 			<radius>1</radius>
 			<color>0xFF0000</color>
@@ -54,7 +54,7 @@
 		<object>
 			<type>SPH</type>
 			<material>DEF</material>
-			<position>2.8,0.5,0.0</position>
+			<position>2.,0.5,0.0</position>
 			<radius>1</radius>
 			<color>0xFF0000</color>
 			<albedo>0.18</albedo>
@@ -63,7 +63,6 @@
 		<object>
 			<type>SPH</type>
 			<material>DEF</material>
-			<negative>YES</negative>
 			<position>-2.0,-2.0,0.0</position>
 			<radius>1</radius>
 			<color>0x00FF00</color>

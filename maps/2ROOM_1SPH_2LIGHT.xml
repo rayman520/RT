@@ -31,11 +31,13 @@
 	</lights>
 	<objects>
 		<object>
-			<type>SPH</type>
+			<type>QUADRANGLE</type>
+			<pa>0,4,0</pa>
+			<pb>0,-4,0</pb>
+			<pc>0,4,4</pc>
+			<pd>0,-4,4</pd>
 			<material>DEF</material>
-			<refraction>10.0</refraction>
 			<position>0.0,0.0,0.0</position>
-			<albedo>0.18</albedo>
 			<radius>10</radius>
 			<color>0xFFFFFF</color>
 			<texture></texture>
