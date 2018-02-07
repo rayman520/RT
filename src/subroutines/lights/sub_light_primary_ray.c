@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/02 16:13:46 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/07 16:06:31 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,7 @@ static t_3d_double	diffuse_light_2(t_fullmap *map, t_3d_double intensity, t_hit 
 
 	c_light = v_mult_by_v(v_mult_by_nb(light.color,
 			(double)(hit.obj->albedo / PI)), intensity);
-	c_obj = v_mult_by_v(v_mult_by_nb(hit.obj->rgb_color,
+	c_obj = v_mult_by_v(v_mult_by_nb(hit.rgb_color,
 			(double)(hit.obj->albedo / PI)), intensity);
 	c_obj = v_mult_by_nb(c_obj, map->color_saturation);
 	color = v_sum(c_light, c_obj);
@@ -218,10 +218,10 @@ t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int de
 	color = (t_3d_double){0,0,0};
 	spe_color = (t_3d_double){0,0,0};
 	if (hit.obj->texture)
-		hit.obj->rgb_color = ft_int_to_double_3d(funct_tab[hit.obj->type - 1](hit));
+		hit.rgb_color = ft_int_to_double_3d(funct_tab[hit.obj->type - 1](hit));
 	else
-		hit.obj->rgb_color = ft_int_to_double_3d(hit.obj->color);
-	sub_texturechange(hit, map);
+		hit.rgb_color = ft_int_to_double_3d(hit.obj->color);
+	hit.rgb_color = sub_texture_change(hit, map);
 	if (hit.obj->bump > 0)
 		sub_perturb_normal(&hit, map->perlin_tab);
 	while (i < map->light_c)

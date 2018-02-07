@@ -27,7 +27,7 @@
 	<objects>
 		<object>
 			<type>PLANE</type>
-			<material>DEF</material>
+			<material>REFL</material>
 			<refraction>10.0</refraction>
 			<reflection>0.9</reflection>
 			<position>0.0,0.0,-1.0</position>
@@ -36,6 +36,7 @@
 			<radius>1</radius>
 			<color>0xFFFFFF</color>
 			<texture></texture>
+			<textype>CHESS</textype>
 		</object>
 
 		<object>
@@ -202,6 +203,56 @@
 			<specpower>1</specpower>
 			<texture></texture>
 		</object>
+		<object>
+			<type>SPH</type>
+			<material>REFL</material>
+			<refraction>1.0</refraction>
+			<reflection>0.7</reflection>
+			<refracoef>1</refracoef>
+			<position>0.0,-3.0,0.0</position>
+			<albedo>0.18</albedo>
+			<radius>2</radius>
+			<color>0xFFFFFF</color>
+			<specsize>20.0</specsize>
+			<specpower>1</specpower>
+			<texture></texture>
+			<textype>MARBLE</textype>
+		</object>
+		<object>
+			<type>SPH</type>
+			<material>DEF</material>
+			<refraction>1.0</refraction>
+			<reflection>0.7</reflection>
+			<refracoef>1</refracoef>
+			<position>10.0,-3.0,3.0</position>
+			<albedo>0.18</albedo>
+			<radius>0.5</radius>
+			<color>0xFFFFFF</color>
+			<specsize>20.0</specsize>
+			<specpower>0</specpower>
+			<texture></texture>
+			<textype>DEFAULT</textype>
+			<texture>ressources/textures/Mun_color.jpg</texture>
+			<bump>0</bump>
+		</object>
+		<object>
+			<type>SPH</type>
+			<material>DEF</material>
+			<refraction>1.0</refraction>
+			<reflection>0.7</reflection>
+			<refracoef>1</refracoef>
+			<position>10.0,-6.0,2.0</position>
+			<albedo>0.18</albedo>
+			<radius>2</radius>
+			<color>0xFFFFFF</color>
+			<specsize>20.0</specsize>
+			<specpower>0</specpower>
+			<texture></texture>
+			<textype>DEFAULT</textype>
+			<texture>ressources/textures/kerbin.jpg</texture>
+			<bump>0</bump>
+		</object>
+
 
 		</objects>
 	</map>

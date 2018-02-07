@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:02:51 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/05 16:49:30 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/07 16:06:59 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void			sub_xml_read_light(t_light *light, xmlNode *node);
 void			sub_xml_read_object(t_object *obj, xmlNode *node);
 void			sub_xml_read_camera(t_vect *cam, xmlNode *node);
 void 			fresnel(t_vect ray, t_hit hit, double *refraction, double *kr);
-void 			sub_texturechange(t_hit hit, t_fullmap *map);
+t_3d_double		sub_texture_change(t_hit hit, t_fullmap *map);
 double 			noise3(double x, double y, double z, int *perlin_tab);
 t_vect 			sub_calc_pix_vect(t_cam_vects cam, t_2dint pos, int img_w,
 		int img_h);

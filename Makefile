@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2018/02/05 16:42:51 by nthibaud         ###   ########.fr        #
+#    Updated: 2018/02/07 16:07:46 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,6 +118,7 @@ SRC =	\
 		subroutines/sub_handle_keyboard.c\
 		subroutines/sub_texture_sphere.c\
 		subroutines/sub_texture_cone_cyl.c\
+		subroutines/sub_texture_change.c\
 		subroutines/sub_move_cam_dir.c\
 		subroutines/sub_move_cam_pos.c\
 		subroutines/sub_put_fps.c\
@@ -153,7 +154,6 @@ SRC =	\
 		\
 		editor_start.c\
 		main.c\
-		noise.c\
 		options_win.c\
 		parser.c\
 		raytrace_editor.c\
