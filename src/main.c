@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:26:29 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/01 16:22:53 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/08 15:10:29 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,16 @@ int		*create_perlinmap()
 
 	i = 0;
 	permutation = (int *)malloc(sizeof(int) * 256);
-	while (i < 256)
+	if (permutation)
 	{
-		permutation[i] = rand() % 256;
-		i++;
+		while (i < 256)
+		{
+			permutation[i] = rand() % 256;
+			i++;
+		}
 	}
+	else
+		ft_exit("ERR_MLC");
 	return (permutation);
 }
 
@@ -52,5 +57,6 @@ int	main(int ac, char **av)
 		full_render_init(av[2], map);
 	else if (!ft_strcmp(av[1], "CREATE"))
 		sub_create_file(av[2]);
+	free(map);
 	return (0);
 }

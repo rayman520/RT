@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 12:14:01 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/07 17:32:35 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/08 15:02:22 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static void	realoc_img(SDL_Surface **img, double fps, t_2dint *mapfps)
 	if (!aspect_ratio)
 	{
 		aspect_ratio = (double *)malloc(sizeof(double));
-		*aspect_ratio = (double)(*img)->h / (double)(*img)->w;
+		if (aspect_ratio != NULL)
+			*aspect_ratio = (double)(*img)->h / (double)(*img)->w;
 	}
 	if (fps < mapfps->x)
 	{

@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 16:28:54 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/07 17:32:34 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/08 14:55:18 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@ static void	save_image(SDL_Surface *img, int i, t_str mapfile)
 {
 	t_str	savefile_name;
 	t_str	tmp;
+	t_str	tmp2;
 
 	savefile_name = ft_strjoin("renders\\RT_Full-render_", mapfile);
-	tmp = ft_strjoin(savefile_name, ft_itoa(i));
+	tmp2 = ft_itoa(i);
+	tmp = ft_strjoin(savefile_name, tmp2);
+	free(savefile_name);
+	free(tmp2);
 	savefile_name = ft_strjoin(tmp, ".bmp");
 	free(tmp);
 	ft_str_replace(savefile_name, '/', '_');
