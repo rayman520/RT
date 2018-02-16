@@ -227,6 +227,8 @@ typedef struct	s_fullmap
 	double		shadowcoef;
 	int			*perlin_tab;
 	double		color_saturation;
+	t_ui			col;
+	int				o;
 }				t_fullmap;
 
 typedef struct s_zone_pos

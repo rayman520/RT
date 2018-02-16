@@ -16,13 +16,13 @@ Uint32 getpixel(SDL_Surface *img, int x, int y)
 {
 	Uint32	*pixels;
 	Uint8	*pixel;
-	t_rgb	c;
+	t_3d_double	c;
 
 	pixels = (Uint32 *)img->pixels;
 	pixel = (Uint8 *)&pixels[(y * 4) * img->w + x * 4];
-	c.r = pixel[2];
-	c.g = pixel[1];
-	c.b = pixel[0];
+	c.z = pixel[2];
+	c.y = pixel[1];
+	c.x = pixel[0];
 	return ft_rgb_to_int(c);
 }
 

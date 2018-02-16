@@ -42,7 +42,7 @@ void			ft_putchar(char c);
 void			ft_putpixel(SDL_Surface *img, t_2dint pos, Uint32 val);
 void			ft_putstr(char *str);
 int				ft_putunlckpixel(SDL_Surface *img, t_2dint pos, Uint32 val);
-t_ui			ft_rgb_to_int(t_rgb color);
+t_ui			ft_rgb_to_int(t_3d_double color);
 t_ui			ft_double_3d_to_int(t_3d_double color);
 t_3d_double		ft_int_to_double_3d(t_ui color);
 void			ft_str_replace(char *str, char target, char new);

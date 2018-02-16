@@ -38,7 +38,7 @@
 			<pd>0,-4,4</pd>
 			<material>DEF</material>
 			<position>0.0,0.0,0.0</position>
-			<radius>10</radius>
+			<radius>100</radius>
 			<color>0xFFFFFF</color>
 			<texture></texture>
 		</object>

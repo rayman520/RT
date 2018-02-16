@@ -15,7 +15,7 @@
 static void	init(t_fullmap *map)
 {
 	map->render_key = 0;
-//	map->obj[1].i = 0;
+	map->o = -1;
 }
 
 static void	obj_movements(t_fullmap *map)
