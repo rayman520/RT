@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 17:28:34 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/05 13:31:43 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/17 20:17:11 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,11 @@ static void	recursive_parser(xmlNode *node, t_fullmap *map)
 			else if (!ft_strcmp((const char *)cur_node->name, "cameras"))
 				map->camera = sub_malloc_cameras(map, cur_node->children);
 			else if (!ft_strcmp((const char *)cur_node->name, "light"))
-				sub_xml_read_light(map->light, cur_node->children);
+					sub_xml_read_light(map->light, cur_node->children);
 			else if (!ft_strcmp((const char *)cur_node->name, "object"))
-				sub_xml_read_object(map->obj, cur_node->children);
+					sub_xml_read_object(map->obj, cur_node->children);
 			else if (!ft_strcmp((const char *)cur_node->name, "camera"))
+				if (map->camera)
 				sub_xml_read_camera(map->camera, cur_node->children);
 		}
 		recursive_parser(cur_node->children, map);
@@ -94,6 +95,9 @@ void		sub_parser_xml(t_fullmap *map, xmlDoc *doc)
 		ft_exit("Parser failed to open file\n");
 	printf("Starting parsing of %s\n", map->mapfile_pathname);
 	root_element = xmlDocGetRootElement(doc);
+	map->light = NULL;
+	map->obj = NULL;
+	map->camera = NULL;
 	recursive_parser(root_element, map);
 	xmlFreeDoc(doc);
 	xmlCleanupParser();
