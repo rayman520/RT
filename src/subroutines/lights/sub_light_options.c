@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/19 17:34:37 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/19 17:50:34 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,21 +94,12 @@ t_3d_double			sub_refr(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
 	if (ref.kr < 1)
 	{
 		ref.refraray.dir = rt_refract(*ray, hit, &hit.obj->refraction);
-<<<<<<< HEAD
 		v_normalize(&ref.refraray.dir);
 		ref.refleray.ndir = ref.refleray.dir;
 		ref.refraray.pos = ref.outside == 1 ? v_sub_a_by_b(hit.pos, ref.bias) :
 			v_sum(hit.pos, ref.bias);
 		ref.refracolor = v_mult_by_nb(v_mult_by_nb(raytrace_loop(map,
 				ref.refraray, depth + 1), 1 - ref.kr), hit.obj->refracoef);
-=======
-		ref.refleray.ndir = v_norm(&ref.refraray.dir);
-		ref.refraray.pos = ref.outside == 1 ? v_sub_a_by_b(hit.pos, ref.bias) \
-		: v_sum(hit.pos, ref.bias);
-		ref.refracolor = raytrace_loop(map, ref.refraray, depth + 1);
-		ref.refracolor = v_mult_by_nb(ref.refracolor, 1 - ref.kr);
-		ref.refracolor = v_mult_by_nb(ref.refracolor, hit.obj->refracoef);
->>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 	}
 	ref.refleray.pos = hit.pos;
 	ref.reflect = 2 * v_dot(ray->dir, hit.normal_dir);
