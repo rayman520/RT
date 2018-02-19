@@ -6,7 +6,7 @@
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:00 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2017/12/04 15:55:41 by bvan-dyc         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:11:29 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ t_hit		sub_inter_ellipsoid(t_object *eli, t_vect ray)
 	inter.dist = v_sub_a_by_b(ray.pos, eli->pos);
 	inter.norm = v_norm(eli->dir);
 	inter.a = ((ray.dir.x * ray.dir.x) / (eli->pa.x * eli->pa.x))
-      		+ ((ray.dir.y * ray.dir.y) / (eli->pa.y * eli->pa.y))
-      		+ ((ray.dir.z * ray.dir.z) / (eli->pa.z * eli->pa.z));
+		+ ((ray.dir.y * ray.dir.y) / (eli->pa.y * eli->pa.y))
+		+ ((ray.dir.z * ray.dir.z) / (eli->pa.z * eli->pa.z));
 	inter.b = ((2.f * inter.dist.x * ray.dir.x) / (eli->pa.x * eli->pa.x))
-      		+ ((2.f * inter.dist.y * ray.dir.y) / (eli->pa.y * eli->pa.y))
-      		+ ((2.f * inter.dist.z * ray.dir.z) / (eli->pa.z * eli->pa.z));
+		+ ((2.f * inter.dist.y * ray.dir.y) / (eli->pa.y * eli->pa.y))
+		+ ((2.f * inter.dist.z * ray.dir.z) / (eli->pa.z * eli->pa.z));
 	inter.c = ((inter.dist.x * inter.dist.x) / (eli->pa.x * eli->pa.x))
-      		+ ((inter.dist.y * inter.dist.y) / (eli->pa.y * eli->pa.y))
-      		+ ((inter.dist.z * inter.dist.z) / (eli->pa.z * eli->pa.z)) - 1.f;
+		+ ((inter.dist.y * inter.dist.y) / (eli->pa.y * eli->pa.y))
+		+ ((inter.dist.z * inter.dist.z) / (eli->pa.z * eli->pa.z)) - 1.f;
 	inter.discr = inter.b * inter.b - 4 * inter.a * inter.c;
 	if (inter.discr < 0)
 		hit.is_hit = 0;

@@ -6,16 +6,16 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 11:42:37 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/22 12:08:54 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:08:29 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
 void	m_set_as_default(double **m)
-{	
+{
 	t_m_rows	rows;
 
-	rows = (t_m_rows){{1,0,0},{0,1,0},{0,0,1},{0,0,0}};
+	rows = (t_m_rows){{1, 0, 0}, {0, 1, 0}, {0, 0, 1}, {0, 0, 0}};
 	m4_fill(m, rows);
 }

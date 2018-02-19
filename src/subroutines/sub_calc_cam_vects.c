@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 16:24:37 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/23 11:11:24 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:20:13 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static t_vect	get_normal_of_two_vects(t_vect v1, t_vect v2)
 	return (out);
 }
 
-t_cam_vects	sub_calc_cam_vects(t_vect cam, int img_x, int img_y)
+t_cam_vects		sub_calc_cam_vects(t_vect cam, int img_x, int img_y)
 {
 	t_cam_vects out;
 

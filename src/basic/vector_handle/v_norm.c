@@ -6,16 +6,16 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 11:26:49 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/22 11:26:50 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:09:41 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "rt.h"
+#include "rt.h"
 
 t_3d_double	v_norm(t_3d_double v)
 {
-	double n;
-	t_3d_double nv;
+	double		n;
+	t_3d_double	nv;
 
 	n = v_len(v);
 	nv.x = v.x / n;

@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 13:08:24 by cpierre           #+#    #+#             */
-/*   Updated: 2017/09/25 16:37:05 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/19 17:20:22 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	sub_create_file2(int fd, t_str mapfile)
 	free(tmp);
 }
 
-void	sub_create_file(t_str file)
+void		sub_create_file(t_str file)
 {
 	t_str	full_path;
 	int		fd;

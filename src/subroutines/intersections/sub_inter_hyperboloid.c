@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sub_inter_hyper.c                                  :+:      :+:    :+:   */
+/*   sub_inter_hyperboloid.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:00 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2017/12/04 15:55:41 by bvan-dyc         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:25:06 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ t_hit		sub_inter_hyperboloid(t_object *hyper, t_vect ray)
 	hit.is_hit = 0;
 	inter.dist = v_sub_a_by_b(ray.pos, hyper->pos);
 	inter.norm = v_norm(hyper->dir);
-	inter.a = ray.dir.x * ray.dir.x - ray.dir.y * ray.dir.y + ray.dir.z * ray.dir.z;
-	inter.b = 2 * (ray.pos.x * ray.dir.x - ray.pos.y * ray.dir.y + ray.pos.z * ray.dir.z);
-	inter.c = ray.pos.x * ray.pos.x - ray.pos.y * ray.pos.y + ray.pos.z * ray.pos.z - hyper->radius;
+	inter.a = ray.dir.x * ray.dir.x - ray.dir.y * ray.dir.y + ray.dir.z *
+		ray.dir.z;
+	inter.b = 2 * (ray.pos.x * ray.dir.x - ray.pos.y * ray.dir.y + ray.pos.z *
+		ray.dir.z);
+	inter.c = ray.pos.x * ray.pos.x - ray.pos.y * ray.pos.y + ray.pos.z *
+		ray.pos.z - hyper->radius;
 	inter.discr = inter.b * inter.b - 4 * inter.a * inter.c;
-	if (inter.discr < 0)
-		hit.is_hit = 0;
-	else
-		hit.is_hit = 1;
+	hit.is_hit = (inter.discr < 0) ? 0 : 1;
 	inter.t0 = (-inter.b + sqrtf(inter.discr)) / (2 * inter.a);
 	inter.t1 = (-inter.b - sqrtf(inter.discr)) / (2 * inter.a);
 	if (inter.t0 > inter.t1)

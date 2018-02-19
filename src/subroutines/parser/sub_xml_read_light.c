@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 16:01:34 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 15:58:50 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/19 16:24:46 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void		sub_xml_read_light(t_light *light, xmlNode *node)
 	if (light != NULL)
 	{
 		default_light(light, l_nb);
-		printf("Reading light %d\n", l_nb + 1);
 		while (node)
 		{
 			if (!ft_strcmp((const char *)node->name, "position"))

@@ -6,13 +6,13 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 11:33:52 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/01/16 16:11:38 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:20:10 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_vect sub_calc_pix_vect(t_cam_vects cam, t_2dint pos, int	img_w, int img_h)
+t_vect	sub_calc_pix_vect(t_cam_vects cam, t_2dint pos, int img_w, int img_h)
 {
 	t_vect out;
 	double percent_x;

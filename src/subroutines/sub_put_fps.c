@@ -6,22 +6,21 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 12:14:01 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/08 15:02:22 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/19 17:07:20 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static SDL_Surface *create_surface(int x, int y)
+static SDL_Surface	*create_surface(int x, int y)
 {
 	SDL_Surface *out;
 
 	out = SDL_CreateRGBSurface(0, x, y, 32, 0, 0, 0, 0);
-	printf("Warning: Resolution changed to %dx%d\n", x, y);
 	return (out);
 }
 
-static void	realoc_img(SDL_Surface **img, double fps, t_2dint *mapfps)
+static void			realoc_img(SDL_Surface **img, double fps, t_2dint *mapfps)
 {
 	SDL_Surface		*tmp;
 	static double	*aspect_ratio = NULL;
@@ -29,8 +28,7 @@ static void	realoc_img(SDL_Surface **img, double fps, t_2dint *mapfps)
 
 	if (!aspect_ratio)
 	{
-		aspect_ratio = (double *)malloc(sizeof(double));
-		if (aspect_ratio != NULL)
+		if ((aspect_ratio = (double *)malloc(sizeof(double))) != NULL)
 			*aspect_ratio = (double)(*img)->h / (double)(*img)->w;
 	}
 	if (fps < mapfps->x)
@@ -51,7 +49,9 @@ static void	realoc_img(SDL_Surface **img, double fps, t_2dint *mapfps)
 		*img = tmp;
 	}
 }
-void	sub_put_fps(SDL_Surface **img, t_2dint *mapfps, SDL_Surface *w)
+
+void				sub_put_fps(SDL_Surface **img, t_2dint *mapfps,
+						SDL_Surface *w)
 {
 	static Uint32	old_time = 0;
 	static short	nb_passed = -1;
@@ -67,10 +67,7 @@ void	sub_put_fps(SDL_Surface **img, t_2dint *mapfps, SDL_Surface *w)
 	{
 		cur_time = SDL_GetTicks();
 		ratio = cur_time - old_time;
-		if (nb_passed != -1)
-			ratio /= 10000;
-		else
-			ratio /= 1000;
+		ratio /= (nb_passed != -1) ? 10000 : 1000;
 		old_time = cur_time;
 		nb_passed = -2;
 		realoc_img(img, 1 / ratio, mapfps);

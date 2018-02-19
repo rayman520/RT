@@ -6,11 +6,11 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 11:26:26 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/22 11:26:27 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:09:21 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "rt.h"
+#include "rt.h"
 
 double	v_len(t_3d_double v)
 {

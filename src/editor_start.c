@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 16:31:06 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 15:26:08 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:25:20 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,9 @@ static void	init(t_fullmap *map)
 	map->o = -1;
 }
 
-static void	obj_movements(t_fullmap *map)
-{
-	static int frame = 0;
-
-	frame++;
-//	map->obj[1].i = map->obj[1].i + 1;
-//	map->obj[1].pos.x = 2 * cos((double)map->obj[1].i / 100);
-//	map->obj[1].pos.y = 2 * sin((double)map->obj[1].i / 100);
-	//	map->light[0].pos.x = 1 * cos((double)map->obj[1].i / 100);
-	//	map->light[0].pos.y = 10 * sin((double)frame / 100);
-}
-
 static void	launch_raytrace(t_fullmap *map, SDL_Window *render_win,
 	SDL_Surface *render_img, SDL_Surface *win_img)
 {
-	obj_movements(map);
 	sub_draw_image_editor(map, render_img);
 	sub_blit_render(render_img, win_img);
 	SDL_UpdateWindowSurface(render_win);
