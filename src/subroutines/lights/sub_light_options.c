@@ -12,7 +12,7 @@
 
 #include "rt.h"
 
-void 	fresnel(t_vect ray, t_hit hit, double *refraction, double *kr)
+void 	 	 	fresnel(t_vect ray, t_hit hit, double *refraction, double *kr)
 {
 	t_refra	ref;
 
@@ -103,7 +103,7 @@ t_3d_double		sub_refraction(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
 	return(v_sum(ref.reflecolor, ref.refracolor));
 }
 
-void		sub_perturb_normal(t_hit *hit, int *perlin_map)
+void		 	sub_perturb_normal(t_hit *hit, int *perlin_map)
 {
 	t_3d_double	noisecoef;
 	double 		temp;

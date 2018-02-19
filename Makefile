@@ -136,6 +136,8 @@ SRC =	\
 		subroutines/parser/sub_read_hex.c\
 		subroutines/parser/sub_read_pos.c\
 		subroutines/parser/sub_read_texture.c\
+		subroutines/parser/xmlngc.c\
+		subroutines/parser/default_object.c\
 		\
 		subroutines/intersections/sub_inter_plane.c\
 		subroutines/intersections/sub_inter_disk.c\
@@ -151,6 +153,7 @@ SRC =	\
 		subroutines/intersections/sub_inter_hyperboloid.c\
 		\
 		subroutines/lights/sub_light_primary_ray.c\
+		subroutines/lights/sub_light_options.c\
 		\
 		editor_start.c\
 		main.c\

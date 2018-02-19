@@ -12,7 +12,7 @@
 
 #include "rt.h"
 
-static void	shadow_ray(t_fullmap *map, t_light light)
+static void				shadow_ray(t_fullmap *map, t_light light)
 {
 	t_hit	hit;
 	t_vect	ray;
@@ -31,7 +31,7 @@ static void	shadow_ray(t_fullmap *map, t_light light)
 		map->shadowcoef = 0;
 }
 
-static t_3d_double	specular_light(t_fullmap *map, t_hit hit, t_light light, t_vect *ray)
+static t_3d_double		specular_light(t_fullmap *map, t_hit hit, t_light light, t_vect *ray)
 {
 	t_3d_double	color;
 	t_3d_double	spec_color;
@@ -48,7 +48,7 @@ static t_3d_double	specular_light(t_fullmap *map, t_hit hit, t_light light, t_ve
 	color = v_mult_by_nb(color, 1 - map->shadowcoef);
 	return (color);
 }
-static t_3d_double	diffuse_light_2(t_fullmap *map, t_3d_double intensity, t_hit hit, t_light light, t_vect *ray)
+static t_3d_double		diffuse_light_2(t_fullmap *map, t_3d_double intensity, t_hit hit, t_light light, t_vect *ray)
 {
 	t_3d_double	c_light;
 	t_3d_double	c_obj;
@@ -72,7 +72,7 @@ static t_3d_double	diffuse_light_2(t_fullmap *map, t_3d_double intensity, t_hit 
 	return (color);
 }
 
-static t_3d_double	diffuse_light(t_fullmap *map, t_hit hit, t_light light, t_vect *ray)
+static t_3d_double		diffuse_light(t_fullmap *map, t_hit hit, t_light light, t_vect *ray)
 {
 	t_3d_double	color;
 	t_3d_double	intensity;
@@ -89,7 +89,7 @@ static t_3d_double	diffuse_light(t_fullmap *map, t_hit hit, t_light light, t_vec
 	return (color);
 }
 
-t_3d_double	sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
+t_3d_double				sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
 {
 	t_3d_double	color;
 	t_3d_double spe_color;
