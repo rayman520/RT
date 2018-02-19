@@ -6,79 +6,15 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/11 21:18:54 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 16:59:06 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/19 21:07:06 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	ft_move_obj(t_kp kp, t_fullmap *map)
+void	sub_handle_keyboard2(t_kp kp, t_fullmap *map, double cspeed,
+		t_vect *cam)
 {
-	if (kp[SDLK_KP_4])
-		map->obj[map->o].pos.y = map->obj[map->o].pos.y + 0.25;
-	if (kp[SDLK_KP_6])
-		map->obj[map->o].pos.y = map->obj[map->o].pos.y - 0.25;
-	if (kp[SDLK_KP_1])
-		map->obj[map->o].pos.x = map->obj[map->o].pos.x - 0.25;
-	if (kp[SDLK_KP_9])
-		map->obj[map->o].pos.x = map->obj[map->o].pos.x + 0.25;
-	if (kp[SDLK_KP_8])
-		map->obj[map->o].pos.z = map->obj[map->o].pos.z + 0.25;
-	if (kp[SDLK_KP_2])
-		map->obj[map->o].pos.z = map->obj[map->o].pos.z - 0.25;
-}
-
-void	ft_ray_obj(t_kp kp, t_fullmap *map)
-{
-	if (kp[SDLK_MINUS] && map->obj[map->o].color == 16777215 &&
-		map->obj[map->o].type != 4 && map->obj[map->o].radius > 0)
-		map->obj[map->o].radius = map->obj[map->o].radius - 0.5;
-	if (kp[SDLK_EQUALS] && map->obj[map->o].color == 16777215 &&
-		map->obj[map->o].type != 4)
-		map->obj[map->o].radius = map->obj[map->o].radius + 0.5;
-}
-
-void	select_obj(t_kp kp, t_fullmap *map)
-{
-	t_3d_double out;
-
-	if (kp[SDLK_1] && map->o < map->obj_c - 1)
-	{
-		map->o++;
-		if (map->o >= 1)
-			map->obj[map->o - 1].color = map->col;
-		map->col = map->obj[map->o].color;
-		map->obj[map->o].color = 16777215;
-	}
-	if (kp[SDLK_2] && map->o > 0)
-	{
-		map->o--;
-		map->obj[map->o + 1].color = map->col;
-		map->col = map->obj[map->o].color;
-		map->obj[map->o].color = 16777215;
-	}
-	if (kp[SDLK_3])
-	{
-		map->obj[map->o].color = map->col;
-		map->o = -1;
-	}
-	ft_ray_obj(kp, map);
-	ft_move_obj(kp, map);
-	SDL_Delay(150);
-}
-
-void	sub_handle_keyboard(t_kp kp, t_fullmap *map)
-{
-	t_vect			*cam;
-	static double	cspeed = 0.1;
-
-	cam = &map->camera[map->target_cam];
-	if (kp[SDLK_ESCAPE])
-		ft_exit("ESCAPE BUTTON EVENT\n");
-	if (kp[SDLK_r])
-		map->render_key = (map->render_key == 1 ? 0 : 1);
-	if (map->render_key == 1)
-		return ;
 	if (kp[SDLK_RIGHT])
 		sub_mv_cdir_add(cam, map->cam_v.right.dir, (cspeed < 1 ? cspeed : 1));
 	if (kp[SDLK_LEFT])
@@ -95,6 +31,21 @@ void	sub_handle_keyboard(t_kp kp, t_fullmap *map)
 		sub_mv_cpos_add(cam, map->cam_v.start.dir, cspeed);
 	if (kp[SDLK_s])
 		sub_mv_cpos_sub(cam, map->cam_v.start.dir, cspeed);
+}
+
+void	sub_handle_keyboard(t_kp kp, t_fullmap *map)
+{
+	t_vect			*cam;
+	static double	cspeed = 0.1;
+
+	cam = &map->camera[map->target_cam];
+	if (kp[SDLK_ESCAPE])
+		ft_exit("ESCAPE BUTTON EVENT\n");
+	if (kp[SDLK_r])
+		map->render_key = (map->render_key == 1 ? 0 : 1);
+	if (map->render_key == 1)
+		return ;
+	sub_handle_keyboard2(kp, map, cspeed, cam);
 	if (kp[SDLK_SPACE])
 		cam->pos.z += cspeed / 10;
 	if (kp[SDLK_x])

@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2018/02/07 16:07:46 by nthibaud         ###   ########.fr        #
+#    Updated: 2018/02/19 20:56:58 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,8 +105,6 @@ SRC =	\
 		basic/matrix_handle/m4_mult_m4.c\
 		basic/matrix_handle/m4_mult_v.c\
 		basic/matrix_handle/m4_set_as_default.c\
-		\
-		basic/debug/debug.c\
 		\
 		subroutines/sub_blit_render.c\
 		subroutines/sub_calc_cam_vects.c\

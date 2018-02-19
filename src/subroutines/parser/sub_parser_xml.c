@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 17:28:34 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:19:26 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/19 20:58:35 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void		default_options(t_fullmap *map)
 	map->fov = 30;
 	map->color_saturation = 1.5;
 	map->amb_coef = 0;
+	map->filter = 0;
 }
 
 static void		options_parser2(t_fullmap *map, const char *name,
