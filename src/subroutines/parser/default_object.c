@@ -30,4 +30,6 @@ void	default_object(t_object *obj, int o_nb)
 	obj[o_nb].negative = NO;
 	obj[o_nb].pos = (t_3d_double){0, 0, 0};
 	obj[o_nb].dir = (t_3d_double){0, 0, 1};
+	obj[o_nb].min = (t_3d_double){DBMIN, DBMIN, DBMIN};
+	obj[o_nb].max = (t_3d_double){DBMAX, DBMAX, DBMAX};
 }
