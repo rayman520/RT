@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 11:36:52 by cpierre           #+#    #+#             */
-/*   Updated: 2017/10/09 12:08:45 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/19 15:48:00 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ unsigned int	sub_read_hex(t_str str)
 	if (!(str[i] == 'x' || str[i] == 'X'))
 		return (out);
 	i++;
-	while ((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'a' && str[i] <= 'f') || (str[i] >= 'A' && str[i] <= 'F'))
+	while ((str[i] >= '0' && str[i] <= '9') ||
+		(str[i] >= 'a' && str[i] <= 'f') || (str[i] >= 'A' && str[i] <= 'F'))
 	{
 		out *= 16;
 		if (str[i] >= '0' && str[i] <= '9')

@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/07 15:30:02 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 15:50:31 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "rt.h"
 
 typedef char*	t_str;
+
+typedef const char*	t_cstr;
 
 typedef unsigned int t_ui;
 

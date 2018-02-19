@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:02:51 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/07 16:06:59 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 16:09:32 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void			join_threads(pthread_t *threads, t_rend_zone *zone_tab,
 		t_SDL_Bundle b);
 void			create_threads(t_rend_zone *zone_tab, int i,
 		pthread_t *threads);
+char			*xmlngc(const xmlNode *cur);
+void			default_object(t_object *obj, int o_nb);
 
 /*
 **	Intersections

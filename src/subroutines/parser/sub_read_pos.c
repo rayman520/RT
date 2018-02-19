@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 16:12:53 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/04 10:52:09 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/19 15:47:44 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ double			sub_read_double(t_str str)
 		while (small * divisor > 1)
 			small /= 10.0;
 	}
-	else
-		printf("Invalid double format given, setting to %f\n", big + small);
 	return (big + small);
 }
 
@@ -59,10 +57,7 @@ t_3d_double		sub_read_3d_double(t_str str)
 	int			i;
 
 	if (str == NULL)
-	{
-		printf("unknown, set it to default: 0,0,0\n");
 		return ((t_3d_double){0, 0, 0});
-	}
 	out.x = (double)ft_atof(str);
 	i = -1;
 	while (str[++i])
@@ -78,18 +73,15 @@ t_3d_double		sub_read_3d_double(t_str str)
 		i++;
 	}
 	out.z = (double)ft_atof(&str[++i]);
-	printf("successfully set to %f,%f,%f\n", out.x, out.y, out.z);
 	return (out);
 }
 
 t_3d_double		sub_read_dir(t_str str)
 {
-	printf("direction ");
 	return (sub_read_3d_double(str));
 }
 
 t_3d_double		sub_read_pos(t_str str)
 {
-	printf("position ");
 	return (sub_read_3d_double(str));
 }

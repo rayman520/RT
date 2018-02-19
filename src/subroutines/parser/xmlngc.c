@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sub_read_texture.c                                 :+:      :+:    :+:   */
+/*   xmlngc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/20 14:56:42 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 15:46:56 by cpierre          ###   ########.fr       */
+/*   Created: 2018/02/19 15:35:50 by cpierre           #+#    #+#             */
+/*   Updated: 2018/02/19 15:57:38 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-SDL_Surface	*sub_read_texture(t_str file)
+char		*xmlngc(const xmlNode *cur)
 {
-	SDL_Surface *out;
-
-	out = IMG_Load(file);
-	if (!out)
-		return (NULL);
-	return (out);
+	return ((char *)xmlNodeGetContent(cur));
 }
