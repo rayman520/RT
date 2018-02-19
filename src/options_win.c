@@ -6,13 +6,13 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 15:33:29 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/06 14:14:05 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/19 17:25:58 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void create_win(SDL_Window *win, SDL_Surface *img)
+static void	create_win(SDL_Window *win, SDL_Surface *img)
 {
 	t_str		text;
 	static int	already_done = 0;
@@ -29,7 +29,7 @@ static void create_win(SDL_Window *win, SDL_Surface *img)
 	}
 }
 
-void render_options_win(t_fullmap *map)
+void		render_options_win(t_fullmap *map)
 {
 	static	SDL_Window	*win = NULL;
 	static	SDL_Surface *win_img = NULL;

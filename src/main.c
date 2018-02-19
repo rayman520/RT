@@ -6,13 +6,13 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:26:29 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/08 15:10:29 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/19 17:26:16 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-int		*create_perlinmap()
+int		*create_perlinmap(void)
 {
 	int *permutation;
 	int i;

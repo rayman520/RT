@@ -6,11 +6,11 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:15:19 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/23 09:46:23 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:10:33 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "rt.h"
+#include "rt.h"
 
 void	display_3d_double(char *s, t_3d_double v)
 {
@@ -43,7 +43,7 @@ void	display_cam_vects(char *s, t_cam_vects cam_v)
 	printf("down X pos	%.4f\n", cam_v.down.pos.x);
 	printf("down Y pos	%.4f\n", cam_v.down.pos.y);
 	printf("down Z pos	%.4f\n", cam_v.down.pos.z);
-	printf("\n");	
+	printf("\n");
 	printf("start X dir	%.4f\n", cam_v.start.dir.x);
 	printf("start Y dir	%.4f\n", cam_v.start.dir.y);
 	printf("start Z dir	%.4f\n", cam_v.start.dir.z);

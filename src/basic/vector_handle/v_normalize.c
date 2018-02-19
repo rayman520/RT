@@ -6,11 +6,11 @@
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 16:09:07 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2017/11/29 14:00:48 by bvan-dyc         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:09:47 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "rt.h"
+#include "rt.h"
 
 void		v_normalize(t_3d_double *v)
 {

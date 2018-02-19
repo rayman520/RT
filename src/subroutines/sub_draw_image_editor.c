@@ -6,13 +6,13 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:57:29 by cpierre           #+#    #+#             */
-/*   Updated: 2017/11/30 11:00:38 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:21:09 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static t_vect calc_pix_vect(t_cam_vects cam, t_2dint pos, SDL_Surface *img)
+static t_vect	calc_pix_vect(t_cam_vects cam, t_2dint pos, SDL_Surface *img)
 {
 	t_vect out;
 	double percent_x;
@@ -36,12 +36,13 @@ static t_vect calc_pix_vect(t_cam_vects cam, t_2dint pos, SDL_Surface *img)
 	return (out);
 }
 
-void	sub_draw_image_editor(t_fullmap *map, SDL_Surface *img)
+void			sub_draw_image_editor(t_fullmap *map, SDL_Surface *img)
 {
 	t_2dint		c;
 	t_vect		pix_vect;
 
-	map->cam_v = sub_calc_cam_vects(map->camera[map->target_cam], img->w, img->h);
+	map->cam_v = sub_calc_cam_vects(map->camera[map->target_cam],
+		img->w, img->h);
 	map->cam_v.fov = map->fov;
 	c.y = 0;
 	while (c.y < img->h)

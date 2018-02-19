@@ -6,11 +6,11 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 11:26:01 by nthibaud          #+#    #+#             */
-/*   Updated: 2017/11/22 11:26:02 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:09:13 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "rt.h"
+#include "rt.h"
 
 t_3d_double	v_cross(t_3d_double a, t_3d_double b)
 {

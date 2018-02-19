@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 12:30:50 by cpierre           #+#    #+#             */
-/*   Updated: 2017/10/22 15:07:31 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/19 17:21:24 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	sub_put_text(SDL_Surface *img, t_str text)
 	SDL_FreeSurface(surface);
 }
 
-void		sub_put_percent(SDL_Window *win, SDL_Surface *img, double val)
+void	sub_put_percent(SDL_Window *win, SDL_Surface *img, double val)
 {
 	static t_str	percent = NULL;
 
