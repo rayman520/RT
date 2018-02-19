@@ -119,6 +119,7 @@ SRC =	\
 		subroutines/sub_texture_sphere.c\
 		subroutines/sub_texture_cone_cyl.c\
 		subroutines/sub_texture_change.c\
+		subroutines/sub_texture_change_perlin.c\
 		subroutines/sub_move_cam_dir.c\
 		subroutines/sub_move_cam_pos.c\
 		subroutines/sub_put_fps.c\

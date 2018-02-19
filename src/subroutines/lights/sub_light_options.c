@@ -94,7 +94,7 @@ t_3d_double			sub_refr(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
 	if (ref.kr < 1)
 	{
 		ref.refraray.dir = rt_refract(*ray, hit, &hit.obj->refraction);
-		ref.refleray.ndir = v_norm(&ref.refraray.dir);
+		ref.refleray.ndir = v_norm(ref.refraray.dir);
 		ref.refraray.pos = ref.outside == 1 ? v_sub_a_by_b(hit.pos, ref.bias) \
 		: v_sum(hit.pos, ref.bias);
 		ref.refracolor = raytrace_loop(map, ref.refraray, depth + 1);
