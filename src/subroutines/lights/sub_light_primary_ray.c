@@ -31,8 +31,8 @@ static void				shadow_ray(t_fullmap *map, t_light light)
 		map->shadowcoef = 0;
 }
 
-static t_3d_double		specular_light(t_fullmap *map, t_hit hit, t_light light,\
-	 t_vect *ray)
+static t_3d_double		specular_light(t_fullmap *map, t_hit hit, \
+	t_light light, t_vect *ray)
 {
 	t_3d_double	color;
 	t_3d_double	spec_color;
@@ -58,7 +58,7 @@ static t_3d_double		diffuse_light_2(t_fullmap *map, t_3d_double intensity, \
 	t_3d_double	c_light;
 	t_3d_double	c_obj;
 	t_3d_double	color;
-	double	dot;
+	double		dot;
 
 	c_light = v_mult_by_v(v_mult_by_nb(light.color,
 			(double)(hit.obj->albedo / PI)), intensity);
@@ -67,7 +67,8 @@ static t_3d_double		diffuse_light_2(t_fullmap *map, t_3d_double intensity, \
 	c_obj = v_mult_by_nb(c_obj, map->color_saturation);
 	color = v_sum(c_light, c_obj);
 	dot = v_dot(hit.normal_dir, light.ray.dir);
-	if (hit.obj->type == PLANE && (v_dot(v_mult_by_nb(hit.normal_dir, -1), ray->dir) < 0))
+	if (hit.obj->type == PLANE && (v_dot(v_mult_by_nb(hit.normal_dir, -1),\
+	 ray->dir) < 0))
 			dot = v_dot(v_mult_by_nb(hit.normal_dir, -1), light.ray.dir);
 	if (dot < 0)
 		dot = 0;
@@ -102,7 +103,7 @@ t_3d_double				sub_light_primary_ray(t_fullmap *map, t_hit hit, \
 	t_3d_double spe_color;
 	t_light		light;
 	int			i;
-	static t_texture_ft_tab funct_tab =
+	static 		t_texture_ft_tab funct_tab =
 	{
 		sub_texture_sphere,
 		sub_texture_cone_cyl,
