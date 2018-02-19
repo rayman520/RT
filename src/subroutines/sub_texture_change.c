@@ -12,7 +12,7 @@
 
 #include "rt.h"
 
-static t_3d_double	makenoise_chess(t_hit hit)
+static t_3d_double		makenoise_chess(t_hit hit)
 {
 	if (((int)(hit.pos.y + CHESS_SHIFT) / CHESS_TILESIZE +
 		(int)(hit.pos.z + CHESS_SHIFT) / CHESS_TILESIZE +
@@ -25,7 +25,7 @@ static t_3d_double	makenoise_chess(t_hit hit)
 	return (hit.rgb_color);
 }
 
-static t_3d_double	makenoise_perlin(t_hit hit, int *perlin_tab)
+static t_3d_double		makenoise_perlin(t_hit hit, int *perlin_tab)
 {
 	double		f;
 	int			octave;
@@ -45,7 +45,7 @@ static t_3d_double	makenoise_perlin(t_hit hit, int *perlin_tab)
 	return (hit.rgb_color);
 }
 
-static t_3d_double	makenoise_marble(t_hit hit, int *perlin_tab)
+static t_3d_double		makenoise_marble(t_hit hit, int *perlin_tab)
 {
 	float	f;
 	int		octave;
@@ -66,7 +66,7 @@ static t_3d_double	makenoise_marble(t_hit hit, int *perlin_tab)
 	return (hit.rgb_color);
 }
 
-t_3d_double	sub_texture_change(t_hit hit, t_fullmap *map)
+t_3d_double				sub_texture_change(t_hit hit, t_fullmap *map)
 {
 	if (hit.obj->texture_type == CHESS)
 		hit.rgb_color = makenoise_chess(hit);

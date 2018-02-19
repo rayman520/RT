@@ -254,6 +254,7 @@ typedef struct s_rend_zone
 typedef struct	s_noise
 {
 	int 		tab[512];
+	int			i;
 	int 		cx;
 	int 		cy;
 	int 		cz;
