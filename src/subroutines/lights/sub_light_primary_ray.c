@@ -31,8 +31,13 @@ static void				shadow_ray(t_fullmap *map, t_light light)
 		map->shadowcoef = 0;
 }
 
+<<<<<<< HEAD
 static t_3d_double		specular_light(t_fullmap *map, t_hit hit,
 							t_light light, t_vect *ray)
+=======
+static t_3d_double		specular_light(t_fullmap *map, t_hit hit, \
+	t_light light, t_vect *ray)
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 {
 	t_3d_double	color;
 	t_3d_double	spec_color;
@@ -40,10 +45,17 @@ static t_3d_double		specular_light(t_fullmap *map, t_hit hit,
 	double		dot;
 
 	color = (t_3d_double){0, 0, 0};
+<<<<<<< HEAD
 	spec_color = v_mult_by_nb(v_mult_by_nb(light.color, light.intensity),
 		hit.obj->spec_power);
 	half_vector = v_norm(v_sum(v_norm(v_sub_a_by_b(light.pos, hit.pos)),
 		v_mult_by_nb(ray->dir, -1)));
+=======
+	spec_color = v_mult_by_nb(v_mult_by_nb(light.color, light.intensity), \
+	hit.obj->spec_power);
+	half_vector = v_norm(v_sum(v_norm(v_sub_a_by_b(light.pos, hit.pos)), \
+	v_mult_by_nb(ray->dir, -1)));
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 	dot = v_dot(hit.normal_dir, half_vector);
 	if (dot < 0.0)
 		dot = 0.0;
@@ -51,8 +63,14 @@ static t_3d_double		specular_light(t_fullmap *map, t_hit hit,
 	color = v_mult_by_nb(color, 1 - map->shadowcoef);
 	return (color);
 }
+<<<<<<< HEAD
 static t_3d_double		diffuse_light_2(t_fullmap *map, t_3d_double intensity,
 							t_hit hit, t_light light, t_vect *ray)
+=======
+
+static t_3d_double		diffuse_light_2(t_fullmap *map, t_3d_double intensity, \
+	t_hit hit, t_light light, t_vect *ray)
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 {
 	t_3d_double	c_light;
 	t_3d_double	c_obj;
@@ -66,9 +84,15 @@ static t_3d_double		diffuse_light_2(t_fullmap *map, t_3d_double intensity,
 	c_obj = v_mult_by_nb(c_obj, map->color_saturation);
 	color = v_sum(c_light, c_obj);
 	dot = v_dot(hit.normal_dir, light.ray.dir);
+<<<<<<< HEAD
 	if (hit.obj->type == PLANE && (v_dot(v_mult_by_nb(hit.normal_dir, -1),
 		ray->dir) < 0))
 		dot = v_dot(v_mult_by_nb(hit.normal_dir, -1), light.ray.dir);
+=======
+	if (hit.obj->type == PLANE && (v_dot(v_mult_by_nb(hit.normal_dir, -1),\
+	 ray->dir) < 0))
+			dot = v_dot(v_mult_by_nb(hit.normal_dir, -1), light.ray.dir);
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 	if (dot < 0)
 		dot = 0;
 	color = v_mult_by_nb(color, dot);
@@ -77,8 +101,13 @@ static t_3d_double		diffuse_light_2(t_fullmap *map, t_3d_double intensity,
 	return (color);
 }
 
+<<<<<<< HEAD
 static t_3d_double		diffuse_light(t_fullmap *map, t_hit hit, t_light light,
 								t_vect *ray)
+=======
+static t_3d_double		diffuse_light(t_fullmap *map, t_hit hit, \
+	t_light light, t_vect *ray)
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 {
 	t_3d_double	color;
 	t_3d_double	intensity;
@@ -96,6 +125,7 @@ static t_3d_double		diffuse_light(t_fullmap *map, t_hit hit, t_light light,
 	return (color);
 }
 
+<<<<<<< HEAD
 t_3d_double				sub_light_primary_ray(t_fullmap *map, t_hit hit,
 							t_vect *ray, int depth)
 {
@@ -105,6 +135,16 @@ t_3d_double				sub_light_primary_ray(t_fullmap *map, t_hit hit,
 	int						i;
 	static t_texture_ft_tab	funct_tab =
 
+=======
+t_3d_double				sub_light_primary_ray(t_fullmap *map, t_hit hit, \
+	t_vect *ray, int depth)
+{
+	t_3d_double	color;
+	t_3d_double spe_color;
+	t_light		light;
+	int			i;
+	static 		t_texture_ft_tab funct_tab =
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 	{
 		sub_texture_sphere,
 		sub_texture_cone_cyl,
@@ -136,6 +176,6 @@ t_3d_double				sub_light_primary_ray(t_fullmap *map, t_hit hit,
 		color = v_mult_by_nb(color, map->coef);
 	}
 	else if (hit.obj->material == REFRAFLECTIVE)
-		color = v_sum(color, sub_refraction(map, hit, ray, depth));
+		color = v_sum(color, sub_refr(map, hit, ray, depth));
 	return (color);
 }

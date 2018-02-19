@@ -62,6 +62,9 @@
 # define YES 			1
 # define NO 			0
 
+# define DBMIN 	        -1.7976931348623158e+308
+# define DBMAX 	        1.7976931348623158e+308
+
 # define THREADS_NB		100
 
 # define ERR_USAGE "usage: ./rt mode file\n  mode: render/edit/create"

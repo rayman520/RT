@@ -14,12 +14,6 @@
 
 void	rt_check_minmax(t_3d_double min, t_3d_double max, t_hit *hit)
 {
-	min.x = -1000000;
-	max.x = 1000000;
-	min.y = -1000000;
-	max.y = 1000000;
-	min.z = -1000000;
-	max.z = 1000000;
 	if (hit->pos.x < min.x || hit->pos.x > max.x)
 		hit->is_hit = 0;
 	if (hit->pos.y < min.y || hit->pos.y > max.y)

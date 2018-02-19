@@ -86,8 +86,8 @@ t_hit			sub_inter_ellipsoid(t_object *pyramid, t_vect ray);
 **	Lights
 */
 t_3d_double	    sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int depth);
-void            sub_perturb_normal(t_hit *hit, int *perlin_map);
-t_3d_double     sub_refraction(t_fullmap *map, t_hit hit, t_vect *ray, int depth);
+void            sub_perturb_normal(t_hit *hit, int *perlinmp);
+t_3d_double     sub_refr(t_fullmap *map, t_hit hit, t_vect *ray, int depth);
 t_3d_double     sub_reflection(t_fullmap *map, t_hit hit, t_vect *ray, int depth);
 t_3d_double     rt_refract(t_vect ray, t_hit hit, double *refraction);
 void            fresnel(t_vect ray, t_hit hit, double *refraction, double *kr);

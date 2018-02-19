@@ -12,35 +12,57 @@
 
 #include "rt.h"
 
+<<<<<<< HEAD
 void			fresnel(t_vect ray, t_hit hit, double *refraction, double *kr)
+=======
+void				fresnel(t_vect ray, t_hit hit, double *refra, double *kr)
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 {
 	t_refra	ref;
 
 	ref.cosi = ft_clamp(-1, 1, v_dot(ray.dir, hit.normal_dir));
 	ref.etai = 1;
-	ref.etat = *refraction;
+	ref.etat = *refra;
 	if (ref.cosi > 0)
 		ft_floatswap(&ref.etai, &ref.etat);
+<<<<<<< HEAD
 	ref.sint = ref.etai / ref.etat *
 		sqrtf(ft_fmax(0.f, 1 - ref.cosi * ref.cosi));
+=======
+	ref.sint = ref.etai / ref.etat * sqrtf(ft_fmax(0.f, 1 - ref.cosi * \
+		ref.cosi));
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 	if (ref.sint >= 1)
 		*kr = 1;
 	else
 	{
 		ref.cost = sqrtf(ft_fmax(0.f, 1 - ref.sint * ref.sint));
 		ref.cosi = fabsf(ref.cosi);
+<<<<<<< HEAD
 		ref.rs = ((ref.etat * ref.cosi) - (ref.etai * ref.cost)) /
 			((ref.etat * ref.cosi) + (ref.etai * ref.cost));
 		ref.rp = ((ref.etai * ref.cosi) - (ref.etat * ref.cost)) /
 			((ref.etai * ref.cosi) + (ref.etat * ref.cost));
+=======
+		ref.rs = ((ref.etat * ref.cosi) - (ref.etai * ref.cost)) / \
+		((ref.etat * ref.cosi) + (ref.etai * ref.cost));
+		ref.rp = ((ref.etai * ref.cosi) - (ref.etat * ref.cost)) / \
+		((ref.etai * ref.cosi) + (ref.etat * ref.cost));
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 		*kr = (ref.rs * ref.rs + ref.rp * ref.rp) / 2;
 	}
 }
 
+<<<<<<< HEAD
 t_3d_double		rt_refract(t_vect ray, t_hit hit, double *refraction)
+=======
+t_3d_double			rt_refract(t_vect ray, t_hit hit, double *refraction)
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 {
-	t_refra	ref;
+	t_refra		ref;
+	t_3d_double empty;
 
+	empty = (t_3d_double){0, 0, 0};
 	ref.cosi = ft_clamp(-1, 1, v_dot(ray.dir, hit.normal_dir));
 	ref.etai = 1;
 	ref.etat = *refraction;
@@ -56,6 +78,7 @@ t_3d_double		rt_refract(t_vect ray, t_hit hit, double *refraction)
 	ref.k = 1 - ref.eta * ref.eta * (1 - ref.cosi * ref.cosi);
 	ref.tmpdir = v_mult_by_nb(ray.dir, ref.eta);
 	if (ref.k >= 0)
+<<<<<<< HEAD
 		ref.tmpnorm = v_mult_by_nb(ref.refranorm,
 			ref.eta * ref.cosi - sqrtf(ref.k));
 	return (ref.k < 0 ? (t_3d_double){0, 0, 0} :
@@ -64,6 +87,18 @@ t_3d_double		rt_refract(t_vect ray, t_hit hit, double *refraction)
 
 t_3d_double		sub_reflection(t_fullmap *map, t_hit hit, t_vect *ray,
 								int depth)
+=======
+		ref.tmpnorm = v_mult_by_nb(ref.refranorm, ref.eta * ref.cosi - \
+			sqrtf(ref.k));
+	if (ref.k < 0)
+		return (empty);
+	else
+		return (v_sum(ref.tmpdir, ref.tmpnorm));
+}
+
+t_3d_double			sub_reflection(t_fullmap *map, t_hit hit, t_vect *ray, \
+	int depth)
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 {
 	double		reflect;
 	t_3d_double	tmp;
@@ -80,8 +115,12 @@ t_3d_double		sub_reflection(t_fullmap *map, t_hit hit, t_vect *ray,
 	return (raytrace_loop(map, *ray, depth + 1));
 }
 
+<<<<<<< HEAD
 t_3d_double		sub_refraction(t_fullmap *map, t_hit hit, t_vect *ray,
 		int depth)
+=======
+t_3d_double			sub_refr(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 {
 	t_frafle	ref;
 
@@ -91,12 +130,21 @@ t_3d_double		sub_refraction(t_fullmap *map, t_hit hit, t_vect *ray,
 	if (ref.kr < 1)
 	{
 		ref.refraray.dir = rt_refract(*ray, hit, &hit.obj->refraction);
+<<<<<<< HEAD
 		v_normalize(&ref.refraray.dir);
 		ref.refleray.ndir = ref.refleray.dir;
 		ref.refraray.pos = ref.outside == 1 ? v_sub_a_by_b(hit.pos, ref.bias) :
 			v_sum(hit.pos, ref.bias);
 		ref.refracolor = v_mult_by_nb(v_mult_by_nb(raytrace_loop(map,
 				ref.refraray, depth + 1), 1 - ref.kr), hit.obj->refracoef);
+=======
+		ref.refleray.ndir = v_norm(&ref.refraray.dir);
+		ref.refraray.pos = ref.outside == 1 ? v_sub_a_by_b(hit.pos, ref.bias) \
+		: v_sum(hit.pos, ref.bias);
+		ref.refracolor = raytrace_loop(map, ref.refraray, depth + 1);
+		ref.refracolor = v_mult_by_nb(ref.refracolor, 1 - ref.kr);
+		ref.refracolor = v_mult_by_nb(ref.refracolor, hit.obj->refracoef);
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 	}
 	ref.refleray.pos = hit.pos;
 	ref.reflect = 2 * v_dot(ray->dir, hit.normal_dir);
@@ -110,17 +158,27 @@ t_3d_double		sub_refraction(t_fullmap *map, t_hit hit, t_vect *ray,
 	return (v_sum(ref.reflecolor, ref.refracolor));
 }
 
+<<<<<<< HEAD
 void			sub_perturb_normal(t_hit *hit, int *perlin_map)
+=======
+void				sub_perturb_normal(t_hit *hit, int *perlinmp)
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 {
 	t_3d_double	noisecoef;
 	double		temp;
 
+<<<<<<< HEAD
 	noisecoef.x = (float)(noise3(hit->pos.x, hit->pos.y, hit->pos.z,
 			perlin_map));
 	noisecoef.y = (float)(noise3(hit->pos.y, hit->pos.z, hit->pos.x,
 			perlin_map));
 	noisecoef.z = (float)(noise3(hit->pos.z, hit->pos.x, hit->pos.y,
 			perlin_map));
+=======
+	noisecoef.x = (float)(noise3(hit->pos.x, hit->pos.y, hit->pos.z, perlinmp));
+	noisecoef.y = (float)(noise3(hit->pos.y, hit->pos.z, hit->pos.x, perlinmp));
+	noisecoef.z = (float)(noise3(hit->pos.z, hit->pos.x, hit->pos.y, perlinmp));
+>>>>>>> 8f1e33ca36eb0a1a5957fe028cb2d042f2942d62
 	hit->normal_dir.x = (1.0f - hit->obj->bump) * hit->normal_dir.x +\
 	hit->obj->bump * noisecoef.x;
 	hit->normal_dir.y = (1.0f - hit->obj->bump) * hit->normal_dir.y +\
