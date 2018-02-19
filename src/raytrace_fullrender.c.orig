@@ -70,7 +70,7 @@ t_3d_double	raytrace_loop(t_fullmap *map, t_vect ray, int depth)
 	t_3d_double	color;
 	t_hit		hit;
 
-	color = (t_3d_double){0,0,0};
+	color = (t_3d_double){0, 0, 0};
 	map->maxdepth = 3;
 	if (depth < map->maxdepth)
 	{

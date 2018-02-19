@@ -39,7 +39,7 @@ static t_3d_double		specular_light(t_fullmap *map, t_hit hit, t_light light,\
 	t_3d_double	half_vector;
 	double		dot;
 
-	color = (t_3d_double){0,0,0};
+	color = (t_3d_double){0, 0, 0};
 	spec_color = v_mult_by_nb(v_mult_by_nb(light.color, light.intensity), \
 	hit.obj->spec_power);
 	half_vector = v_norm(v_sum(v_norm(v_sub_a_by_b(light.pos, hit.pos)), \
@@ -84,7 +84,7 @@ static t_3d_double		diffuse_light(t_fullmap *map, t_hit hit, \
 	t_3d_double	intensity;
 	double	l_ray_len;
 
-	color = (t_3d_double){0,0,0};
+	color = (t_3d_double){0, 0, 0};
 	light.ray.pos = hit.pos;
 	light.ray.dir = v_sub_a_by_b(light.pos, hit.pos);
 	l_ray_len = v_len(light.ray.dir);
@@ -109,8 +109,8 @@ t_3d_double				sub_light_primary_ray(t_fullmap *map, t_hit hit, \
 		sub_texture_cone_cyl
 	};
 	i = 0;
-	color = (t_3d_double){0,0,0};
-	spe_color = (t_3d_double){0,0,0};
+	color = (t_3d_double){0, 0, 0};
+	spe_color = (t_3d_double){0, 0, 0};
 	if (hit.obj->texture)
 		hit.rgb_color = ft_int_to_double_3d(funct_tab[hit.obj->type - 1](hit));
 	else
@@ -134,6 +134,6 @@ t_3d_double				sub_light_primary_ray(t_fullmap *map, t_hit hit, \
 		color = v_mult_by_nb(color, map->coef);
 	}
 	else if (hit.obj->material == REFRAFLECTIVE)
-		color = v_sum(color, sub_refraction(map, hit, ray, depth));
+		color = v_sum(color, sub_refr(map, hit, ray, depth));
 	return (color);
 }
