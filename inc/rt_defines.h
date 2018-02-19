@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 11:20:08 by cpierre           #+#    #+#             */
-/*   Updated: 2018/01/23 17:09:17 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 15:31:53 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 # define EDITOR_IMG_WIDTH 128
 # define EDITOR_IMG_HEIGHT 80
 
-# define EDITOR_WIN_WIDTH 990
-# define EDITOR_WIN_HEIGHT 850
+# define EDITOR_WIN_WIDTH 1000
+# define EDITOR_WIN_HEIGHT 800
 
-# define RENDER_WIN_WIDTH 1280
+# define RENDER_WIN_WIDTH 1000
 # define RENDER_WIN_HEIGHT 800
 
 # define OPT_WIN_W 400
@@ -62,7 +62,7 @@
 # define YES 			1
 # define NO 			0
 
-# define THREADS_NB		20
+# define THREADS_NB		100
 
 # define ERR_USAGE "usage: ./rt mode file\n  mode: render/edit/create"
 

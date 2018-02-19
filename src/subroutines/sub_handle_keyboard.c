@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/11 21:1806:54 by cpierre           #+#    #+#             */
-/*   Updated: 2017/12/04 16:52:59 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/19 15:20:40 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,5 @@ void	sub_handle_keyboard(t_kp kp, t_fullmap *map)
 		map->fov *= 1.1;
 	if (kp[SDLK_m] && map->fov > 10)
 		map->fov /= 1.1;
-	select_obj(kp, map);
+//	select_obj(kp, map);
 }
