@@ -19,8 +19,6 @@ t_hit		sub_inter_plane(t_object *plane, t_vect ray)
 
 	ray.ndir = v_norm(ray.dir);
 	plane->dir = v_norm(plane->dir);
-//	denom = ((v_dot(plane->dir, plane->pos) -
-//			v_dot(plane->dir, ray.pos)) / v_dot(plane->dir, ray.dir));
 	denom = ((v_dot(plane->dir, plane->pos) -
 			v_dot(plane->dir, ray.pos)) / v_dot(plane->dir, ray.ndir));
 	if (denom >= 0)

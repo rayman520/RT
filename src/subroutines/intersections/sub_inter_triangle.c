@@ -14,17 +14,15 @@
 
 t_hit		sub_inter_triangle(t_object *triangle, t_vect ray)
 {
-	t_triter 	m;
+	t_triter	m;
 	t_hit		hit;
 
-	hit.is_hit = 1;
 	ray.ndir = v_norm(ray.dir);
 	m.edge1 = v_sub_a_by_b(triangle->pb, triangle->pa);
 	m.edge2 = v_sub_a_by_b(triangle->pc, triangle->pa);
 	m.vs1 = v_cross(ray.dir, m.edge2);
 	m.det = v_dot(m.edge1, m.vs1);
-	if (fabs(m.det) < EPSILON)
-		hit.is_hit = 0;
+	hit.is_hit = (fabs(m.det) < EPSILON ? 0 : 1);
 	m.invdet = 1 / m.det;
 	m.vs2 = v_sub_a_by_b(ray.pos, triangle->pa);
 	m.u = v_dot(m.vs2, m.vs1) * m.invdet;

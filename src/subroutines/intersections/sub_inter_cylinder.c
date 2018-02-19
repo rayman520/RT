@@ -21,7 +21,6 @@ void		sub_norm_cylinder(t_object *cyl, t_hit *hit, t_vect ray)
 
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist));
 	hit->pos2 = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist2));
-	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, 0.1));
 	dist = v_sub_a_by_b(ray.pos, cyl->pos);
 	temp = v_mult_by_nb(cyl->dir, (v_dot(ray.dir, cyl->dir) * hit->dist
 	+ v_dot(dist, cyl->dir)));
@@ -55,7 +54,7 @@ t_hit		sub_inter_cylinder(t_object *cyl, t_vect ray)
 	if (inter.t0 > inter.t1)
 		ft_doubleswap(&inter.t0, &inter.t1);
 	hit.dist = inter.t0;
-	hit.dist = inter.t1;
+	hit.dist2 = inter.t1;
 	sub_norm_cylinder(cyl, &hit, ray);
 	return (hit);
 }

@@ -14,8 +14,8 @@
 
 t_hit		sub_inter_quadrangle(t_object *quad, t_vect ray)
 {
-	t_hit 		hit;
-	t_hit 		hit2;
+	t_hit		hit;
+	t_hit		hit2;
 	t_object	quadsave;
 
 	if (quad->type == PARALLELOGRAM)

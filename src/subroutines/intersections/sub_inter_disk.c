@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sub_inter_disk.c		                            :+:      :+:    :+:   */
+/*   sub_inter_objects.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/28 16:49:37 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2017/11/28 16:52:20 by bvan-dyc         ###   ########.fr       */
+/*   Created: 2017/11/28 12:08:27 by bvan-dyc          #+#    #+#             */
+/*   Updated: 2017/12/11 12:29:40 by bvan-dyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_hit	sub_inter_disk(t_object *disk, t_vect ray)
 {
-	t_3d_double 	tmp;
-	t_3d_double 	p;
+	t_3d_double		tmp;
+	t_3d_double		p;
 	t_3d_double		v;
 	float			d2;
 	t_hit			hit;
@@ -32,6 +32,5 @@ t_hit	sub_inter_disk(t_object *disk, t_vect ray)
 		else
 			hit.is_hit = 0;
 	}
-   return (hit);
-
+	return (hit);
 }

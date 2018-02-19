@@ -14,9 +14,9 @@
 
 t_hit		sub_inter_pyramid_tbase(t_object *pyramid, t_vect ray)
 {
-	t_hit 		hit;
-	t_hit 		nhit;
-	t_object 	*npyramid;
+	t_hit		hit;
+	t_hit		nhit;
+	t_object	*npyramid;
 
 	npyramid = pyramid;
 	hit = sub_inter_triangle(npyramid, ray);

@@ -20,7 +20,7 @@ void		sub_norm_sphere(t_object *obj, t_hit *hit, t_vect ray)
 	hit->obj = obj;
 }
 
-t_hit	sub_inter_sphere(t_object *obj, t_vect ray)
+t_hit		sub_inter_sphere(t_object *obj, t_vect ray)
 {
 	t_inter		inter;
 	t_hit		hit;

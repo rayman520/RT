@@ -45,22 +45,22 @@ t_hit	sub_inter_objects(t_fullmap *map, t_vect ray)
 		sub_inter_triangle,
 		sub_inter_quadrangle,
 		sub_inter_pyramid_tbase,
-		sub_inter_ellipsoid,
-		sub_inter_paraboloid,
-		sub_inter_hyperboloid,
 		sub_inter_quadrangle,
 	};
 
-	hit = (t_hit){NULL_POS, NULL_POS, NULL_POS, NULL_VECT, NULL, RENDER_DIST, RENDER_DIST, 0};
+	hit = (t_hit){NULL_POS, NULL_POS, NULL_POS, NULL_VECT, NULL, RENDER_DIST,\
+		 RENDER_DIST, 0};
 	i = -1;
 	while (++i < map->obj_c)
 	{
 		new_hit = funct_tab[map->obj[i].type - 1](&map->obj[i], ray);
 		rt_check_minmax(new_hit.obj->min, new_hit.obj->max, &new_hit);
-		if (new_hit.is_hit == 1 && new_hit.dist < hit.dist && new_hit.dist > EPSILON)
+		if (new_hit.is_hit == 1 && new_hit.dist < hit.dist && new_hit.dist > \
+			EPSILON)
 			hit = new_hit;
 	}
-	if (hit.is_hit == 1 && hit.obj->type >= 1 && hit.obj->type <= 3 && hit.obj->negative == YES)
+	if (hit.is_hit == 1 && hit.obj->type >= 1 && hit.obj->type <= 3 && \
+		hit.obj->negative == YES)
 	{
 		neg_ray = ray;
 		neg_ray.pos = hit.pos2;
