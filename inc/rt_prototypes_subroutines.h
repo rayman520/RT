@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:02:51 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/19 16:09:32 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/20 10:10:03 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,10 @@ t_hit			sub_inter_ellipsoid(t_object *pyramid, t_vect ray);
 /*
 **	Lights
 */
-t_3d_double	    sub_light_primary_ray(t_fullmap *map, t_hit hit, t_vect *ray, int depth);
+t_3d_double		sub_light_primary_ray(t_fullmap *map, t_hit hit,
+		t_vect *ray, int depth);
+t_3d_double		sub_light_compute_color(t_fullmap *map, t_hit hit,
+		t_light light, t_vect *ray);
 void            sub_perturb_normal(t_hit *hit, int *perlinmp);
 t_3d_double     sub_refr(t_fullmap *map, t_hit hit, t_vect *ray, int depth);
 t_3d_double     sub_reflection(t_fullmap *map, t_hit hit, t_vect *ray, int depth);

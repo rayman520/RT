@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:26:29 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:26:16 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/20 10:39:20 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int		*create_perlinmap(void)
 int	main(int ac, char **av)
 {
 	t_fullmap	*map;
-	time_t		t;
 
 	sub_basic_arg_test(ac, av);
 	LIBXML_TEST_VERSION
@@ -47,7 +46,6 @@ int	main(int ac, char **av)
 	TTF_Init();
 	atexit(TTF_Quit);
 	atexit(xmlCleanupParser);
-	srand((unsigned) time(&t));
 	if ((map = parser(av[2])) == NULL)
 		ft_exit("map == NULL\n");
 	map->perlin_tab = create_perlinmap();

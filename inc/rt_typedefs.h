@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 21:18:20 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/20 09:42:23 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,7 @@ typedef	struct	s_hit
 	double		dist2;
 	int			is_hit;
 	t_3d_double	rgb_color;
+	t_3d_double	intensity;
 }				t_hit;
 
 typedef struct	s_SDL_Bundle

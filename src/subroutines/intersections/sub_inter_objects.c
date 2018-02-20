@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:08:27 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/20 09:36:40 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/20 09:43:04 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_hit	sub_inter_objects(t_fullmap *map, t_vect ray)
 		sub_inter_quadrangle,
 	};
 	hit = (t_hit){NULL_POS, NULL_POS, NULL_POS, NULL_VECT, NULL, RENDER_DIST,
-		RENDER_DIST, 0, (t_3d_double){0, 0, 0}};
+		RENDER_DIST, 0, (t_3d_double){0, 0, 0}, (t_3d_double){0, 0, 0}};
 	i = -1;
 	while (++i < map->obj_c)
 	{
