@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:26:29 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/20 10:39:20 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/20 15:36:57 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,15 @@ int		*create_perlinmap(void)
 	return (permutation);
 }
 
-int	main(int ac, char **av)
+int		main(int ac, char **av)
 {
 	t_fullmap	*map;
 
 	sub_basic_arg_test(ac, av);
-	LIBXML_TEST_VERSION
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 		ft_exit("SDL_Init failed.\n");
 	atexit(SDL_Quit);
-	if(!(IMG_Init(IMGINITFLAGS) & IMGINITFLAGS))
+	if (!(IMG_Init(IMGINITFLAGS) & IMGINITFLAGS))
 		ft_exit("SDL_image init failed.\n");
 	TTF_Init();
 	atexit(TTF_Quit);
