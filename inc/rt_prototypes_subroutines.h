@@ -80,7 +80,6 @@ t_hit			sub_inter_aabbbox(t_object *cube, t_vect ray);
 t_hit			sub_inter_pyramid_tbase(t_object *pyramid, t_vect ray);
 t_hit			sub_inter_paraboloid(t_object *quad, t_vect ray);
 t_hit			sub_inter_hyperboloid(t_object *cube, t_vect ray);
-t_hit			sub_inter_ellipsoid(t_object *pyramid, t_vect ray);
 
 /*
 **	Lights

@@ -148,7 +148,6 @@ SRC =	\
 		subroutines/intersections/sub_inter_pyramid.c\
 		subroutines/intersections/sub_inter_objects.c\
 		subroutines/intersections/sub_inter_paraboloid.c\
-		subroutines/intersections/sub_inter_ellipsoid.c\
 		subroutines/intersections/sub_inter_hyperboloid.c\
 		\
 		subroutines/lights/sub_light_primary_ray.c\
