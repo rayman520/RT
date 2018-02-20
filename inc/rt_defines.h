@@ -34,7 +34,7 @@
 # define RENDER_DIST 1000000000
 
 # define PI 			3.14159265359
-# define EPSILON 		0.000001
+# define EPSILON 		0.00001
 # define BIAS			0.00001
 
 # define NOFILTER 		0

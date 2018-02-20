@@ -36,7 +36,6 @@ t_hit		sub_inter_cone(t_object *cone, t_vect ray)
 	t_inter			inter;
 
 	ray.ndir = v_norm(ray.dir);
-	hit.is_hit = 0;
 	inter.dist = v_sub_a_by_b(ray.pos, cone->pos);
 	inter.norm = v_norm(cone->dir);
 	inter.a = v_dot(ray.dir, ray.dir) - (1 + pow(tan(cone->radius), 2)) *

@@ -25,6 +25,7 @@ t_hit		sub_inter_sphere(t_object *obj, t_vect ray)
 	t_inter		inter;
 	t_hit		hit;
 
+	hit.is_hit = 1;
 	ray.ndir = v_norm(ray.dir);
 	inter.dist = v_sub_a_by_b(ray.pos, obj->pos);
 	inter.a = v_dot(ray.ndir, ray.ndir);
@@ -33,18 +34,12 @@ t_hit		sub_inter_sphere(t_object *obj, t_vect ray)
 	inter.discr = (inter.b * inter.b) - 4 * inter.a * inter.c;
 	if (inter.discr < 0)
 		hit.is_hit = 0;
-	else
-		hit.is_hit = 1;
 	inter.t0 = (-inter.b + sqrtf(inter.discr)) / (2 * inter.a);
 	inter.t1 = (-inter.b - sqrtf(inter.discr)) / (2 * inter.a);
-	if (inter.discr == 0)
-		inter.t1 = -inter.b / (2 * inter.a);
-	if (inter.t0 < inter.t1)
-		inter.t1 = inter.t0;
-	if (inter.t0 < 0 && inter.t1 < 0)
-		inter.t1 = -1;
-	hit.dist = inter.t1;
-	hit.dist2 = inter.t0;
+	if (inter.t0 > inter.t1)
+		ft_doubleswap(&inter.t0, &inter.t1);
+	hit.dist = inter.t0;
+	hit.dist2 = inter.t1;
 	sub_norm_sphere(obj, &hit, ray);
 	return (hit);
 }

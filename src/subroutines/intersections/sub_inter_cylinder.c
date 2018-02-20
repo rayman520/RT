@@ -34,8 +34,8 @@ t_hit		sub_inter_cylinder(t_object *cyl, t_vect ray)
 	t_hit			hit;
 	t_inter			inter;
 
+	hit.is_hit = 1;
 	ray.ndir = v_norm(ray.dir);
-	hit.is_hit = 0;
 	inter.dist = v_sub_a_by_b(ray.pos, cyl->pos);
 	inter.norm = v_norm(cyl->dir);
 	inter.a = v_dot(ray.dir, ray.dir) - pow(v_dot(ray.dir, inter.norm), 2);
@@ -46,8 +46,6 @@ t_hit		sub_inter_cylinder(t_object *cyl, t_vect ray)
 	inter.discr = inter.b * inter.b - 4 * inter.a * inter.c;
 	if (inter.discr < 0)
 		hit.is_hit = 0;
-	else
-		hit.is_hit = 1;
 	inter.t0 = (-inter.b + sqrtf(inter.discr)) / (2 * inter.a);
 	inter.t1 = (-inter.b - sqrtf(inter.discr)) / (2 * inter.a);
 	if (inter.t0 > inter.t1)
