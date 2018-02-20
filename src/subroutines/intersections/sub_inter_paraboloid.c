@@ -40,10 +40,10 @@ t_hit		sub_inter_paraboloid(t_object *para, t_vect ray)
 	inter.norm = v_norm(para->dir);
 	inter.a = v_dot(ray.dir, ray.dir) - v_dot(ray.dir, para->dir) *
 		v_dot(ray.dir, para->dir);
-	inter.b = 2 * (v_dot(ray.dir, ray.pos) - v_dot(ray.dir, para->dir) *
-		(v_dot(ray.pos, para->dir) + 2 * para->radius));
-	inter.c = v_dot(ray.pos, ray.pos) - v_dot(ray.pos, para->dir) *
-		(v_dot(ray.pos, para->dir) + 4 * para->radius);
+	inter.b = 2 * (v_dot(ray.dir, inter.dist) - v_dot(ray.dir, para->dir) *
+		(v_dot(inter.dist, para->dir) + 2 * para->radius));
+	inter.c = v_dot(inter.dist, inter.dist) - v_dot(inter.dist, para->dir) *
+		(v_dot(inter.dist, para->dir) + 4 * para->radius);
 	inter.discr = inter.b * inter.b - 4 * inter.a * inter.c;
 	hit.is_hit = (inter.discr < 0) ? 0 : 1;
 	inter.t0 = (-inter.b + sqrtf(inter.discr)) / (2 * inter.a);

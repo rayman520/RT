@@ -10,13 +10,14 @@
 	</options>
 	<cameras>
 		<camera>
+			<position>-50.0,0.0,0.0</position>
 		</camera>
 	</cameras>
 	<lights>
 		<light>
-			<position>-2,2,2</position>
+			<position>-500,2,2</position>
 			<power>10.0</power>
-			<intensity>0.5</intensity>
+			<intensity>0.3</intensity>
 			<color>255,255,255</color>
 		</light>
 	</lights>
@@ -24,14 +25,12 @@
 		<object>
 			<type>SPH</type>
 			<material>DEF</material>
-			<position>0.0,4.0,0.0</position>
-			<radius>1</radius>
+			<position>0.0,0.0,0.0</position>
+			<radius>10</radius>
 			<albedo>0.18</albedo>
 			<color>0xFFFFFF</color>
 			<texture></texture>
+			<textype>PERLIN</textype>
 		</object>
-		<object>
-		</object>
-
 		</objects>
 </map>

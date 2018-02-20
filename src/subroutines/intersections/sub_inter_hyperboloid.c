@@ -34,10 +34,10 @@ t_hit		sub_inter_hyperboloid(t_object *hyper, t_vect ray)
 	inter.norm = v_norm(hyper->dir);
 	inter.a = ray.dir.x * ray.dir.x - ray.dir.y * ray.dir.y + ray.dir.z *
 		ray.dir.z;
-	inter.b = 2 * (ray.pos.x * ray.dir.x - ray.pos.y * ray.dir.y + ray.pos.z *
+	inter.b = 2 * (inter.dist.x * ray.dir.x - inter.dist.y * ray.dir.y + inter.dist.z *
 		ray.dir.z);
-	inter.c = ray.pos.x * ray.pos.x - ray.pos.y * ray.pos.y + ray.pos.z *
-		ray.pos.z - hyper->radius;
+	inter.c = inter.dist.x * inter.dist.x - inter.dist.y * inter.dist.y + inter.dist.z *
+		inter.dist.z - hyper->radius;
 	inter.discr = inter.b * inter.b - 4 * inter.a * inter.c;
 	hit.is_hit = (inter.discr < 0) ? 0 : 1;
 	inter.t0 = (-inter.b + sqrtf(inter.discr)) / (2 * inter.a);

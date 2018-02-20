@@ -21,37 +21,25 @@
 			<power>10.0</power>
 			<intensity>0.5</intensity>
 		</light>
-		<light>
-			<position>110.0,35.0,-35.0</position>
+	<light>
+			<position>0.0,0.0,0.0</position>
 			<color>255,255,255</color>
 			<power>10.0</power>
-			<intensity>0.2</intensity>
+			<intensity>0.5</intensity>
 		</light>
 
 	</lights>
 	<objects>
 		<object>
-			<type>SPH</type>
+			<type>HYP</type>
 			<material>DEF</material>
 			<refraction>10.0</refraction>
-			<reflection>0.5</reflection>
+			<reflection>0.9</reflection>
 			<refracoef>1</refracoef>
-			<position>0.0,0.0,0.0</position>
+			<position>0.0,100.0,100.0</position>
 			<albedo>0.18</albedo>
-			<radius>0.1</radius>
+			<radius>10</radius>
 			<color>0xFFFFFF</color>
-			<texture></texture>
-		</object>
-		<object>
-			<type>SPH</type>
-			<material>DEF</material>
-			<refraction>10.0</refraction>
-			<reflection>0.5</reflection>
-			<refracoef>1</refracoef>
-			<position>80.0,10.0,-10.0</position>
-			<albedo>0.18</albedo>
-			<radius>5</radius>
-			<color>0xFF0000</color>
 			<texture></texture>
 		</object>
 		<object>
@@ -78,7 +66,7 @@
 		</object>
 		<object>
 			<type>PLANE</type>
-			<material>REFR</material>
+			<material>DEF</material>
 			<refraction>1.0</refraction>
 			<reflection>0.5</reflection>
 			<refracoef>0.1</refracoef>
@@ -106,8 +94,8 @@
 			<type>PLANE</type>
 			<material>DEF</material>
 			<refraction>1.0</refraction>
-			<reflection>0.5</reflection>
-			<refracoef>1</refracoef>
+			<reflection>0.9</reflection>
+			<refracoef>0.1</refracoef>
 			<position>-40.0,0.0,0.0</position>
 			<direction>1,0,0</direction>
 			<albedo>0.18</albedo>
