@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2018/02/20 09:28:28 by nthibaud         ###   ########.fr        #
+#    Updated: 2018/02/20 10:03:26 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -153,6 +153,7 @@ SRC =	\
 		\
 		subroutines/lights/sub_light_primary_ray.c\
 		subroutines/lights/sub_light_options.c\
+		subroutines/lights/sub_light_compute_color.c\
 		\
 		editor_start.c\
 		main.c\

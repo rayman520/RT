@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 12:14:01 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:07:20 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/20 10:39:30 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,38 @@ static SDL_Surface	*create_surface(int x, int y)
 	return (out);
 }
 
+static void			realoc_img2(SDL_Surface **img,
+		double aspect_ratio, SDL_Surface *tmp)
+{
+	double			newsize;
+
+	newsize = (t_d)(*img)->w / 1.2;
+	if (newsize < 30)
+		newsize = 30;
+	else if (newsize * aspect_ratio < 30)
+		newsize = 30 / aspect_ratio;
+	tmp = create_surface((int)newsize, (int)(newsize * aspect_ratio));
+	SDL_FreeSurface(*img);
+	*img = tmp;
+}
+
 static void			realoc_img(SDL_Surface **img, double fps, t_2dint *mapfps)
 {
 	SDL_Surface		*tmp;
 	static double	*aspect_ratio = NULL;
-	double			newsize;
 
+	tmp = NULL;
 	if (!aspect_ratio)
 	{
 		if ((aspect_ratio = (double *)malloc(sizeof(double))) != NULL)
 			*aspect_ratio = (double)(*img)->h / (double)(*img)->w;
 	}
 	if (fps < mapfps->x)
-	{
-		newsize = (t_d)(*img)->w / 1.2;
-		if (newsize < 30)
-			newsize = 30;
-		else if (newsize * *aspect_ratio < 30)
-			newsize = 30 / *aspect_ratio;
-		tmp = create_surface((int)newsize, (int)(newsize * *aspect_ratio));
-		SDL_FreeSurface(*img);
-		*img = tmp;
-	}
+		realoc_img2(img, *aspect_ratio, tmp);
 	else if (fps > mapfps->y)
 	{
-		tmp = create_surface((int)((*img)->w * 1.2), (int)((*img)->w * 1.2 * *aspect_ratio));
+		tmp = create_surface((int)((*img)->w * 1.2),
+				(int)((*img)->w * 1.2 * *aspect_ratio));
 		SDL_FreeSurface(*img);
 		*img = tmp;
 	}
