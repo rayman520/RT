@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/20 09:42:23 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/20 11:37:52 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -270,7 +270,6 @@ typedef struct	s_noise
 	int 		ba;
 }				t_noise;
 
-typedef t_hit	(*t_isect_fnc_tab[12])(t_object *obj, t_vect ray);
 typedef	t_ui	(*t_texture_ft_tab[3])(t_hit hit);
 
 #endif
