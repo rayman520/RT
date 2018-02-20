@@ -6,7 +6,7 @@
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:00 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2018/02/19 17:25:06 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/20 09:37:57 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void		sub_norm_hyperboloid(t_object *hyper, t_hit *hit, t_vect ray)
 {
-	t_3d_double		dist;
-
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist));
 	hit->pos2 = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist2));
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, 0.1));

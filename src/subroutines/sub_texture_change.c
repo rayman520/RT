@@ -6,7 +6,7 @@
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:26:29 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2018/02/19 17:56:09 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/20 09:32:21 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static t_3d_double		makenoise_perlin(t_hit hit, int *perlin_tab)
 	int			octave;
 
 	octave = 1;
+	f = 0.0;
 	while (octave < 10)
 	{
 		f += (1.0f / octave) *\
@@ -51,6 +52,7 @@ static t_3d_double		makenoise_marble(t_hit hit, int *perlin_tab)
 	int		octave;
 
 	octave = 1;
+	f = 0.0;
 	while (octave < 10)
 	{
 		f += (1.0f / octave) *\

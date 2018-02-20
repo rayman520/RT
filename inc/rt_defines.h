@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 11:20:08 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 15:31:53 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/20 09:37:20 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define OPT_WIN_H 850
 
 # define NULL_POS (t_3d_double){0, 0, 0}
-# define NULL_VECT (t_vect){NULL_POS, NULL_POS}
+# define NULL_VECT (t_vect){NULL_POS, NULL_POS, NULL_POS}
 # define NULL_HIT (t_hit){NULL_POS, NULL_POS, NULL_VECT, NULL, -1}
 
 # define RENDER_DIST 1000000000

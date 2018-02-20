@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 16:09:41 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:21:14 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/20 09:34:43 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	sub_mv_cdir_sub(t_vect *cam, t_3d_double dir, double speed)
 
 void	sub_mv_cdir_up(t_vect *cam, t_3d_double dir, double speed)
 {
-	static t_vect	v_vect = (t_vect){NULL_POS, (t_3d_double){0, 0, 1}};
+	static t_vect	v_vect = (t_vect){NULL_POS, (t_3d_double){0, 0, 1},
+		(t_3d_double){0, 0, 0}};
 
 	if (ft_dot_product(ft_unit_vect(*cam), ft_unit_vect(v_vect)) < 0.95)
 		sub_mv_cdir_sub(cam, dir, speed);
@@ -36,7 +37,8 @@ void	sub_mv_cdir_up(t_vect *cam, t_3d_double dir, double speed)
 
 void	sub_mv_cdir_down(t_vect *cam, t_3d_double dir, double speed)
 {
-	static t_vect	v_vect = (t_vect){NULL_POS, (t_3d_double){0, 0, 1}};
+	static t_vect	v_vect = (t_vect){NULL_POS, (t_3d_double){0, 0, 1},
+		(t_3d_double){0, 0, 0}};
 
 	if (ft_dot_product(ft_unit_vect(*cam), ft_unit_vect(v_vect)) > -0.95)
 		sub_mv_cdir_add(cam, dir, speed);

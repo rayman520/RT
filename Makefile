@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2018/02/19 20:56:58 by nthibaud         ###   ########.fr        #
+#    Updated: 2018/02/20 09:28:28 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CSDL2_IMAGE = -I ./lib/frameworks/SDL2_image.framework/Headers
 CSDL2_TTFF = -I ./lib/frameworks/SDL2_ttf.framework/Headers
 CSDL2FLAGS = $(CSDL2) $(CSDL2_IMAGE) $(CSDL2_TTFF)
 CFLAGS = $(CHEADERS) $(CSDL2FLAGS) $(CXMLFLAGS)
-#CFLAGS = -Werror -Wextra -Wall $(CHEADERS) $(CSDL2FLAGS) $(CXMLFLAGS)
+CFLAGS = -Werror -Wextra -Wall $(CHEADERS) $(CSDL2FLAGS) $(CXMLFLAGS)
 LDXMLFLAGS = -L/usr/local/lib -lxml2
 LDSDL2 = -framework SDL2
 LDSDL2_IMAGE = -framework SDL2_image

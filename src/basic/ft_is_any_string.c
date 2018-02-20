@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 10:14:43 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:23:14 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/20 09:30:32 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_is_any_string(t_str str, int n, ...)
 	va_start(ap, n);
 	i = 0;
 	out = 0;
-	while (++i <= n)
+	while ((int)++i <= n)
 	{
 		if (!ft_strcmp(str, va_arg(ap, t_str)))
 			out++;

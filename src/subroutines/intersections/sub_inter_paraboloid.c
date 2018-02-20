@@ -6,7 +6,7 @@
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:00 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2018/02/19 17:14:28 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/02/20 09:37:51 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void		sub_norm_paraboloid(t_object *para, t_hit *hit, t_vect ray)
 {
 	t_3d_double		dist;
 	t_3d_double		temp;
-	t_3d_double		norm;
 	t_3d_double		temp2;
 
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist));
