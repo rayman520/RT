@@ -6,7 +6,7 @@
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:00 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2018/02/20 09:37:51 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:29:15 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ t_hit		sub_inter_paraboloid(t_object *para, t_vect ray)
 	hit.is_hit = 0;
 	inter.dist = v_sub_a_by_b(ray.pos, para->pos);
 	inter.norm = v_norm(para->dir);
-	inter.a = v_dot(ray.dir, ray.dir) - v_dot(ray.dir, para->dir) *
-		v_dot(ray.dir, para->dir);
-	inter.b = 2 * (v_dot(ray.dir, inter.dist) - v_dot(ray.dir, para->dir) *
+	inter.a = v_dot(ray.ndir, ray.ndir) - v_dot(ray.ndir, para->dir) *
+		v_dot(ray.ndir, para->dir);
+	inter.b = 2 * (v_dot(ray.ndir, inter.dist) - v_dot(ray.ndir, para->dir) *
 		(v_dot(inter.dist, para->dir) + 2 * para->radius));
 	inter.c = v_dot(inter.dist, inter.dist) - v_dot(inter.dist, para->dir) *
 		(v_dot(inter.dist, para->dir) + 4 * para->radius);

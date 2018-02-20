@@ -6,7 +6,7 @@
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 16:12:53 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2018/02/20 09:34:57 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:21:38 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ t_hit		sub_inter_cone(t_object *cone, t_vect ray)
 	ray.ndir = v_norm(ray.dir);
 	inter.dist = v_sub_a_by_b(ray.pos, cone->pos);
 	inter.norm = v_norm(cone->dir);
-	inter.a = v_dot(ray.dir, ray.dir) - (1 + pow(tan(cone->radius), 2)) *
-		pow(v_dot(ray.dir, inter.norm), 2);
-	inter.b = 2 * (v_dot(ray.dir, inter.dist) - (1 + pow(tan(cone->radius), 2))
-		* v_dot(ray.dir, inter.norm) * v_dot(inter.dist, inter.norm));
+	inter.a = v_dot(ray.ndir, ray.ndir) - (1 + pow(tan(cone->radius), 2)) *
+		pow(v_dot(ray.ndir, inter.norm), 2);
+	inter.b = 2 * (v_dot(ray.ndir, inter.dist) - (1 + pow(tan(cone->radius), 2))
+		* v_dot(ray.ndir, inter.norm) * v_dot(inter.dist, inter.norm));
 	inter.c = v_dot(inter.dist, inter.dist) - (1 +
 		pow(tan(cone->radius), 2)) * pow(v_dot(inter.dist, inter.norm), 2);
 	inter.discr = inter.b * inter.b - 4 * inter.a * inter.c;

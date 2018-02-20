@@ -6,7 +6,7 @@
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:00 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2018/02/20 09:35:08 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:21:20 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ t_hit		sub_inter_cylinder(t_object *cyl, t_vect ray)
 	ray.ndir = v_norm(ray.dir);
 	inter.dist = v_sub_a_by_b(ray.pos, cyl->pos);
 	inter.norm = v_norm(cyl->dir);
-	inter.a = v_dot(ray.dir, ray.dir) - pow(v_dot(ray.dir, inter.norm), 2);
-	inter.b = 2 * (v_dot(ray.dir, inter.dist) -
-		(v_dot(ray.dir, inter.norm) * v_dot(inter.dist, inter.norm)));
+	inter.a = v_dot(ray.ndir, ray.ndir) - pow(v_dot(ray.ndir, inter.norm), 2);
+	inter.b = 2 * (v_dot(ray.ndir, inter.dist) -
+		(v_dot(ray.ndir, inter.norm) * v_dot(inter.dist, inter.norm)));
 	inter.c = v_dot(inter.dist, inter.dist) -
 		pow(v_dot(inter.dist, inter.norm), 2) - cyl->radius * cyl->radius;
 	inter.discr = inter.b * inter.b - 4 * inter.a * inter.c;
