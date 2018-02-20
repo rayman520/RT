@@ -21,7 +21,7 @@
 			<power>10.0</power>
 			<intensity>0.5</intensity>
 		</light>
-	
+
 	</lights>
 	<objects>
 		<object>
@@ -39,11 +39,12 @@
 		</object>
 
 		<object>
-			<type>SPH</type>
+			<type>ELLIPSOID</type>
 			<material>DEF</material>
 			<refraction>0.9</refraction>
 			<reflection>0.9</reflection>
 			<refracoef>1</refracoef>
+			<pa>5.0,-1.0,2.0</pa>
 			<position>3.0,0.0,0.0</position>
 			<albedo>0.18</albedo>
 			<radius>1</radius>

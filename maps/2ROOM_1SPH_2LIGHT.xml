@@ -31,7 +31,7 @@
 	</lights>
 	<objects>
 		<object>
-			<type>QUADRANGLE</type>
+			<type>SPHERE</type>
 			<pa>0,4,0</pa>
 			<pb>0,-4,0</pb>
 			<pc>0,4,4</pc>

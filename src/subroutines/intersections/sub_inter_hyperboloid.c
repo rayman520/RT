@@ -16,7 +16,6 @@ void		sub_norm_hyperboloid(t_object *hyper, t_hit *hit, t_vect ray)
 {
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist));
 	hit->pos2 = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist2));
-	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, 0.1));
 	hit->normal_dir.x = hit->pos.x;
 	hit->normal_dir.y = -hit->pos.y;
 	hit->normal_dir.z = hit->pos.z;
@@ -46,7 +45,7 @@ t_hit		sub_inter_hyperboloid(t_object *hyper, t_vect ray)
 	if (inter.t0 > inter.t1)
 		ft_doubleswap(&inter.t0, &inter.t1);
 	hit.dist = inter.t0;
-	hit.dist = inter.t1;
+	hit.dist2 = inter.t1;
 	sub_norm_hyperboloid(hyper, &hit, ray);
 	return (hit);
 }

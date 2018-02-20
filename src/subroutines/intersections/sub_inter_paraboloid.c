@@ -20,7 +20,6 @@ void		sub_norm_paraboloid(t_object *para, t_hit *hit, t_vect ray)
 
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist));
 	hit->pos2 = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist2));
-	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, 0.1));
 	dist = v_sub_a_by_b(ray.pos, para->pos);
 	temp = v_mult_by_nb(para->dir, (v_dot(ray.dir, para->dir) * hit->dist +
 		v_dot(dist, para->dir) + para->radius));
@@ -52,7 +51,7 @@ t_hit		sub_inter_paraboloid(t_object *para, t_vect ray)
 	if (inter.t0 > inter.t1)
 		ft_doubleswap(&inter.t0, &inter.t1);
 	hit.dist = inter.t0;
-	hit.dist = inter.t1;
+	hit.dist2 = inter.t1;
 	sub_norm_paraboloid(para, &hit, ray);
 	return (hit);
 }

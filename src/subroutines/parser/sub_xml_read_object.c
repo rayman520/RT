@@ -31,6 +31,12 @@ static t_obj_t	read_obj_type(t_str str)
 		return (PARALLELOGRAM);
 	else if (ft_is_any_string(str, 2, "PYRAMID", "PYR"))
 		return (PYRAMID);
+	else if (ft_is_any_string(str, 2, "PARABOLOID", "PARA"))
+		return (PARABOLOID);
+	else if (ft_is_any_string(str, 2, "ELLIPSOID", "ELI"))
+		return (PARALLELOGRAM);
+	else if (ft_is_any_string(str, 2, "HYPERBOLOID", "HYP"))
+		return (HYPERBOLOID);
 	else
 		return (SPHERE);
 }

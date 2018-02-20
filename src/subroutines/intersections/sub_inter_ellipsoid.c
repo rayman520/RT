@@ -18,7 +18,6 @@ void		sub_norm_ellipsoid(t_object *eli, t_hit *hit, t_vect ray)
 
 	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist));
 	hit->pos2 = v_sum(ray.pos, v_mult_by_nb(ray.ndir, hit->dist2));
-	hit->pos = v_sum(ray.pos, v_mult_by_nb(ray.ndir, 0.1));
 	dist = v_sub_a_by_b(ray.pos, eli->pos);
 	hit->normal_dir = v_sub_a_by_b(hit->pos, eli->pos);
 	hit->normal_dir.x = 2.f * hit->normal_dir.x / (eli->pa.x * eli->pa.x);
@@ -56,7 +55,7 @@ t_hit		sub_inter_ellipsoid(t_object *eli, t_vect ray)
 	if (inter.t0 > inter.t1)
 		ft_doubleswap(&inter.t0, &inter.t1);
 	hit.dist = inter.t0;
-	hit.dist = inter.t1;
+	hit.dist2 = inter.t1;
 	sub_norm_ellipsoid(eli, &hit, ray);
 	return (hit);
 }
