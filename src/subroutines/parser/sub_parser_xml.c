@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 17:28:34 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 20:58:35 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/20 20:24:12 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ static void		options_parser2(t_fullmap *map, const char *name,
 		map->maxdepth = ft_atoi(xmlngc(cur_node));
 	else if (!ft_strcmp(name, "color_saturation"))
 		map->color_saturation = (double)ft_atof(xmlngc(cur_node));
+	else if (!ft_strcmp(name, "filter"))
+		map->filter = sub_read_filter(xmlngc(cur_node));
 }
 
 static void		options_parser(xmlNode *node, t_fullmap *map)

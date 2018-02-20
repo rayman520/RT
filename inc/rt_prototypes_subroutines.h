@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:02:51 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/20 10:10:03 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/02/20 20:20:00 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void			sub_parser_xml(t_fullmap *map, xmlDoc *doc);
 void			sub_put_fps(SDL_Surface **img, t_2dint *mapfps, SDL_Surface *w);
 void			sub_put_text(SDL_Surface *img, t_str text);
 void			sub_put_percent(SDL_Window *win, SDL_Surface *img, double val);
+t_obj_t			sub_read_filter(t_str str);
 unsigned int	sub_read_hex(t_str str);
 t_3d_double		sub_read_pos(t_str str);
 t_3d_double		sub_read_dir(t_str str);
