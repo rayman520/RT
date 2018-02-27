@@ -30,11 +30,8 @@ void	init(t_hit *hit, t_hit (**function_tab)(t_object *, t_vect ray))
 	function_tab[3] = &sub_inter_plane;
 	function_tab[4] = &sub_inter_disk;
 	function_tab[5] = &sub_inter_triangle;
-	function_tab[6] = &sub_inter_quadrangle;
-	function_tab[7] = &sub_inter_pyramid_tbase;
-	function_tab[8] = &sub_inter_quadrangle;
-	function_tab[9] = &sub_inter_paraboloid;
-	function_tab[10] = &sub_inter_hyperboloid;
+	function_tab[6] = &sub_inter_paraboloid;
+	function_tab[7] = &sub_inter_hyperboloid;
 	*hit = (t_hit){NULL_POS, NULL_POS, NULL_POS, NULL_VECT, NULL, RENDER_DIST,
 		RENDER_DIST, 0, (t_3d_double){0, 0, 0}, (t_3d_double){0, 0, 0}};
 }
@@ -57,7 +54,7 @@ t_hit	sub_inter_objects(t_fullmap *map, t_vect ray)
 	t_hit					(**function_tab)(t_object *obj, t_vect ray);
 
 	function_tab = NULL;
-	function_tab = malloc(sizeof(void *) * 11);
+	function_tab = malloc(sizeof(void *) * 8);
 	init(&hit, function_tab);
 	i = -1;
 	while (++i < map->obj_c)

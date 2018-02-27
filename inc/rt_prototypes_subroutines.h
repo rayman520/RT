@@ -76,9 +76,6 @@ t_hit			sub_inter_plane(t_object *plane, t_vect ray);
 t_hit			sub_inter_cylinder(t_object *cyl, t_vect ray);
 t_hit			sub_inter_disk(t_object *disk, t_vect ray);
 t_hit			sub_inter_triangle(t_object *triangle, t_vect ray);
-t_hit			sub_inter_quadrangle(t_object *quad, t_vect ray);
-t_hit			sub_inter_aabbbox(t_object *cube, t_vect ray);
-t_hit			sub_inter_pyramid_tbase(t_object *pyramid, t_vect ray);
 t_hit			sub_inter_paraboloid(t_object *quad, t_vect ray);
 t_hit			sub_inter_hyperboloid(t_object *cube, t_vect ray);
 

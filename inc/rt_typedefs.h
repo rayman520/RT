@@ -92,11 +92,8 @@ typedef enum	e_obj_t
 	PLANE = 4,
 	DISK = 5,
 	TRIANGLE = 6,
-	QUADRANGLE = 7,
-	PYRAMID = 8,
-	PARALLELOGRAM = 9,
-	PARABOLOID = 10,
-	HYPERBOLOID = 11,
+	PARABOLOID = 7,
+	HYPERBOLOID = 8,
 }				t_obj_t;
 
 typedef struct	s_inter
