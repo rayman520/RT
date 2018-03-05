@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/20 10:13:00 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/05 13:30:06 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void					texture_and_bump(t_fullmap *map, t_hit *hit)
 		sub_texture_cone_cyl,
 		sub_texture_cone_cyl
 	};
-	if (hit->obj->texture)
+	if (hit->obj->texture && (hit->obj->type == SPHERE ||
+				hit->obj->type == CONE || hit->obj->type == CYLINDER))
 	{
 		hit->rgb_color =
 			ft_int_to_double_3d(funct_tab[hit->obj->type - 1](*hit));
