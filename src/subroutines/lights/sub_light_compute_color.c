@@ -6,7 +6,7 @@
 /*   By: nthibaud <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 10:03:37 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/20 10:10:02 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:31:48 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void				shadow_ray(t_fullmap *map, t_light light)
 	map->shadowcoef = 0;
 	ray.dir = light.ray.dir;
 	ray.ndir = v_norm(ray.dir);
-	ray.pos = v_sum(light.ray.pos, v_mult_by_nb(ray.ndir, BIAS));
+	ray.pos = v_sum(light.ray.pos, v_mult_by_nb(ray.ndir, map->bias));
 	hit = sub_inter_objects(map, ray);
 	if (hit.is_hit == 1 && hit.obj->material == REFRAFLECTIVE)
 		fresnel(ray, hit, &hit.obj->refraction, &map->shadowcoef);

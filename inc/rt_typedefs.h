@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/20 11:37:52 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:30:08 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,8 +226,9 @@ typedef struct	s_fullmap
 	double		shadowcoef;
 	int			*perlin_tab;
 	double		color_saturation;
-	t_ui			col;
-	int				o;
+	t_ui		col;
+	int			o;
+	double		bias;
 }				t_fullmap;
 
 typedef struct s_zone_pos

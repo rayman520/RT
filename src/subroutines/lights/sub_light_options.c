@@ -6,7 +6,7 @@
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2018/02/20 10:09:58 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:54:21 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ t_3d_double			sub_refr(t_fullmap *map, t_hit hit, t_vect *ray, int depth)
 
 	fresnel(*ray, hit, &hit.obj->refraction, &ref.kr);
 	ref.outside = (v_dot(ray->dir, hit.normal_dir) < 0 ? 1 : 0);
-	ref.bias = v_mult_by_nb(hit.normal_dir, BIAS);
+	ref.bias = v_mult_by_nb(hit.normal_dir, map->bias);
 	if (ref.kr < 1)
 	{
 		ref.refraray.dir = rt_refract(*ray, hit, &hit.obj->refraction);

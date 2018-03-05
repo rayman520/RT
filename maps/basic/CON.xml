@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map>
 	<options>
-		<resolution>1280x800</resolution>
-		<editor_res>1280x800</editor_res>
+		<editor_res>200x160</editor_res>
 		<editor_fps_low>30</editor_fps_low>
 		<editor_fps_high>60</editor_fps_high>
 		<fov>30</fov>
 		<maxdepth>1</maxdepth>
+		<bias>0.01</bias>
 	</options>
 	<cameras>
 		<camera>

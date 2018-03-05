@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map>
 	<options>
-		<resolution>1280x800</resolution>
-		<editor_res>1280x800</editor_res>
+		<editor_res>200x160</editor_res>
 		<editor_fps_low>30</editor_fps_low>
 		<editor_fps_high>60</editor_fps_high>
 		<fov>30</fov>
@@ -30,7 +29,7 @@
 			<albedo>0.18</albedo>
 			<color>0xFFFFFF</color>
 			<texture></texture>
-			<textype>PERLIN</textype>
+			<textype>DEF</textype>
 		</object>
 		<object>
 			<type>SPH</type>
@@ -40,7 +39,10 @@
 			<albedo>0.18</albedo>
 			<color>0xFFFFFF</color>
 			<texture></texture>
-			<textype>PERLIN</textype>
+			<bump>0.2</bump>
+			<textype>DEF</textype>
+			<specsize>10.0</specsize>
+			<specpower>0.5</specpower>
 		</object>
 		<object>
 			<type>CYL</type>
@@ -50,7 +52,10 @@
 			<albedo>0.18</albedo>
 			<color>0xFFFFFF</color>
 			<texture></texture>
-			<textype>PERLIN</textype>
+			<bump>0.2</bump>
+			<textype>DEF</textype>
+			<specsize>10.0</specsize>
+			<specpower>0.5</specpower>
 		</object>
 		<object>
 			<type>CON</type>
@@ -60,7 +65,10 @@
 			<albedo>0.18</albedo>
 			<color>0xFFFFFF</color>
 			<texture></texture>
-			<textype>PERLIN</textype>
+			<bump>0.2</bump>
+			<textype>DEF</textype>
+			<specsize>10.0</specsize>
+			<specpower>0.5</specpower>
 		</object>
 		</objects>
 </map>

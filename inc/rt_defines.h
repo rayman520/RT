@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 11:20:08 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/20 09:37:20 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:54:22 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@
 
 # define PI 			3.14159265359
 # define EPSILON 		0.00001
-# define BIAS			0.00001
 
 # define NOFILTER 		0
 # define GRAYSCALE 		1
