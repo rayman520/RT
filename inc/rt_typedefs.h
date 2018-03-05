@@ -6,30 +6,30 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/05 09:30:08 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/05 14:58:26 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_TYPEDEFS_H
 # define RT_TYPEDEFS_H
 
-#include "rt.h"
+# include "rt.h"
 
-typedef char*	t_str;
+typedef char*			t_str;
 
-typedef const char*	t_cstr;
+typedef const char*		t_cstr;
 
-typedef unsigned int t_ui;
+typedef unsigned int	t_ui;
 
-typedef unsigned long t_ul;
+typedef unsigned long	t_ul;
 
-typedef unsigned char t_uc;
+typedef unsigned char	t_uc;
 
-typedef const char	t_cc;
+typedef const char		t_cc;
 
-typedef double	t_d;
+typedef double			t_d;
 
-typedef	short*	t_kp;
+typedef	short*			t_kp;
 
 typedef struct	s_2dint
 {
@@ -61,8 +61,8 @@ typedef	struct	s_rgb
 
 typedef	struct	s_vect
 {
-	t_3d_double pos;
-	t_3d_double dir;
+	t_3d_double	pos;
+	t_3d_double	dir;
 	t_3d_double	ndir;
 }				t_vect;
 
@@ -112,32 +112,32 @@ typedef struct	s_inter
 
 typedef struct	s_triter
 {
-	double 		det;
-	double 		invdet;
-	t_3d_double edge1;
-	t_3d_double edge2;
-	t_3d_double vs1;
-	t_3d_double vs2;
-	t_3d_double vs3;
-	double 		tmp;
-	double 		u;
+	double		det;
+	double		invdet;
+	t_3d_double	edge1;
+	t_3d_double	edge2;
+	t_3d_double	vs1;
+	t_3d_double	vs2;
+	t_3d_double	vs3;
+	double		tmp;
+	double		u;
 	double		v;
 }				t_triter;
 
 typedef struct	s_refra
 {
-	float 		cosi;
-	float 		cost;
+	float		cosi;
+	float		cost;
 	float		sint;
-	float 		etai;
-	float 		eta;
-	float 		etat;
-	float 		k;
+	float		etai;
+	float		eta;
+	float		etat;
+	float		k;
 	float		rs;
 	float		rp;
-	t_3d_double tmpdir;
-	t_3d_double tmpnorm;
-	t_3d_double refranorm;
+	t_3d_double	tmpdir;
+	t_3d_double	tmpnorm;
+	t_3d_double	refranorm;
 }				t_refra;
 
 typedef struct	s_frafle
@@ -150,7 +150,7 @@ typedef struct	s_frafle
 	t_vect		refraray;
 	t_3d_double	refracolor;
 	t_3d_double	reflecolor;
-	t_3d_double bias;
+	t_3d_double	bias;
 	double		kr;
 }				t_frafle;
 
@@ -159,12 +159,12 @@ typedef struct	s_object
 	t_3d_double	pos;
 	t_3d_double	dir;
 	t_3d_double	rgb_color;
-	t_3d_double min;
-	t_3d_double max;
-	t_3d_double pa;
-	t_3d_double pb;
-	t_3d_double pc;
-	t_3d_double pd;
+	t_3d_double	min;
+	t_3d_double	max;
+	t_3d_double	pa;
+	t_3d_double	pb;
+	t_3d_double	pc;
+	t_3d_double	pd;
 	t_obj_t		type;
 	int			material;
 	int			negative;
@@ -184,8 +184,8 @@ typedef struct	s_object
 
 typedef	struct	s_hit
 {
-	t_3d_double pos;
-	t_3d_double pos2;
+	t_3d_double	pos;
+	t_3d_double	pos2;
 	t_3d_double	normal_dir;
 	t_vect		incident_vect;
 	t_object	*obj;
@@ -199,8 +199,8 @@ typedef	struct	s_hit
 typedef struct	s_SDL_Bundle
 {
 	SDL_Window	*render_win;
-	SDL_Surface *window_img;
-	SDL_Surface *render_img;
+	SDL_Surface	*window_img;
+	SDL_Surface	*render_img;
 }				t_SDL_Bundle;
 
 typedef struct	s_fullmap
@@ -231,14 +231,14 @@ typedef struct	s_fullmap
 	double		bias;
 }				t_fullmap;
 
-typedef struct s_zone_pos
+typedef struct	s_zone_pos
 {
 	int			start;
 	int			end;
 	int			diff;
 }				t_zone_pos;
 
-typedef struct s_rend_zone
+typedef struct	s_rend_zone
 {
 	int			pos_start;
 	int			pos_end;
@@ -251,20 +251,20 @@ typedef struct s_rend_zone
 
 typedef struct	s_noise
 {
-	int 		tab[512];
+	int			tab[512];
 	int			i;
-	int 		cx;
-	int 		cy;
-	int 		cz;
-	double 		u;
-	double 		v;
-	double 		w;
-	int 		a;
-	int 		b;
-	int 		aa;
-	int 		ab;
-	int 		bb;
-	int 		ba;
+	int			cx;
+	int			cy;
+	int			cz;
+	double		u;
+	double		v;
+	double		w;
+	int			a;
+	int			b;
+	int			aa;
+	int			ab;
+	int			bb;
+	int			ba;
 }				t_noise;
 
 typedef	t_ui	(*t_texture_ft_tab[3])(t_hit hit);

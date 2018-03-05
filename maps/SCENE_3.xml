@@ -11,13 +11,13 @@
 	</options>
 	<cameras>
 		<camera>
-			<position>-15.0,0.0,1.0</position>
-			<direction>1.0,0.0,0.0</direction>
+			<position>-15.0,10.0,1.0</position>
+			<direction>1.0,-1.0,0.0</direction>
 		</camera>
 	</cameras>
 	<lights>
 			<light>
-			<position>-10.0,30.0,10.0</position>
+			<position>-10.0,-10.0,10.0</position>
 			<color>255,255,255</color>
 			<power>10.0</power>
 			<intensity>0.5</intensity>
@@ -28,9 +28,9 @@
 	<objects>
 		<object>
 			<type>PLANE</type>
-			<material>DEF</material>
+			<material>REFL</material>
 			<refraction>10.0</refraction>
-			<reflection>0.9</reflection>
+			<reflection>0.5</reflection>
 			<position>0.0,0.0,0.0</position>
 			<direction>0,0,1</direction>
 			<albedo>0.18</albedo>
@@ -42,15 +42,16 @@
 		<object>
 			<type>TRIANGLE</type>
 			<material>DEF</material>
+			<reflection>0.5</reflection>
 			<pa>5.0,0.0,10.0</pa>
 			<pb>0.0,-5.0,0.0</pb>
 			<pc>0.0,5.0,0.0</pc>
 			<direction>-1,0,0</direction>
 			<radius>10</radius>
 			<albedo>0.10</albedo>
-			<color>0xFFFFFF</color>
+			<color>0xF0FF0F</color>
 			<texture></texture>
-			<textype>PERLIN</textype>
+			<textype>MARBLE</textype>
 		</object>
 		<object>
 			<type>TRIANGLE</type>
@@ -61,9 +62,9 @@
 			<direction>0,-1,0</direction>
 			<radius>10</radius>
 			<albedo>0.10</albedo>
-			<color>0xFFFFFF</color>
+			<color>0xF0FF0F</color>
 			<texture></texture>
-			<textype>PERLIN</textype>
+			<textype>MARBLE</textype>
 		</object>
 	<object>
 			<type>TRIANGLE</type>
@@ -74,9 +75,9 @@
 			<direction>0,1,0</direction>
 			<radius>10</radius>
 			<albedo>0.10</albedo>
-			<color>0xFFFFFF</color>
+			<color>0xF0FF0F</color>
 			<texture></texture>
-			<textype>PERLIN</textype>
+			<textype>MARBLE</textype>
 		</object>
 		<object>
 			<type>TRIANGLE</type>
@@ -87,11 +88,24 @@
 			<direction>1,0,0</direction>
 			<radius>10</radius>
 			<albedo>0.10</albedo>
-			<color>0xFFFFFF</color>
+			<color>0xF0FF0F</color>
 			<texture></texture>
-			<textype>PERLIN</textype>
+			<textype>MARBLE</textype>
 		</object>
 
-	
+		<object>
+			<type>DISC</type>
+			<material>REFL</material>
+			<refraction>0.9</refraction>
+			<reflection>0.9</reflection>
+			<refracoef>1</refracoef>
+			<position>5.0,0.0,10.0</position>
+			<direction>0,0,-1</direction>
+			<albedo>0.18</albedo>
+			<radius>10</radius>
+			<color>0x000000</color>
+			<textype>DEF</textype>
+			<texture></texture>
+		</object>
 		</objects>
 	</map>
