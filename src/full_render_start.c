@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 16:28:54 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/19 17:25:25 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/05 15:08:42 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	save_image(SDL_Surface *img, int i, t_str mapfile)
 	free(savefile_name);
 }
 
-void		full_render_start(t_SDL_Bundle b, t_fullmap *map, t_str mapfile)
+void		full_render_start(t_sdl_bundle b, t_fullmap *map, t_str mapfile)
 {
 	int		i;
 	int		image_number;

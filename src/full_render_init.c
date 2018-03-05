@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 16:24:35 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/19 17:25:25 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/05 15:08:03 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	full_render_init(t_str mapfile, t_fullmap *map)
 	map->cam_v = sub_calc_cam_vects(map->camera[map->target_cam],
 		rend_img->w, rend_img->h);
 	map->cam_v.fov = map->fov;
-	full_render_start((t_SDL_Bundle){render_win, window_img, rend_img},
+	full_render_start((t_sdl_bundle){render_win, window_img, rend_img},
 		map, mapfile);
 	sub_fullrender_end(render_win, window_img);
 }

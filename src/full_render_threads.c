@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/05 16:39:18 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/19 17:25:26 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/05 15:09:45 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void			create_color_tab(t_rend_zone *zone_tab, int i, int pos_diff)
 }
 
 static t_rend_zone	zone_init(t_fullmap *map, int i,
-		t_zone_pos zone_pos, t_SDL_Bundle b)
+		t_zone_pos zone_pos, t_sdl_bundle b)
 {
 	t_rend_zone	zone;
 
@@ -72,7 +72,7 @@ static t_rend_zone	zone_init(t_fullmap *map, int i,
 	return (zone);
 }
 
-static t_zone_pos	first_zone_calc(t_SDL_Bundle b)
+static t_zone_pos	first_zone_calc(t_sdl_bundle b)
 {
 	t_zone_pos	zone_pos;
 
@@ -85,7 +85,7 @@ static t_zone_pos	first_zone_calc(t_SDL_Bundle b)
 	return (zone_pos);
 }
 
-void				full_render_threads(t_fullmap *map, t_SDL_Bundle b)
+void				full_render_threads(t_fullmap *map, t_sdl_bundle b)
 {
 	int			i;
 	t_zone_pos	zone_pos;

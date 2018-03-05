@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 16:31:06 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:25:20 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/05 15:07:43 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void		editor_start(t_str mapfile, t_fullmap *map)
 		ft_handle_events(kp);
 		sub_handle_keyboard(kp, map);
 		if (map->render_key == 1)
-			full_render_from_edit(mapfile, map, (t_SDL_Bundle){render_win,
+			full_render_from_edit(mapfile, map, (t_sdl_bundle){render_win,
 			win_img, render_img}, kp);
 		launch_raytrace(map, render_win, render_img, win_img);
 		sub_put_fps(&render_img, &map->fps, win_img);

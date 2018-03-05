@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/05 14:58:26 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/05 15:04:58 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,12 +196,12 @@ typedef	struct	s_hit
 	t_3d_double	intensity;
 }				t_hit;
 
-typedef struct	s_SDL_Bundle
+typedef struct	s_sdl_bundle
 {
 	SDL_Window	*render_win;
 	SDL_Surface	*window_img;
 	SDL_Surface	*render_img;
-}				t_SDL_Bundle;
+}				t_sdl_bundle;
 
 typedef struct	s_fullmap
 {

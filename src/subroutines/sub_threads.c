@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/05 16:34:55 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/19 17:22:25 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/05 15:07:19 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void		*calc_screen_pixel(void *arg)
 	pthread_exit((void *)zone);
 }
 
-static	void	draw_zones(t_rend_zone *zone_tab, t_SDL_Bundle b)
+static	void	draw_zones(t_rend_zone *zone_tab, t_sdl_bundle b)
 {
 	t_2dint			pos;
 	int				i;
@@ -78,7 +78,7 @@ void			create_threads(t_rend_zone *zone_tab, int i, pthread_t *threads)
 }
 
 void			join_threads(pthread_t *threads, t_rend_zone *zone_tab,
-		t_SDL_Bundle b)
+		t_sdl_bundle b)
 {
 	void			*status;
 	int				ret;
