@@ -318,6 +318,20 @@
 			<bump>0</bump>
 		</object>
 		<object>
+			<type>SPH</type>
+			<material>DEF</material>
+			<refraction>0.9</refraction>
+			<reflection>0.9</reflection>
+			<refracoef>1</refracoef>
+			<position>7.0,13.0,5.0</position>
+			<albedo>0.18</albedo>
+			<radius>3</radius>
+			<color>0xFFFF00</color>
+			<textype>DEF</textype>
+			<texture></texture>
+			<negative>YES</negative>
+		</object>
+		<object>
 			<type>CYL</type>
 			<material>DEF</material>
 			<refraction>1.5</refraction>

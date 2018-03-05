@@ -6,7 +6,7 @@
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:00 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2018/02/19 17:14:55 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/05 13:20:38 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_hit		sub_inter_triangle(t_object *triangle, t_vect ray)
 	ray.ndir = v_norm(ray.dir);
 	m.edge1 = v_sub_a_by_b(triangle->pb, triangle->pa);
 	m.edge2 = v_sub_a_by_b(triangle->pc, triangle->pa);
-	m.vs1 = v_cross(ray.dir, m.edge2);
+	m.vs1 = v_cross(ray.ndir, m.edge2);
 	m.det = v_dot(m.edge1, m.vs1);
 	hit.is_hit = (fabs(m.det) < EPSILON ? 0 : 1);
 	m.invdet = 1 / m.det;
@@ -29,7 +29,7 @@ t_hit		sub_inter_triangle(t_object *triangle, t_vect ray)
 	if (m.u < 0 || m.u > 1)
 		hit.is_hit = 0;
 	m.vs3 = v_cross(m.vs2, m.edge1);
-	m.v = v_dot(ray.dir, m.vs3) * m.invdet;
+	m.v = v_dot(ray.ndir, m.vs3) * m.invdet;
 	if (m.v < 0 || (m.u + m.v) > 1)
 		hit.is_hit = 0;
 	m.tmp = v_dot(m.edge2, m.vs3) * m.invdet;
