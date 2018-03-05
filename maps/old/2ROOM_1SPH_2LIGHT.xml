@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map>
 	<options>
-		<resolution>1280x800</resolution>
-		<editor_res>128x80</editor_res>
+		<editor_res>200x160</editor_res>
 		<editor_fps_low>40</editor_fps_low>
 		<editor_fps_high>60</editor_fps_high>
 		<fov>30</fov>
@@ -38,7 +37,7 @@
 			<pd>0,-4,4</pd>
 			<material>DEF</material>
 			<position>0.0,0.0,0.0</position>
-			<radius>100</radius>
+			<radius>10</radius>
 			<color>0xFFFFFF</color>
 			<texture></texture>
 		</object>

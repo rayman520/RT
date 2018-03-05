@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map>
 	<options>
-		<resolution>1280x800</resolution>
-		<editor_res>1280x800</editor_res>
+		<editor_res>200x160</editor_res>
 		<editor_fps_low>30</editor_fps_low>
 		<editor_fps_high>60</editor_fps_high>
 		<fov>30</fov>
@@ -38,7 +37,7 @@
 			<refracoef>1</refracoef>
 			<position>0.0,0.0,0.0</position>
 			<albedo>0.18</albedo>
-			<radius>0.1</radius>
+			<radius>3</radius>
 			<color>0xFFFFFF</color>
 			<texture></texture>
 		</object>

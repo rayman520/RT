@@ -6,7 +6,7 @@
 /*   By: nthibaud <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 10:03:37 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/03/05 09:31:48 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/05 11:08:37 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ static t_3d_double		diffuse_light_2(t_fullmap *map, t_hit hit,
 	c_obj = v_mult_by_nb(c_obj, map->color_saturation);
 	color = v_sum(c_light, c_obj);
 	dot = v_dot(hit.normal_dir, light.ray.dir);
-	if (hit.obj->type == PLANE && (v_dot(v_mult_by_nb(hit.normal_dir, -1),
-		ray->dir) < 0))
+	if ((hit.obj->type == PLANE || hit.obj->type == TRIANGLE) &&
+			(v_dot(v_mult_by_nb(hit.normal_dir, -1), ray->dir) < 0))
 		dot = v_dot(v_mult_by_nb(hit.normal_dir, -1), light.ray.dir);
 	if (dot < 0)
 		dot = 0;
