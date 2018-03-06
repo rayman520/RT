@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 17:28:34 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/05 09:54:20 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/06 16:54:09 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ static void		options_parser(xmlNode *node, t_fullmap *map)
 
 static void		recursive_parser(xmlNode *node, t_fullmap *map)
 {
-	xmlNode *cur_node;
+	xmlNode		*cur_node;
+	static int	went_through_options = 0;
 
 	cur_node = node;
 	while (cur_node)
@@ -76,7 +77,10 @@ static void		recursive_parser(xmlNode *node, t_fullmap *map)
 		if (cur_node->type == XML_ELEMENT_NODE)
 		{
 			if (!ft_strcmp((const char *)cur_node->name, "options"))
+			{
+				went_through_options = 1;
 				options_parser(cur_node->children, map);
+			}
 			else if (!ft_strcmp((const char *)cur_node->name, "lights"))
 				map->light = sub_malloc_lights(map, cur_node->children);
 			else if (!ft_strcmp((const char *)cur_node->name, "objects"))
@@ -93,6 +97,8 @@ static void		recursive_parser(xmlNode *node, t_fullmap *map)
 		recursive_parser(cur_node->children, map);
 		cur_node = cur_node->next;
 	}
+	if (!went_through_options)
+		ft_exit("i can't belive you've done this");
 }
 
 void			sub_parser_xml(t_fullmap *map, xmlDoc *doc)
@@ -106,6 +112,8 @@ void			sub_parser_xml(t_fullmap *map, xmlDoc *doc)
 	map->obj = NULL;
 	map->camera = NULL;
 	recursive_parser(root_element, map);
+	if (map->light == NULL || map->obj == NULL || map->camera == NULL)
+		ft_exit("Parser failed. get riped.");
 	xmlFreeDoc(doc);
 	xmlCleanupParser();
 	map->target_cam = 0;
