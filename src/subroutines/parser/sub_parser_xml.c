@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 17:28:34 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/09 15:35:20 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/09 16:03:21 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void		default_options(t_fullmap *map)
 	map->filter = 0;
 	map->bias = 0.00001;
 	map->options_read = 1;
+	map->coef = 0.7;
 }
 
 static void		options_parser2(t_fullmap *map, const char *name,
@@ -51,6 +52,8 @@ static void		options_parser2(t_fullmap *map, const char *name,
 		map->filter = sub_read_filter(xmlngc(cur_node));
 	else if (!ft_strcmp(name, "bias"))
 		map->bias = (double)ft_atof(xmlngc(cur_node));
+	else if (!ft_strcmp(name, "coef"))
+		map->coef = (double)ft_atof(xmlngc(cur_node));
 }
 
 static void		options_parser(xmlNode *node, t_fullmap *map)

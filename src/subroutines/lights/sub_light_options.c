@@ -6,7 +6,7 @@
 /*   By: bvan-dyc <bvan-dyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by bvan-dyc          #+#    #+#             */
-/*   Updated: 2018/03/05 09:54:21 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/09 16:03:21 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,6 @@ t_3d_double			sub_reflection(t_fullmap *map, t_hit hit, t_vect *ray, \
 	double		reflect;
 	t_3d_double	tmp;
 
-	if (hit.obj->type == SPHERE || hit.obj->type == CYLINDER \
-		|| hit.obj->type == CONE)
-		map->coef *= hit.obj->reflection;
 	ray->pos = hit.pos;
 	reflect = 2 * v_dot(ray->dir, hit.normal_dir);
 	tmp = v_mult_by_nb(hit.normal_dir, reflect);

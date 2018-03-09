@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:07 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/19 20:58:45 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/09 15:59:29 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ t_3d_double	raytrace_fullrender(t_fullmap *map, t_vect ray)
 {
 	t_3d_double	color;
 
-	map->coef = 1;
 	color = raytrace_loop(map, ray, 0);
 	if (map->filter != 0)
 		ft_rt_filter(map, &color);
