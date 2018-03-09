@@ -48,7 +48,7 @@ t_3d_double	raytrace_loop(t_fullmap *map, t_vect ray, int depth)
 	if (depth < map->maxdepth && map->coef > 0)
 	{
 		hit = sub_inter_objects(map, ray);
-		if (hit.is_hit == 1 && map->light_c > 0)
+		if (hit.is_hit == 1)
 			color = sub_light_primary_ray(map, hit, &ray, depth);
 	}
 	return (color);
