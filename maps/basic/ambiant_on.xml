@@ -4,7 +4,7 @@
 		<editor_res>200x160</editor_res>
 		<editor_fps_low>30</editor_fps_low>
 		<editor_fps_high>60</editor_fps_high>
-		<ambiant_light>2</ambiant_light>
+		<ambiant_light>10</ambiant_light>
 		<fov>30</fov>
 		<maxdepth>50</maxdepth>
 	</options>
@@ -15,12 +15,6 @@
 		</camera>
 	</cameras>
 	<lights>
-		<light>
-			<position>-3.4,-6.0,8.0</position>
-			<color>255,255,255</color>
-			<power>10.0</power>
-			<intensity>0.5</intensity>
-		</light>
 	</lights>
 	<objects>
 		<object>

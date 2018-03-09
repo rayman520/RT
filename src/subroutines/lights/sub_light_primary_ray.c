@@ -41,7 +41,6 @@ t_3d_double				sub_light_primary_ray(t_fullmap *map, t_hit hit,
 	t_light					light;
 
 	light = (t_light){NULL_POS, 0, 0, NULL_POS, *ray, 0.0};
-	color = (t_3d_double){0, 0, 0};
 	texture_and_bump(map, &hit);
 	color = sub_light_compute_color(map, hit, light, ray);
 	if (hit.obj->material == REFLECTIVE)

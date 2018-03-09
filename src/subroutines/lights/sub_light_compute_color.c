@@ -74,7 +74,6 @@ static t_3d_double		diffuse_light_2(t_fullmap *map, t_hit hit,
 		dot = 0;
 	color = v_mult_by_nb(color, dot);
 	color = v_mult_by_nb(color, 1 - map->shadowcoef);
-	color = v_sum(color, v_mult_by_nb(c_obj, map->amb_coef));
 	return (color);
 }
 
@@ -101,11 +100,14 @@ t_3d_double				sub_light_compute_color(t_fullmap *map, t_hit hit,
 {
 	t_3d_double				color;
 	t_3d_double				spe_color;
+	t_3d_double				c_obj;
 	int						i;
 
 	i = 0;
 	color = (t_3d_double){0, 0, 0};
 	spe_color = (t_3d_double){0, 0, 0};
+	c_obj = v_mult_by_nb(hit.rgb_color, (double)(hit.obj->albedo / PI));
+	c_obj = v_mult_by_nb(c_obj, map->color_saturation);
 	while (i < map->light_c)
 	{
 		light.pos = map->light[i].pos;
@@ -116,5 +118,6 @@ t_3d_double				sub_light_compute_color(t_fullmap *map, t_hit hit,
 		i++;
 	}
 	color = v_sum(color, spe_color);
+	color = v_sum(color, v_mult_by_nb(c_obj, map->amb_coef));
 	return (color);
 }
