@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 15:52:10 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:24:13 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/09 15:37:54 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_2dint	ft_xml_ed_res(t_str input)
 	out.y = ft_atoi(&input[i + 1]);
 	if (out.y <= 5)
 		out.y = EDITOR_IMG_HEIGHT;
-	printf("Editor resolution set to %dx%d\n", out.x, out.y);
 	free(input);
 	return (out);
 }

@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 13:15:49 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/05 15:04:58 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/09 15:35:50 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,6 +219,7 @@ typedef struct	s_fullmap
 	int			cam_c;
 	int			target_cam;
 	int			filter;
+	int			options_read;
 	double		amb_coef;
 	double		fov;
 	int			render_key;
