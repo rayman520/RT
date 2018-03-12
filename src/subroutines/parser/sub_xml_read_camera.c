@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 17:28:23 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/12 14:27:19 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/12 14:34:16 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void		sub_xml_read_camera(t_vect *cam, xmlNode *node)
 			if (!ft_strcmp((const char *)node->name, "direction"))
 				cam[c_nb].dir = sub_read_dir(xmlngc(node));
 			if (!ft_strcmp((const char *)node->name, "camera"))
+				ft_exit("camera-ception");
+			if (!ft_strcmp((const char *)node->name, "light"))
+				ft_exit("camera-ception");
+			if (!ft_strcmp((const char *)node->name, "object"))
 				ft_exit("camera-ception");
 			node = node->next;
 		}

@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:40:31 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/03/05 13:30:06 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/12 13:00:49 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_3d_double				sub_light_primary_ray(t_fullmap *map, t_hit hit,
 	if (hit.obj->material == REFLECTIVE)
 	{
 		color = v_sum(color, sub_reflection(map, hit, ray, depth));
-		color = v_mult_by_nb(color, map->coef);
+		color = v_mult_by_nb(color, hit.obj->reflection);
 	}
 	else if (hit.obj->material == REFRAFLECTIVE)
 		color = v_sum(color, sub_refr(map, hit, ray, depth));

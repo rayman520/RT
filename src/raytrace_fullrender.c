@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:06:07 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/03/09 15:59:29 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/12 11:37:16 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_3d_double	raytrace_loop(t_fullmap *map, t_vect ray, int depth)
 	t_hit		hit;
 
 	color = (t_3d_double){0, 0, 15};
-	if (depth < map->maxdepth && map->coef > 0)
+	if (depth < map->maxdepth)
 	{
 		hit = sub_inter_objects(map, ray);
 		if (hit.is_hit == 1)
