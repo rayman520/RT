@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:01:39 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/03/05 14:58:55 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/12 15:54:09 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int				ft_atoi(t_str str);
 float			ft_atof(t_str str);
 float			ft_biggest_fl(float a, float b);
 void			ft_close_win(Uint32 id);
+void			ft_check_tag_ception(const char *name);
 double			ft_descriminent(double a, double b, double c);
 double			ft_dot_product(t_vect v1, t_vect v2);
 int				ft_double_to_int(double nb);

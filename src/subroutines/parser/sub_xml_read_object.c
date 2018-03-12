@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 17:19:42 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/12 15:10:26 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/12 15:55:40 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,12 +118,7 @@ void			sub_xml_read_object(t_object *obj, xmlNode *node)
 		default_object(obj, o_nb);
 		while (node)
 		{
-			if (!ft_strcmp((const char *)node->name, "object"))
-				ft_exit("object-ception");
-			else if (!ft_strcmp((const char *)node->name, "light"))
-				ft_exit("object-ception");
-			else if (!ft_strcmp((const char *)node->name, "camera"))
-				ft_exit("object-ception");
+			ft_check_tag_ception((const char *)node->name);
 			sub_xml_read_object2(obj, (t_cstr)node->name, o_nb, node);
 			node = node->next;
 		}
