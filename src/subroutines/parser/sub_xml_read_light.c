@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 16:01:34 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 16:24:46 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/12 14:25:52 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void		sub_xml_read_light(t_light *light, xmlNode *node)
 				light[l_nb].color = sub_read_3d_double(xmlngc(node));
 			else if (!ft_strcmp((const char *)node->name, "bias"))
 				light[l_nb].bias = (double)ft_atof(xmlngc(node));
+			else if (!ft_strcmp((const char *)node->name, "light"))
+				ft_exit("light-ception?");
 			node = node->next;
 		}
 		l_nb++;

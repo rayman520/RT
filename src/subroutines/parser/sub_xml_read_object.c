@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 17:19:42 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/20 20:24:45 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/12 14:29:27 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ static void		sub_xml_read_object3(t_object *obj, const char *name, int o_nb,
 		obj[o_nb].pd = sub_read_pos(xmlngc(node));
 	else if (!ft_strcmp(name, "bump"))
 		obj[o_nb].bump = (double)ft_atof(xmlngc(node));
+	else if (!ft_strcmp(name, "object"))
+		ft_exit("object-ception?");
 }
 
 static void		sub_xml_read_object2(t_object *obj, const char *name, int o_nb,
