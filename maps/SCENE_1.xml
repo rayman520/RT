@@ -30,7 +30,7 @@
 			<type>PLANE</type>
 			<material>REFL</material>
 			<refraction>10.0</refraction>
-			<reflection>0.9</reflection>
+			<reflection>0.7</reflection>
 			<position>0.0,0.0,-1.0</position>
 			<direction>0,0,1</direction>
 			<albedo>0.18</albedo>
@@ -273,7 +273,7 @@
 			<type>SPH</type>
 			<material>REFR</material>
 			<refraction>1.5</refraction>
-			<reflection>0.7</reflection>
+			<reflection>0.9</reflection>
 			<refracoef>0.9</refracoef>
 			<position>-5.0,13.0,1.0</position>
 			<albedo>0.10</albedo>
@@ -353,7 +353,7 @@
 			<type>DISC</type>
 			<material>REFL</material>
 			<refraction>1.5</refraction>
-			<reflection>0.9</reflection>
+			<reflection>0.5</reflection>
 			<refracoef>0.9</refracoef>
 			<position>10.0,5.0,16.0</position>
 			<direction>-1,0,-1</direction>
@@ -370,7 +370,7 @@
 			<type>DISC</type>
 			<material>REFL</material>
 			<refraction>1.5</refraction>
-			<reflection>0.7</reflection>
+			<reflection>0.5</reflection>
 			<refracoef>0.9</refracoef>
 			<position>10.0,-1.0,16.0</position>
 			<direction>-1,0,-2</direction>
