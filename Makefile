@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2018/02/20 20:19:59 by nthibaud         ###   ########.fr        #
+#    Updated: 2018/03/12 15:52:43 by cpierre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRC =	\
 		basic/ft_atof.c\
 		basic/ft_biggest_fl.c\
 		basic/ft_close_win.c\
+		basic/ft_check_tag_ception.c\
 		basic/ft_descriminent.c\
 		basic/ft_dot_product.c\
 		basic/ft_double_to_int.c\
