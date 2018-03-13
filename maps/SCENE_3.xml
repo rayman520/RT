@@ -11,19 +11,17 @@
 	</options>
 	<cameras>
 		<camera>
-			<position>-15.0,10.0,1.0</position>
+			<position>-40.0,30.0,5.0</position>
 			<direction>1.0,-1.0,0.0</direction>
 		</camera>
 	</cameras>
 	<lights>
-			<light>
-			<position>-10.0,-10.0,10.0</position>
+		<light>
+			<position>-10.0,-10.0,20.0</position>
 			<color>255,255,255</color>
 			<power>10.0</power>
 			<intensity>0.5</intensity>
 		</light>
-
-
 	</lights>
 	<objects>
 		<object>
@@ -42,7 +40,7 @@
 		<object>
 			<type>TRIANGLE</type>
 			<material>DEF</material>
-			<reflection>0.5</reflection>
+			<reflection>0.7</reflection>
 			<pa>5.0,0.0,10.0</pa>
 			<pb>0.0,-5.0,0.0</pb>
 			<pc>0.0,5.0,0.0</pc>
@@ -52,10 +50,13 @@
 			<color>0xF0FF0F</color>
 			<texture></texture>
 			<textype>MARBLE</textype>
+			<specsize>200.0</specsize>
+			<specpower>1</specpower>
 		</object>
 		<object>
 			<type>TRIANGLE</type>
 			<material>DEF</material>
+			<reflection>0.7</reflection>
 			<pa>5.0,0.0,10.0</pa>
 			<pb>10.0,-5.0,0.0</pb>
 			<pc>0.0,-5.0,0.0</pc>
@@ -65,10 +66,13 @@
 			<color>0xF0FF0F</color>
 			<texture></texture>
 			<textype>MARBLE</textype>
+			<specsize>200.0</specsize>
+			<specpower>1</specpower>
 		</object>
 	<object>
 			<type>TRIANGLE</type>
 			<material>DEF</material>
+			<reflection>0.7</reflection>
 			<pa>5.0,0.0,10.0</pa>
 			<pb>10.0,5.0,0.0</pb>
 			<pc>0.0,5.0,0.0</pc>
@@ -78,10 +82,13 @@
 			<color>0xF0FF0F</color>
 			<texture></texture>
 			<textype>MARBLE</textype>
+			<specsize>200.0</specsize>
+			<specpower>1</specpower>
 		</object>
 		<object>
 			<type>TRIANGLE</type>
 			<material>DEF</material>
+			<reflection>0.7</reflection>
 			<pa>5.0,0.0,10.0</pa>
 			<pb>10.0,-5.0,0.0</pb>
 			<pc>10.0,5.0,0.0</pc>
@@ -91,21 +98,24 @@
 			<color>0xF0FF0F</color>
 			<texture></texture>
 			<textype>MARBLE</textype>
+			<specsize>200.0</specsize>
+			<specpower>1</specpower>
 		</object>
-
 		<object>
-			<type>DISC</type>
-			<material>REFL</material>
-			<refraction>0.9</refraction>
-			<reflection>0.9</reflection>
+			<type>SPHERE</type>
+			<material>REFR</material>
+			<reflection>0.5</reflection>
+			<refraction>1.5</refraction>
 			<refracoef>1</refracoef>
-			<position>5.0,0.0,10.0</position>
+			<position>5.0,0.0,3.0</position>
 			<direction>0,0,-1</direction>
 			<albedo>0.18</albedo>
-			<radius>10</radius>
+			<radius>12</radius>
 			<color>0x000000</color>
-			<textype>DEF</textype>
+			<textype>CHESS</textype>
 			<texture></texture>
+			<specsize>20.0</specsize>
+			<specpower>1</specpower>
 		</object>
 		</objects>
 	</map>
