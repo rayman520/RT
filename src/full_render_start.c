@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 16:28:54 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/03/13 14:53:04 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/13 15:01:51 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static void	save_image(SDL_Surface *img, int i, t_str mapfile)
 	ft_str_replace(savefile_name, '/', '_');
 	ft_str_replace(savefile_name, '\\', '/');
 	SDL_SaveBMP(img, savefile_name);
-	printf("%s", SDL_GetError());
 	free(savefile_name);
 }
 
