@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 16:20:53 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:22:45 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 19:11:45 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ float			ft_atof(t_str str)
 	int		nb1;
 	int		nb2;
 
+	if (str == NULL || ft_strlen(str) < 1 || !ft_str_is_double_fmt(str))
+		ft_exit("Y u do dis");
 	i = 0;
 	while (ft_isspace(str[i]))
 		++i;
