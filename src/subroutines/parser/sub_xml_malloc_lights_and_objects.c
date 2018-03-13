@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 12:55:22 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/12 16:53:02 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/13 16:42:48 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,8 @@ t_light		*sub_malloc_lights(t_fullmap *map, xmlNode *node)
 	{
 		if (!ft_strcmp((const char *)node->name, "light"))
 			i++;
-		if (!ft_strcmp((const char *)node->name, "objects") ||
-			!ft_strcmp((const char *)node->name, "lights") ||
-			!ft_strcmp((const char *)node->name, "cameras") ||
-			!ft_strcmp((const char *)node->name, "camera") ||
-			!ft_strcmp((const char *)node->name, "object"))
-			ft_exit("object-ception");
+		else if (ft_strcmp((const char *)node->name, "text"))
+			ft_exit("err parser");
 		node = node->next;
 	}
 	if (!(out = (t_light *)malloc(sizeof(t_light) * (t_ul)i)))
@@ -51,12 +47,8 @@ t_object	*sub_malloc_objects(t_fullmap *map, xmlNode *node)
 	{
 		if (!ft_strcmp((const char *)node->name, "object"))
 			i++;
-		if (!ft_strcmp((const char *)node->name, "objects") ||
-			!ft_strcmp((const char *)node->name, "lights") ||
-			!ft_strcmp((const char *)node->name, "cameras") ||
-			!ft_strcmp((const char *)node->name, "light") ||
-			!ft_strcmp((const char *)node->name, "camera"))
-			ft_exit("object-ception");
+		else if (ft_strcmp((const char *)node->name, "text"))
+			ft_exit("err parser");
 		node = node->next;
 	}
 	if (!(out = (t_object *)malloc(sizeof(t_object) * (t_ul)i)))
@@ -79,12 +71,8 @@ t_vect		*sub_malloc_cameras(t_fullmap *map, xmlNode *node)
 	{
 		if (!ft_strcmp((const char *)node->name, "camera"))
 			i++;
-		if (!ft_strcmp((const char *)node->name, "objects") ||
-			!ft_strcmp((const char *)node->name, "lights") ||
-			!ft_strcmp((const char *)node->name, "cameras") ||
-			!ft_strcmp((const char *)node->name, "light") ||
-			!ft_strcmp((const char *)node->name, "object"))
-			ft_exit("object-ception");
+		else if (ft_strcmp((const char *)node->name, "text"))
+			ft_exit("err parser");
 		node = node->next;
 	}
 	if (!(out = (t_vect *)malloc(sizeof(t_vect) * (t_ul)i)))
