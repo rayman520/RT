@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 15:52:10 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/09 15:37:54 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 13:13:14 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_2dint	ft_xml_rd_res(t_str input)
 	out.y = ft_atoi(&input[i + 1]);
 	if (out.y <= 0)
 		out.y = RENDER_WIN_HEIGHT;
-	printf("Render resolution set to %dx%d\n", out.x, out.y);
+	ft_putstr("Render resolution set to\n");
 	free(input);
 	return (out);
 }

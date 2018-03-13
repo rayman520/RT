@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 13:08:24 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:20:22 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 13:01:55 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	sub_create_file2(int fd, t_str mapfile)
 
 	tmp = ft_strdup("rt");
 	if (!sub_check_extension(mapfile, tmp))
-		printf("creating rt\n");
+		ft_putstr("creating rt\n");
 	free(tmp);
 	tmp = ft_strdup("xml");
 	if (!sub_check_extension(mapfile, tmp))
@@ -26,7 +26,7 @@ static void	sub_create_file2(int fd, t_str mapfile)
 	free(tmp);
 	tmp = ft_strdup("json");
 	if (!sub_check_extension(mapfile, tmp))
-		printf("creating json\n");
+		ft_putstr("creating json\n");
 	free(tmp);
 }
 
@@ -44,7 +44,7 @@ void		sub_create_file(t_str file)
 	fd = open(full_path, O_RDONLY);
 	if (fd >= 0)
 	{
-		printf("file %s already exists\n", full_path);
+		ft_putstr("file already exists\n");
 		free(full_path);
 		close(fd);
 		exit(0);
@@ -52,7 +52,7 @@ void		sub_create_file(t_str file)
 	close(fd);
 	fd = open(full_path, O_WRONLY | O_CREAT);
 	sub_create_file2(fd, full_path);
-	printf("file %s created\n", full_path);
+	ft_putstr("file created\n");
 	free(full_path);
 	close(fd);
 	exit(0);
