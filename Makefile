@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2018/03/12 15:52:43 by cpierre          ###   ########.fr        #
+#    Updated: 2018/03/13 15:19:38 by nthibaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,8 +109,6 @@ SRC =	\
 		\
 		subroutines/sub_blit_render.c\
 		subroutines/sub_calc_cam_vects.c\
-		subroutines/sub_create_file.c\
-		subroutines/sub_create_xml.c\
 		subroutines/sub_create_render_window.c\
 		subroutines/sub_draw_image_editor.c\
 		subroutines/sub_fullrender_end.c\

@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 12:14:01 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/20 10:39:30 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/13 15:11:32 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void				sub_put_fps(SDL_Surface **img, t_2dint *mapfps,
 	}
 	if (!str)
 		str = (t_str)malloc(sizeof(char) * 8);
-	sprintf(str, "%.1lf fps", 1 / ratio);
 	sub_put_text(w, str);
 	nb_passed++;
 }

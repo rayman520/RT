@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:08:27 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/02/20 11:37:04 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/13 15:29:38 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ t_hit	sub_inter_objects(t_fullmap *map, t_vect ray)
 	t_hit					(**function_tab)(t_object *obj, t_vect ray);
 
 	function_tab = NULL;
-	function_tab = malloc(sizeof(void *) * 8);
+	if ((function_tab = malloc(sizeof(void *) * 8)) == NULL)
+		ft_exit("function_tab malloc failed");
 	init(&hit, function_tab);
 	i = -1;
 	while (++i < map->obj_c)

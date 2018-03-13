@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 10:26:29 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/13 13:03:42 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/13 15:22:22 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int		*create_perlinmap(void)
 	int i;
 
 	i = 0;
-	permutation = (int *)malloc(sizeof(int) * 256);
+	if ((permutation = (int *)malloc(sizeof(int) * 256)) == NULL)
+		ft_exit("perlin_tab malloc failed");
 	if (permutation)
 	{
 		while (i < 256)
@@ -53,7 +54,7 @@ int		main(int ac, char **av)
 	else if (!ft_strcmp(av[1], "RENDER"))
 		full_render_init(av[2], map);
 	else if (!ft_strcmp(av[1], "CREATE"))
-		sub_create_file(av[2]);
+		ft_exit("Create option doesnt exist");
 	free(map);
 	return (0);
 }
