@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 17:19:42 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/13 19:18:06 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 19:29:22 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static t_obj_t	read_obj_type(t_str str)
 {
+	if (str == NULL || ft_strlen(str) < 1)
+		ft_exit("err parser");
 	ft_strupcase(str);
 	if (ft_is_any_string(str, 2, "CONE", "CON"))
 		return (CONE);
@@ -35,6 +37,8 @@ static t_obj_t	read_obj_type(t_str str)
 
 static t_obj_t	read_obj_textype_material(t_str str)
 {
+	if (str == NULL || ft_strlen(str) < 1)
+		ft_exit("err parser");
 	ft_strupcase(str);
 	if (ft_is_any_string(str, 2, "DEFAULT", "DEF"))
 		return (DEFAULT);
