@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 18:38:57 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/13 18:41:07 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 19:03:39 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ int ft_str_is_double_fmt(t_str str)
 {
 	while (str && *str)
 	{
-		if (!(ft_isnbr(*str) || *str == '.' || *str == ','))
+		if (!(ft_isnbr(*str) || *str == '.' || *str == ',' || *str == '-'))
 			return (0);
+		str++;
 	}
 	return (1);
 }
