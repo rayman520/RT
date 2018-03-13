@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 17:28:34 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/12 16:27:18 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 16:30:30 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ static void		recursive_parser(xmlNode *node, t_fullmap *map)
 				sub_xml_read_object(map->obj, cur_node->children);
 			else if (!ft_strcmp((const char *)cur_node->name, "camera"))
 				sub_xml_read_camera(map->camera, cur_node->children);
+			else
+				ft_exit("err_parser");
 		}
 		recursive_parser(cur_node->children, map);
 		cur_node = cur_node->next;
