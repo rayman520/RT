@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 11:36:52 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:19:35 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 20:50:48 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ unsigned int	sub_read_hex(t_str str)
 
 	i = 0;
 	out = 0;
-	if (!str || str[i++] != '0')
+	if (!str || ft_strlen(str) < 1 || str[i++] != '0')
 		return (out);
 	if (!(str[i] == 'x' || str[i] == 'X'))
 		return (out);

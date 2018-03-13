@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 17:19:42 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/13 20:14:20 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 20:46:34 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static void		sub_xml_read_object3(t_object *obj, const char *name, int o_nb,
 		obj[o_nb].pd = sub_read_pos(xmlngc(node));
 	else if (!ft_strcmp(name, "bump"))
 		obj[o_nb].bump = (double)ft_atof(xmlngc(node));
+	else if (ft_strcmp(name, "text"))
+		ft_exit("last hope v2");
 }
 
 static void		sub_xml_read_object2(t_object *obj, const char *name, int o_nb,
