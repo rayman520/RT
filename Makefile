@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2018/03/13 15:47:36 by cpierre          ###   ########.fr        #
+#    Updated: 2018/03/13 18:42:58 by cpierre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,7 @@ SRC =	\
 		basic/ft_strjoin.c\
 		basic/ft_strlen.c\
 		basic/ft_strrev.c\
+		basic/ft_str_is_double_fmt.c\
 		basic/ft_strupcase.c\
 		basic/ft_unit_vect.c\
 		basic/ft_vect_norm.c\

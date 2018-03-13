@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 16:12:53 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/13 18:33:56 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 18:41:31 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,14 @@ t_3d_double		sub_read_3d_double(t_str str)
 
 t_3d_double		sub_read_dir(t_str str)
 {
-	if (ft_strlen(str) < 5)
+	if (ft_strlen(str) < 5 || !ft_str_is_double_fmt(str))
 		ft_exit("parser_error");
 	return (sub_read_3d_double(str));
 }
 
 t_3d_double		sub_read_pos(t_str str)
 {
-	if (ft_strlen(str) < 5)
+	if (ft_strlen(str) < 5 || !ft_str_is_double_fmt(str))
 		ft_exit("parser_error");
 	return (sub_read_3d_double(str));
 }

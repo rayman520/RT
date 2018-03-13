@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:01:39 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/03/12 15:54:09 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 18:42:41 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ t_str			ft_strdup(t_str src);
 t_str			ft_strjoin(t_str s1, t_str s2);
 size_t			ft_strlen(char *str);
 t_str			ft_strrev(t_str str);
+int				ft_str_is_double_fmt(t_str str);
 char			*ft_strupcase(char *str);
 t_vect			ft_unit_vect(t_vect vect);
 double			ft_vect_norm(t_vect vect);
