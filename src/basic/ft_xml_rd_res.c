@@ -48,6 +48,7 @@ t_2dint	ft_xml_rd_res(t_str input)
 	out.y = ft_atoi(&input[i + 1]);
 	if (out.y <= 0 || out.y >= 16000)
 		out.y = RENDER_WIN_HEIGHT;
+	ft_putstr("Render resolution set to\n");
 	free(input);
 	return (out);
 }

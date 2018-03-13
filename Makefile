@@ -109,8 +109,6 @@ SRC =	\
 		\
 		subroutines/sub_blit_render.c\
 		subroutines/sub_calc_cam_vects.c\
-		subroutines/sub_create_file.c\
-		subroutines/sub_create_xml.c\
 		subroutines/sub_create_render_window.c\
 		subroutines/sub_draw_image_editor.c\
 		subroutines/sub_fullrender_end.c\

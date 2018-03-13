@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 12:55:22 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/12 16:28:59 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/12 16:53:02 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_light		*sub_malloc_lights(t_fullmap *map, xmlNode *node)
 {
-	int		i;
-	t_light	*out;
+	int			i;
+	t_light		*out;
 	static int	error = 0;
 
 	i = 0;

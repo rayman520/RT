@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 12:30:50 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:21:24 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 15:23:23 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	sub_put_percent(SDL_Window *win, SDL_Surface *img, double val)
 	}
 	else if ((int)(val * 100) % 10 == 0)
 	{
-		sprintf(percent, "%.1lf %%", val);
 		sub_put_text(img, percent);
 		SDL_UpdateWindowSurface(win);
 	}
