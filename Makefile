@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2018/03/13 18:42:58 by cpierre          ###   ########.fr        #
+#    Updated: 2018/03/13 20:07:03 by cpierre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -136,6 +136,7 @@ SRC =	\
 		subroutines/parser/sub_read_pos.c\
 		subroutines/parser/sub_read_texture.c\
 		subroutines/parser/sub_read_filter.c\
+		subroutines/parser/sub_xml_read_type.c\
 		subroutines/parser/xmlngc.c\
 		subroutines/parser/default_object.c\
 		\

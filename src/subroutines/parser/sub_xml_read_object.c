@@ -6,55 +6,11 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 17:19:42 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/13 19:29:22 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 20:14:20 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-
-static t_obj_t	read_obj_type(t_str str)
-{
-	if (str == NULL || ft_strlen(str) < 1)
-		ft_exit("err parser");
-	ft_strupcase(str);
-	if (ft_is_any_string(str, 2, "CONE", "CON"))
-		return (CONE);
-	else if (ft_is_any_string(str, 3, "CYLINDER", "CYLINDRE", "CYL"))
-		return (CYLINDER);
-	else if (ft_is_any_string(str, 3, "PLANE", "PLAN", "PLA"))
-		return (PLANE);
-	else if (ft_is_any_string(str, 2, "DISC", "DISK", "DIS"))
-		return (DISK);
-	else if (ft_is_any_string(str, 2, "TRIANGLE", "TRI"))
-		return (TRIANGLE);
-	else if (ft_is_any_string(str, 2, "PARABOLOID", "PARA"))
-		return (PARABOLOID);
-	else if (ft_is_any_string(str, 2, "HYPERBOLOID", "HYP"))
-		return (HYPERBOLOID);
-	else
-		return (SPHERE);
-}
-
-static t_obj_t	read_obj_textype_material(t_str str)
-{
-	if (str == NULL || ft_strlen(str) < 1)
-		ft_exit("err parser");
-	ft_strupcase(str);
-	if (ft_is_any_string(str, 2, "DEFAULT", "DEF"))
-		return (DEFAULT);
-	else if (ft_is_any_string(str, 1, "CHESS"))
-		return (CHESS);
-	else if (ft_is_any_string(str, 1, "PERLIN"))
-		return (PERLIN);
-	else if (ft_is_any_string(str, 1, "MARBLE"))
-		return (MARBLE);
-	else if (ft_is_any_string(str, 2, "REFLECTIVE", "REFL"))
-		return (REFLECTIVE);
-	else if (ft_is_any_string(str, 2, "REFRACTIVE", "REFR"))
-		return (REFRAFLECTIVE);
-	else
-		return (DEFAULT);
-}
 
 static void		sub_xml_read_object3(t_object *obj, const char *name, int o_nb,
 										xmlNode *node)
@@ -92,9 +48,9 @@ static void		sub_xml_read_object2(t_object *obj, const char *name, int o_nb,
 	else if (!ft_strcmp(name, "direction"))
 		obj[o_nb].dir = sub_read_pos(xmlngc(node));
 	else if (!ft_strcmp(name, "type"))
-		obj[o_nb].type = read_obj_type(xmlngc(node));
+		obj[o_nb].type = ft_read_obj_type(xmlngc(node));
 	else if (!ft_strcmp(name, "textype"))
-		obj[o_nb].texture_type = read_obj_textype_material(xmlngc(node));
+		obj[o_nb].texture_type = ft_read_obj_textype_material(xmlngc(node));
 	else if (!ft_strcmp(name, "radius"))
 		obj[o_nb].radius = (double)ft_atof(xmlngc(node));
 	else if (!ft_strcmp(name, "color"))
@@ -106,7 +62,7 @@ static void		sub_xml_read_object2(t_object *obj, const char *name, int o_nb,
 	else if (!ft_strcmp(name, "texture"))
 		obj[o_nb].texture = sub_read_texture(xmlngc(node));
 	else if (!ft_strcmp(name, "material"))
-		obj[o_nb].material = read_obj_textype_material(xmlngc(node));
+		obj[o_nb].material = ft_read_obj_textype_material(xmlngc(node));
 	else if (!ft_strcmp(name, "reflection"))
 		obj[o_nb].reflection = (double)ft_atof(xmlngc(node));
 	else

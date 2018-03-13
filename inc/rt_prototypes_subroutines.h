@@ -6,7 +6,7 @@
 /*   By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 12:02:51 by nthibaud          #+#    #+#             */
-/*   Updated: 2018/03/05 15:09:49 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/13 20:11:49 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void			create_threads(t_rend_zone *zone_tab, int i,
 		pthread_t *threads);
 char			*xmlngc(const xmlNode *cur);
 void			default_object(t_object *obj, int o_nb);
+t_obj_t			ft_read_obj_textype_material(t_str str);
+t_obj_t			ft_read_obj_type(t_str str);
 
 /*
 **	Intersections
