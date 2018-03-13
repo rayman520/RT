@@ -6,7 +6,7 @@
 #    By: nthibaud <nthibaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 11:00:56 by nthibaud          #+#    #+#              #
-#    Updated: 2018/03/12 15:52:43 by cpierre          ###   ########.fr        #
+#    Updated: 2018/03/13 15:47:36 by cpierre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -156,7 +156,6 @@ SRC =	\
 		\
 		editor_start.c\
 		main.c\
-		options_win.c\
 		parser.c\
 		raytrace_editor.c\
 		raytrace_fullrender.c\

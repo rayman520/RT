@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 16:31:06 by cpierre           #+#    #+#             */
-/*   Updated: 2018/03/05 15:07:43 by nthibaud         ###   ########.fr       */
+/*   Updated: 2018/03/13 15:46:50 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static void	launch_raytrace(t_fullmap *map, SDL_Window *render_win,
 	sub_draw_image_editor(map, render_img);
 	sub_blit_render(render_img, win_img);
 	SDL_UpdateWindowSurface(render_win);
-	render_options_win(map);
 }
 
 void		editor_start(t_str mapfile, t_fullmap *map)
