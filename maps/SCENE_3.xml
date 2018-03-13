@@ -34,7 +34,6 @@
 			<albedo>0.18</albedo>
 			<radius>1</radius>
 			<color>0xFFFFFF</color>
-			<texture></texture>
 			<textype>PERLIN</textype>
 		</object>
 		<object>
@@ -48,7 +47,6 @@
 			<radius>10</radius>
 			<albedo>0.10</albedo>
 			<color>0xF0FF0F</color>
-			<texture></texture>
 			<textype>MARBLE</textype>
 			<specsize>200.0</specsize>
 			<specpower>1</specpower>
@@ -64,7 +62,6 @@
 			<radius>10</radius>
 			<albedo>0.10</albedo>
 			<color>0xF0FF0F</color>
-			<texture></texture>
 			<textype>MARBLE</textype>
 			<specsize>200.0</specsize>
 			<specpower>1</specpower>
@@ -80,7 +77,6 @@
 			<radius>10</radius>
 			<albedo>0.10</albedo>
 			<color>0xF0FF0F</color>
-			<texture></texture>
 			<textype>MARBLE</textype>
 			<specsize>200.0</specsize>
 			<specpower>1</specpower>
@@ -96,7 +92,6 @@
 			<radius>10</radius>
 			<albedo>0.10</albedo>
 			<color>0xF0FF0F</color>
-			<texture></texture>
 			<textype>MARBLE</textype>
 			<specsize>200.0</specsize>
 			<specpower>1</specpower>
@@ -113,7 +108,6 @@
 			<radius>12</radius>
 			<color>0x000000</color>
 			<textype>CHESS</textype>
-			<texture></texture>
 			<specsize>20.0</specsize>
 			<specpower>1</specpower>
 		</object>
