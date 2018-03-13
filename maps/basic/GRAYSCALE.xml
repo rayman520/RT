@@ -29,7 +29,6 @@
 			<direction>-1,0,0</direction>
 			<albedo>0.18</albedo>
 			<color>0xFFFFFF</color>
-			<texture></texture>
 			<textype>PERLIN</textype>
 		</object>
 		<object>
@@ -39,7 +38,6 @@
 			<radius>10</radius>
 			<albedo>0.18</albedo>
 			<color>0xFF0000</color>
-			<texture></texture>
 			<textype>PERLIN</textype>
 		</object>
 		<object>
@@ -49,7 +47,6 @@
 			<radius>7</radius>
 			<albedo>0.18</albedo>
 			<color>0x00FF00</color>
-			<texture></texture>
 			<textype>PERLIN</textype>
 		</object>
 		<object>
@@ -59,7 +56,6 @@
 			<radius>0.5</radius>
 			<albedo>0.18</albedo>
 			<color>0x0000FF</color>
-			<texture></texture>
 			<textype>PERLIN</textype>
 		</object>
 		</objects>

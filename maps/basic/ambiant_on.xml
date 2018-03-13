@@ -33,7 +33,6 @@
 			<albedo>0.21</albedo>
 			<radius>1</radius>
 			<color>0xFF8000</color>
-			<texture></texture>
 		</object>
 		<object>
 			<type>SPH</type>

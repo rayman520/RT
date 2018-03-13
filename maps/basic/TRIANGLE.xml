@@ -31,7 +31,6 @@
 			<radius>10</radius>
 			<albedo>0.18</albedo>
 			<color>0xFFFFFF</color>
-			<texture></texture>
 			<textype>PERLIN</textype>
 		</object>
 		</objects>

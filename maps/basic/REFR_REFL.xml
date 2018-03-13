@@ -38,7 +38,6 @@
 			<radius>1</radius>
 			<color>0x0000FF</color>
 			<albedo>0.55</albedo>
-			<texture></texture>
 			<specsize>20.0</specsize>
 			<specpower>1</specpower>
 		</object>
@@ -50,7 +49,6 @@
 			<radius>1</radius>
 			<color>0xFFFF00</color>
 			<albedo>0.10</albedo>
-			<texture></texture>
 			<specsize>20.0</specsize>
 			<specpower>1</specpower>
 		</object>
@@ -62,7 +60,6 @@
 			<radius>1</radius>
 			<color>0xFF0000</color>
 			<albedo>0.1</albedo>
-			<texture></texture>
 			<specsize>20.0</specsize>
 			<specpower>1</specpower>
 		</object>
@@ -74,7 +71,6 @@
 			<radius>1</radius>
 			<color>0x00FF00</color>
 			<albedo>0.18</albedo>
-			<texture></texture>
 			<specsize>20.0</specsize>
 			<specpower>1</specpower>
 		</object>
@@ -88,7 +84,6 @@
 			<radius>3</radius>
 			<color>0xFFFFFF</color>
 			<albedo>0.05</albedo>
-			<texture></texture>
 			<specsize>20.0</specsize>
 			<specpower>1</specpower>
 		</object>
@@ -103,7 +98,6 @@
 			<radius>1</radius>
 			<color>0xFFFFFF</color>
 			<albedo>0.10</albedo>
-			<texture></texture>
 			<specsize>20.0</specsize>
 			<specpower>1</specpower>
 			<textype>CHESS</textype>

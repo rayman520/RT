@@ -28,7 +28,6 @@
 			<direction>-1,0,0</direction>
 			<albedo>0.18</albedo>
 			<color>0xFFFFFF</color>
-			<texture></texture>
 			<textype>CHESS</textype>
 		</object>
 		</objects>

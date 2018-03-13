@@ -37,7 +37,6 @@
 			<color>0x000000</color>
 			<specsize>20.0</specsize>
 			<specpower>1</specpower>
-			<texture></texture>
 			<textype>DEFAULT</textype>
 			<specsize>20.0</specsize>
 			<specpower>1</specpower>
@@ -52,7 +51,6 @@
 			<albedo>0.18</albedo>
 			<radius>1</radius>
 			<color>0xFFFFFF</color>
-			<texture></texture>
 			<textype>DEF</textype>
 		</object>
 
@@ -1186,8 +1184,5 @@
 			<specsize>20.0</specsize>
 			<specpower>1</specpower>
 		</object>
-
-
-
 		</objects>
 	</map>
