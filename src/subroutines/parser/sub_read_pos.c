@@ -6,7 +6,7 @@
 /*   By: cpierre <cpierre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 16:12:53 by cpierre           #+#    #+#             */
-/*   Updated: 2018/02/19 17:19:37 by cpierre          ###   ########.fr       */
+/*   Updated: 2018/03/13 18:33:56 by cpierre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_3d_double		sub_read_3d_double(t_str str)
 	t_3d_double	out;
 	int			i;
 
-	if (str == NULL)
+	if (str == NULL || ft_strlen(str) < 1)
 		return ((t_3d_double){0, 0, 0});
 	out.x = (double)ft_atof(str);
 	i = -1;
@@ -78,10 +78,14 @@ t_3d_double		sub_read_3d_double(t_str str)
 
 t_3d_double		sub_read_dir(t_str str)
 {
+	if (ft_strlen(str) < 5)
+		ft_exit("parser_error");
 	return (sub_read_3d_double(str));
 }
 
 t_3d_double		sub_read_pos(t_str str)
 {
+	if (ft_strlen(str) < 5)
+		ft_exit("parser_error");
 	return (sub_read_3d_double(str));
 }
